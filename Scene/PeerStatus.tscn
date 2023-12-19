@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd5jgtf8mloay"]
+
+[ext_resource type="Script" path="res://Script/PeerStatus.gd" id="1"]
+
+[node name="PeerStatus" type="HBoxContainer"]
+offset_right = 331.0
+offset_bottom = 14.0
+script = ExtResource("1")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Username"
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Connected"

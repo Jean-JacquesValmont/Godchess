@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw22yoe1cnhuj"]
+
+[ext_resource type="Texture2D" uid="uid://dqfb7qgutc5ve" path="res://Image/Menu_image_chess_game.png" id="1"]
+[ext_resource type="Script" path="res://Script/Game.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bqc134cwuj223" path="res://Image/Plateau d'échec Version Bois.png" id="3"]
+[ext_resource type="PackedScene" path="res://Scene/Rook_white.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Scene/Rook_black.tscn" id="5"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("2")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(1.38889, 1.38889)
+texture = ExtResource("1")
+centered = false
+
+[node name="plateau" type="Sprite2D" parent="background"]
+position = Vector2(120.96, 144)
+scale = Vector2(0.612899, 0.612899)
+texture = ExtResource("3")
+centered = false
+
+[node name="Rook_white" parent="background/plateau" instance=ExtResource("4")]
+position = Vector2(400, 400.441)
+
+[node name="Rook_black" parent="background/plateau" instance=ExtResource("5")]
+position = Vector2(400, 300)
+
+[node name="StopGameButton" type="Button" parent="."]
+offset_left = 171.0
+offset_top = 120.0
+offset_right = 346.0
+offset_bottom = 187.0
+text = "Stop Game"
+
+[connection signal="button_down" from="StopGameButton" to="." method="_on_stop_game_button_button_down"]

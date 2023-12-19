@@ -1,0 +1,12 @@
+res://default_env.tres
+res://Scene/Main.tscn
+res://autoload/NakamaOnline/OnlineMatch.gd
+res://Scene/ReadyScreen.tscn
+res://Scene/MatchScreen.tscn
+res://Scene/PeerStatus.tscn
+res://Scene/Game.tscn
+res://addons/com.heroiclabs.nakama/utils/NakamaMultiplayerBridge.gd
+res://Script/Main.gd
+res://Script/ReadyScreen.gd
+res://Script/Rook_black.gd
+res://Script/Rook_white.gd

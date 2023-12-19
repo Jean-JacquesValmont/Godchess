@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TestMultiplayerChessGame version 4.0"
+run/main_scene="res://Scene/Main.tscn"
+config/features=PackedStringArray("4.1")
+config/icon="res://icon.png"
+
+[autoload]
+
+Build="*res://autoload/Build.gd"
+Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
+Online="*res://autoload/NakamaOnline/Online.gd"
+OnlineMatch="*res://autoload/NakamaOnline/OnlineMatch.gd"
+Util="*res://autoload/Util.gd"
+
+[debug]
+
+multirun/number_of_windows=2
+multirun/window_distance=1270
+multirun/add_custom_args=true
+multirun/first_window_args="listen"
+multirun/other_window_args="join"
+
+[display]
+
+window/size/viewport_width=1000
+window/size/viewport_height=1000
+window/size/resizable=false
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/defaults/default_environment="res://default_env.tres"

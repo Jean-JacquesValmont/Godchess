@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1702997631
+::res://::1703008828
 CHANGELOG.md::TextFile::-1::1702997631::0::1::::<><>::
-default_env.tres::Environment::5215781154782570561::1702986154::0::1::::<><>::
+default_env.tres::Environment::5215781154782570561::1703008828::0::1::::<><>::
 README.md::TextFile::-1::1702391252::0::1::::<><>::
 ::res://addons/::1702997631
 ::res://addons/com.heroiclabs.nakama/::1702997631
@@ -20,27 +20,145 @@ NakamaHTTPAdapter.gd::GDScript::-1::1702997631::0::1::::NakamaHTTPAdapter<>Node<
 ::res://addons/com.heroiclabs.nakama/socket/::1702997631
 NakamaSocket.gd::GDScript::-1::1702997631::0::1::::NakamaSocket<>RefCounted<>::
 NakamaSocketAdapter.gd::GDScript::-1::1702997631::0::1::::NakamaSocketAdapter<>Node<>::
-::res://addons/com.heroiclabs.nakama/utils/::1702997631
+::res://addons/com.heroiclabs.nakama/utils/::1703003487
 NakamaAsyncResult.gd::GDScript::-1::1702997631::0::1::::NakamaAsyncResult<>RefCounted<>::
 NakamaException.gd::GDScript::-1::1702997631::0::1::::NakamaException<>RefCounted<>::
 NakamaLogger.gd::GDScript::-1::1702997631::0::1::::NakamaLogger<>RefCounted<>::
 NakamaMultiplayerBridge.gd::GDScript::-1::1702997631::0::1::::NakamaMultiplayerBridge<>RefCounted<>::
-NakamaMultiplayerPeer.gd::GDScript::-1::1702997631::0::1::::NakamaMultiplayerPeer<>MultiplayerPeerExtension<>::
+NakamaMultiplayerPeer.gd::GDScript::-1::1703003487::0::1::::NakamaMultiplayerPeer<>MultiplayerPeerExtension<>::
 NakamaSerializer.gd::GDScript::-1::1702997631::0::1::::NakamaSerializer<>RefCounted<>::
 ::res://codegen/::1702997631
 README.md::TextFile::-1::1702997631::0::1::::<><>::
-::res://Font/::1702997356
-::res://Image/::1702998227
+::res://Font/::1703003773
+Forgotten.ttf::FontFile::6394391723772024555::1649941215::1703003773::1::::<><>::
+::res://Image/::1703006742
+New logo Dimension.png::CompressedTexture2D::3899327432562449764::1695108277::1702999744::1::::<><>::
+::res://Image/Animation/::1703006823
+::res://Image/Animation/Menu/::1703006860
+::res://Image/Animation/Menu/AnimationParticule/::1703007036
+Particule Bouton_000.png::CompressedTexture2D::5190919275889460404::1684760128::1703007036::1::::<><>::
+Particule Bouton_001.png::CompressedTexture2D::4709067269976431786::1684760128::1703007036::1::::<><>::
+Particule Bouton_002.png::CompressedTexture2D::4557379194888236716::1684760128::1703007036::1::::<><>::
+Particule Bouton_003.png::CompressedTexture2D::4053850754123328272::1684760128::1703007036::1::::<><>::
+Particule Bouton_004.png::CompressedTexture2D::5141765517137823306::1684760128::1703007036::1::::<><>::
+Particule Bouton_005.png::CompressedTexture2D::1954841889249536011::1684760128::1703007036::1::::<><>::
+Particule Bouton_006.png::CompressedTexture2D::2456521474843527575::1684760128::1703007036::1::::<><>::
+Particule Bouton_007.png::CompressedTexture2D::8992951406297028689::1684760128::1703007036::1::::<><>::
+Particule Bouton_008.png::CompressedTexture2D::7261427285769694565::1684760128::1703007036::1::::<><>::
+Particule Bouton_009.png::CompressedTexture2D::6442583244437150136::1684760128::1703007036::1::::<><>::
+Particule Bouton_010.png::CompressedTexture2D::2269473782604165745::1684760128::1703007036::1::::<><>::
+Particule Bouton_011.png::CompressedTexture2D::7391970630182242469::1684760128::1703007036::1::::<><>::
+Particule Bouton_012.png::CompressedTexture2D::6119356417914452802::1684760129::1703007036::1::::<><>::
+Particule Bouton_013.png::CompressedTexture2D::778264291770000781::1684760129::1703007036::1::::<><>::
+Particule Bouton_014.png::CompressedTexture2D::5151070327233388592::1684760129::1703007036::1::::<><>::
+Particule Bouton_015.png::CompressedTexture2D::8749148738527947354::1684760129::1703007036::1::::<><>::
+Particule Bouton_016.png::CompressedTexture2D::3280439821401280127::1684760129::1703007036::1::::<><>::
+Particule Bouton_017.png::CompressedTexture2D::8171267217542647131::1684760129::1703007036::1::::<><>::
+Particule Bouton_018.png::CompressedTexture2D::7110413837934465614::1684760129::1703007036::1::::<><>::
+Particule Bouton_019.png::CompressedTexture2D::2939967322604809282::1684760129::1703007036::1::::<><>::
+Particule Bouton_020.png::CompressedTexture2D::7978842114863404164::1684760129::1703007036::1::::<><>::
+Particule Bouton_021.png::CompressedTexture2D::452578894039407867::1684760129::1703007036::1::::<><>::
+Particule Bouton_022.png::CompressedTexture2D::1854927937460498948::1684760129::1703007036::1::::<><>::
+Particule Bouton_023.png::CompressedTexture2D::8691424817605416828::1684760129::1703007036::1::::<><>::
+Particule Bouton_024.png::CompressedTexture2D::5248558683441197494::1684760129::1703007036::1::::<><>::
+Particule Bouton_025.png::CompressedTexture2D::1433017909563130811::1684760129::1703007036::1::::<><>::
+Particule Bouton_026.png::CompressedTexture2D::8080247597307759575::1684760129::1703007036::1::::<><>::
+Particule Bouton_027.png::CompressedTexture2D::633669146271960299::1684760129::1703007036::1::::<><>::
+Particule Bouton_028.png::CompressedTexture2D::6323486284330205683::1684760129::1703007036::1::::<><>::
+Particule Bouton_029.png::CompressedTexture2D::5732241315456495080::1684760129::1703007036::1::::<><>::
+Particule Bouton_030.png::CompressedTexture2D::3329706931638637428::1684760129::1703007036::1::::<><>::
+Particule Bouton_031.png::CompressedTexture2D::2793156687242489090::1684760129::1703007036::1::::<><>::
+Particule Bouton_032.png::CompressedTexture2D::5796081288742079929::1684760129::1703007036::1::::<><>::
+Particule Bouton_033.png::CompressedTexture2D::4477778822366629717::1684760129::1703007036::1::::<><>::
+Particule Bouton_034.png::CompressedTexture2D::3894311540018023918::1684760129::1703007036::1::::<><>::
+Particule Bouton_035.png::CompressedTexture2D::4407463270388767208::1684760129::1703007036::1::::<><>::
+Particule Bouton_036.png::CompressedTexture2D::5433747078381686925::1684760129::1703007036::1::::<><>::
+Particule Bouton_037.png::CompressedTexture2D::6501157691987706689::1684760129::1703007036::1::::<><>::
+Particule Bouton_038.png::CompressedTexture2D::8985665784030693663::1684760129::1703007036::1::::<><>::
+Particule Bouton_039.png::CompressedTexture2D::8140136178089387301::1684760129::1703007036::1::::<><>::
+Particule Bouton_040.png::CompressedTexture2D::946976369280963858::1684760129::1703007036::1::::<><>::
+Particule Bouton_041.png::CompressedTexture2D::5599679281847383144::1684760129::1703007036::1::::<><>::
+Particule Bouton_042.png::CompressedTexture2D::577460220530223916::1684760129::1703007036::1::::<><>::
+Particule Bouton_043.png::CompressedTexture2D::4169152921259804571::1684760129::1703007036::1::::<><>::
+Particule Bouton_044.png::CompressedTexture2D::8629607746017838875::1684760129::1703007036::1::::<><>::
+Particule Bouton_045.png::CompressedTexture2D::3359523133151906227::1684760129::1703007036::1::::<><>::
+Particule Bouton_046.png::CompressedTexture2D::2332576121639954938::1684760129::1703007036::1::::<><>::
+Particule Bouton_047.png::CompressedTexture2D::7061675161562118348::1684760129::1703007036::1::::<><>::
+Particule Bouton_048.png::CompressedTexture2D::1848423366995498566::1684760129::1703007036::1::::<><>::
+Particule Bouton_049.png::CompressedTexture2D::3043363803879456549::1684760129::1703007036::1::::<><>::
+Particule Bouton_050.png::CompressedTexture2D::500677558891188324::1684760129::1703007036::1::::<><>::
+Particule Bouton_051.png::CompressedTexture2D::936661560126495519::1684760129::1703007036::1::::<><>::
+Particule Bouton_052.png::CompressedTexture2D::1745616727547067435::1684760129::1703007036::1::::<><>::
+Particule Bouton_053.png::CompressedTexture2D::3773483367603513824::1684760129::1703007036::1::::<><>::
+Particule Bouton_054.png::CompressedTexture2D::7947399881969241726::1684760129::1703007036::1::::<><>::
+Particule Bouton_055.png::CompressedTexture2D::2547029132101064547::1684760129::1703007036::1::::<><>::
+Particule Bouton_056.png::CompressedTexture2D::5477698888426466085::1684760129::1703007036::1::::<><>::
+Particule Bouton_057.png::CompressedTexture2D::1327427349092346309::1684760129::1703007036::1::::<><>::
+Particule Bouton_058.png::CompressedTexture2D::4792431661471676636::1684760129::1703007036::1::::<><>::
+Particule Bouton_059.png::CompressedTexture2D::668157640486196134::1684760129::1703007036::1::::<><>::
+::res://Image/Animation/Menu/ButtonLeft/::1703008767
+Bouton gauche_000.png::CompressedTexture2D::7742389489370202702::1684760015::1703007036::1::::<><>::
+Bouton gauche_001.png::CompressedTexture2D::3033653003695596753::1684760015::1703007036::1::::<><>::
+Bouton gauche_002.png::CompressedTexture2D::7632312668358678675::1684760015::1703007036::1::::<><>::
+Bouton gauche_003.png::CompressedTexture2D::3436823218948379452::1684760015::1703007036::1::::<><>::
+Bouton gauche_004.png::CompressedTexture2D::4280791249763183011::1684760015::1703007036::1::::<><>::
+Bouton gauche_005.png::CompressedTexture2D::5259394496424516813::1684760015::1703007036::1::::<><>::
+Bouton gauche_006.png::CompressedTexture2D::6307998076919724004::1684760015::1703007036::1::::<><>::
+Bouton gauche_007.png::CompressedTexture2D::4476932715571545564::1684760015::1703007036::1::::<><>::
+Bouton gauche_008.png::CompressedTexture2D::3501857115355455595::1684760015::1703007036::1::::<><>::
+Bouton gauche_009.png::CompressedTexture2D::6069068012809333570::1684760015::1703007036::1::::<><>::
+Bouton gauche_010.png::CompressedTexture2D::6810631265468354972::1684760015::1703007036::1::::<><>::
+Bouton gauche_011.png::CompressedTexture2D::1806539795462486635::1684760015::1703007036::1::::<><>::
+Bouton gauche_012.png::CompressedTexture2D::7157145045545637743::1684760015::1703007036::1::::<><>::
+Bouton gauche_013.png::CompressedTexture2D::2315924807720284904::1684760015::1703007036::1::::<><>::
+Bouton gauche_014.png::CompressedTexture2D::7852785295825572165::1684760015::1703007036::1::::<><>::
+Bouton gauche_015.png::CompressedTexture2D::4687146566378138326::1684760015::1703007036::1::::<><>::
+Bouton gauche_016.png::CompressedTexture2D::7694784229771761995::1684760015::1703007036::1::::<><>::
+Bouton gauche_017.png::CompressedTexture2D::2829041825371317519::1684760015::1703007036::1::::<><>::
+::res://Image/Animation/Menu/ButtonRight/::1703008783
+Bouton Droit_000.png::CompressedTexture2D::1967894055720042930::1684760066::1703007035::1::::<><>::
+Bouton Droit_001.png::CompressedTexture2D::8329367898272166631::1684760066::1703007035::1::::<><>::
+Bouton Droit_002.png::CompressedTexture2D::6031600373424506692::1684760066::1703007035::1::::<><>::
+Bouton Droit_003.png::CompressedTexture2D::4495355062303762562::1684760066::1703007035::1::::<><>::
+Bouton Droit_004.png::CompressedTexture2D::5321952471700373856::1684760066::1703007035::1::::<><>::
+Bouton Droit_005.png::CompressedTexture2D::2752804206929668377::1684760066::1703007035::1::::<><>::
+Bouton Droit_006.png::CompressedTexture2D::620456626750178732::1684760066::1703007035::1::::<><>::
+Bouton Droit_007.png::CompressedTexture2D::7726539465075915968::1684760066::1703007035::1::::<><>::
+Bouton Droit_008.png::CompressedTexture2D::8277166639432764539::1684760066::1703007035::1::::<><>::
+Bouton Droit_009.png::CompressedTexture2D::1170220050261805279::1684760066::1703007035::1::::<><>::
+Bouton Droit_010.png::CompressedTexture2D::945350093435625904::1684760066::1703007035::1::::<><>::
+Bouton Droit_011.png::CompressedTexture2D::8183069211211527800::1684760066::1703007035::1::::<><>::
+Bouton Droit_012.png::CompressedTexture2D::1066715172763087206::1684760066::1703007035::1::::<><>::
+Bouton Droit_013.png::CompressedTexture2D::5315527445455195466::1684760066::1703007035::1::::<><>::
+Bouton Droit_014.png::CompressedTexture2D::5347069480284509006::1684760066::1703007035::1::::<><>::
+Bouton Droit_015.png::CompressedTexture2D::5841783433021685940::1684760066::1703007035::1::::<><>::
+Bouton Droit_016.png::CompressedTexture2D::7403302327696011945::1684760066::1703007035::1::::<><>::
+Bouton Droit_017.png::CompressedTexture2D::8561755681644256519::1684760066::1703007035::1::::<><>::
 ::res://Image/Game/::1702998172
 ::res://Image/Gods/::1702998052
-::res://Image/Menu/::1702998159
+::res://Image/Menu/::1703008865
+BackgroundConnexion.png::CompressedTexture2D::8017476207724984533::1702993178::1703000401::1::::<><>::
+BackgroundGodchess.png::CompressedTexture2D::2557134095547655424::1702993701::1703008873::1::::<><>::
+Connexion.png::CompressedTexture2D::5517387224915033522::1702993311::1703000330::1::::<><>::
+Inscription.png::CompressedTexture2D::1843398206840239718::1702993425::1703004161::1::::<><>::
 ::res://Image/PiecesWhiteAndBlack/::1702998227
-::res://Scene/::1702998303
+::res://Scene/::1703008614
+Main.tscn::PackedScene::8321757212089955041::1703008614::0::1::::<><>::uid://dmhywralqlnsf::::res://Image/Menu/BackgroundConnexion.png<>uid://bwawk0k02t6bj::::res://Scene/Menu/ConnexionScreen.tscn<>uid://dtmrnkvmyv2ix::::res://Scene/Menu/RegisterScreen.tscn<>res://Script/Menu/ButtonPlayAnimated.gd<>uid://cf7rxgqefycp5::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_000.png<>uid://b8ddwdk8dkiv7::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_001.png<>uid://b56vmte08m03a::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_002.png<>uid://bx0ylhcnaxmw3::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_003.png<>uid://cfiyekvs080gc::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_004.png<>uid://2367wea1pnux::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_005.png<>uid://ba87sxs5a1sux::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_006.png<>uid://d1eiuiylw3pwj::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_007.png<>uid://dbpqv8luj15vd::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_008.png<>uid://cx13n0517ltgi::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_009.png<>uid://7ll5wjqihp66::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_010.png<>uid://ddkyw82ijd862::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_011.png<>uid://ctgi52rqcf3y1::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_012.png<>uid://lc85tpmddl70::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_013.png<>uid://cfnhm1k4d6sa7::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_014.png<>uid://dwwfg35ce5ua1::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_015.png<>uid://bm0cmnppxaquh::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_016.png<>uid://doohtvjxbobfn::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_017.png<>uid://c8klqhqu5oo3o::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_018.png<>uid://bh5e3kdqviw2e::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_019.png<>uid://dlxammxb4p0hk::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_020.png<>uid://gph547lrkhxr::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_021.png<>uid://1osnlj7hwn8o::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_022.png<>uid://dv3gq5owupsfs::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_023.png<>uid://cg1o824ncny4u::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_024.png<>uid://uofuirva25al::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_025.png<>uid://dneeq58mo7jel::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_026.png<>uid://ja7o5vld7rkd::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_027.png<>uid://cwde5o5edc5q2::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_028.png<>uid://cnw0gat2tnu77::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_029.png<>uid://bno610n8isk73::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_030.png<>uid://bf2a5ah5ek31o::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_031.png<>uid://cotwu2qlwuy8x::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_032.png<>uid://b42cmlvchpvp2::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_033.png<>uid://bvqo0h4omatog::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_034.png<>uid://b32ajng2uds8g::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_035.png<>uid://cjofaxx0v0750::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_036.png<>uid://cyvhd8wtce7ir::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_037.png<>uid://d1ayuqwgttfpf::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_038.png<>uid://dn8e4ayq1jj54::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_039.png<>uid://nqytegojqq1o::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_040.png<>uid://cl1r5t814u45i::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_041.png<>uid://ihyxknqn1qh5::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_042.png<>uid://b0ntlspn04tst::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_043.png<>uid://du7im44ni4j6r::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_044.png<>uid://bn4m4ctvgbwid::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_045.png<>uid://8h6gnink7ia1::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_046.png<>uid://c7uy01p17krm7::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_047.png<>uid://1lni617jbxco::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_048.png<>uid://bjmh00llqo52h::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_049.png<>uid://hesc6x1ls23a::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_050.png<>uid://nlyxc8jm0wkl::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_051.png<>uid://y4ub1wc0gfxj::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_052.png<>uid://bt05yqbd8t3mq::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_053.png<>uid://dlh1rriwwmmrm::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_054.png<>uid://bcj2gyrva02rn::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_055.png<>uid://ckbo5u37k5al6::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_056.png<>uid://s6asf48tt7in::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_057.png<>uid://cajqwctmefmlo::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_058.png<>uid://jrwpujrysyvm::::res://Image/Animation/Menu/AnimationParticule/Particule Bouton_059.png<>uid://3bi6sj17g12e::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_000.png<>uid://dqw2qcbgr1apj::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_001.png<>uid://cr60tu6mirtui::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_002.png<>uid://b5bt3ukpuk22q::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_003.png<>uid://ch281rj3j28bs::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_004.png<>uid://bfhqjvi5uabpx::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_005.png<>uid://i3s3hqbfre2o::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_006.png<>uid://dic18gn0lhwmi::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_007.png<>uid://dp6rywm6mmlnv::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_008.png<>uid://qw4mamnn5sbv::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_009.png<>uid://np61pjorsgsu::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_010.png<>uid://dot67phwvj873::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_011.png<>uid://pgyv4mkarng5::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_012.png<>uid://chy47wijv1e47::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_013.png<>uid://cigfpn2tprwr3::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_014.png<>uid://cph2k4rnj8tk3::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_015.png<>uid://ddqhkpx5ecarx::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_016.png<>uid://dt8m4ofmtj3gt::::res://Image/Animation/Menu/ButtonRight/Bouton Droit_017.png<>uid://dikqa2oadbngw::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_000.png<>uid://bjhr267ai1nj2::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_001.png<>uid://dg0fcsgh5t1vj::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_002.png<>uid://bo728gudmu8lc::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_003.png<>uid://b18wahpujd43p::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_004.png<>uid://cg6xpussas7wr::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_005.png<>uid://cv4v2otgyscci::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_006.png<>uid://b41wosp15qkcq::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_007.png<>uid://bp5lcs1ij3fol::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_008.png<>uid://csp5ws78s7wfa::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_009.png<>uid://c4bedp17cpjgu::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_010.png<>uid://00dpge7abp6j::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_011.png<>uid://c878esant5hpv::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_012.png<>uid://7837cmn6kvye::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_013.png<>uid://dj47hx38osr8p::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_014.png<>uid://b71qvby8gdq5c::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_015.png<>uid://dhvn8bxfd3lff::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_016.png<>uid://bgkn512f6wtjr::::res://Image/Animation/Menu/ButtonLeft/Bouton gauche_017.png<>uid://cxdqxyi5rffvv::::res://Font/Forgotten.ttf
 ::res://Scene/Game/::1702998279
-::res://Scene/Menu/::1702998303
+::res://Scene/Menu/::1703008828
+ConnexionScreen.tscn::PackedScene::3931930205214271759::1703008563::0::1::::<><>::uid://ckuwtdc7vpj3o::::res://Image/Menu/Connexion.png<>res://Script/Menu/ConnectionScreen.gd
+RegisterScreen.tscn::PackedScene::8518678575700977531::1703008563::0::1::::<><>::uid://1i7q8akrhk27::::res://Image/Menu/Inscription.png<>res://Script/Menu/RegisterScreen.gd
+Menu.tscn::PackedScene::3094997823434511045::1703008828::0::1::::<><>::
 ::res://Scene/Pieces/::1702998290
-::res://Script/::1702998396
-::res://Script/Menu/::1702998390
-::res://Script/Multiplayer/::1702998380
+::res://Script/::1702998421
+::res://Script/Game/::1702998421
+::res://Script/Menu/::1703008557
+ConnectionScreen.gd::GDScript::-1::1703007820::0::1::::<>Sprite2D<>::
+RegisterScreen.gd::GDScript::-1::1703006429::0::1::::<>Sprite2D<>::
+ButtonPlayAnimated.gd::GDScript::-1::1703008557::0::1::::<>Control<>::
+::res://Script/Multiplayer/::1703003026
+Build.gd::GDScript::-1::1702390798::0::1::::<>Node<>::
+Online.gd::GDScript::-1::1702392181::0::1::::<>Node<>::
+OnlineMatch.gd::GDScript::-1::1702985124::0::1::::<>Node<>::
 ::res://Script/Pieces/::1702998396
 ::res://Sound/::1702997575

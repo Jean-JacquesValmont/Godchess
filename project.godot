@@ -13,15 +13,15 @@ config_version=5
 config/name="Godchess"
 run/main_scene="res://Scene/Main.tscn"
 config/features=PackedStringArray("4.1")
-config/icon="res://icon.png"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Image/New logo Dimension.png"
 
 [autoload]
 
-Build="*res://autoload/Build.gd"
+Build="*res://Script/Multiplayer/Build.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
-Online="*res://autoload/NakamaOnline/Online.gd"
-OnlineMatch="*res://autoload/NakamaOnline/OnlineMatch.gd"
-Util="*res://autoload/Util.gd"
+Online="*res://Script/Multiplayer/Online.gd"
+OnlineMatch="*res://Script/Multiplayer/OnlineMatch.gd"
 
 [debug]
 
@@ -33,7 +33,7 @@ multirun/other_window_args="join"
 
 [display]
 
-window/size/viewport_width=1000
+window/size/viewport_width=1920
 window/size/viewport_height=1000
 window/size/resizable=false
 

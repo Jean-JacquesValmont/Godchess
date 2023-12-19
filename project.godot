@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="TestMultiplayerChessGame version 4.0"
+config/name="Godchess"
 run/main_scene="res://Scene/Main.tscn"
 config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"

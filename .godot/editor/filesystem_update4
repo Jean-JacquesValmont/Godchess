@@ -12,3 +12,9 @@ res://Scene/Menu/OngletScreen.tscn
 res://Scene/Menu/PlayScreen.tscn
 res://Script/Menu/OngletScreen.gd
 res://Scene/Menu/GodsScreen.tscn
+res://Scene/Menu/CustomiseGameScreen.tscn
+res://Scene/Menu/PeerStatus.tscn
+res://Script/Menu/PlayScreen.gd
+res://Script/Menu/PeerStatus.gd
+res://Script/Menu/CustomiseGameScreen.gd
+res://Script/Menu/Menu.gd

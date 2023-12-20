@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://de34ypdb6irdo"]
+
+[ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="1_534ph"]
+[ext_resource type="Script" path="res://Script/Menu/PeerStatus.gd" id="1_swyi2"]
+
+[node name="PeerStatus" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1138.0
+offset_bottom = -716.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swyi2")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_534ph")
+theme_override_font_sizes/font_size = 50
+text = "Username"
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_534ph")
+theme_override_font_sizes/font_size = 50
+text = "Connected"

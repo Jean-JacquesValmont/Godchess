@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh7fdchs08gib"]
+
+[ext_resource type="Texture2D" uid="uid://sduxq4n5gocw" path="res://Image/Menu/CustomGameWaitRoom.png" id="1_pn6vx"]
+[ext_resource type="Script" path="res://Script/Menu/CustomiseGameScreen.gd" id="2_e2m5u"]
+[ext_resource type="PackedScene" uid="uid://de34ypdb6irdo" path="res://Scene/Menu/PeerStatus.tscn" id="2_ildcw"]
+[ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="2_n8ewn"]
+
+[node name="CustomiseGameScreen" type="Sprite2D"]
+texture = ExtResource("1_pn6vx")
+centered = false
+script = ExtResource("2_e2m5u")
+
+[node name="Room" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 52.0
+offset_top = 191.0
+offset_right = 1168.0
+offset_bottom = 933.0
+
+[node name="ButtonQuitRoom" type="Button" parent="Room"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 90.0
+offset_bottom = 80.0
+
+[node name="MatchIDText" type="LineEdit" parent="Room"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 659.0
+offset_right = 1080.0
+offset_bottom = 702.0
+theme_override_font_sizes/font_size = 25
+
+[node name="StatusContainer" type="VBoxContainer" parent="Room"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 195.0
+offset_right = 1081.0
+offset_bottom = 394.0
+
+[node name="PeerStatus" parent="Room/StatusContainer" instance=ExtResource("2_ildcw")]
+layout_mode = 2
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1359.0
+offset_top = 185.0
+offset_right = 1858.0
+offset_bottom = 933.0
+
+[node name="Color" type="Control" parent="Options"]
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 140.0
+offset_right = 467.0
+offset_bottom = 189.0
+
+[node name="White" type="Label" parent="Options/Color"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 6.0
+offset_right = 271.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("2_n8ewn")
+theme_override_font_sizes/font_size = 40
+text = "Blanc"
+
+[node name="Black" type="Label" parent="Options/Color"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 7.0
+offset_right = 394.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_n8ewn")
+theme_override_font_sizes/font_size = 40
+text = "Noir"
+
+[node name="Mode" type="Control" parent="Options"]
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 221.0
+offset_right = 457.0
+offset_bottom = 265.0
+
+[node name="Clan" type="Label" parent="Options/Mode"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 2.0
+offset_right = 247.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_n8ewn")
+theme_override_font_sizes/font_size = 40
+text = "Clan"
+
+[node name="Time" type="Control" parent="Options"]
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 304.0
+offset_right = 443.0
+offset_bottom = 347.0
+
+[node name="Unlimited" type="Label" parent="Options/Time"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 4.0
+offset_right = 311.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_n8ewn")
+theme_override_font_sizes/font_size = 40
+text = "Illimité"
+
+[node name="ButtonReady" type="Button" parent="Options"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 138.0
+offset_top = 624.0
+offset_right = 374.0
+offset_bottom = 713.0

@@ -1,7 +1,9 @@
-Sprite2D
+Label
+HBoxContainer
+VBoxContainer
 Button
 Control
 LineEdit
-Label
+Sprite2D
 AnimatedSprite2D
 RichTextLabel

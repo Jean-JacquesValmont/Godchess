@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkdifrh7ran3j"]
+[gd_scene load_steps=5 format=3 uid="uid://bkdifrh7ran3j"]
 
 [ext_resource type="Texture2D" uid="uid://bcoxvipdpuoii" path="res://Image/Menu/BackgroundGodchess.png" id="1_v653j"]
+[ext_resource type="PackedScene" uid="uid://bwbyxry3hcbw0" path="res://Scene/Menu/OngletScreen.tscn" id="2_ebh6i"]
+[ext_resource type="PackedScene" uid="uid://6vogyu4wlmgv" path="res://Scene/Menu/PlayScreen.tscn" id="2_u5bpd"]
+[ext_resource type="PackedScene" uid="uid://dogs0vuacleth" path="res://Scene/Menu/GodsScreen.tscn" id="3_a5pkn"]
 
 [node name="Menu" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_v653j")
 centered = false
+
+[node name="PlayScreen" parent="Background" instance=ExtResource("2_u5bpd")]
+
+[node name="GodsScreen" parent="Background" instance=ExtResource("3_a5pkn")]
+visible = false
+
+[node name="OngletScreen" parent="Background" instance=ExtResource("2_ebh6i")]

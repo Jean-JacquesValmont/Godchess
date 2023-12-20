@@ -1,7 +1,7 @@
 Sprite2D
-Label
 Button
-AnimatedSprite2D
 Control
-RichTextLabel
 LineEdit
+Label
+AnimatedSprite2D
+RichTextLabel

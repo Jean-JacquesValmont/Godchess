@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dogs0vuacleth"]
+
+[ext_resource type="Texture2D" uid="uid://d140u4huu7vlb" path="res://Image/Menu/ListGods.png" id="1_oxofg"]
+
+[node name="GodsScreen" type="Sprite2D"]
+texture = ExtResource("1_oxofg")
+centered = false

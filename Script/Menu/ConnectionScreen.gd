@@ -49,7 +49,6 @@ func _on_login_button_button_down():
 		Online.nakama_session = nakama_session
 		self.hide()
 		get_node("/root/Main/Background/ButtonPlayAnimated").show()
-#		get_tree().change_scene_to_file("res://Scene/menu.tscn")
 
 func _on_register_screen_button_button_down():
 	pathConnectionEmail.text = ""

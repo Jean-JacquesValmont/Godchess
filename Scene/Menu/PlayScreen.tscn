@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://6vogyu4wlmgv"]
+
+[ext_resource type="Texture2D" uid="uid://bksume604pin4" path="res://Image/Menu/ModCustomizedGame.png" id="1_g7wr7"]
+
+[node name="PlayScreen" type="Sprite2D"]
+texture = ExtResource("1_g7wr7")
+centered = false
+
+[node name="CustomMatch" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 767.0
+offset_top = 185.0
+offset_right = 1155.0
+offset_bottom = 932.0
+
+[node name="ButtonCreate" type="Button" parent="CustomMatch"]
+offset_left = -767.0
+offset_top = -185.0
+offset_right = -759.0
+offset_bottom = -177.0
+
+[node name="IDMtachText" type="LineEdit" parent="CustomMatch"]
+offset_left = 34.0
+offset_top = 583.0
+offset_right = 366.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Enter Match ID here"
+
+[node name="ButtonJoin" type="Button" parent="CustomMatch"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 35.0
+offset_top = 652.0
+offset_right = 365.0
+offset_bottom = 726.0

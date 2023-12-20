@@ -8,3 +8,7 @@ res://Scene/Menu/RegisterScreen.tscn
 res://Script/Menu/RegisterScreen.gd
 res://Script/Menu/ButtonPlayAnimated.gd
 res://Scene/Menu/Menu.tscn
+res://Scene/Menu/OngletScreen.tscn
+res://Scene/Menu/PlayScreen.tscn
+res://Script/Menu/OngletScreen.gd
+res://Scene/Menu/GodsScreen.tscn

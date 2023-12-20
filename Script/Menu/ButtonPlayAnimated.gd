@@ -9,7 +9,7 @@ func _process(delta):
 	pass
 
 func _on_button_play_button_down():
-		get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 
 func _on_button_play_mouse_entered():
 	get_node("AnimatedParticule").play("default")

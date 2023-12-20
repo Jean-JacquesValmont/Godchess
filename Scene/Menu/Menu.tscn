@@ -23,5 +23,3 @@ visible = false
 visible = false
 
 [node name="OngletScreen" parent="Background" instance=ExtResource("2_ebh6i")]
-
-[connection signal="hidden" from="Background/PlayScreen" to="." method="_on_play_screen_hidden"]

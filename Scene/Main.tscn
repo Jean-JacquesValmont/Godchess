@@ -467,6 +467,7 @@ offset_left = 196.0
 offset_top = 115.0
 offset_right = 565.0
 offset_bottom = 240.0
+mouse_default_cursor_shape = 2
 
 [connection signal="button_down" from="Background/ButtonPlayAnimated/ButtonPlay" to="Background/ButtonPlayAnimated" method="_on_button_play_button_down"]
 [connection signal="mouse_entered" from="Background/ButtonPlayAnimated/ButtonPlay" to="Background/ButtonPlayAnimated" method="_on_button_play_mouse_entered"]

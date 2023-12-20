@@ -25,6 +25,7 @@ offset_left = 25.0
 offset_top = 15.0
 offset_right = 90.0
 offset_bottom = 80.0
+mouse_default_cursor_shape = 2
 
 [node name="MatchIDText" type="LineEdit" parent="Room"]
 layout_mode = 0
@@ -120,3 +121,7 @@ offset_left = 138.0
 offset_top = 624.0
 offset_right = 374.0
 offset_bottom = 713.0
+mouse_default_cursor_shape = 2
+
+[connection signal="button_down" from="Room/ButtonQuitRoom" to="." method="_on_button_quit_room_button_down"]
+[connection signal="button_down" from="Options/ButtonReady" to="." method="_on_button_ready_button_down"]

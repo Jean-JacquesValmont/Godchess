@@ -46,6 +46,7 @@ offset_left = 662.0
 offset_top = 937.0
 offset_right = 958.0
 offset_bottom = 995.0
+mouse_default_cursor_shape = 2
 
 [node name="RegisterButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -53,6 +54,7 @@ offset_left = 996.0
 offset_top = 937.0
 offset_right = 1294.0
 offset_bottom = 995.0
+mouse_default_cursor_shape = 2
 
 [node name="ErrorTextRegister" type="RichTextLabel" parent="."]
 offset_left = 692.0

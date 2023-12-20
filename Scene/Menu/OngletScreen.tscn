@@ -461,6 +461,7 @@ offset_left = 30.0
 offset_top = 28.0
 offset_right = 329.0
 offset_bottom = 136.0
+mouse_default_cursor_shape = 2
 
 [node name="Gods" type="Label" parent="OngletTopScreen"]
 layout_mode = 0
@@ -479,6 +480,7 @@ offset_left = 1178.0
 offset_top = 21.0
 offset_right = 1360.0
 offset_bottom = 89.0
+mouse_default_cursor_shape = 2
 
 [node name="Username" type="Label" parent="OngletTopScreen"]
 layout_mode = 0
@@ -514,6 +516,7 @@ offset_left = 8.0
 offset_top = -14.0
 offset_right = 207.0
 offset_bottom = 73.0
+mouse_default_cursor_shape = 2
 
 [connection signal="button_down" from="OngletTopScreen/ButtonPlayAnimated/ButtonPlay" to="." method="_on_button_play_button_down"]
 [connection signal="mouse_entered" from="OngletTopScreen/ButtonPlayAnimated/ButtonPlay" to="." method="_on_button_play_mouse_entered"]

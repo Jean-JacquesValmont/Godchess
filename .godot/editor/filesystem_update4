@@ -18,3 +18,4 @@ res://Script/Menu/PlayScreen.gd
 res://Script/Menu/PeerStatus.gd
 res://Script/Menu/CustomiseGameScreen.gd
 res://Script/Menu/Menu.gd
+res://Script/Multiplayer/OnlineMatch.gd

@@ -13,7 +13,6 @@ var nakama_multiplayer_bridge: NakamaMultiplayerBridge:
 		_set_readonly_variable(v)
 	get:
 		return get_nakama_multiplayer_bridge()
-#var nakama_multiplayer_bridge: NakamaMultiplayerBridge: set = _set_readonly_variable
 
 # Nakama variables:
 var __nakama_socket
@@ -129,7 +128,6 @@ func _set_readonly_variable(_value) -> void:
 	pass
 
 func _set_nakama_socket(_nakama_socket: NakamaSocket) -> void:
-	print("Match_mode in _set_nakama_socket ", OnlineMatch._match_mode)
 	if __nakama_socket == _nakama_socket:
 		return
 
@@ -142,7 +140,6 @@ func _set_nakama_socket(_nakama_socket: NakamaSocket) -> void:
 		_nakama_multiplayer_bridge.leave()
 		_nakama_multiplayer_bridge = null
 		get_tree().get_multiplayer().set_multiplayer_peer(null)
-#		get_tree().network_peer = null
 
 	__nakama_socket = _nakama_socket
 
@@ -151,15 +148,10 @@ func _set_nakama_socket(_nakama_socket: NakamaSocket) -> void:
 		_nakama_multiplayer_bridge = NakamaMultiplayerBridge.new(__nakama_socket)
 		_nakama_multiplayer_bridge.connect("match_joined", Callable(self, "_on_match_joined"))
 		_nakama_multiplayer_bridge.connect("match_join_error", Callable(self, "_on_match_join_error"))
-		print("_nakama_multiplayer_bridge._multiplayer_peer: ", _nakama_multiplayer_bridge._multiplayer_peer)
 		get_tree().get_multiplayer().set_multiplayer_peer(_nakama_multiplayer_bridge._multiplayer_peer)
-		print("get_tree().get_multiplayer().set_multiplayer_peer(_nakama_multiplayer_bridge._multiplayer_peer): ", get_tree().get_multiplayer().get_multiplayer_peer())
-#		get_tree().network_peer = _nakama_multiplayer_bridge._multiplayer_peer
+	
 
 func _ready() -> void:
-#	var tree = get_tree()
-#	tree.connect("peer_connected", Callable(self, "_on_network_peer_connected"))
-#	tree.connect("peer_disconnected", Callable(self, "_on_network_peer_disconnected"))
 	pass
 
 func create_match(_nakama_socket: NakamaSocket) -> void:
@@ -167,30 +159,22 @@ func create_match(_nakama_socket: NakamaSocket) -> void:
 	_set_nakama_socket(_nakama_socket)
 	_nakama_multiplayer_bridge._multiplayer_peer.connect("peer_connected", Callable(self, "_on_network_peer_connected"))
 	_nakama_multiplayer_bridge._multiplayer_peer.connect("peer_disconnected", Callable(self, "_on_network_peer_disconnected"))
-	#match_mode = MatchMode.CREATE
-	print("Create match middle: ", _match_mode)
 
 	_nakama_multiplayer_bridge.create_match()
 	_match_mode = MatchMode.CREATE
-	print("Create match end: ", _match_mode)
 
 func join_match(_nakama_socket: NakamaSocket, _match_id: String) -> void:
 	leave()
 	_set_nakama_socket(_nakama_socket)
 	_nakama_multiplayer_bridge._multiplayer_peer.connect("peer_connected", Callable(self, "_on_network_peer_connected"))
 	_nakama_multiplayer_bridge._multiplayer_peer.connect("peer_disconnected", Callable(self, "_on_network_peer_disconnected"))
-	#match_mode = MatchMode.JOIN
-	print("Join match middle: ", _match_mode)
 
 	_nakama_multiplayer_bridge.join_match(_match_id)
 	_match_mode = MatchMode.JOIN
-	print("Join match end: ", _match_mode)
 
 func start_matchmaking(_nakama_socket: NakamaSocket, data: Dictionary = {}) -> void:
 	leave()
 	_set_nakama_socket(_nakama_socket)
-	#match_mode = MatchMode.MATCHMAKER
-	print("start_matchmaking_mode OnlineMatch:", _match_mode)
 
 	if data.has('min_count'):
 		data['min_count'] = max(min_players, data['min_count'])
@@ -214,18 +198,12 @@ func start_matchmaking(_nakama_socket: NakamaSocket, data: Dictionary = {}) -> v
 			data['query'] = query
 
 	_match_state = MatchState.MATCHING
-	print("start_matchmaking_state OnlineMatch:", _match_state)
-	print("start_matchmaking_mode OnlineMatch before result:", _match_mode)
 	var result = await __nakama_socket.add_matchmaker_async(data.get('query', '*'), data['min_count'], data['max_count'], data.get('string_properties', {}), data.get('numeric_properties', {}))
-	print("start_matchmaking_mode OnlineMatch after result:", _match_mode)
 	_match_mode = MatchMode.MATCHMAKER
-	print("start_matchmaking_mode OnlineMatch after result2:", _match_mode)
 	if result.is_exception():
-		print("start matchmaking_exception: ", result.get_exception().message)
 		leave()
 		emit_signal("error", "Unable to join match making pool")
 	else:
-		print("start matchmaking_mode OnlineMatch no exception:", _match_mode)
 		_matchmaker_ticket = result.ticket
 		_nakama_multiplayer_bridge.start_matchmaking(result)
 
@@ -234,8 +212,6 @@ func start_playing() -> void:
 	_match_state = MatchState.PLAYING
 
 func leave(close_socket: bool = false) -> void:
-	print("Enter in function leave() of OnlineMatch")
-	print("Match_mode in leave begin ", _match_mode)
 	# Nakama disconnect.
 	if _nakama_multiplayer_bridge:
 		_nakama_multiplayer_bridge.leave()
@@ -247,12 +223,10 @@ func leave(close_socket: bool = false) -> void:
 			_set_nakama_socket(null)
 
 	# Initialize all the variables to their default state.
-	print("Initialize all the variables to their default state.")
 	_match_id = ''
 	__players = {}
 	_match_state = MatchState.LOBBY
 	_match_mode = MatchMode.NONE
-	print("Match_mode in leave end ", _match_mode)
 
 func get_nakama_multiplayer_bridge() -> NakamaMultiplayerBridge:
 	return _nakama_multiplayer_bridge
@@ -297,12 +271,9 @@ func _check_enough_players() -> void:
 
 func _on_match_joined() -> void:
 	var my_peer_id = _nakama_multiplayer_bridge.multiplayer_peer._self_id
-	print("my_peer_id: ", my_peer_id)
 	var presence: NakamaRTAPI.UserPresence = _nakama_multiplayer_bridge.get_user_presence_for_peer(my_peer_id)
-	print("presence", presence)
 	var player = Player.from_presence(presence, my_peer_id)
 	__players[my_peer_id] = player
-	print("Match_joined in OnlineMatch: ", _match_mode)
 	emit_signal("match_joined", _nakama_multiplayer_bridge._match_id, _match_mode)
 
 @rpc func _boot_with_error(msg: String) -> void:

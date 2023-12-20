@@ -27,6 +27,7 @@ func _on_register_button_button_down():
 	
 	if password != confirmPassword:
 		pathRegisterErrorText.text = "Password is not the same"
+		pathRegisterErrorText.modulate = Color(1,0,0)
 	else:
 		var nakama_session = await Online.nakama_client.authenticate_email_async(email, password, username, true)
 		

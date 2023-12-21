@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dogs0vuacleth"]
+[gd_scene load_steps=4 format=3 uid="uid://dogs0vuacleth"]
 
 [ext_resource type="Texture2D" uid="uid://d140u4huu7vlb" path="res://Image/Menu/ListGods.png" id="1_oxofg"]
 [ext_resource type="Script" path="res://Script/Menu/GodsScreen.gd" id="2_rulih"]
+[ext_resource type="Texture2D" uid="uid://cvnd1uf05m4ev" path="res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png" id="3_2sbm3"]
 
 [node name="GodsScreen" type="Sprite2D"]
 texture = ExtResource("1_oxofg")
@@ -34,5 +35,15 @@ offset_right = 254.0
 offset_bottom = 115.0
 mouse_default_cursor_shape = 2
 
+[node name="DisplaySpriteGod" type="Sprite2D" parent="."]
+position = Vector2(1396, 157)
+scale = Vector2(0.206, 0.206)
+texture = ExtResource("3_2sbm3")
+centered = false
+
 [connection signal="button_down" from="SelectGods/GoddessOfTeleportation" to="." method="_on_goddess_of_teleportation_button_down"]
+[connection signal="mouse_entered" from="SelectGods/GoddessOfTeleportation" to="." method="_on_goddess_of_teleportation_mouse_entered"]
+[connection signal="mouse_exited" from="SelectGods/GoddessOfTeleportation" to="." method="_on_goddess_of_teleportation_mouse_exited"]
 [connection signal="button_down" from="SelectGods/GodOfDeath" to="." method="_on_god_of_death_button_down"]
+[connection signal="mouse_entered" from="SelectGods/GodOfDeath" to="." method="_on_god_of_death_mouse_entered"]
+[connection signal="mouse_exited" from="SelectGods/GodOfDeath" to="." method="_on_god_of_death_mouse_exited"]

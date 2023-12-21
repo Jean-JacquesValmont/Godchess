@@ -15,9 +15,13 @@ func _on_button_play_button_down():
 	if OnlineMatch._match_mode == 1 or OnlineMatch._match_mode == 2:
 		get_node("/root/Menu/Background/GodsScreen").hide()
 		get_node("/root/Menu/Background/CustomiseGameScreen").show()
+		get_node("/root/Menu/Background/PowerGods").hide()
+		GlobalValueMenu.godSelect = ""
 	else:
 		get_node("/root/Menu/Background/PlayScreen").show()
 		get_node("/root/Menu/Background/GodsScreen").hide()
+		get_node("/root/Menu/Background/PowerGods").hide()
+		GlobalValueMenu.godSelect = ""
 
 func _on_button_play_mouse_entered():
 	if get_node("/root/Menu/Background/PlayScreen").visible == false:
@@ -35,6 +39,8 @@ func _on_button_gods_button_down():
 		get_node("/root/Menu/Background/PlayScreen").hide()
 		get_node("/root/Menu/Background/GodsScreen").show()
 		get_node("/root/Menu/Background/CustomiseGameScreen").hide()
+		get_node("/root/Menu/Background/PowerGods").hide()
+		GlobalValueMenu.godSelect = ""
 		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").stop()
 		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").stop()
 		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").stop()

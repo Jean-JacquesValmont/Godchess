@@ -1,9 +1,10 @@
+Sprite2D
+VideoStreamPlayer
+Button
+RichTextLabel
+Control
 Label
 HBoxContainer
 VBoxContainer
-Button
-Control
 LineEdit
-Sprite2D
 AnimatedSprite2D
-RichTextLabel

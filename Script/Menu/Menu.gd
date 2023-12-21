@@ -9,6 +9,7 @@ var players_ready := {}
 func _ready():
 	customiseGameScreen.connect("ready_pressed", Callable(self, "_on_customise_game_screen_ready_pressed"))
 
+#Code matchmaking part##########################################################
 func _on_customise_game_screen_ready_pressed():
 	rpc("player_ready", OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id)
 
@@ -23,6 +24,7 @@ func _on_customise_game_screen_ready_pressed():
 #			OnlineMatch.start_playing()
 #		start_game()
 
+#Code game part##########################################################
 func start_game() -> void:
 	print("Start Game")
 	players = OnlineMatch.get_player_names_by_peer_id()
@@ -48,7 +50,5 @@ func _on_game_game_started() -> void:
 func _on_game_game_stop():
 	print("function _on_Game_game_stop")
 #	stop_game()
-
-
 
 

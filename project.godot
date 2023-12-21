@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Godchess"
+config/name="GodsChess"
 run/main_scene="res://Scene/Main.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Image/New logo Dimension.png"
+config/icon="res://Image/New logo Dimension.png"
 
 [autoload]
 
@@ -22,6 +23,7 @@ Build="*res://Script/Multiplayer/Build.gd"
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 Online="*res://Script/Multiplayer/Online.gd"
 OnlineMatch="*res://Script/Multiplayer/OnlineMatch.gd"
+GlobalValueMenu="*res://Script/Menu/GlobalValueMenu.gd"
 
 [debug]
 

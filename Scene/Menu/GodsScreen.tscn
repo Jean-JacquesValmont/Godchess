@@ -1,7 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://dogs0vuacleth"]
+[gd_scene load_steps=3 format=3 uid="uid://dogs0vuacleth"]
 
 [ext_resource type="Texture2D" uid="uid://d140u4huu7vlb" path="res://Image/Menu/ListGods.png" id="1_oxofg"]
+[ext_resource type="Script" path="res://Script/Menu/GodsScreen.gd" id="2_rulih"]
 
 [node name="GodsScreen" type="Sprite2D"]
 texture = ExtResource("1_oxofg")
 centered = false
+script = ExtResource("2_rulih")
+
+[node name="SelectGods" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 53.0
+offset_top = 174.0
+offset_right = 1286.0
+offset_bottom = 928.0
+
+[node name="GoddessOfTeleportation" type="Button" parent="SelectGods"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 116.0
+offset_bottom = 115.0
+mouse_default_cursor_shape = 2
+
+[node name="GodOfDeath" type="Button" parent="SelectGods"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 158.0
+offset_top = 19.0
+offset_right = 254.0
+offset_bottom = 115.0
+mouse_default_cursor_shape = 2
+
+[connection signal="button_down" from="SelectGods/GoddessOfTeleportation" to="." method="_on_goddess_of_teleportation_button_down"]
+[connection signal="button_down" from="SelectGods/GodOfDeath" to="." method="_on_god_of_death_button_down"]

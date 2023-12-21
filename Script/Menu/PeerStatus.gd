@@ -3,7 +3,6 @@ extends HBoxContainer
 @onready var name_label := $NameLabel
 @onready var status_label := $StatusLabel
 
-#var status := "": set = set_status
 var __status
 var status: 
 	set(v):

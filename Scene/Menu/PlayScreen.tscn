@@ -18,6 +18,7 @@ offset_bottom = 932.0
 
 [node name="ButtonCreate" type="Button" parent="CustomMatch"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 113.0
 offset_top = 471.0
 offset_right = 292.0
@@ -25,6 +26,7 @@ offset_bottom = 550.0
 mouse_default_cursor_shape = 2
 
 [node name="IDMatchText" type="LineEdit" parent="CustomMatch"]
+layout_mode = 0
 offset_left = 34.0
 offset_top = 583.0
 offset_right = 366.0

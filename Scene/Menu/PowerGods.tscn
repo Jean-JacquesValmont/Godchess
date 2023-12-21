@@ -1,0 +1,147 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsnq217ron51k"]
+
+[ext_resource type="Texture2D" uid="uid://cyoehy0aaep40" path="res://Image/Menu/PowerGods.png" id="1_bcrkw"]
+[ext_resource type="Script" path="res://Script/Menu/PowerGods.gd" id="2_1muft"]
+[ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="3_rh4fj"]
+[ext_resource type="Texture2D" uid="uid://yisuruj1spti" path="res://Image/Gods/GoddessOfTeleportation/Signe dieux.png" id="3_w6mxm"]
+[ext_resource type="Texture2D" uid="uid://0k6n54n7vlug" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png" id="4_qg244"]
+[ext_resource type="Texture2D" uid="uid://djuus4mpbw0g3" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png" id="5_kym3q"]
+[ext_resource type="Texture2D" uid="uid://betfwe4y7bwxv" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png" id="6_1mksk"]
+[ext_resource type="Texture2D" uid="uid://j5yue2mc3684" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Tour.png" id="7_a2frb"]
+[ext_resource type="Texture2D" uid="uid://btj3snnps8usq" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png" id="8_bplaq"]
+[ext_resource type="Texture2D" uid="uid://b25c503hirs0p" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png" id="9_kxsa6"]
+
+[node name="PowerGods" type="Sprite2D"]
+texture = ExtResource("1_bcrkw")
+centered = false
+script = ExtResource("2_1muft")
+
+[node name="ButtonsFactions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 186.0
+offset_right = 1918.0
+offset_bottom = 416.0
+
+[node name="SignOfGod" type="Sprite2D" parent="ButtonsFactions"]
+position = Vector2(1016, -54)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_w6mxm")
+centered = false
+
+[node name="SpritePawn" type="Sprite2D" parent="ButtonsFactions"]
+position = Vector2(14, 121)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_qg244")
+centered = false
+
+[node name="SpriteKnight" type="Sprite2D" parent="ButtonsFactions"]
+position = Vector2(306, 121)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kym3q")
+centered = false
+
+[node name="SpriteBishop" type="Sprite2D" parent="ButtonsFactions"]
+position = Vector2(670, 121)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_1mksk")
+centered = false
+
+[node name="SpriteRook" type="Sprite2D" parent="ButtonsFactions"]
+position = Vector2(990, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_a2frb")
+centered = false
+
+[node name="SpriteQueen" type="Sprite2D" parent="ButtonsFactions"]
+position = Vector2(1310, 121)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_bplaq")
+centered = false
+
+[node name="SpriteKing" type="Sprite2D" parent="ButtonsFactions"]
+position = Vector2(1650, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_kxsa6")
+centered = false
+
+[node name="ButtonPassif" type="Button" parent="ButtonsFactions"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 634.0
+offset_top = 5.0
+offset_right = 1286.0
+offset_bottom = 111.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonPawn" type="Button" parent="ButtonsFactions"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 117.0
+offset_right = 299.0
+offset_bottom = 223.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonKnight" type="Button" parent="ButtonsFactions"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 306.0
+offset_top = 117.0
+offset_right = 629.0
+offset_bottom = 223.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonBishop" type="Button" parent="ButtonsFactions"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 634.0
+offset_top = 117.0
+offset_right = 948.0
+offset_bottom = 223.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonRook" type="Button" parent="ButtonsFactions"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 954.0
+offset_top = 117.0
+offset_right = 1285.0
+offset_bottom = 223.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonQueen" type="Button" parent="ButtonsFactions"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1292.0
+offset_top = 117.0
+offset_right = 1609.0
+offset_bottom = 223.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonKing" type="Button" parent="ButtonsFactions"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1615.0
+offset_top = 117.0
+offset_right = 1922.0
+offset_bottom = 223.0
+mouse_default_cursor_shape = 2
+
+[node name="TextPowerFactions" type="RichTextLabel" parent="."]
+offset_left = 47.0
+offset_top = 460.0
+offset_right = 1181.0
+offset_bottom = 939.0
+theme_override_fonts/normal_font = ExtResource("3_rh4fj")
+theme_override_font_sizes/normal_font_size = 40
+text = "Ici les pouvoirs détailés pour chaque faction."
+
+[connection signal="button_down" from="ButtonsFactions/ButtonPassif" to="." method="_on_button_passif_button_down"]
+[connection signal="button_down" from="ButtonsFactions/ButtonPawn" to="." method="_on_button_pawn_button_down"]
+[connection signal="button_down" from="ButtonsFactions/ButtonKnight" to="." method="_on_button_knight_button_down"]
+[connection signal="button_down" from="ButtonsFactions/ButtonBishop" to="." method="_on_button_bishop_button_down"]
+[connection signal="button_down" from="ButtonsFactions/ButtonRook" to="." method="_on_button_rook_button_down"]
+[connection signal="button_down" from="ButtonsFactions/ButtonQueen" to="." method="_on_button_queen_button_down"]
+[connection signal="button_down" from="ButtonsFactions/ButtonKing" to="." method="_on_button_king_button_down"]

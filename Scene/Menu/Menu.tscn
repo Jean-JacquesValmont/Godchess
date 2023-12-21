@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkdifrh7ran3j"]
+[gd_scene load_steps=8 format=3 uid="uid://bkdifrh7ran3j"]
 
 [ext_resource type="Script" path="res://Script/Menu/Menu.gd" id="1_lxqfr"]
 [ext_resource type="Texture2D" uid="uid://bcoxvipdpuoii" path="res://Image/Menu/BackgroundGodchess.png" id="1_v653j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6vogyu4wlmgv" path="res://Scene/Menu/PlayScreen.tscn" id="2_u5bpd"]
 [ext_resource type="PackedScene" uid="uid://dogs0vuacleth" path="res://Scene/Menu/GodsScreen.tscn" id="3_a5pkn"]
 [ext_resource type="PackedScene" uid="uid://bh7fdchs08gib" path="res://Scene/Menu/CustomiseGameScreen.tscn" id="3_y332t"]
+[ext_resource type="PackedScene" uid="uid://bsnq217ron51k" path="res://Scene/Menu/PowerGods.tscn" id="6_0l1cl"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_lxqfr")
@@ -22,4 +23,9 @@ visible = false
 [node name="GodsScreen" parent="Background" instance=ExtResource("3_a5pkn")]
 visible = false
 
+[node name="PowerGods" parent="Background" instance=ExtResource("6_0l1cl")]
+visible = false
+
 [node name="OngletScreen" parent="Background" instance=ExtResource("2_ebh6i")]
+
+[connection signal="godSelected" from="Background/GodsScreen" to="Background/PowerGods" method="_on_gods_screen_god_selected"]

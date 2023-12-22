@@ -24,10 +24,10 @@ centered = false
 script = ExtResource("2_lqked")
 
 [node name="Username" type="Label" parent="."]
-offset_left = 834.0
-offset_top = 148.0
-offset_right = 1093.0
-offset_bottom = 217.0
+offset_left = 605.0
+offset_top = 159.0
+offset_right = 1336.0
+offset_bottom = 228.0
 theme_override_fonts/font = ExtResource("2_l1qb8")
 theme_override_font_sizes/font_size = 40
 
@@ -40,6 +40,7 @@ offset_right = 546.0
 offset_bottom = 974.0
 
 [node name="Username" type="Label" parent="Player1"]
+layout_mode = 0
 offset_left = 82.0
 offset_top = -96.0
 offset_right = 330.0
@@ -109,6 +110,7 @@ mouse_default_cursor_shape = 2
 
 [node name="ButtonGodOfDeath" type="Button" parent="GodsSelection"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 173.0
 offset_top = 60.0
 offset_right = 269.0
@@ -124,6 +126,7 @@ offset_right = 1888.0
 offset_bottom = 976.0
 
 [node name="Username" type="Label" parent="Player2"]
+layout_mode = 0
 offset_left = 182.0
 offset_top = -96.0
 offset_right = 430.0

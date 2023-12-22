@@ -17,22 +17,21 @@ func _on_customise_game_screen_ready_pressed():
 	customiseGameScreen.set_status(peer_id, "READY!")
 
 ##	if get_tree().is_network_server() and not players_ready.has(peer_id):
-#	if OnlineMatch._nakama_multiplayer_bridge._multiplayer_peer._is_server():
-#	players_ready[peer_id] = true
-#	if players_ready.size() == OnlineMatch.players.size():
-#		if OnlineMatch.match_state != OnlineMatch.MatchState.PLAYING:
-#			OnlineMatch.start_playing()
-#		start_game()
+#	if get_tree().network_server:
+	players_ready[peer_id] = true
+	if players_ready.size() == OnlineMatch.players.size():
+		if OnlineMatch.match_state != OnlineMatch.MatchState.PLAYING:
+			OnlineMatch.start_playing()
+		start_game()
 
 #Code game part##########################################################
 func start_game() -> void:
-	print("Start Game")
-	players = OnlineMatch.get_player_names_by_peer_id()
-	$Game.game_start(players)
+	GlobalValueMenu.players = OnlineMatch.get_player_names_by_peer_id()
+	get_tree().change_scene_to_file("res://Scene/Game/SelectGodsScreen.tscn")
 
-func _on_game_game_started() -> void:
-	print("Hide UILayer")
-	$UILayer.hide()
+#func _on_game_game_started() -> void:
+#	print("Hide Background")
+#	$Background.hide()
 
 #func stop_game() -> void:
 #	print("function stop_game")

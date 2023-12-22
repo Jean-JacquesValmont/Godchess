@@ -1,0 +1,166 @@
+extends Sprite2D
+
+var player_in_game := {}
+var selectGod = false
+var selectGodConfirm = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	game_start(GlobalValueMenu.players)
+	get_node("Username").text = "Joueur:" + Online.nakama_session.username
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+func game_start(players: Dictionary) -> void:
+	rpc('_do_game_setup', players)
+
+@rpc("any_peer", "call_local") func _do_game_setup(players: Dictionary) -> void:
+	get_tree().set_pause(true)
+	
+	player_in_game = players
+	get_node("Player1/DisplayGodSelect").texture = null
+	get_node("Player1/DisplayPawnGodSelect").texture = null
+	get_node("Player1/DisplayKnightGodSelect").texture = null
+	get_node("Player1/DisplayBishopGodSelect").texture = null
+	get_node("Player1/DisplayRookGodSelect").texture = null
+	get_node("Player1/DisplayQueenGodSelect").texture = null
+	get_node("Player1/DisplayKingGodSelect").texture = null
+	
+	get_node("Player2/DisplayGodSelect").texture = null
+	get_node("Player2/DisplayPawnGodSelect").texture = null
+	get_node("Player2/DisplayKnightGodSelect").texture = null
+	get_node("Player2/DisplayBishopGodSelect").texture = null
+	get_node("Player2/DisplayRookGodSelect").texture = null
+	get_node("Player2/DisplayQueenGodSelect").texture = null
+	get_node("Player2/DisplayKingGodSelect").texture = null
+	
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[1]]
+		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[0]]
+	else:
+		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[0]]
+		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[1]]
+	
+	print("player_in_game", player_in_game)
+	
+	rpc("_do_game_start")
+
+@rpc("any_peer", "call_local") func _do_game_start() -> void:
+	get_tree().set_pause(false)
+
+func _on_button_goddess_of_teleportation_button_down():
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+		rpc("selectGoddessOfTeleportation", "Player1")
+	else:
+		rpc("selectGoddessOfTeleportation", "Player2")
+	selectGod = true
+
+func _on_button_goddess_of_teleportation_mouse_entered():
+	if selectGod == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+			get_node("Player1/DisplayGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png")
+			get_node("Player1/DisplayPawnGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png")
+			get_node("Player1/DisplayKnightGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png")
+			get_node("Player1/DisplayBishopGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png")
+			get_node("Player1/DisplayRookGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Tour.png")
+			get_node("Player1/DisplayQueenGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png")
+			get_node("Player1/DisplayKingGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png")
+		else:
+			get_node("Player2/DisplayGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png")
+			get_node("Player2/DisplayPawnGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png")
+			get_node("Player2/DisplayKnightGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png")
+			get_node("Player2/DisplayBishopGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png")
+			get_node("Player2/DisplayRookGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Tour.png")
+			get_node("Player2/DisplayQueenGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png")
+			get_node("Player2/DisplayKingGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png")
+
+func _on_button_goddess_of_teleportation_mouse_exited():
+	if selectGod == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+			get_node("Player1/DisplayGodSelect").texture = null
+			get_node("Player1/DisplayPawnGodSelect").texture = null
+			get_node("Player1/DisplayKnightGodSelect").texture = null
+			get_node("Player1/DisplayBishopGodSelect").texture = null
+			get_node("Player1/DisplayRookGodSelect").texture = null
+			get_node("Player1/DisplayQueenGodSelect").texture = null
+			get_node("Player1/DisplayKingGodSelect").texture = null
+		else:
+			get_node("Player2/DisplayGodSelect").texture = null
+			get_node("Player2/DisplayPawnGodSelect").texture = null
+			get_node("Player2/DisplayKnightGodSelect").texture = null
+			get_node("Player2/DisplayBishopGodSelect").texture = null
+			get_node("Player2/DisplayRookGodSelect").texture = null
+			get_node("Player2/DisplayQueenGodSelect").texture = null
+			get_node("Player2/DisplayKingGodSelect").texture = null
+
+@rpc("any_peer", "call_local") func selectGoddessOfTeleportation(player) -> void:
+		get_node(player + "/DisplayGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png")
+		get_node(player + "/DisplayPawnGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png")
+		get_node(player + "/DisplayKnightGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png")
+		get_node(player + "/DisplayBishopGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png")
+		get_node(player + "/DisplayRookGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Tour.png")
+		get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png")
+		get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png")
+
+#########################################################
+
+
+func _on_button_god_of_death_button_down():
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+		rpc("selectGodOfDeath", "Player1")
+	else:
+		rpc("selectGodOfDeath", "Player2")
+	selectGod = true
+
+func _on_button_god_of_death_mouse_entered():
+	if selectGod == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+			get_node("Player1/DisplayGodSelect").texture = load("res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png")
+			get_node("Player1/DisplayPawnGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Pion.png")
+			get_node("Player1/DisplayKnightGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Cavalier.png")
+			get_node("Player1/DisplayBishopGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Fou.png")
+			get_node("Player1/DisplayRookGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Tour.png")
+			get_node("Player1/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Reine.png")
+			get_node("Player1/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png")
+		else:
+			get_node("Player2/DisplayGodSelect").texture = load("res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png")
+			get_node("Player2/DisplayPawnGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Pion.png")
+			get_node("Player2/DisplayKnightGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Cavalier.png")
+			get_node("Player2/DisplayBishopGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Fou.png")
+			get_node("Player2/DisplayRookGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Tour.png")
+			get_node("Player2/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Reine.png")
+			get_node("Player2/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png")
+
+func _on_button_god_of_death_mouse_exited():
+	if selectGod == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+			get_node("Player1/DisplayGodSelect").texture = null
+			get_node("Player1/DisplayPawnGodSelect").texture = null
+			get_node("Player1/DisplayKnightGodSelect").texture = null
+			get_node("Player1/DisplayBishopGodSelect").texture = null
+			get_node("Player1/DisplayRookGodSelect").texture = null
+			get_node("Player1/DisplayQueenGodSelect").texture = null
+			get_node("Player1/DisplayKingGodSelect").texture = null
+		else:
+			get_node("Player2/DisplayGodSelect").texture = null
+			get_node("Player2/DisplayPawnGodSelect").texture = null
+			get_node("Player2/DisplayKnightGodSelect").texture = null
+			get_node("Player2/DisplayBishopGodSelect").texture = null
+			get_node("Player2/DisplayRookGodSelect").texture = null
+			get_node("Player2/DisplayQueenGodSelect").texture = null
+			get_node("Player2/DisplayKingGodSelect").texture = null
+
+@rpc("any_peer", "call_local") func selectGodOfDeath(player) -> void:
+	get_node(player + "/DisplayGodSelect").texture = load("res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png")
+	get_node(player + "/DisplayPawnGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Pion.png")
+	get_node(player + "/DisplayKnightGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Cavalier.png")
+	get_node(player + "/DisplayBishopGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Fou.png")
+	get_node(player + "/DisplayRookGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Tour.png")
+	get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Reine.png")
+	get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png")
+
+
+func _on_button_confirm_button_down():
+	pass # Replace with function body.

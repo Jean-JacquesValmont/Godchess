@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8vbijy7pfbej"]
+[gd_scene load_steps=18 format=3 uid="uid://c8vbijy7pfbej"]
 
 [ext_resource type="Texture2D" uid="uid://66qvdhmt4j87" path="res://Image/Game/SelectGodsClan.png" id="1_bwn3n"]
 [ext_resource type="Texture2D" uid="uid://cvnd1uf05m4ev" path="res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png" id="2_j0u8u"]
 [ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="2_l1qb8"]
+[ext_resource type="Script" path="res://Script/Game/SelectGodsScreen.gd" id="2_lqked"]
 [ext_resource type="Texture2D" uid="uid://0k6n54n7vlug" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png" id="3_2etwq"]
 [ext_resource type="Texture2D" uid="uid://djuus4mpbw0g3" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png" id="4_5ovrl"]
 [ext_resource type="Texture2D" uid="uid://betfwe4y7bwxv" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png" id="5_gnpir"]
@@ -20,6 +21,15 @@
 [node name="SelectGodsScreen" type="Sprite2D"]
 texture = ExtResource("1_bwn3n")
 centered = false
+script = ExtResource("2_lqked")
+
+[node name="Username" type="Label" parent="."]
+offset_left = 834.0
+offset_top = 148.0
+offset_right = 1093.0
+offset_bottom = 217.0
+theme_override_fonts/font = ExtResource("2_l1qb8")
+theme_override_font_sizes/font_size = 40
 
 [node name="Player1" type="Control" parent="."]
 layout_mode = 3
@@ -171,3 +181,11 @@ offset_top = 992.0
 offset_right = 1115.0
 offset_bottom = 1063.0
 mouse_default_cursor_shape = 2
+
+[connection signal="button_down" from="GodsSelection/ButtonGoddessOfTeleportation" to="." method="_on_button_goddess_of_teleportation_button_down"]
+[connection signal="mouse_entered" from="GodsSelection/ButtonGoddessOfTeleportation" to="." method="_on_button_goddess_of_teleportation_mouse_entered"]
+[connection signal="mouse_exited" from="GodsSelection/ButtonGoddessOfTeleportation" to="." method="_on_button_goddess_of_teleportation_mouse_exited"]
+[connection signal="button_down" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_button_down"]
+[connection signal="mouse_entered" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_mouse_entered"]
+[connection signal="mouse_exited" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_mouse_exited"]
+[connection signal="button_down" from="ButtonConfirm" to="." method="_on_button_confirm_button_down"]

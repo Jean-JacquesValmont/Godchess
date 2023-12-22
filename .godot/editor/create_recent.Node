@@ -1,7 +1,12 @@
+Sprite2D
+AudioStreamPlayer2D
+AudioListener2D
+CollisionShape2D
+Area2D
+AudioStreamPlayer
+Control
 Label
 Button
-Sprite2D
-Control
 AnimatedSprite2D
 VideoStreamPlayer
 RichTextLabel

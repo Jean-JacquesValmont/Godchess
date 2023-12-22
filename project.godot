@@ -24,6 +24,7 @@ Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 Online="*res://Script/Multiplayer/Online.gd"
 OnlineMatch="*res://Script/Multiplayer/OnlineMatch.gd"
 GlobalValueMenu="*res://Script/Menu/GlobalValueMenu.gd"
+GlobalValueChessGame="*res://Script/Game/GlobalValueChessGame.gd"
 
 [debug]
 

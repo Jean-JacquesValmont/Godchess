@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://caicvg7ub7mxg"]
+
+[ext_resource type="Texture2D" uid="uid://bn40swibsu3d" path="res://Image/Game/ChessBoardWood.png" id="1_31msv"]
+[ext_resource type="PackedScene" uid="uid://d3c6u4nfak1d6" path="res://Scene/Pieces/Pawn.tscn" id="2_07qch"]
+[ext_resource type="Script" path="res://Script/Game/ChessBoard.gd" id="2_s2x3d"]
+[ext_resource type="PackedScene" uid="uid://beim7gvtgvqxl" path="res://Scene/Pieces/Knight.tscn" id="3_b7tcs"]
+[ext_resource type="PackedScene" uid="uid://g2af2vww4dc5" path="res://Scene/Pieces/Bishop.tscn" id="4_o76g6"]
+[ext_resource type="PackedScene" uid="uid://b56omyn065n1s" path="res://Scene/Pieces/Rook.tscn" id="5_t8jbe"]
+[ext_resource type="PackedScene" uid="uid://drp67d0iw5wm3" path="res://Scene/Pieces/Queen.tscn" id="6_oaax8"]
+[ext_resource type="PackedScene" uid="uid://dcba7cvum2j13" path="res://Scene/Pieces/King.tscn" id="7_3s6f1"]
+
+[node name="ChessBoard" type="Sprite2D"]
+texture = ExtResource("1_31msv")
+centered = false
+script = ExtResource("2_s2x3d")
+
+[node name="Pawn" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(50, 650)
+
+[node name="Pawn2" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(150, 650)
+
+[node name="Pawn3" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(250, 650)
+
+[node name="Pawn4" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(350, 650)
+
+[node name="Pawn5" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(450, 650)
+
+[node name="Pawn6" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(550, 650)
+
+[node name="Pawn7" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(650, 650)
+
+[node name="Pawn8" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(750, 650)
+
+[node name="Knight" parent="." instance=ExtResource("3_b7tcs")]
+position = Vector2(150, 750)
+
+[node name="Knight2" parent="." instance=ExtResource("3_b7tcs")]
+position = Vector2(650, 750)
+
+[node name="Bishop" parent="." instance=ExtResource("4_o76g6")]
+position = Vector2(250, 750)
+
+[node name="Bishop2" parent="." instance=ExtResource("4_o76g6")]
+position = Vector2(550, 750)
+
+[node name="Rook" parent="." instance=ExtResource("5_t8jbe")]
+position = Vector2(50, 750)
+
+[node name="Rook2" parent="." instance=ExtResource("5_t8jbe")]
+position = Vector2(750, 750)
+
+[node name="Queen" parent="." instance=ExtResource("6_oaax8")]
+position = Vector2(350, 750)
+
+[node name="King" parent="." instance=ExtResource("7_3s6f1")]
+position = Vector2(450, 750)
+
+[node name="Pawn9" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(50, 150)
+
+[node name="Pawn10" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(150, 150)
+
+[node name="Pawn11" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(250, 150)
+
+[node name="Pawn12" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(350, 150)
+
+[node name="Pawn13" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(450, 150)
+
+[node name="Pawn14" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(550, 150)
+
+[node name="Pawn15" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(650, 150)
+
+[node name="Pawn16" parent="." instance=ExtResource("2_07qch")]
+position = Vector2(750, 150)
+
+[node name="Knight3" parent="." instance=ExtResource("3_b7tcs")]
+position = Vector2(150, 50)
+
+[node name="Knight4" parent="." instance=ExtResource("3_b7tcs")]
+position = Vector2(650, 50)
+
+[node name="Bishop3" parent="." instance=ExtResource("4_o76g6")]
+position = Vector2(250, 50)
+
+[node name="Bishop4" parent="." instance=ExtResource("4_o76g6")]
+position = Vector2(550, 50)
+
+[node name="Rook3" parent="." instance=ExtResource("5_t8jbe")]
+
+[node name="Rook4" parent="." instance=ExtResource("5_t8jbe")]
+position = Vector2(750, 50)
+
+[node name="Queen2" parent="." instance=ExtResource("6_oaax8")]
+position = Vector2(350, 50)
+
+[node name="King2" parent="." instance=ExtResource("7_3s6f1")]
+position = Vector2(450, 50)

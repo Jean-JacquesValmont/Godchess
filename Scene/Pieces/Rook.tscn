@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b56omyn065n1s"]
+
+[ext_resource type="Texture2D" uid="uid://db3p0e8yktgvr" path="res://Image/Pieces/White/rook_white.png" id="1_pvii7"]
+[ext_resource type="Script" path="res://Script/Pieces/Rook.gd" id="2_tpdmh"]
+[ext_resource type="AudioStream" uid="uid://bn3idy02b2e67" path="res://Sound/Sound_piece_move.mp3" id="2_uaj3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stkdb"]
+size = Vector2(50, 50)
+
+[node name="Rook" type="Sprite2D"]
+position = Vector2(50, 50)
+texture = ExtResource("1_pvii7")
+script = ExtResource("2_tpdmh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_stkdb")
+
+[node name="SoundMovePiece" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uaj3b")

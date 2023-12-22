@@ -3848,7 +3848,7 @@ offset_top = 460.0
 offset_right = 1181.0
 offset_bottom = 939.0
 theme_override_fonts/normal_font = ExtResource("3_rh4fj")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 60
 text = "Ici les pouvoirs détailés pour chaque faction."
 
 [node name="ZoneGif" type="Control" parent="."]
@@ -3863,7 +3863,7 @@ offset_bottom = 985.0
 position = Vector2(-0.999878, 1)
 scale = Vector2(0.99, 0.99)
 sprite_frames = SubResource("SpriteFrames_60sku")
-animation = &"RookGoddessOfTeleportation"
+animation = &"PassifGoddessOfTeleportation"
 centered = false
 
 [connection signal="button_down" from="ButtonsFactions/ButtonPassif" to="." method="_on_button_passif_button_down"]

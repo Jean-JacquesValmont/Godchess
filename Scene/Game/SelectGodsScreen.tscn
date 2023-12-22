@@ -1,0 +1,173 @@
+[gd_scene load_steps=17 format=3 uid="uid://c8vbijy7pfbej"]
+
+[ext_resource type="Texture2D" uid="uid://66qvdhmt4j87" path="res://Image/Game/SelectGodsClan.png" id="1_bwn3n"]
+[ext_resource type="Texture2D" uid="uid://cvnd1uf05m4ev" path="res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png" id="2_j0u8u"]
+[ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="2_l1qb8"]
+[ext_resource type="Texture2D" uid="uid://0k6n54n7vlug" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png" id="3_2etwq"]
+[ext_resource type="Texture2D" uid="uid://djuus4mpbw0g3" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png" id="4_5ovrl"]
+[ext_resource type="Texture2D" uid="uid://betfwe4y7bwxv" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png" id="5_gnpir"]
+[ext_resource type="Texture2D" uid="uid://j5yue2mc3684" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Tour.png" id="6_o8iax"]
+[ext_resource type="Texture2D" uid="uid://btj3snnps8usq" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png" id="7_twv27"]
+[ext_resource type="Texture2D" uid="uid://b25c503hirs0p" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png" id="8_xefhh"]
+[ext_resource type="Texture2D" uid="uid://ddpslnlswu220" path="res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png" id="9_2oebp"]
+[ext_resource type="Texture2D" uid="uid://cxfk02v8ufk2m" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Pion.png" id="10_qod6r"]
+[ext_resource type="Texture2D" uid="uid://7ypahgjwhuhu" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Cavalier.png" id="11_xorgs"]
+[ext_resource type="Texture2D" uid="uid://dpquftjiigctl" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Fou.png" id="12_rfgj0"]
+[ext_resource type="Texture2D" uid="uid://bjmhc5rtnanu2" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Tour.png" id="13_i7581"]
+[ext_resource type="Texture2D" uid="uid://brf7rmtt3igwj" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Reine.png" id="14_0soax"]
+[ext_resource type="Texture2D" uid="uid://bmnoiguaon0ov" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png" id="15_kntfo"]
+
+[node name="SelectGodsScreen" type="Sprite2D"]
+texture = ExtResource("1_bwn3n")
+centered = false
+
+[node name="Player1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 248.0
+offset_right = 546.0
+offset_bottom = 974.0
+
+[node name="Username" type="Label" parent="Player1"]
+offset_left = 82.0
+offset_top = -96.0
+offset_right = 330.0
+offset_bottom = -29.0
+theme_override_fonts/font = ExtResource("2_l1qb8")
+theme_override_font_sizes/font_size = 60
+text = "Username1"
+
+[node name="DisplayGodSelect" type="Sprite2D" parent="Player1"]
+position = Vector2(0, 3)
+scale = Vector2(0.188, 0.188)
+texture = ExtResource("2_j0u8u")
+centered = false
+
+[node name="DisplayPawnGodSelect" type="Sprite2D" parent="Player1"]
+position = Vector2(416, 55)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("3_2etwq")
+centered = false
+
+[node name="DisplayKnightGodSelect" type="Sprite2D" parent="Player1"]
+position = Vector2(416, 160)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("4_5ovrl")
+centered = false
+
+[node name="DisplayBishopGodSelect" type="Sprite2D" parent="Player1"]
+position = Vector2(416, 265)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("5_gnpir")
+centered = false
+
+[node name="DisplayRookGodSelect" type="Sprite2D" parent="Player1"]
+position = Vector2(416, 369)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("6_o8iax")
+centered = false
+
+[node name="DisplayQueenGodSelect" type="Sprite2D" parent="Player1"]
+position = Vector2(416, 472)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("7_twv27")
+centered = false
+
+[node name="DisplayKingGodSelect" type="Sprite2D" parent="Player1"]
+position = Vector2(416, 577)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("8_xefhh")
+centered = false
+
+[node name="GodsSelection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 606.0
+offset_top = 254.0
+offset_right = 1326.0
+offset_bottom = 968.0
+
+[node name="ButtonGoddessOfTeleportation" type="Button" parent="GodsSelection"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 34.0
+offset_top = 60.0
+offset_right = 130.0
+offset_bottom = 156.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonGodOfDeath" type="Button" parent="GodsSelection"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 173.0
+offset_top = 60.0
+offset_right = 269.0
+offset_bottom = 156.0
+mouse_default_cursor_shape = 2
+
+[node name="Player2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1380.0
+offset_top = 250.0
+offset_right = 1888.0
+offset_bottom = 976.0
+
+[node name="Username" type="Label" parent="Player2"]
+offset_left = 182.0
+offset_top = -96.0
+offset_right = 430.0
+offset_bottom = -29.0
+theme_override_fonts/font = ExtResource("2_l1qb8")
+theme_override_font_sizes/font_size = 60
+text = "Username2"
+
+[node name="DisplayGodSelect" type="Sprite2D" parent="Player2"]
+position = Vector2(101, 2)
+scale = Vector2(0.188, 0.188)
+texture = ExtResource("9_2oebp")
+centered = false
+
+[node name="DisplayPawnGodSelect" type="Sprite2D" parent="Player2"]
+position = Vector2(0, 55)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("10_qod6r")
+centered = false
+
+[node name="DisplayKnightGodSelect" type="Sprite2D" parent="Player2"]
+position = Vector2(0, 160)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("11_xorgs")
+centered = false
+
+[node name="DisplayBishopGodSelect" type="Sprite2D" parent="Player2"]
+position = Vector2(0, 262)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("12_rfgj0")
+centered = false
+
+[node name="DisplayRookGodSelect" type="Sprite2D" parent="Player2"]
+position = Vector2(1, 369)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("13_i7581")
+centered = false
+
+[node name="DisplayQueenGodSelect" type="Sprite2D" parent="Player2"]
+position = Vector2(0, 472)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("14_0soax")
+centered = false
+
+[node name="DisplayKingGodSelect" type="Sprite2D" parent="Player2"]
+position = Vector2(1, 577)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("15_kntfo")
+centered = false
+
+[node name="ButtonConfirm" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 819.0
+offset_top = 992.0
+offset_right = 1115.0
+offset_bottom = 1063.0
+mouse_default_cursor_shape = 2

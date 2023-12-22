@@ -10,3 +10,4 @@ res://Scene/Menu/OngletScreen.tscn
 res://Scene/Menu/PlayScreen.tscn
 res://Scene/Menu/CustomiseGameScreen.tscn
 res://Script/Menu/OngletScreen.gd
+res://Scene/Game/SelectGodsScreen.tscn

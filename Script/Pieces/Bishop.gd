@@ -159,17 +159,17 @@ func moveFinal(checkColor):
 			defenceMove(attackerPositionshiftI,attackerPositionshiftJ)
 			defenceMove(attackerPositionshift2I,attackerPositionshift2J)
 
-#func _on_area_2d_area_entered(area):
-#		var pieceName = area.get_parent().get_name()
-#		if promoteInProgress == false:
-#			if white == true and GlobalValueChessGame.turnWhite == false:
-#				if "Black" in pieceName and dragging == false :
+func _on_area_2d_area_entered(area):
+		var pieceName = area.get_parent().get_name()
+		if promoteInProgress == false:
+			if white == true and GlobalValueChessGame.turnWhite == false:
+				if "Black" in pieceName and dragging == false :
 #					VariableGlobalOption.pieceTaken = true
-#					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
-#			elif white == false and GlobalValueChessGame.turnWhite == true:
-#				if "White" in pieceName and dragging == false :
+					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
+			elif white == false and GlobalValueChessGame.turnWhite == true:
+				if "White" in pieceName and dragging == false :
 #					VariableGlobalOption.pieceTaken = true
-#					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
+					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 				
 func checkMaxMove(dx, dy):
 	for f in range (1,9):

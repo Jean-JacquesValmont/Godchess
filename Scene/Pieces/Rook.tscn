@@ -19,3 +19,5 @@ shape = SubResource("RectangleShape2D_stkdb")
 
 [node name="SoundMovePiece" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_uaj3b")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -48,6 +48,13 @@ func _ready():
 func _process(delta):
 	pass
 
+@rpc("any_peer", "call_local") func printTest():
+	print("Joueur: ", Online.nakama_session.username, " drag un pion.")
+
+@rpc("any_peer", "call_local") func movePion(targetCaseX,targetCaseY):
+	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	print("Joueur: ", Online.nakama_session.username, " à bouger un pion.")
+
 func _input(event):
 	#J'ai un problème quand je met le bouton MOUSE_BUTTON_LEFT 2 fois dans deux if différent.
 	#J'ai donc mit le MOUSE_BUTTON_RIGHT pour la promotion
@@ -71,6 +78,7 @@ func _input(event):
 				dragging = true
 				dragOffset = event.position - self.position - positionChessBoard
 				z_index = 10
+				rpc("printTest")
 				theKingIsBehind()
 				previewAllMove()
 		# Stop dragging if the button is released.
@@ -79,8 +87,10 @@ func _input(event):
 			get_node("Area2D/CollisionShape2D").disabled = false
 			if white == true and GlobalValueChessGame.turnWhite == true:
 				moveFinal(GlobalValueChessGame.checkWhite)
+#				rpc("moveFinal", GlobalValueChessGame.checkWhite)
 			elif white == false and GlobalValueChessGame.turnWhite == false:
 				moveFinal(GlobalValueChessGame.checkBlack)
+#				rpc("moveFinal", GlobalValueChessGame.checkBlack)
 			self.position = Vector2(Position.x, Position.y)
 			dragging = false
 			z_index = 0
@@ -105,6 +115,7 @@ func move(dx, dy) :
 		or (chessBoard[i+(dy*f)][j+(dx*f)] == "0" or "White" in chessBoard[i+(dy*f)][j+(dx*f)]) and GlobalValueChessGame.turnWhite == false\
 		and (chessBoard[i+(dy*f)][j] == "0" or chessBoard[i+(dy*f)][j] != "0")):
 			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			rpc("movePion",targetCaseX,targetCaseY)
 			Position = Vector2(self.position.x, self.position.y)
 			chessBoard[i][j] = "0"
 			i=i+(dy*f)
@@ -430,7 +441,7 @@ func promotion(color,knightColor,bishopColor,rookColor,queenColor):
 	
 	for i in range(len(promotionPieces)):
 		var promotion_sprite = Sprite2D.new()
-		promotion_sprite.texture = load("res://Sprite/Piece/"+ color + "/" + promotionPieces[i] + ".png")
+		promotion_sprite.texture = load("res://Image/Pieces/"+ color + "/" + promotionPieces[i] + ".png")
 		promotion_sprite.centered = false
 		promotion_sprite.position.x = xPositions[i]
 		promotion_sprite.position.y = 300
@@ -472,10 +483,10 @@ func promotionSelectionWhite():
 	print("Enter in promotionSelection: ", self.nameOfPiece)
 	var mousePos = get_local_mouse_position()
 	var promotionOptions = [
-	[0, 200, "KnightWhite", "Knight.gd", "res://Sprite/Piece/White/knight_white.png"],
-	[200, 400, "BishopWhite", "Bishop.gd", "res://Sprite/Piece/White/bishop_white.png"],
-	[400, 600, "RookWhite", "Rook.gd", "res://Sprite/Piece/White/rook_white.png"],
-	[600, 800, "QueenWhite", "Queen.gd", "res://Sprite/Piece/White/queen_white.png"]
+	[0, 200, "KnightWhite", "Knight.gd", "res://Image/Pieces/White/knight_white.png"],
+	[200, 400, "BishopWhite", "Bishop.gd", "res://Image/Pieces/White/bishop_white.png"],
+	[400, 600, "RookWhite", "Rook.gd", "res://Image/Pieces/White/rook_white.png"],
+	[600, 800, "QueenWhite", "Queen.gd", "res://Image/Pieces/White/queen_white.png"]
 	]
 	
 	for f in range(4):
@@ -517,10 +528,10 @@ func promotionSelectionBlack():
 	print("Enter in promotionSelection: ", self.nameOfPiece)
 	var mousePos = get_local_mouse_position()
 	var promotionOptions = [
-	[0, 200, "KnightBlack", "Knight.gd", "res://Sprite/Piece/Black/knight_black.png"],
-	[200, 400, "BishopBlack", "Bishop.gd", "res://Sprite/Piece/Black/bishop_black.png"],
-	[400, 600, "RookBlack", "Rook.gd", "res://Sprite/Piece/Black/rook_black.png"],
-	[600, 800, "QueenBlack", "Queen.gd", "res://Sprite/Piece/Black/queen_black.png"]]
+	[0, 200, "KnightBlack", "Knight.gd", "res://Image/Pieces/Black/knight_black.png"],
+	[200, 400, "BishopBlack", "Bishop.gd", "res://Image/Pieces/Black/bishop_black.png"],
+	[400, 600, "RookBlack", "Rook.gd", "res://Image/Pieces/Black/rook_black.png"],
+	[600, 800, "QueenBlack", "Queen.gd", "res://Image/Pieces/Black/queen_black.png"]]
 
 	for f in range(4):
 		print("Enter in promotionSelection boucle for")
@@ -563,7 +574,7 @@ func get_promoteInProgress():
 
 func createNewPieceMovePreview(dx,dy,f,color):
 	var previewSprite = Sprite2D.new()
-	previewSprite.texture = load("res://Sprite/Piece/"+ color + "/pawn_" + color.to_lower() +  ".png")
+	previewSprite.texture = load("res://Image/Pieces/"+ color + "/pawn_" + color.to_lower() +  ".png")
 	previewSprite.centered = true
 	previewSprite.position.x = Position.x + positionChessBoard.x + (100 * f*dx)
 	previewSprite.position.y = Position.y + positionChessBoard.y + (100 * f*dy)
@@ -573,7 +584,7 @@ func createNewPieceMovePreview(dx,dy,f,color):
 
 func createNewPieceDefenceMovePreview(attackI, attackJ, color):
 	var previewSprite = Sprite2D.new()
-	previewSprite.texture = load("res://Sprite/Piece/"+ color + "/pawn_" + color.to_lower() +  ".png")
+	previewSprite.texture = load("res://Image/Pieces/"+ color + "/pawn_" + color.to_lower() +  ".png")
 	previewSprite.centered = true
 	previewSprite.position.x = Position.x + positionChessBoard.x + (100 * (attackJ - j))
 	previewSprite.position.y = Position.y + positionChessBoard.y + (100 * (attackI - i))

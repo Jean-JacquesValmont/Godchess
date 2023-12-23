@@ -313,7 +313,7 @@ func get_promoteInProgress():
 
 func createNewPieceMovePreview(dx,dy,f,color):
 	var previewSprite = Sprite2D.new()
-	previewSprite.texture = load("res://Sprite/Piece/"+ color + "/queen_" + color.to_lower() +  ".png")
+	previewSprite.texture = load("res://Image/Pieces/"+ color + "/queen_" + color.to_lower() +  ".png")
 	previewSprite.centered = true
 	previewSprite.position.x = Position.x + positionChessBoard.x + (100 * f*dx)
 	previewSprite.position.y = Position.y + positionChessBoard.y + (100 * f*dy)
@@ -323,7 +323,7 @@ func createNewPieceMovePreview(dx,dy,f,color):
 
 func createNewPieceDefenceMovePreview(attackI, attackJ, color):
 	var previewSprite = Sprite2D.new()
-	previewSprite.texture = load("res://Sprite/Piece/"+ color + "/queen_" + color.to_lower() +  ".png")
+	previewSprite.texture = load("res://Image/Pieces/"+ color + "/queen_" + color.to_lower() +  ".png")
 	previewSprite.centered = true
 	previewSprite.position.x = Position.x + positionChessBoard.x + (100 * (attackJ - j))
 	previewSprite.position.y = Position.y + positionChessBoard.y + (100 * (attackI - i))

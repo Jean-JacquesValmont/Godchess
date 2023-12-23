@@ -1,0 +1,72 @@
+extends Sprite2D
+
+var player_in_game := {}
+var godSelectPlayer1 = ""
+var godSelectPlayer2 = ""
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	await get_tree().process_frame
+	player_in_game = GlobalValueMenu.players
+	godSelectPlayer1 = GlobalValueMenu.godSelectPlayer1
+	godSelectPlayer2 = GlobalValueMenu.godSelectPlayer2
+	print("GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
+	print("GlobalValueMenu.godSelectPlayer2: ", GlobalValueMenu.godSelectPlayer2)
+	
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[0]]
+		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[1]]
+	else:
+		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[1]]
+		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[0]]
+	
+	#Sprite pieces player 1:
+	get_node("ChessBoard").get_child(0).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(1).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(2).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(3).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(4).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(5).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(6).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(7).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(8).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Cavalier.png")
+	get_node("ChessBoard").get_child(9).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Cavalier.png")
+	get_node("ChessBoard").get_child(10).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Fou.png")
+	get_node("ChessBoard").get_child(11).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Fou.png")
+	get_node("ChessBoard").get_child(12).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Tour.png")
+	get_node("ChessBoard").get_child(13).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Tour.png")
+	get_node("ChessBoard").get_child(14).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Reine.png")
+	get_node("ChessBoard").get_child(15).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Roi.png")
+	
+	#Sprite pieces player 2:
+	get_node("ChessBoard").get_child(16).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(17).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(18).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(19).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(20).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(21).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(22).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(23).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Pion.png")
+	get_node("ChessBoard").get_child(24).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Cavalier.png")
+	get_node("ChessBoard").get_child(25).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Cavalier.png")
+	get_node("ChessBoard").get_child(26).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Fou.png")
+	get_node("ChessBoard").get_child(27).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Fou.png")
+	get_node("ChessBoard").get_child(28).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Tour.png")
+	get_node("ChessBoard").get_child(29).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Tour.png")
+	get_node("ChessBoard").get_child(30).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Reine.png")
+	get_node("ChessBoard").get_child(31).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Roi.png")
+	
+	for i in range(get_node("ChessBoard").get_child_count()):
+		get_node("ChessBoard").get_child(i).scale = Vector2(0.5, 0.5)
+		
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_button_game_menu_button_down():
+	if get_node("GameMenu").visible == false:
+		get_node("GameMenu").show()
+		get_tree().set_pause(true)
+	elif get_node("GameMenu").visible == true:
+		get_node("GameMenu").hide()
+		get_tree().set_pause(false)

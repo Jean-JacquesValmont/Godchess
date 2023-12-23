@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccb5p5ljgby2h"]
+[gd_scene load_steps=5 format=3 uid="uid://ccb5p5ljgby2h"]
 
 [ext_resource type="Texture2D" uid="uid://bu2dxdit6voq6" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
+[ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
 [ext_resource type="PackedScene" uid="uid://caicvg7ub7mxg" path="res://Scene/Game/ChessBoard.tscn" id="2_ry56a"]
 [ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
 
 [node name="Game" type="Sprite2D"]
 texture = ExtResource("1_0b1s8")
 centered = false
+script = ExtResource("2_i7d2e")
 
 [node name="Player1" type="Control" parent="."]
 layout_mode = 3
@@ -30,6 +32,8 @@ vertical_alignment = 1
 
 [node name="GodSelect" type="Sprite2D" parent="Player1"]
 position = Vector2(-2, -538)
+scale = Vector2(0.25, 0.25)
+centered = false
 
 [node name="Player2" type="Control" parent="."]
 layout_mode = 3
@@ -55,8 +59,13 @@ position = Vector2(-2, -538)
 [node name="ChessBoard" parent="." instance=ExtResource("2_ry56a")]
 position = Vector2(559, 140)
 
-[node name="ButtonMenu" type="Button" parent="."]
+[node name="GameMenu" type="Sprite2D" parent="."]
+visible = false
+
+[node name="ButtonGameMenu" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_right = 154.0
 offset_bottom = 84.0
 mouse_default_cursor_shape = 2
+
+[connection signal="button_down" from="ButtonGameMenu" to="." method="_on_button_game_menu_button_down"]

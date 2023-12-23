@@ -59,7 +59,6 @@ func _on_button_goddess_of_teleportation_button_down():
 	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1 and turnPlayer == "Player2":
 		rpc("selectGoddessOfTeleportation", "Player2")
 	selectGod = true
-	selectGodName = "GoddessOfTeleportation"
 
 func _on_button_goddess_of_teleportation_mouse_entered():
 	if selectGod == false:
@@ -100,13 +99,14 @@ func _on_button_goddess_of_teleportation_mouse_exited():
 			get_node("Player2/DisplayKingGodSelect").texture = null
 
 @rpc("any_peer", "call_local") func selectGoddessOfTeleportation(player) -> void:
-		get_node(player + "/DisplayGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png")
-		get_node(player + "/DisplayPawnGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png")
-		get_node(player + "/DisplayKnightGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png")
-		get_node(player + "/DisplayBishopGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png")
-		get_node(player + "/DisplayRookGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Tour.png")
-		get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png")
-		get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png")
+	get_node(player + "/DisplayGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png")
+	get_node(player + "/DisplayPawnGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Pion.png")
+	get_node(player + "/DisplayKnightGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Cavalier.png")
+	get_node(player + "/DisplayBishopGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Fou.png")
+	get_node(player + "/DisplayRookGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Tour.png")
+	get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png")
+	get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png")
+	selectGodName = "GoddessOfTeleportation"
 
 #########################################################
 
@@ -117,7 +117,6 @@ func _on_button_god_of_death_button_down():
 	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1 and turnPlayer == "Player2":
 		rpc("selectGodOfDeath", "Player2")
 	selectGod = true
-	selectGodName = "GodOfDeath"
 
 func _on_button_god_of_death_mouse_entered():
 	if selectGod == false:
@@ -165,6 +164,7 @@ func _on_button_god_of_death_mouse_exited():
 	get_node(player + "/DisplayRookGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Tour.png")
 	get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Reine.png")
 	get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png")
+	selectGodName = "GodOfDeath"
 
 func _on_button_confirm_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1\
@@ -185,6 +185,8 @@ func _on_button_confirm_button_down():
 	if turnPlayer == "Player1":
 		turnPlayer = "Player2"
 		GlobalValueMenu.godSelectPlayer1 = selectGodName
+		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
 	elif turnPlayer == "Player2":
 		GlobalValueMenu.godSelectPlayer2 = selectGodName
+		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer2: ", GlobalValueMenu.godSelectPlayer2)
 		get_tree().change_scene_to_file("res://Scene/Game/Game.tscn")

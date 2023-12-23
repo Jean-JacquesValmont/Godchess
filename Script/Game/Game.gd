@@ -58,7 +58,9 @@ func _ready():
 	
 	for i in range(get_node("ChessBoard").get_child_count()):
 		get_node("ChessBoard").get_child(i).scale = Vector2(0.5, 0.5)
-		
+	
+	GlobalValueChessGame.gameLaunch = true
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

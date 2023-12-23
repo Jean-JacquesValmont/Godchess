@@ -59,6 +59,8 @@ position = Vector2(-2, -538)
 [node name="ChessBoard" parent="." instance=ExtResource("2_ry56a")]
 position = Vector2(559, 140)
 
+[node name="MovePreview" type="Node2D" parent="."]
+
 [node name="GameMenu" type="Sprite2D" parent="."]
 visible = false
 

@@ -117,11 +117,11 @@ func allMove(rookColor,rookColor2,attackColor):
 #		if white == true and GlobalValueChessGame.turnWhite == false:
 #			if "Black" in pieceName and dragging == false :
 #				VariableGlobalOption.pieceTaken = true
-#				get_node("/root/gameScreen/ChessBoard/" + pieceName).queue_free()
+#				get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 #		elif white == false and GlobalValueChessGame.turnWhite == true:
 #			if "White" in pieceName and dragging == false :
 #				VariableGlobalOption.pieceTaken = true
-#				get_node("/root/gameScreen/ChessBoard/" + pieceName).queue_free()
+#				get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 				
 func kingSizeCasteling(dx, dy, rookColor, attackColor):
 		var targetCaseX = dx*(2*moveCase)
@@ -132,7 +132,7 @@ func kingSizeCasteling(dx, dy, rookColor, attackColor):
 		and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
 		and chessBoard[i][j+1] == "0" and chessBoard[i][j+2] == "0" and chessBoard[i][j+3].begins_with("Rook") \
 		and attackColor[i][j] == 0 and attackColor[i][j+1] == 0 and attackColor[i][j+2] == 0 and initialPosition == true \
-		and get_node("/root/gameScreen/ChessBoard/" + rookColor).initialPosition == true:
+		and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
 			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
 			Position = Vector2(self.position.x, self.position.y)
 			chessBoard[i][j] = "0"
@@ -158,7 +158,7 @@ func queenSizeCasteling(dx, dy, rookColor, attackColor):
 		and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
 		and chessBoard[i][j-1] == "0" and chessBoard[i][j-2] == "0" and chessBoard[i][j-3] == "0" and chessBoard[i][j-4].begins_with("Rook") \
 		and attackColor[i][j] == 0 and attackColor[i][j-1] == 0 and attackColor[i][j-2] == 0  and attackColor[i][j-3] == 0 and initialPosition == true \
-		and get_node("/root/gameScreen/ChessBoard/" + rookColor).initialPosition == true:
+		and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
 			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
 			Position = Vector2(self.position.x, self.position.y)
 			chessBoard[i][j] = "0"
@@ -187,7 +187,7 @@ func createNewPieceMovePreview(dx,dy,f,color):
 	previewSprite.position.y = Position.y + positionChessBoard.y + (100 * f*dy)
 	previewSprite.z_index = 9
 	previewSprite.modulate.a = 0.5
-	get_node("/root/gameScreen/MovePreview").add_child(previewSprite)
+	get_node("/root/Game/MovePreview").add_child(previewSprite)
 
 func previewMove(dx, dy, color, color2, attackColor):
 	for f in range (1,2):
@@ -219,9 +219,9 @@ func previewAllMove():
 		previewMovePattern("Black", "White", GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
 
 func deleteAllChildMovePreview():
-	var numberOfChildren = get_node("/root/gameScreen/MovePreview").get_child_count()
+	var numberOfChildren = get_node("/root/Game/MovePreview").get_child_count()
 	for f in range(numberOfChildren):
-		get_node("/root/gameScreen/MovePreview").get_child(f).queue_free()
+		get_node("/root/Game/MovePreview").get_child(f).queue_free()
 
 func lastMovePlay():
 	modulate.r = 0

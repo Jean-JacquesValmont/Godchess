@@ -21,3 +21,7 @@ res://Script/Pieces/Knight.gd
 res://Script/Pieces/Queen.gd
 res://Script/Pieces/Rook.gd
 res://Script/Game/ChessBoard.gd
+res://Scene/Menu/GodsScreen.tscn
+res://Script/Menu/GodsScreen.gd
+res://Scene/Menu/PowerGods.tscn
+res://Script/Menu/PowerGods.gd

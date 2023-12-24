@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccb5p5ljgby2h"]
+[gd_scene load_steps=7 format=3 uid="uid://ccb5p5ljgby2h"]
 
 [ext_resource type="Texture2D" uid="uid://bu2dxdit6voq6" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
 [ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
 [ext_resource type="PackedScene" uid="uid://caicvg7ub7mxg" path="res://Scene/Game/ChessBoard.tscn" id="2_ry56a"]
 [ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
+[ext_resource type="Texture2D" uid="uid://cfjkjpai2ha0f" path="res://Image/Gods/GoddessOfTeleportation/DéesseTéléportationChessBoard.png" id="4_7mkl3"]
+[ext_resource type="Texture2D" uid="uid://m2mycis7i5p8" path="res://Image/Gods/GodOfDeath/DieuMortChessBoard.png" id="5_stih7"]
 
 [node name="Game" type="Sprite2D"]
 texture = ExtResource("1_0b1s8")
@@ -31,8 +33,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GodSelect" type="Sprite2D" parent="Player1"]
-position = Vector2(-2, -538)
-scale = Vector2(0.25, 0.25)
+position = Vector2(-45, 2.00001)
+scale = Vector2(1, 0.965)
+texture = ExtResource("4_7mkl3")
 centered = false
 
 [node name="Player2" type="Control" parent="."]
@@ -54,7 +57,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GodSelect" type="Sprite2D" parent="Player2"]
-position = Vector2(-2, -538)
+position = Vector2(1369, -29)
+texture = ExtResource("5_stih7")
+centered = false
 
 [node name="ChessBoard" parent="." instance=ExtResource("2_ry56a")]
 position = Vector2(559, 140)

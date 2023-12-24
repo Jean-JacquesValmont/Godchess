@@ -1,5 +1,8 @@
-Node2D
 Sprite2D
+AspectRatioContainer
+VideoStreamPlayer
+ResourcePreloader
+Node2D
 Label
 Control
 Button
@@ -9,7 +12,6 @@ CollisionShape2D
 Area2D
 AudioStreamPlayer
 AnimatedSprite2D
-VideoStreamPlayer
 RichTextLabel
 HBoxContainer
 VBoxContainer

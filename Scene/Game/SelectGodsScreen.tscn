@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8vbijy7pfbej"]
+[gd_scene load_steps=19 format=3 uid="uid://c8vbijy7pfbej"]
 
 [ext_resource type="Texture2D" uid="uid://66qvdhmt4j87" path="res://Image/Game/SelectGodsClan.png" id="1_bwn3n"]
 [ext_resource type="Texture2D" uid="uid://cvnd1uf05m4ev" path="res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png" id="2_j0u8u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b25c503hirs0p" path="res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png" id="8_xefhh"]
 [ext_resource type="Texture2D" uid="uid://ddpslnlswu220" path="res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png" id="9_2oebp"]
 [ext_resource type="Texture2D" uid="uid://cxfk02v8ufk2m" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Pion.png" id="10_qod6r"]
+[ext_resource type="Texture2D" uid="uid://b1p52a31kvcay" path="res://Image/Game/HoverSelectionGods.png" id="11_2iujh"]
 [ext_resource type="Texture2D" uid="uid://7ypahgjwhuhu" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Cavalier.png" id="11_xorgs"]
 [ext_resource type="Texture2D" uid="uid://dpquftjiigctl" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Fou.png" id="12_rfgj0"]
 [ext_resource type="Texture2D" uid="uid://bjmhc5rtnanu2" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Tour.png" id="13_i7581"]
@@ -116,6 +117,11 @@ offset_top = 60.0
 offset_right = 269.0
 offset_bottom = 156.0
 mouse_default_cursor_shape = 2
+
+[node name="HoverSelectionGods" type="Sprite2D" parent="GodsSelection"]
+position = Vector2(7, 33)
+texture = ExtResource("11_2iujh")
+centered = false
 
 [node name="Player2" type="Control" parent="."]
 layout_mode = 3

@@ -16,9 +16,13 @@ func _ready():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
 		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[0]]
 		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[1]]
+		get_node("Player1/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/DéesseTéléportationChessBoard.png")
+		get_node("Player2/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/DieuMortChessBoard.png")
 	else:
 		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[1]]
 		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[0]]
+		get_node("Player1/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/DéesseTéléportationChessBoard.png")
+		get_node("Player2/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/DieuMortChessBoard.png")
 	
 	#Sprite pieces player 1:
 	get_node("ChessBoard").get_child(0).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")

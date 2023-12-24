@@ -44,7 +44,10 @@ func initialisationScreen(godName):
 		get_node("ButtonsFactions/SpriteKing").texture = load("res://Image/Gods/" + godName + "/Pieces/Base pièce doubler - Roi.png")
 		get_node("TextPowerFactions").text = godData["passif"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Passif" + godName )
-		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPassif.png")
+	get_node("HoverSelectionFaction").position.x = 608
+	get_node("HoverSelectionFaction").position.y = 167
+	get_node("ZoneGif/GifPowerFactions").play()
 
 func _on_gods_screen_god_selected(godName):
 	godNameInPowerGods = godName
@@ -56,6 +59,9 @@ func _on_button_passif_button_down():
 		get_node("TextPowerFactions").text = godData["passif"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Passif" + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPassif.png")
+	get_node("HoverSelectionFaction").position.x = 608
+	get_node("HoverSelectionFaction").position.y = 167
 
 func _on_button_pawn_button_down():
 	if godNameInPowerGods in godTexts:
@@ -63,6 +69,9 @@ func _on_button_pawn_button_down():
 		get_node("TextPowerFactions").text = godData["pawn"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Pawn" + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
+	get_node("HoverSelectionFaction").position.x = -7
+	get_node("HoverSelectionFaction").position.y = 281
 
 func _on_button_knight_button_down():
 	if godNameInPowerGods in godTexts:
@@ -70,6 +79,9 @@ func _on_button_knight_button_down():
 		get_node("TextPowerFactions").text = godData["knight"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Knight" + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
+	get_node("HoverSelectionFaction").position.x = 290
+	get_node("HoverSelectionFaction").position.y = 281
 
 func _on_button_bishop_button_down():
 	if godNameInPowerGods in godTexts:
@@ -77,6 +89,9 @@ func _on_button_bishop_button_down():
 		get_node("TextPowerFactions").text = godData["bishop"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Bishop" + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
+	get_node("HoverSelectionFaction").position.x = 620
+	get_node("HoverSelectionFaction").position.y = 281
 
 func _on_button_rook_button_down():
 	if godNameInPowerGods in godTexts:
@@ -84,6 +99,9 @@ func _on_button_rook_button_down():
 		get_node("TextPowerFactions").text = godData["rook"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Rook" + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
+	get_node("HoverSelectionFaction").position.x = 940
+	get_node("HoverSelectionFaction").position.y = 281
 
 func _on_button_queen_button_down():
 	if godNameInPowerGods in godTexts:
@@ -91,6 +109,9 @@ func _on_button_queen_button_down():
 		get_node("TextPowerFactions").text = godData["queen"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Queen" + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
+	get_node("HoverSelectionFaction").position.x = 1277
+	get_node("HoverSelectionFaction").position.y = 281
 
 func _on_button_king_button_down():
 	if godNameInPowerGods in godTexts:
@@ -98,6 +119,9 @@ func _on_button_king_button_down():
 		get_node("TextPowerFactions").text = godData["king"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("King" + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
+	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
+	get_node("HoverSelectionFaction").position.x = 1600
+	get_node("HoverSelectionFaction").position.y = 281
 
 func _on_zone_gif_mouse_entered():
 	get_node("ZoneGif/GifPowerFactions").play()

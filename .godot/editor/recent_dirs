@@ -1,3 +1,10 @@
+res://Image/Gods/GoddessOfTeleportation/Gif/Rook
+res://Image/Gods/GoddessOfTeleportation/Gif/Queen
+res://Image/Gods/GoddessOfTeleportation/Gif/Pawn
+res://Image/Gods/GoddessOfTeleportation/Gif/Passif
+res://Image/Gods/GoddessOfTeleportation/Gif/Knight
+res://Image/Gods/GoddessOfTeleportation/Gif/King
+res://Image/Gods/GoddessOfTeleportation/Gif/Bishop
 res://Script/Game
 res://Scene/Game
 res://Script/Pieces
@@ -13,8 +20,3 @@ res://Script/Menu
 res://Image
 res://Scene/Menu
 res://Image/Animation/Menu/ButtonLeft
-res://Image/Animation/Menu/ButtonRight
-res://Image/Animation/Menu/AnimationParticule
-res://Script/Multiplayer
-res://addons/com.heroiclabs.nakama
-res://

@@ -9,6 +9,7 @@ var turnPlayer = "Player1"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_start(GlobalValueMenu.players)
+	get_node("GodsSelection/HoverSelectionGods").texture = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -61,6 +62,9 @@ func _on_button_goddess_of_teleportation_button_down():
 	selectGod = true
 
 func _on_button_goddess_of_teleportation_mouse_entered():
+	get_node("GodsSelection/HoverSelectionGods").texture = load("res://Image/Game/HoverSelectionGods.png")
+	get_node("GodsSelection/HoverSelectionGods").position.x = 7
+	get_node("GodsSelection/HoverSelectionGods").position.y = 33
 	if selectGod == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 			get_node("Player1/DisplayGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png")
@@ -80,6 +84,7 @@ func _on_button_goddess_of_teleportation_mouse_entered():
 			get_node("Player2/DisplayKingGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png")
 
 func _on_button_goddess_of_teleportation_mouse_exited():
+	get_node("GodsSelection/HoverSelectionGods").texture = null
 	if selectGod == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 			get_node("Player1/DisplayGodSelect").texture = null
@@ -110,7 +115,6 @@ func _on_button_goddess_of_teleportation_mouse_exited():
 
 #########################################################
 
-
 func _on_button_god_of_death_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 		rpc("selectGodOfDeath", "Player1")
@@ -119,6 +123,9 @@ func _on_button_god_of_death_button_down():
 	selectGod = true
 
 func _on_button_god_of_death_mouse_entered():
+	get_node("GodsSelection/HoverSelectionGods").texture = load("res://Image/Game/HoverSelectionGods.png")
+	get_node("GodsSelection/HoverSelectionGods").position.x = 146
+	get_node("GodsSelection/HoverSelectionGods").position.y = 33
 	if selectGod == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 			get_node("Player1/DisplayGodSelect").texture = load("res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png")
@@ -138,6 +145,7 @@ func _on_button_god_of_death_mouse_entered():
 			get_node("Player2/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png")
 
 func _on_button_god_of_death_mouse_exited():
+	get_node("GodsSelection/HoverSelectionGods").texture = null
 	if selectGod == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 			get_node("Player1/DisplayGodSelect").texture = null

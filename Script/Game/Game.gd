@@ -72,7 +72,24 @@ func _process(delta):
 func _on_button_game_menu_button_down():
 	if get_node("GameMenu").visible == false:
 		get_node("GameMenu").show()
-		get_tree().set_pause(true)
-	elif get_node("GameMenu").visible == true:
+		get_node("GameMenu/ButtonResume").disabled = false
+		get_node("GameMenu/ButtonOption").disabled = false
+		get_node("GameMenu/ButtonAbandon").disabled = false
+
+func _on_button_resume_button_down():
+	if get_node("GameMenu").visible == true:
 		get_node("GameMenu").hide()
-		get_tree().set_pause(false)
+		get_node("GameMenu/ButtonResume").disabled = true
+		get_node("GameMenu/ButtonOption").disabled = true
+		get_node("GameMenu/ButtonAbandon").disabled = true
+
+func _on_button_option_button_down():
+	pass # Replace with function body.
+
+func _on_button_abandon_button_down():
+	rpc("playerDisconnected")
+	OnlineMatch.leave()
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+
+@rpc("any_peer","call_remote") func playerDisconnected():
+	get_node("PlayerDisconnected").visible = true

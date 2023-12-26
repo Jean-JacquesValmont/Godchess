@@ -32,6 +32,7 @@ var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var attackerPositionshift3I = 0
 var attackerPositionshift3J = 0
+var playerID
 
 func _ready():
 	await get_tree().process_frame
@@ -51,40 +52,58 @@ func _ready():
 #		print(nameOfPiece, " i: ", i, " j: ", j, " PositionX: ", Position.x, " PositionY: ", Position.y )
 #		for f in range(0,12):
 #			print(chessBoard[f])
+	if white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
+	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
 func _process(delta):
 	pass
 
+@rpc("any_peer", "call_local") func movePiece(f,targetCaseX,targetCaseY,dx,dy):
+	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	Position = Vector2(self.position.x, self.position.y)
+	chessBoard[i][j] = "0"
+	i=i+(dy*f)
+	j=j+(dx*f)
+	chessBoard[i][j] = nameOfPiece.replace("@", "")
+	initialPosition = false
+	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+	get_node("SoundMovePiece").play()
+	resetLastMovePlay()
+	lastMovePlay()
+
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT\
-	and promoteInProgress == false and GlobalValueChessGame.checkmate == false and GlobalValueChessGame.stalemate == false:
-		if (event.position - self.position - positionChessBoard).length() < clickRadius:
-			# Start dragging if the click is on the sprite.
-			if not dragging and event.pressed:
-				dragging = true
-				dragOffset = event.position - self.position - positionChessBoard
-				z_index = 10
-				checkMaxAllMove()
-				theKingIsBehind()
-				previewAllMove()
-		# Stop dragging if the button is released.
-		if dragging and not event.pressed:
-			deleteAllChildMovePreview()
-			get_node("Area2D/CollisionShape2D").disabled = false
-			if white == true and GlobalValueChessGame.turnWhite == true:
-				moveFinal(GlobalValueChessGame.checkWhite)
-			elif white == false and GlobalValueChessGame.turnWhite == false:
-				moveFinal(GlobalValueChessGame.checkBlack)
-			self.position = Vector2(Position.x, Position.y)
-			dragging = false
-			z_index = 0
-			for f in range(0,12):
-				print(chessBoard[f])
-				
-	if event is InputEventMouseMotion and dragging:
-		# While dragging, move the sprite with the mouse.
-		self.position = event.position - positionChessBoard
-		get_node("Area2D/CollisionShape2D").disabled = true
+	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT\
+		and promoteInProgress == false and GlobalValueChessGame.checkmate == false and GlobalValueChessGame.stalemate == false:
+			if (event.position - self.position - positionChessBoard).length() < clickRadius:
+				# Start dragging if the click is on the sprite.
+				if not dragging and event.pressed:
+					dragging = true
+					dragOffset = event.position - self.position - positionChessBoard
+					z_index = 10
+					checkMaxAllMove()
+					theKingIsBehind()
+					previewAllMove()
+			# Stop dragging if the button is released.
+			if dragging and not event.pressed:
+				deleteAllChildMovePreview()
+				get_node("Area2D/CollisionShape2D").disabled = false
+				if white == true and GlobalValueChessGame.turnWhite == true:
+					moveFinal(GlobalValueChessGame.checkWhite)
+				elif white == false and GlobalValueChessGame.turnWhite == false:
+					moveFinal(GlobalValueChessGame.checkBlack)
+				self.position = Vector2(Position.x, Position.y)
+				dragging = false
+				z_index = 0
+				for f in range(0,12):
+					print(chessBoard[f])
+					
+		if event is InputEventMouseMotion and dragging:
+			# While dragging, move the sprite with the mouse.
+			self.position = event.position - positionChessBoard
+			get_node("Area2D/CollisionShape2D").disabled = true
 		
 func move(dx, dy, maxMove) :
 	for f in range (1,maxMove):
@@ -96,17 +115,18 @@ func move(dx, dy, maxMove) :
 		and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
 		and ((chessBoard[i+(dy*f)][j+(dx*f)] == "0" or "Black" in chessBoard[i+(dy*f)][j+(dx*f)]) and GlobalValueChessGame.turnWhite == true\
 		or (chessBoard[i+(dy*f)][j+(dx*f)] == "0" or "White" in chessBoard[i+(dy*f)][j+(dx*f)]) and GlobalValueChessGame.turnWhite == false):
-			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
-			Position = Vector2(self.position.x, self.position.y)
-			chessBoard[i][j] = "0"
-			i=i+(dy*f)
-			j=j+(dx*f)
-			chessBoard[i][j] = nameOfPiece.replace("@", "")
-			GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-			initialPosition = false
-			get_node("SoundMovePiece").play()
-			resetLastMovePlay()
-			lastMovePlay()
+			rpc("movePiece",f,targetCaseX,targetCaseY,dx,dy)
+#			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+#			Position = Vector2(self.position.x, self.position.y)
+#			chessBoard[i][j] = "0"
+#			i=i+(dy*f)
+#			j=j+(dx*f)
+#			chessBoard[i][j] = nameOfPiece.replace("@", "")
+#			GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+#			initialPosition = false
+#			get_node("SoundMovePiece").play()
+#			resetLastMovePlay()
+#			lastMovePlay()
 			break
 		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
 		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :

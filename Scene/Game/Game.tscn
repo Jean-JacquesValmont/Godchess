@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccb5p5ljgby2h"]
+[gd_scene load_steps=8 format=3 uid="uid://ccb5p5ljgby2h"]
 
 [ext_resource type="Texture2D" uid="uid://bu2dxdit6voq6" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
 [ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
 [ext_resource type="Texture2D" uid="uid://cfjkjpai2ha0f" path="res://Image/Gods/GoddessOfTeleportation/DéesseTéléportationChessBoard.png" id="4_7mkl3"]
 [ext_resource type="Texture2D" uid="uid://m2mycis7i5p8" path="res://Image/Gods/GodOfDeath/DieuMortChessBoard.png" id="5_stih7"]
+[ext_resource type="Texture2D" uid="uid://cxobycs3vdrhn" path="res://Image/Game/MenuChessBoard.png" id="7_k76lp"]
 
 [node name="Game" type="Sprite2D"]
 texture = ExtResource("1_0b1s8")
@@ -33,8 +34,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GodSelect" type="Sprite2D" parent="Player1"]
-position = Vector2(-45, 2.00001)
-scale = Vector2(1, 0.965)
+position = Vector2(-47, -18)
 texture = ExtResource("4_7mkl3")
 centered = false
 
@@ -68,6 +68,44 @@ position = Vector2(559, 140)
 
 [node name="GameMenu" type="Sprite2D" parent="."]
 visible = false
+texture = ExtResource("7_k76lp")
+centered = false
+
+[node name="ButtonResume" type="Button" parent="GameMenu"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 818.0
+offset_top = 395.0
+offset_right = 1101.0
+offset_bottom = 466.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonOption" type="Button" parent="GameMenu"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 855.0
+offset_top = 496.0
+offset_right = 1061.0
+offset_bottom = 567.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonAbandon" type="Button" parent="GameMenu"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 801.0
+offset_top = 598.0
+offset_right = 1126.0
+offset_bottom = 669.0
+mouse_default_cursor_shape = 2
+
+[node name="PlayerDisconnected" type="Label" parent="."]
+visible = false
+offset_left = 507.0
+offset_top = 1.0
+offset_right = 1415.0
+offset_bottom = 82.0
+theme_override_fonts/font = ExtResource("3_tm7ce")
+theme_override_font_sizes/font_size = 50
+text = "Le joueur adverse c'est déconnecté."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonGameMenu" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -75,4 +113,7 @@ offset_right = 154.0
 offset_bottom = 84.0
 mouse_default_cursor_shape = 2
 
+[connection signal="button_down" from="GameMenu/ButtonResume" to="." method="_on_button_resume_button_down"]
+[connection signal="button_down" from="GameMenu/ButtonOption" to="." method="_on_button_option_button_down"]
+[connection signal="button_down" from="GameMenu/ButtonAbandon" to="." method="_on_button_abandon_button_down"]
 [connection signal="button_down" from="ButtonGameMenu" to="." method="_on_button_game_menu_button_down"]

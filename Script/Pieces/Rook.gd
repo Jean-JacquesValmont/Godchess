@@ -329,22 +329,32 @@ func get_promoteInProgress():
 
 func createNewPieceMovePreview(dx,dy,f,color):
 	var previewSprite = Sprite2D.new()
-	previewSprite.texture = load("res://Image/Pieces/"+ color + "/rook_" + color.to_lower() +  ".png")
+	if color == "White":
+		previewSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Tour.png")
+	elif color == "Black":
+		previewSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Tour.png")
 	previewSprite.centered = true
 	previewSprite.position.x = Position.x + positionChessBoard.x + (100 * f*dx)
 	previewSprite.position.y = Position.y + positionChessBoard.y + (100 * f*dy)
 	previewSprite.z_index = 9
 	previewSprite.modulate.a = 0.5
+	previewSprite.scale.x = 0.5
+	previewSprite.scale.y = 0.5
 	get_node("/root/Game/MovePreview").add_child(previewSprite)
 
 func createNewPieceDefenceMovePreview(attackI, attackJ, color):
 	var previewSprite = Sprite2D.new()
-	previewSprite.texture = load("res://Image/Pieces/"+ color + "/rook_" + color.to_lower() +  ".png")
+	if color == "White":
+		previewSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Tour.png")
+	elif color == "Black":
+		previewSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Tour.png")
 	previewSprite.centered = true
 	previewSprite.position.x = Position.x + positionChessBoard.x + (100 * (attackJ - j))
 	previewSprite.position.y = Position.y + positionChessBoard.y + (100 * (attackI - i))
 	previewSprite.z_index = 9
 	previewSprite.modulate.a = 0.1
+	previewSprite.scale.x = 0.5
+	previewSprite.scale.y = 0.5
 	get_node("/root/Game/MovePreview").add_child(previewSprite)
 
 func previewMove(dx, dy, color, color2, attackI, attackJ, attack2I, attack2J):

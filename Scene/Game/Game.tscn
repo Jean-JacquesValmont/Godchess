@@ -38,6 +38,18 @@ position = Vector2(-47, -18)
 texture = ExtResource("4_7mkl3")
 centered = false
 
+[node name="DisplayCheckmate" type="Label" parent="Player1"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 1429.0
+offset_top = 252.0
+offset_right = 1916.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_tm7ce")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Player2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -60,6 +72,18 @@ vertical_alignment = 1
 position = Vector2(1369, -29)
 texture = ExtResource("5_stih7")
 centered = false
+
+[node name="DisplayCheckmate" type="Label" parent="Player2"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 220.0
+offset_right = 489.0
+offset_bottom = 288.0
+theme_override_fonts/font = ExtResource("3_tm7ce")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ChessBoard" parent="." instance=ExtResource("2_ry56a")]
 position = Vector2(559, 140)
@@ -104,6 +128,17 @@ offset_bottom = 82.0
 theme_override_fonts/font = ExtResource("3_tm7ce")
 theme_override_font_sizes/font_size = 50
 text = "Le joueur adverse c'est déconnecté."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurnPlayer" type="Label" parent="."]
+offset_left = 504.0
+offset_top = 996.0
+offset_right = 1415.0
+offset_bottom = 1080.0
+theme_override_fonts/font = ExtResource("3_tm7ce")
+theme_override_font_sizes/font_size = 50
+text = "A votre tour de jouer"
 horizontal_alignment = 1
 vertical_alignment = 1
 

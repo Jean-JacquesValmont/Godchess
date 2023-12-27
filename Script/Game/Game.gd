@@ -67,7 +67,38 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#Display turn player
+	if GlobalValueChessGame.turnWhite == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		get_node("TurnPlayer").set_text("A votre tour de jouer")
+	elif GlobalValueChessGame.turnWhite == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		get_node("TurnPlayer").set_text("Au tour de l'adversaire")
+	
+	if GlobalValueChessGame.turnWhite == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("TurnPlayer").set_text("A votre tour de jouer")
+	elif GlobalValueChessGame.turnWhite == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("TurnPlayer").set_text("Au tour de l'adversaire")
+	
+	#################################################################
+	#Display checkmate 
+	
+	if GlobalValueChessGame.checkWhite == true:
+		get_node("Player1/DisplayCheckmate").set_text("Echec")
+	elif GlobalValueChessGame.checkWhite == false:
+		get_node("Player1/DisplayCheckmate").set_text("")
+		
+	if GlobalValueChessGame.checkBlack == true:
+		get_node("Player2/DisplayCheckmate").set_text("Echec")
+	elif GlobalValueChessGame.checkBlack == false:
+		get_node("Player2/DisplayCheckmate").set_text("")
+	
+	if GlobalValueChessGame.stalemate == true:
+		get_node("Player1/DisplayCheckmate").set_text("Pat")
+		get_node("Player2/DisplayCheckmate").set_text("Pat")
+	
+	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true:
+		get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
+	elif GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true:
+		get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
 
 func _on_button_game_menu_button_down():
 	if get_node("GameMenu").visible == false:

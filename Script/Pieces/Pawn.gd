@@ -30,21 +30,11 @@ var playerID
 func _ready():  
 	await get_tree().process_frame
 	positionChessBoard = get_parent().global_position
-#	if VariableGlobalOption.modeEditor == false:
 	if GlobalValueChessGame.startWhite == true:
 		playWhite()
 	elif GlobalValueChessGame.startWhite == false:
 		playBlack()
-#	elif VariableGlobalOption.modeEditor == true:
-#		if white == true:
-#			texture = textureWhite
-#			playModeEditor("White")
-#		elif white == false:
-#			texture = textureBlack
-#			playModeEditor("Black")
-#		print(nameOfPiece, " i: ", i, " j: ", j, " PositionX: ", Position.x, " PositionY: ", Position.y )
-#		for f in range(0,12):
-#			print(chessBoard[f])
+		
 	if white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
@@ -52,53 +42,6 @@ func _ready():
 	
 func _process(delta):
 	pass
-
-@rpc("any_peer", "call_local") func movePiece(f,targetCaseX,targetCaseY,dx,dy):
-	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
-	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=i+(dy*f)
-	j=j+(dx*f)
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
-	initialPosition = false
-	if GlobalValueChessGame.startWhite == true:
-		if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
-			promotion("White","knight_white", "bishop_white", "rook_white", "queen_white")
-		elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
-			promotion("Black","knight_black", "bishop_black", "rook_black", "queen_black")
-	elif GlobalValueChessGame.startWhite == false:
-		if chessBoard[i][j].begins_with("PawnWhite") and i == 9:
-			promotion("White","knight_white", "bishop_white", "rook_white", "queen_white")
-		elif chessBoard[i][j].begins_with("PawnBlack") and i == 2:
-			promotion("Black","knight_black", "bishop_black", "rook_black", "queen_black")
-	if promoteInProgress == false:
-		GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-	get_node("SoundMovePiece").play()
-	resetLastMovePlay()
-	lastMovePlay()
-
-@rpc("any_peer", "call_local") func moveDefencePiece(targetCaseX,targetCaseY,attacki,attackj):
-	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
-	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=attacki
-	j=attackj
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
-	if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
-		promotion("White","knight_white", "bishop_white", "rook_white", "queen_white")
-	elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
-		promotion("Black","knight_black", "bishop_black", "rook_black", "queen_black")
-	if promoteInProgress == false:
-		GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-	initialPosition = false
-	attackerPositionshiftI = 0
-	attackerPositionshiftJ = 0
-	attackerPositionshift2I = 0
-	attackerPositionshift2J = 0
-	pieceProtectTheKing = false
-	get_node("SoundMovePiece").play()
-	resetLastMovePlay()
-	lastMovePlay()
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
@@ -158,33 +101,35 @@ func move(dx, dy) :
 		or (chessBoard[i+(dy*f)][j+(dx*f)] == "0" or "White" in chessBoard[i+(dy*f)][j+(dx*f)]) and GlobalValueChessGame.turnWhite == false\
 		and (chessBoard[i+(dy*f)][j] == "0" or chessBoard[i+(dy*f)][j] != "0")):
 			rpc("movePiece",f,targetCaseX,targetCaseY,dx,dy)
-#			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
-#			Position = Vector2(self.position.x, self.position.y)
-#			chessBoard[i][j] = "0"
-#			i=i+(dy*f)
-#			j=j+(dx*f)
-#			chessBoard[i][j] = nameOfPiece.replace("@", "")
-#			initialPosition = false
-#			if GlobalValueChessGame.startWhite == true:
-#				if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
-#					promotion("White","knight_white", "bishop_white", "rook_white", "queen_white")
-#				elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
-#					promotion("Black","knight_black", "bishop_black", "rook_black", "queen_black")
-#			elif GlobalValueChessGame.startWhite == false:
-#				if chessBoard[i][j].begins_with("PawnWhite") and i == 9:
-#					promotion("White","knight_white", "bishop_white", "rook_white", "queen_white")
-#				elif chessBoard[i][j].begins_with("PawnBlack") and i == 2:
-#					promotion("Black","knight_black", "bishop_black", "rook_black", "queen_black")
-#			if promoteInProgress == false:
-#				GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-#			get_node("SoundMovePiece").play()
-#			resetLastMovePlay()
-#			lastMovePlay()
 			break
 		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
 		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
 			self.position = Vector2(Position.x, Position.y)
-			
+
+@rpc("any_peer", "call_local") func movePiece(f,targetCaseX,targetCaseY,dx,dy):
+	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	Position = Vector2(self.position.x, self.position.y)
+	chessBoard[i][j] = "0"
+	i=i+(dy*f)
+	j=j+(dx*f)
+	chessBoard[i][j] = nameOfPiece.replace("@", "")
+	initialPosition = false
+	if GlobalValueChessGame.startWhite == true:
+		if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
+			promotion("White","Cavalier", "Fou", "Tour", "Reine")
+		elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
+			promotion("Black","Cavalier", "Fou", "Tour", "Reine")
+	elif GlobalValueChessGame.startWhite == false:
+		if chessBoard[i][j].begins_with("PawnWhite") and i == 9:
+			promotion("White","Cavalier", "Fou", "Tour", "Reine")
+		elif chessBoard[i][j].begins_with("PawnBlack") and i == 2:
+			promotion("Black","Cavalier", "Fou", "Tour", "Reine")
+	if promoteInProgress == false:
+		GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+	get_node("SoundMovePiece").play()
+	resetLastMovePlay()
+	lastMovePlay()
+
 func moveWithPinWhite(dx,dy,enPassantI):
 	if pieceProtectsAgainstAnAttack == false:
 		if initialPosition == true:
@@ -308,30 +253,32 @@ func defenceMove(attacki,attackj):
 	and ((chessBoard[attacki][attackj] == "0" or "Black" in chessBoard[attacki][attackj]) and GlobalValueChessGame.turnWhite == true\
 	or (chessBoard[attacki][attackj] == "0" or "White" in chessBoard[attacki][attackj]) and GlobalValueChessGame.turnWhite == false):
 		rpc("moveDefencePiece",targetCaseX,targetCaseY,attacki,attackj)
-#		self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
-#		Position = Vector2(self.position.x, self.position.y)
-#		chessBoard[i][j] = "0"
-#		i=attacki
-#		j=attackj
-#		chessBoard[i][j] = nameOfPiece.replace("@", "")
-#		if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
-#			promotion("White","knight_white", "bishop_white", "rook_white", "queen_white")
-#		elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
-#			promotion("Black","knight_black", "bishop_black", "rook_black", "queen_black")
-#		if promoteInProgress == false:
-#			GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-#		initialPosition = false
-#		attackerPositionshiftI = 0
-#		attackerPositionshiftJ = 0
-#		attackerPositionshift2I = 0
-#		attackerPositionshift2J = 0
-#		pieceProtectTheKing = false
-#		get_node("SoundMovePiece").play()
-#		resetLastMovePlay()
-#		lastMovePlay()
 	elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
 		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
 		self.position = Vector2(Position.x, Position.y)
+
+@rpc("any_peer", "call_local") func moveDefencePiece(targetCaseX,targetCaseY,attacki,attackj):
+	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	Position = Vector2(self.position.x, self.position.y)
+	chessBoard[i][j] = "0"
+	i=attacki
+	j=attackj
+	chessBoard[i][j] = nameOfPiece.replace("@", "")
+	if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
+		promotion("White","Cavalier", "Fou", "Tour", "Reine")
+	elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
+		promotion("Black","Cavalier", "Fou", "Tour", "Reine")
+	if promoteInProgress == false:
+		GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+	initialPosition = false
+	attackerPositionshiftI = 0
+	attackerPositionshiftJ = 0
+	attackerPositionshift2I = 0
+	attackerPositionshift2J = 0
+	pieceProtectTheKing = false
+	get_node("SoundMovePiece").play()
+	resetLastMovePlay()
+	lastMovePlay()
 
 func moveFinal(checkColor):
 	if GlobalValueChessGame.startWhite == true:
@@ -360,20 +307,16 @@ func _on_area_2d_area_entered(area):
 		if promoteInProgress == false:
 			if white == true and GlobalValueChessGame.turnWhite == false:
 				if "Black" in pieceName and dragging == false :
-#					VariableGlobalOption.pieceTaken = true
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == true:
 				if "White" in pieceName and dragging == false :
-#					VariableGlobalOption.pieceTaken = true
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 		elif promoteInProgress == true:
 			if white == true and GlobalValueChessGame.turnWhite == true:
 				if "Black" in pieceName and dragging == false :
-#					VariableGlobalOption.pieceTaken = true
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == false:
 				if "White" in pieceName and dragging == false :
-#					VariableGlobalOption.pieceTaken = true
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 
 func findDirectionAttackRow(dx, dy, rookColor, queenColor):
@@ -477,21 +420,23 @@ func theKingIsBehind():
 		#On cherche vers le Haut/Droite
 		findtheKingIsBehind(1, -1, kingColor)
 
-func promotion(color,knightColor,bishopColor,rookColor,queenColor):
+func promotion(color,knight,bishop,rook,queen):
 	print("Enter in promotion")
 	# Les noms des pièces de promotion et leurs positions x correspondantes
-	var promotionPieces = [knightColor,bishopColor,rookColor,queenColor]
+	var promotionPieces = [knight,bishop,rook,queen]
 	var xPositions = [0, 200, 400, 600]
 	
-	for i in range(len(promotionPieces)):
-		var promotion_sprite = Sprite2D.new()
-		promotion_sprite.texture = load("res://Image/Pieces/"+ color + "/" + promotionPieces[i] + ".png")
-		promotion_sprite.centered = false
-		promotion_sprite.position.x = xPositions[i]
-		promotion_sprite.position.y = 300
-		promotion_sprite.scale.x = 2
-		promotion_sprite.scale.y = 2
-		get_parent().add_child(promotion_sprite)
+	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
+		for i in range(len(promotionPieces)):
+			var promotion_sprite = Sprite2D.new()
+			if color == "White":
+				promotion_sprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - " + promotionPieces[i] + ".png")
+			elif color == "Black":
+				promotion_sprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - " + promotionPieces[i] + ".png")
+			promotion_sprite.centered = false
+			promotion_sprite.position.x = xPositions[i]
+			promotion_sprite.position.y = 300
+			get_parent().add_child(promotion_sprite)
 		
 	promoteInProgress = true
 	emit_signal("promotionTurn", promoteInProgress)
@@ -518,21 +463,11 @@ func namingPromotion(piece):
 		set_name(piece + str(numberMax+1))
 
 func deletePiecesSelectionPromotion():
-	var numberOfChildren = get_parent().get_child_count()
-	for f in range(numberOfChildren - 4, numberOfChildren):
-		var child = get_parent().get_child(f)
-		child.queue_free()
-
-@rpc("any_peer","call_local") func promotionSelectionWhiteSelect(texturePath,promotionName,scriptPath):
-	print("Enter in promotionSelection selection piece")
-	texture = load(texturePath)
-	namingPromotion(promotionName)
-	deletePiecesSelectionPromotion()
-	promoteInProgress = false
-	emit_signal("promotionTurn", promoteInProgress)
-	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-	get_parent().promotionID = get_instance_id()
-	set_script(load("res://Script/Pieces/" + scriptPath))
+	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
+		var numberOfChildren = get_parent().get_child_count()
+		for f in range(numberOfChildren - 4, numberOfChildren):
+			var child = get_parent().get_child(f)
+			child.queue_free()
 
 func promotionSelectionWhite():
 	print("Enter in promotionSelection: ", self.nameOfPiece)
@@ -558,33 +493,17 @@ func promotionSelectionWhite():
 			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
 			and mousePos.y >= 250 and mousePos.y <= 450:
 				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-#				print("Enter in promotionSelection selection piece")
-#				texture = load(texturePath)
-#				namingPromotion(promotionName)
-#				deletePiecesSelectionPromotion()
-#				promoteInProgress = false
-#				emit_signal("promotionTurn", promoteInProgress)
-#				GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-#				get_parent().promotionID = get_instance_id()
-#				set_script(load("res://Script/Pieces/" + scriptPath))
 				break  # Sortir de la boucle après avoir trouvé une correspondance
 		elif GlobalValueChessGame.startWhite == false:
 			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
 			and mousePos.y >= -450 and mousePos.y <= -250:
 				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-#				print("Enter in promotionSelection selection piece")
-#				texture = load(texturePath)
-#				namingPromotion(promotionName)
-#				deletePiecesSelectionPromotion()
-#				promoteInProgress = false
-#				emit_signal("promotionTurn", promoteInProgress)
-#				GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-#				get_parent().promotionID = get_instance_id()
-#				set_script(load("res://Script/Pieces/" + scriptPath))
 				break  # Sortir de la boucle après avoir trouvé une correspondance
 
 func promotionSelectionBlack():
 	print("Enter in promotionSelection: ", self.nameOfPiece)
+	#Du faite que j'ai diviser par 2 la taille du pion, les distances de mousePos sont doubler quand je clique.
+	#Donc je divise par 2 mousePos pour avoir les bonnes valeurs.
 	var mousePos = get_local_mouse_position()/2
 	var promotionOptions = [
 	[0, 200, "KnightBlack", "Knight.gd", "res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - Cavalier.png"],
@@ -604,34 +523,26 @@ func promotionSelectionBlack():
 			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
 			and mousePos.y >= -450 and mousePos.y <= -250:
 				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-#				print("Enter in promotionSelection selection piece")
-#				texture = load(texturePath)
-#				namingPromotion(promotionName)
-#				deletePiecesSelectionPromotion()
-#				promoteInProgress = false
-#				emit_signal("promotionTurn", promoteInProgress)
-#				GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-#				get_parent().promotionID = get_instance_id()
-#				set_script(load("res://Script/Pieces/" + scriptPath))
 				break  # Sortir de la boucle après avoir trouvé une correspondance
 		elif GlobalValueChessGame.startWhite == false:
 			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
 			and mousePos.y >= 250 and mousePos.y <= 450:
 				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-#				print("Enter in promotionSelection selection piece")
-#				texture = load(texturePath)
-#				namingPromotion(promotionName)
-#				deletePiecesSelectionPromotion()
-#				promoteInProgress = false
-#				emit_signal("promotionTurn", promoteInProgress)
-#				GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-#				get_parent().promotionID = get_instance_id()
-#				set_script(load("res://Script/Pieces/" + scriptPath))
 				break  # Sortir de la boucle après avoir trouvé une correspondance
+
+@rpc("any_peer","call_local") func promotionSelectionWhiteSelect(texturePath,promotionName,scriptPath):
+	print("Enter in promotionSelection selection piece")
+	texture = load(texturePath)
+	namingPromotion(promotionName)
+	deletePiecesSelectionPromotion()
+	promoteInProgress = false
+	emit_signal("promotionTurn", promoteInProgress)
+	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+	get_parent().promotionID = get_instance_id()
+	set_script(load("res://Script/Pieces/" + scriptPath))
 
 func get_promoteInProgress():
 	return promoteInProgress
-	
 
 func createNewPieceMovePreview(dx,dy,f,color):
 	var previewSprite = Sprite2D.new()
@@ -781,34 +692,3 @@ func playBlack():
 				Position.y = 650
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
-
-#func playModeEditor(color):
-#	print("Enter in playWhiteModeEditor")
-#	set_name("Pawn"+color)
-#	nameOfPiece = get_name()
-#	for f in range(10): 
-#		for ff in range(10):
-#			if global_position.x >= 100 + f * 100 and global_position.x <= 200 + f * 100\
-#			and global_position.y >= 100 + ff * 100 and global_position.y <= 200 + ff * 100:
-#				i = ff + 2
-#				j = f + 2
-#				Position.x = position.x
-#				Position.y = position.y
-#				chessBoard[i][j] = nameOfPiece.replace("@", "")
-#				if GlobalValueChessGame.startWhite == true:
-#					if i != 8 and color == "White":
-#						initialPosition = false
-#					if i != 3 and color == "Black":
-#						initialPosition = false
-#				elif GlobalValueChessGame.startWhite == false:
-#					if i != 3 and color == "White":
-#						initialPosition = false
-#					if i != 8 and color == "Black":
-#						initialPosition = false
-
-#func _on_area_2d_mouse_entered():
-#	if VariableGlobalOption.modeEditor == true and VariableGlobalOption.modeDelete == true:
-#		chessBoard[i][j] = "0"
-#		for f in range(0,12):
-#			print(chessBoard[f])
-#		queue_free()

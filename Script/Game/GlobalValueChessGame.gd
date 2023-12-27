@@ -981,6 +981,9 @@ func attackComingRight(knightColor,bishopColor,rookColor,queenColor,kingColor):
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite" and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
+				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
+				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack" and f != 0:
 				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
@@ -1007,6 +1010,9 @@ func attackComingLeft(knightColor,bishopColor,rookColor,queenColor,kingColor):
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite" and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
+				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
+				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack" and f != 0:
 				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
@@ -1033,6 +1039,9 @@ func attackComingUpRight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite" and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
+				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
+				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack" and f != 0:
 				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
@@ -1059,6 +1068,9 @@ func attackComingUpLeft(knightColor,bishopColor,rookColor,queenColor,kingColor):
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite" and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
+				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
+				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack" and f != 0:
 				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
@@ -1085,6 +1097,9 @@ func attackComingDownRight(knightColor,bishopColor,rookColor,queenColor,kingColo
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite" and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
+				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
+				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack" and f != 0:
 				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
@@ -1111,6 +1126,9 @@ func attackComingDownLeft(knightColor,bishopColor,rookColor,queenColor,kingColor
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite" and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
+				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
+				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack" and f != 0:
 				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
@@ -1315,6 +1333,7 @@ func verificationCheckAndCheckmate():
 			checkBlack = false
 			pieceProtectTheKing = false
 		if attackPieceBlackOnTheChessboard[KingWhite.i][KingWhite.j] >= 1:
+			print("Enter in verificationCheckAndCheckmate attackPieceBlackOnTheChessboard")
 			checkWhite = true
 
 			checkingDirectionOfAttack(chessBoard,KingWhite,"KnightBlack","BishopBlack","RookBlack","QueenBlack","KingBlack")
@@ -1342,7 +1361,6 @@ func verificationCheckAndCheckmate():
 #							initialisingChessBoard("PawnWhite", "PawnBlack", pieceWhite, pieceBlack)
 #						initialisingAttackBoardWhiteAndBlack()
 #						get_tree().change_scene_to_file("res://Scene/gameScreen.tscn")
-
 
 		print("King White check: ", checkWhite)
 		print("King Black check: ", checkBlack)
@@ -1379,7 +1397,6 @@ func verificationCheckAndCheckmate():
 #							initialisingChessBoard("PawnWhite", "PawnBlack", pieceWhite, pieceBlack)
 #						initialisingAttackBoardWhiteAndBlack()
 #						get_tree().change_scene_to_file("res://Scene/gameScreen.tscn")
-
 
 		print("King White check: ", checkWhite)
 		print("King Black check: ", checkBlack)

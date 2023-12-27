@@ -52,6 +52,10 @@ func updateVariablePiecePromoted():
 				piece.nameOfPiece = pieceName
 				piece.initialPosition = false
 				piece.positionChessBoard = global_position
+				if piece.white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
+				elif piece.white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 				break
 	elif GlobalValueChessGame.startWhite == false:
 		for f in range(numberOfChildren):
@@ -74,6 +78,10 @@ func updateVariablePiecePromoted():
 				piece.nameOfPiece = pieceName
 				piece.initialPosition = false
 				piece.positionChessBoard = global_position
+				if piece.white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
+				elif piece.white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 				break
 
 func _on_pawn_promotion_turn(promoteInProgress):
@@ -87,6 +95,7 @@ func _on_pawn_2_promotion_turn(promoteInProgress):
 func _on_pawn_3_promotion_turn(promoteInProgress):
 	print("Enter _on_pawn_3_promotion_turn")
 	blockMoveDuringPromotion(promoteInProgress)
+#	rpc("blockMoveDuringPromotion",promoteInProgress)
 
 func _on_pawn_4_promotion_turn(promoteInProgress):
 	print("Enter _on_pawn_4_promotion_turn")

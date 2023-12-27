@@ -88,8 +88,24 @@ func _on_button_option_button_down():
 
 func _on_button_abandon_button_down():
 	rpc("playerDisconnected")
-	OnlineMatch.leave()
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+	OnlineMatch.leave()
+	#Reset variables global
+	GlobalValueChessGame.startWhite = true
+	GlobalValueChessGame.gameLaunch = false
+	GlobalValueChessGame.initialisationDone = false
+	GlobalValueChessGame.oneMoveCase = 100
+	GlobalValueChessGame.turnWhite = true
+	GlobalValueChessGame.updateOfThePartsAttack = false
+	GlobalValueChessGame.directionOfAttack = "Aucune"
+	GlobalValueChessGame.checkWhite = false
+	GlobalValueChessGame.checkBlack = false
+	GlobalValueChessGame.pieceProtectTheKing = false
+	GlobalValueChessGame.threatened = false
+	GlobalValueChessGame.stalemate = false
+	GlobalValueChessGame.checkmateWhite = false
+	GlobalValueChessGame.checkmateBlack = false
+	GlobalValueChessGame.checkmate = false
 
 @rpc("any_peer","call_remote") func playerDisconnected():
 	get_node("PlayerDisconnected").visible = true

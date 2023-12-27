@@ -61,6 +61,34 @@ func _process(delta):
 	resetLastMovePlay()
 	lastMovePlay()
 
+@rpc("any_peer", "call_local") func moveKingSizeCasteling(targetCaseX,targetCaseY,dx,dy):
+	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	Position = Vector2(self.position.x, self.position.y)
+	chessBoard[i][j] = "0"
+	i=i
+	j=j+(dx*2)
+	chessBoard[i][j] = nameOfPiece.replace("@", "")
+	initialPosition = false
+	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+	get_node("SoundMovePiece").play()
+	resetLastMovePlay()
+	lastMovePlay()
+	emit_signal("kingSizeCastelingSignal")
+
+@rpc("any_peer", "call_local") func moveQueenSizeCasteling(targetCaseX,targetCaseY,dx,dy):
+	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	Position = Vector2(self.position.x, self.position.y)
+	chessBoard[i][j] = "0"
+	i=i
+	j=j+(dx*2)
+	chessBoard[i][j] = nameOfPiece.replace("@", "")
+	initialPosition = false
+	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+	get_node("SoundMovePiece").play()
+	resetLastMovePlay()
+	lastMovePlay()
+	emit_signal("queenSizeCastelingSignal")
+
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT\
@@ -153,18 +181,19 @@ func kingSizeCasteling(dx, dy, rookColor, attackColor):
 		and chessBoard[i][j+1] == "0" and chessBoard[i][j+2] == "0" and chessBoard[i][j+3].begins_with("Rook") \
 		and attackColor[i][j] == 0 and attackColor[i][j+1] == 0 and attackColor[i][j+2] == 0 and initialPosition == true \
 		and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
-			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
-			Position = Vector2(self.position.x, self.position.y)
-			chessBoard[i][j] = "0"
-			i=i
-			j=j+(dx*2)
-			chessBoard[i][j] = nameOfPiece.replace("@", "")
-			initialPosition = false
-			GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-			get_node("SoundMovePiece").play()
-			resetLastMovePlay()
-			lastMovePlay()
-			emit_signal("kingSizeCastelingSignal")
+			rpc("moveKingSizeCasteling",targetCaseX,targetCaseY,dx,dy)
+#			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+#			Position = Vector2(self.position.x, self.position.y)
+#			chessBoard[i][j] = "0"
+#			i=i
+#			j=j+(dx*2)
+#			chessBoard[i][j] = nameOfPiece.replace("@", "")
+#			initialPosition = false
+#			GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+#			get_node("SoundMovePiece").play()
+#			resetLastMovePlay()
+#			lastMovePlay()
+#			emit_signal("kingSizeCastelingSignal")
 		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
 		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
 			self.position = Vector2(Position.x, Position.y)
@@ -179,18 +208,19 @@ func queenSizeCasteling(dx, dy, rookColor, attackColor):
 		and chessBoard[i][j-1] == "0" and chessBoard[i][j-2] == "0" and chessBoard[i][j-3] == "0" and chessBoard[i][j-4].begins_with("Rook") \
 		and attackColor[i][j] == 0 and attackColor[i][j-1] == 0 and attackColor[i][j-2] == 0  and attackColor[i][j-3] == 0 and initialPosition == true \
 		and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
-			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
-			Position = Vector2(self.position.x, self.position.y)
-			chessBoard[i][j] = "0"
-			i=i
-			j=j+(dx*2)
-			chessBoard[i][j] = nameOfPiece.replace("@", "")
-			initialPosition = false
-			GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
-			get_node("SoundMovePiece").play()
-			resetLastMovePlay()
-			lastMovePlay()
-			emit_signal("queenSizeCastelingSignal")
+			rpc("moveQueenSizeCasteling",targetCaseX,targetCaseY,dx,dy)
+#			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+#			Position = Vector2(self.position.x, self.position.y)
+#			chessBoard[i][j] = "0"
+#			i=i
+#			j=j+(dx*2)
+#			chessBoard[i][j] = nameOfPiece.replace("@", "")
+#			initialPosition = false
+#			GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+#			get_node("SoundMovePiece").play()
+#			resetLastMovePlay()
+#			lastMovePlay()
+#			emit_signal("queenSizeCastelingSignal")
 		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
 		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
 			self.position = Vector2(Position.x, Position.y)
@@ -302,19 +332,19 @@ func playBlack():
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
 
-func playModeEditor(color):
-	print("Enter in playWhiteModeEditor")
-	set_name("King"+color)
-	nameOfPiece = get_name()
-	for f in range(10): 
-		for ff in range(10):
-			if global_position.x >= 100 + f * 100 and global_position.x <= 200 + f * 100\
-			and global_position.y >= 100 + ff * 100 and global_position.y <= 200 + ff * 100:
-				i = ff + 2
-				j = f + 2
-				Position.x = position.x
-				Position.y = position.y
-				chessBoard[i][j] = nameOfPiece.replace("@", "")
+#func playModeEditor(color):
+#	print("Enter in playWhiteModeEditor")
+#	set_name("King"+color)
+#	nameOfPiece = get_name()
+#	for f in range(10): 
+#		for ff in range(10):
+#			if global_position.x >= 100 + f * 100 and global_position.x <= 200 + f * 100\
+#			and global_position.y >= 100 + ff * 100 and global_position.y <= 200 + ff * 100:
+#				i = ff + 2
+#				j = f + 2
+#				Position.x = position.x
+#				Position.y = position.y
+#				chessBoard[i][j] = nameOfPiece.replace("@", "")
 
 #func _on_area_2d_mouse_entered():
 #	if VariableGlobalOption.modeEditor == true and VariableGlobalOption.modeDelete == true:

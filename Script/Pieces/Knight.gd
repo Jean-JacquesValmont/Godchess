@@ -27,9 +27,14 @@ var playerID
 func _ready():
 	await get_tree().process_frame
 	positionChessBoard = get_parent().global_position
-	if GlobalValueChessGame.startWhite == true:
+	if self.position.y == 750:
+		white = true
+	elif self.position.y == 50:
+		white = false
+	
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		playWhite()
-	elif GlobalValueChessGame.startWhite == false:
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playBlack()
 
 	if white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
@@ -37,8 +42,8 @@ func _ready():
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
@@ -355,63 +360,65 @@ func resetLastMovePlay():
 			break
 
 func playWhite():
-	if self.position.y == 750 :
-		white = true
-	elif self.position.y == 50:
-		white = false
-		
+	chessBoard = GlobalValueChessGame.chessBoard
+
 	if white == true:
 		set_name("KnightWhite") #Si la pièce est déjà créer alors l'autre se nommera avec un chiffre à la fin
 		nameOfPiece = get_name()
 		if nameOfPiece == "KnightWhite":
 			i = 9
 			j = 3
+			self.position = Vector2(150,750)
 			Position = Vector2(150,750)
 		elif nameOfPiece == "KnightWhite2":
 			i = 9
 			j = 8
+			self.position = Vector2(650,750)
 			Position = Vector2(650,750)
 	else:
 		i = 2
 		j = 3
-		Position = Vector2(150, 50)
+		self.position = Vector2(150, 50)
+		Position = Vector2(150,50)
 		texture = textureBlack
 		set_name("KnightBlack")
 		nameOfPiece = get_name()
 		if nameOfPiece == "KnightBlack2":
 			i = 2
 			j = 8
+			self.position = Vector2(650,50)
 			Position = Vector2(650,50)
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
 
 func playBlack():
-	if self.position.y == 750 :
-		white = false
-	elif self.position.y == 50:
-		white = true
-		
+	chessBoard = GlobalValueChessGame.chessBoardReverse
+
 	if white == true:
 		set_name("KnightWhite") #Si la pièce est déjà créer alors l'autre se nommera avec un chiffre à la fin
 		nameOfPiece = get_name()
 		if nameOfPiece == "KnightWhite":
-			i = 2
-			j = 3
-			Position = Vector2(150,50)
+			i = 2 
+			j = 8 #Il faut inverser les pièces quand notre point de vu tourne
+			self.position = Vector2(650,50)
+			Position = Vector2(650,50)
 		elif nameOfPiece == "KnightWhite2":
 			i = 2
-			j = 8
-			Position = Vector2(650,50)
+			j = 3
+			self.position = Vector2(150,50)
+			Position = Vector2(150,50)
 	else:
 		i = 9
-		j = 3
-		Position = Vector2(150, 750)
+		j = 8
+		self.position = Vector2(650, 750)
+		Position = Vector2(650,750)
 		texture = textureBlack
 		set_name("KnightBlack")
 		nameOfPiece = get_name()
 		if nameOfPiece == "KnightBlack2":
 			i = 9
-			j = 8
-			Position = Vector2(650,750)
+			j = 3
+			self.position = Vector2(150,750)
+			Position = Vector2(150,750)
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )

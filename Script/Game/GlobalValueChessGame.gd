@@ -1,6 +1,7 @@
 extends Node
 
 var chessBoard = []
+var chessBoardReverse = []
 var pieceWhite = [null,null,"RookWhite","KnightWhite","BishopWhite","QueenWhite","KingWhite","BishopWhite2","KnightWhite2","RookWhite2"]
 var pieceBlack = [null,null,"RookBlack","KnightBlack","BishopBlack","QueenBlack","KingBlack","BishopBlack2","KnightBlack2","RookBlack2"]
 var attackPieceWhiteOnTheChessboard = []
@@ -36,19 +37,14 @@ func _ready():
 
 func _process(delta):
 	if gameLaunch == true:
-#		if VariableGlobalOption.modeEditor == false:
 		if initialisationDone == false:
 			if startWhite == true :
 				initialisingChessBoard("PawnBlack", "PawnWhite", pieceBlack, pieceWhite)
+				initialisingReverseChessBoard(chessBoard)
 			elif startWhite == false :
 				initialisingChessBoard("PawnWhite", "PawnBlack", pieceWhite, pieceBlack)
 			initialisingAttackBoardWhiteAndBlack()
 			initialisationDone = true
-#		elif VariableGlobalOption.modeEditor == true:
-#			if initialisationDone == false:
-#				initialisingChessBoardModeEditor()
-#				initialisingAttackBoardWhiteAndBlack()
-#				initialisationDone = true
 			
 		if turnWhite == true:
 			if updateOfThePartsAttack == false:
@@ -104,19 +100,37 @@ func initialisingChessBoard(pawnColor, pawnColor2, pieceColor, pieceColor2):
 	for i in range(0,12):
 		print(chessBoard[i])
 
-func initialisingChessBoardModeEditor():
-	for i in range(2,10):
-		for j in range(2,10):
-			if chessBoard[i][j] ==  null:
-				chessBoard[i][j] = "0"
-	for i in range(0,12):
-		for j in range(0,12):
-			if chessBoard[i][j] ==  null:
-				chessBoard[i][j] = "x"
+func initialisingReverseChessBoard(chessBoard):
+	var chessBoardSaved = chessBoard.duplicate(true) #Le true permet de faire une copie du tableau qui n'est pas liée à l'original
 	
-	print("ChessBoard: ")
+	# Inverser chaque ligne du tableau
+	for i in range(chessBoardSaved.size()):
+		chessBoardSaved[i].reverse()
+		
+	chessBoardSaved.reverse()
+	
+	chessBoardReverse = chessBoardSaved
+	print("ChessBoardReverse: ")
 	for i in range(0,12):
-		print(chessBoard[i])
+		print(chessBoardReverse[i])
+
+func reverseChessBoard(chessBoard):
+	var chessBoardSaved = []
+	# Créer une copie du tableau sans lien avec l'original
+	chessBoardSaved = chessBoard.duplicate(true) #Le true permet de faire une copie du tableau qui n'est pas liée à l'original
+
+	# Inverser chaque ligne du tableau
+	for i in range(chessBoardSaved.size()):
+		chessBoardSaved[i].reverse()
+
+	# Inverser l'ordre des lignes dans le tableau
+	chessBoardSaved.reverse()
+	print("OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id: ", OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id)
+	print("ChessBoardReverse of reverseChessBoard: ")
+	for i in range(0,12):
+		print(chessBoardSaved[i])
+
+	return chessBoardSaved
 
 func createAttackBoardWhiteAndBlack(rowSize,columnSize):
 	for i in range(rowSize):
@@ -1347,20 +1361,6 @@ func verificationCheckAndCheckmate():
 				checkmateWhite = true
 				checkmate = true
 				print("Echec et mat pour le roi blanc")
-#				if VariableGlobalOption.roundOfThree == true:
-#						VariableGlobalOption.scoreBlack += 1
-#						turnWhite = true
-#						updateOfThePartsAttack = false
-#						pieceProtectTheKing = false
-#						threatened = false
-#						checkmateWhite = false
-#						checkmate = false
-#						if startWhite == true :
-#							initialisingChessBoard("PawnBlack", "PawnWhite", pieceBlack, pieceWhite)
-#						elif startWhite == false :
-#							initialisingChessBoard("PawnWhite", "PawnBlack", pieceWhite, pieceBlack)
-#						initialisingAttackBoardWhiteAndBlack()
-#						get_tree().change_scene_to_file("res://Scene/gameScreen.tscn")
 
 		print("King White check: ", checkWhite)
 		print("King Black check: ", checkBlack)
@@ -1383,20 +1383,6 @@ func verificationCheckAndCheckmate():
 				checkmateBlack = true
 				checkmate = true
 				print("Echec et mat pour le roi noir")
-#				if VariableGlobalOption.roundOfThree == true:
-#						VariableGlobalOption.scoreWhite += 1
-#						turnWhite = true
-#						updateOfThePartsAttack = false
-#						pieceProtectTheKing = false
-#						threatened = false
-#						checkmateBlack = false
-#						checkmate = false
-#						if startWhite == true :
-#							initialisingChessBoard("PawnBlack", "PawnWhite", pieceBlack, pieceWhite)
-#						elif startWhite == false :
-#							initialisingChessBoard("PawnWhite", "PawnBlack", pieceWhite, pieceBlack)
-#						initialisingAttackBoardWhiteAndBlack()
-#						get_tree().change_scene_to_file("res://Scene/gameScreen.tscn")
 
 		print("King White check: ", checkWhite)
 		print("King Black check: ", checkBlack)

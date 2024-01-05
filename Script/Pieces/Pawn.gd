@@ -27,21 +27,26 @@ var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var playerID
 
-func _ready():  
+func _ready():
 	await get_tree().process_frame
 	positionChessBoard = get_parent().global_position
-	if GlobalValueChessGame.startWhite == true:
+	if self.position.y == 650:
+		white = true
+	elif self.position.y == 150:
+		white = false
+	
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		playWhite()
-	elif GlobalValueChessGame.startWhite == false:
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playBlack()
-		
+
 	if white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 	
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
@@ -637,10 +642,7 @@ func resetLastMovePlay():
 			break
 
 func playWhite():
-	if self.position.y == 650 :
-		white = true
-	elif self.position.y == 150:
-		white = false
+	chessBoard = GlobalValueChessGame.chessBoard
 		
 	if white == true:
 		set_name("PawnWhite")
@@ -648,56 +650,66 @@ func playWhite():
 		if nameOfPiece == "PawnWhite":
 			i = 8
 			j = 2
-			Position = Vector2(50, 650)
+			self.position = Vector2(50,650)
+			Position = Vector2(50,650)
 		for f in range(2, 9):
 			if nameOfPiece == "PawnWhite" + str(f) :
 				j = f + 1
+				self.position.x = ((50 + f * 100) - 100)
+				self.position.y = 650
 				Position.x = ((50 + f * 100) - 100)
 				Position.y = 650
 	else:
 		i = 3
 		j = 2
-		Position = Vector2(50, 150)
+		self.position = Vector2(50,150)
+		Position = Vector2(50,150)
 		texture = textureBlack
 		set_name("PawnBlack")
 		nameOfPiece = get_name()
 		for f in range(2, 9):
 			if nameOfPiece == "PawnBlack" + str(f) :
 				j = f + 1
+				self.position.x = ((50 + f * 100) - 100)
+				self.position.y = 150
 				Position.x = (50 + f * 100) - 100
 				Position.y = 150
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
 
 func playBlack():
-	if self.position.y == 650 :
-		white = false
-	elif self.position.y == 150:
-		white = true
+	chessBoard = GlobalValueChessGame.chessBoardReverse
 		
 	if white == true:
 		set_name("PawnWhite")
 		nameOfPiece = get_name()
 		if nameOfPiece == "PawnWhite":
 			i = 3
-			j = 2
-			Position = Vector2(50, 150)
+			j = 9
+			self.position = Vector2(50,150)
+			Position = Vector2(50,150)
 		for f in range(2, 9):
 			if nameOfPiece == "PawnWhite" + str(f) :
 				i = 3
-				j = f + 1
+				j = 10 - f
+				self.position.x = ((50 + f * 100) - 100)
+				self.position.y = 150
 				Position.x = ((50 + f * 100) - 100)
 				Position.y = 150
 	else:
 		i = 8
-		j = 2
-		Position = Vector2(50, 650)
+		j = 9
+		self.position = Vector2(50,650)
+		Position = Vector2(50,650)
 		texture = textureBlack
 		set_name("PawnBlack")
 		nameOfPiece = get_name()
 		for f in range(2, 9):
 			if nameOfPiece == "PawnBlack" + str(f) :
-				j = f + 1
+				i = 8
+				j = 10 - f
+				self.position.x = ((50 + f * 100) - 100)
+				self.position.y = 650
 				Position.x = (50 + f * 100) - 100
 				Position.y = 650
 		

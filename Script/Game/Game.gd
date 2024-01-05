@@ -13,16 +13,18 @@ func _ready():
 	print("GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
 	print("GlobalValueMenu.godSelectPlayer2: ", GlobalValueMenu.godSelectPlayer2)
 	
-	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		self.texture = load("res://Image/Game/ChessBoardSideWhite.png")
 		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[0]]
 		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[1]]
 		get_node("Player1/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/ChessBoardImageGod.png")
 		get_node("Player2/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/ChessBoardImageGod.png")
 	else:
-		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[1]]
-		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[0]]
-		get_node("Player1/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/ChessBoardImageGod.png")
-		get_node("Player2/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/ChessBoardImageGod.png")
+		self.texture = load("res://Image/Game/ChessBoardSideBlack.png")
+		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[0]]
+		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[1]]
+		get_node("Player1/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/ChessBoardImageGod.png")
+		get_node("Player2/GodSelect").texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/ChessBoardImageGod.png")
 	
 	#Sprite pieces player 1:
 	get_node("ChessBoard").get_child(0).texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - Pion.png")
@@ -64,7 +66,7 @@ func _ready():
 		get_node("ChessBoard").get_child(i).scale = Vector2(0.5, 0.5)
 	
 	GlobalValueChessGame.gameLaunch = true
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#Display turn player
@@ -81,24 +83,44 @@ func _process(delta):
 	#################################################################
 	#Display checkmate 
 	
-	if GlobalValueChessGame.checkWhite == true:
+	if GlobalValueChessGame.checkWhite == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		get_node("Player1/DisplayCheckmate").set_text("Echec")
-	elif GlobalValueChessGame.checkWhite == false:
+	elif GlobalValueChessGame.checkWhite == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		get_node("Player1/DisplayCheckmate").set_text("")
-		
-	if GlobalValueChessGame.checkBlack == true:
+	
+	if GlobalValueChessGame.checkWhite == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		get_node("Player2/DisplayCheckmate").set_text("Echec")
-	elif GlobalValueChessGame.checkBlack == false:
+	elif GlobalValueChessGame.checkWhite == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("Player2/DisplayCheckmate").set_text("")
+		
+	if GlobalValueChessGame.checkBlack == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("Player1/DisplayCheckmate").set_text("Echec")
+	elif GlobalValueChessGame.checkBlack == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("Player1/DisplayCheckmate").set_text("")
+	
+	if GlobalValueChessGame.checkBlack == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		get_node("Player2/DisplayCheckmate").set_text("Echec")
+	elif GlobalValueChessGame.checkBlack == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		get_node("Player2/DisplayCheckmate").set_text("")
 	
 	if GlobalValueChessGame.stalemate == true:
 		get_node("Player1/DisplayCheckmate").set_text("Pat")
 		get_node("Player2/DisplayCheckmate").set_text("Pat")
 	
-	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true:
+	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true\
+	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
-	elif GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true:
+	elif GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true\
+	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
+	
+	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true\
+	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
+	elif GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true\
+	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
+
 
 func _on_button_game_menu_button_down():
 	if get_node("GameMenu").visible == false:

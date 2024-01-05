@@ -9,10 +9,11 @@ res://Scene/Pieces/Bishop.tscn
 res://Scene/Pieces/Rook.tscn
 res://Scene/Pieces/Queen.tscn
 res://Scene/Pieces/King.tscn
-res://Script/Pieces/Pawn.gd
+res://Script/Game/Game.gd
 res://Script/Pieces/Knight.gd
+res://Script/Game/GlobalValueChessGame.gd
 res://Script/Pieces/Bishop.gd
 res://Script/Pieces/Rook.gd
-res://Script/Pieces/Queen.gd
 res://Script/Pieces/King.gd
-res://Script/Game/Game.gd
+res://Script/Pieces/Pawn.gd
+res://Script/Pieces/Queen.gd

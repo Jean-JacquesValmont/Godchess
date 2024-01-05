@@ -25,9 +25,14 @@ var playerID
 func _ready():
 	await get_tree().process_frame
 	positionChessBoard = get_parent().global_position
-	if GlobalValueChessGame.startWhite == true:
+	if self.position.y == 750:
+		white = true
+	elif self.position.y == 50:
+		white = false
+	
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		playWhite()
-	elif GlobalValueChessGame.startWhite == false:
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playBlack()
 
 	if white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
@@ -35,8 +40,8 @@ func _ready():
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
@@ -244,10 +249,7 @@ func resetLastMovePlay():
 			break
 
 func playWhite():
-	if self.position.y == 750 :
-		white = true
-	elif self.position.y == 50:
-		white = false
+	chessBoard = GlobalValueChessGame.chessBoard
 		
 	if white == true:
 		set_name("KingWhite") #Si la pièce est déjà créer alors l'autre se nommera avec un chiffre à la fin
@@ -255,11 +257,13 @@ func playWhite():
 		if nameOfPiece == "KingWhite":
 			i = 9
 			j = 6
+			self.position = Vector2(450,750)
 			Position = Vector2(450,750)
 	else:
 		i = 2
 		j = 6
-		Position = Vector2(450, 50)
+		self.position = Vector2(450,50)
+		Position = Vector2(450,50)
 		texture = textureBlack
 		set_name("KingBlack")
 		nameOfPiece = get_name()
@@ -267,22 +271,21 @@ func playWhite():
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
 
 func playBlack():
-	if self.position.y == 750 :
-		white = false
-	elif self.position.y == 50:
-		white = true
+	chessBoard = GlobalValueChessGame.chessBoardReverse
 		
 	if white == true:
 		set_name("KingWhite") #Si la pièce est déjà créer alors l'autre se nommera avec un chiffre à la fin
 		nameOfPiece = get_name()
 		if nameOfPiece == "KingWhite":
 			i = 2
-			j = 6
-			Position = Vector2(450,50)
+			j = 5
+			self.position = Vector2(350,50)
+			Position = Vector2(350,50)
 	else:
 		i = 9
-		j = 6
-		Position = Vector2(450, 750)
+		j = 5
+		self.position = Vector2(350,750)
+		Position = Vector2(350,750)
 		texture = textureBlack
 		set_name("KingBlack")
 		nameOfPiece = get_name()

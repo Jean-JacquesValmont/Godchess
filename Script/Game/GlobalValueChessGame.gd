@@ -396,7 +396,7 @@ func attackPiecesWhite():
 			if piece == "KingWhite":
 				kingAttackWhite(i, j, chessBoard, attackPieceWhiteOnTheChessboard)
 				
-	printAttackWhite()
+	#printAttackWhite()
 
 func attackPiecesBlack():
 	for i in range(12):
@@ -426,7 +426,7 @@ func attackPiecesBlack():
 			if piece == "KingBlack":
 				kingAttackBlack(i, j, chessBoard, attackPieceBlackOnTheChessboard)
 					
-	printAttackBlack()
+	#printAttackBlack()
 
 func enPassantFinish():
 	print("Enter in enPassantFinish")
@@ -1337,11 +1337,52 @@ func verificationStalemate(color,pawnColor,knightColor,bishopColor,rookColor,que
 				stalemate = false
 		print("stalemate: ", stalemate)
 
+func reverseCoordonatesKing(KingColor):
+	match KingColor.i:
+		2:
+			KingColor.i = 9
+		3:
+			KingColor.i = 8
+		4:
+			KingColor.i = 7
+		5:
+			KingColor.i = 6
+		6:
+			KingColor.i = 5
+		7:
+			KingColor.i = 4
+		8:
+			KingColor.i = 3
+		9:
+			KingColor.i = 2
+	match KingColor.j:
+		2:
+			KingColor.j = 9
+		3:
+			KingColor.j = 8
+		4:
+			KingColor.j = 7
+		5:
+			KingColor.j = 6
+		6:
+			KingColor.j = 5
+		7:
+			KingColor.j = 4
+		8:
+			KingColor.j = 3
+		9:
+			KingColor.j = 2
+
 func verificationCheckAndCheckmate():
 	var KingWhite = get_node(pathKingWhite)
 	var KingBlack = get_node(pathKingBlack)
-
+	
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		reverseCoordonatesKing(KingWhite)
+		reverseCoordonatesKing(KingBlack)
+		
 	print("Enter in verificationCheckAndCheckmate")
+	
 	if turnWhite == true:
 		if attackPieceWhiteOnTheChessboard[KingBlack.i][KingBlack.j] == 0:
 			checkBlack = false
@@ -1356,11 +1397,15 @@ func verificationCheckAndCheckmate():
 			verificationDefenderAllAttack("KnightWhite","BishopWhite","RookWhite","QueenWhite","KingWhite")
 
 			checkmateKing("PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",KingWhite,attackPieceBlackOnTheChessboard)
-
-			if threatened == true:
-				checkmateWhite = true
-				checkmate = true
-				print("Echec et mat pour le roi blanc")
+				
+		if threatened == true:
+			checkmateWhite = true
+			checkmate = true
+			print("Echec et mat pour le roi blanc")
+		
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			reverseCoordonatesKing(KingWhite)
+			reverseCoordonatesKing(KingBlack)
 
 		print("King White check: ", checkWhite)
 		print("King Black check: ", checkBlack)
@@ -1379,10 +1424,14 @@ func verificationCheckAndCheckmate():
 
 			checkmateKing("PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",KingBlack,attackPieceWhiteOnTheChessboard)
 
-			if threatened == true:
-				checkmateBlack = true
-				checkmate = true
-				print("Echec et mat pour le roi noir")
+		if threatened == true:
+			checkmateBlack = true
+			checkmate = true
+			print("Echec et mat pour le roi noir")
+		
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			reverseCoordonatesKing(KingWhite)
+			reverseCoordonatesKing(KingBlack)
 
 		print("King White check: ", checkWhite)
 		print("King Black check: ", checkBlack)

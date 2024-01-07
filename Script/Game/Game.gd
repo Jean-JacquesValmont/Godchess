@@ -83,44 +83,43 @@ func _process(delta):
 	#################################################################
 	#Display checkmate 
 	
-	if GlobalValueChessGame.checkWhite == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-		get_node("Player1/DisplayCheckmate").set_text("Echec")
-	elif GlobalValueChessGame.checkWhite == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-		get_node("Player1/DisplayCheckmate").set_text("")
+	if GlobalValueChessGame.checkWhite == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			get_node("Player1/DisplayCheckmate").set_text("Echec")
+		else:
+			get_node("Player2/DisplayCheckmate").set_text("Echec")
+	elif GlobalValueChessGame.checkWhite == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			get_node("Player1/DisplayCheckmate").set_text("")
+		else:
+			get_node("Player2/DisplayCheckmate").set_text("")
 	
-	if GlobalValueChessGame.checkWhite == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		get_node("Player2/DisplayCheckmate").set_text("Echec")
-	elif GlobalValueChessGame.checkWhite == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		get_node("Player2/DisplayCheckmate").set_text("")
-		
-	if GlobalValueChessGame.checkBlack == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		get_node("Player1/DisplayCheckmate").set_text("Echec")
-	elif GlobalValueChessGame.checkBlack == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		get_node("Player1/DisplayCheckmate").set_text("")
-	
-	if GlobalValueChessGame.checkBlack == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-		get_node("Player2/DisplayCheckmate").set_text("Echec")
-	elif GlobalValueChessGame.checkBlack == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-		get_node("Player2/DisplayCheckmate").set_text("")
+	if GlobalValueChessGame.checkBlack == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			get_node("Player2/DisplayCheckmate").set_text("Echec")
+		else:
+			get_node("Player1/DisplayCheckmate").set_text("Echec")
+	elif GlobalValueChessGame.checkBlack == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			get_node("Player2/DisplayCheckmate").set_text("")
+		else:
+			get_node("Player1/DisplayCheckmate").set_text("")
 	
 	if GlobalValueChessGame.stalemate == true:
 		get_node("Player1/DisplayCheckmate").set_text("Pat")
 		get_node("Player2/DisplayCheckmate").set_text("Pat")
 	
-	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true\
-	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-		get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
-	elif GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true\
-	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-		get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
+	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
+		else:
+			get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
 	
-	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true\
-	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
-	elif GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true\
-	and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
-
+	if GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
+		else:
+			get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
 
 func _on_button_game_menu_button_down():
 	if get_node("GameMenu").visible == false:

@@ -85,6 +85,7 @@ func _input(event):
 				self.position = Vector2(Position.x, Position.y)
 				dragging = false
 				z_index = 0
+				print("chessBoard after moveFinal piece: ")
 				for f in range(0,12):
 					print(chessBoard[f])
 					
@@ -112,12 +113,33 @@ func move(dx, dy) :
 			self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func movePiece(f,targetCaseX,targetCaseY,dx,dy):
-	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	if GlobalValueChessGame.turnWhite == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i+(dy*f)
+			j=j+(dx*f)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i-(dy*f)
+			j=j-(dx*f)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+	elif GlobalValueChessGame.turnWhite == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i-(dy*f)
+			j=j-(dx*f)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i+(dy*f)
+			j=j+(dx*f)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
 	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=i+(dy*f)
-	j=j+(dx*f)
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
 	initialPosition = false
 	if GlobalValueChessGame.startWhite == true:
 		if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
@@ -686,21 +708,21 @@ func playBlack():
 		if nameOfPiece == "PawnWhite":
 			i = 3
 			j = 9
-			self.position = Vector2(50,150)
-			Position = Vector2(50,150)
+			self.position = Vector2(750,150)
+			Position = Vector2(750,150)
 		for f in range(2, 9):
 			if nameOfPiece == "PawnWhite" + str(f) :
 				i = 3
 				j = 10 - f
-				self.position.x = ((50 + f * 100) - 100)
+				self.position.x = 850 - f * 100
 				self.position.y = 150
-				Position.x = ((50 + f * 100) - 100)
+				Position.x = 850 - f * 100
 				Position.y = 150
 	else:
 		i = 8
 		j = 9
-		self.position = Vector2(50,650)
-		Position = Vector2(50,650)
+		self.position = Vector2(750,650)
+		Position = Vector2(750,650)
 		texture = textureBlack
 		set_name("PawnBlack")
 		nameOfPiece = get_name()
@@ -708,9 +730,9 @@ func playBlack():
 			if nameOfPiece == "PawnBlack" + str(f) :
 				i = 8
 				j = 10 - f
-				self.position.x = ((50 + f * 100) - 100)
+				self.position.x = 850 - f * 100
 				self.position.y = 650
-				Position.x = (50 + f * 100) - 100
+				Position.x = 850 - f * 100
 				Position.y = 650
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )

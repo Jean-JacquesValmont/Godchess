@@ -91,7 +91,7 @@ func move(dx, dy) :
 			rpc("movePiece",f,targetCaseX,targetCaseY,dx,dy)
 			break
 		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
-		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
+		or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
 			self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func movePiece(f,targetCaseX,targetCaseY,dx,dy):
@@ -108,6 +108,7 @@ func move(dx, dy) :
 			i=i-(dy*f)
 			j=j-(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	elif GlobalValueChessGame.turnWhite == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
@@ -121,6 +122,7 @@ func move(dx, dy) :
 			i=i+(dy*f)
 			j=j+(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
@@ -140,16 +142,39 @@ func defenceMove(attacki,attackj):
 	or (chessBoard[attacki][attackj] == "0" or "White" in chessBoard[attacki][attackj]) and GlobalValueChessGame.turnWhite == false):
 		rpc("moveDefencePiece",targetCaseX,targetCaseY,attacki,attackj)
 	elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
-		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
+	or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
 		self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func moveDefencePiece(targetCaseX,targetCaseY,attacki,attackj):
-	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	if GlobalValueChessGame.turnWhite == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=attacki
+			j=attackj
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=reverseCoordonate(attacki)
+			j=reverseCoordonate(attackj)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
+	elif GlobalValueChessGame.turnWhite == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=reverseCoordonate(attacki)
+			j=reverseCoordonate(attackj)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=attacki
+			j=attackj
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=attacki
-	j=attackj
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	initialPosition = false
 	attackerPositionshiftI = 0
@@ -444,3 +469,23 @@ func playBlack():
 			Position = Vector2(150,750)
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
+
+func reverseCoordonate(i):
+	match i:
+		2:
+			i = 9
+		3:
+			i = 8
+		4:
+			i = 7
+		5:
+			i = 6
+		6:
+			i = 5
+		7:
+			i = 4
+		8:
+			i = 3
+		9:
+			i = 2
+	return i

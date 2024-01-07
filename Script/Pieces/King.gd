@@ -106,6 +106,7 @@ func move(dx, dy) :
 			i=i-(dy*f)
 			j=j-(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	elif GlobalValueChessGame.turnWhite == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
@@ -119,6 +120,7 @@ func move(dx, dy) :
 			i=i+(dy*f)
 			j=j+(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
@@ -313,3 +315,23 @@ func playBlack():
 		nameOfPiece = get_name()
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
+
+func reverseCoordonate(i):
+	match i:
+		2:
+			i = 9
+		3:
+			i = 8
+		4:
+			i = 7
+		5:
+			i = 6
+		6:
+			i = 5
+		7:
+			i = 4
+		8:
+			i = 3
+		9:
+			i = 2
+	return i

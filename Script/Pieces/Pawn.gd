@@ -53,16 +53,16 @@ func _input(event):
 		#J'ai un problème quand je met le bouton MOUSE_BUTTON_LEFT 2 fois dans deux if différent.
 		#J'ai donc mit le MOUSE_BUTTON_RIGHT pour la promotion
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			if GlobalValueChessGame.startWhite == true:
-				if promoteInProgress == true and GlobalValueChessGame.turnWhite == true and i == 2:
-					promotionSelectionWhite()
-				elif promoteInProgress == true and GlobalValueChessGame.turnWhite == false and i == 9:
-					promotionSelectionBlack()
-			elif GlobalValueChessGame.startWhite == false:
-				if promoteInProgress == true and GlobalValueChessGame.turnWhite == true and i == 9:
-					promotionSelectionWhite()
-				elif promoteInProgress == true and GlobalValueChessGame.turnWhite == false and i == 2:
-					promotionSelectionBlack()
+#			if GlobalValueChessGame.startWhite == true:
+			if promoteInProgress == true and GlobalValueChessGame.turnWhite == true and i == 2:
+				promotionSelectionWhite()
+			elif promoteInProgress == true and GlobalValueChessGame.turnWhite == false and i == 9:
+				promotionSelectionBlack()
+#			elif GlobalValueChessGame.startWhite == false:
+#				if promoteInProgress == true and GlobalValueChessGame.turnWhite == true and i == 9:
+#					promotionSelectionWhite()
+#				elif promoteInProgress == true and GlobalValueChessGame.turnWhite == false and i == 2:
+#					promotionSelectionBlack()
 				
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT\
 		and promoteInProgress == false and GlobalValueChessGame.checkmate == false and GlobalValueChessGame.stalemate == false:
@@ -126,6 +126,7 @@ func move(dx, dy) :
 			i=i-(dy*f)
 			j=j-(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	elif GlobalValueChessGame.turnWhite == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
@@ -139,18 +140,19 @@ func move(dx, dy) :
 			i=i+(dy*f)
 			j=j+(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
-	if GlobalValueChessGame.startWhite == true:
-		if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
-			promotion("White","Cavalier", "Fou", "Tour", "Reine")
-		elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
-			promotion("Black","Cavalier", "Fou", "Tour", "Reine")
-	elif GlobalValueChessGame.startWhite == false:
-		if chessBoard[i][j].begins_with("PawnWhite") and i == 9:
-			promotion("White","Cavalier", "Fou", "Tour", "Reine")
-		elif chessBoard[i][j].begins_with("PawnBlack") and i == 2:
-			promotion("Black","Cavalier", "Fou", "Tour", "Reine")
+#	if GlobalValueChessGame.startWhite == true:
+	if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
+		promotion("White","Cavalier", "Fou", "Tour", "Reine")
+	elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
+		promotion("Black","Cavalier", "Fou", "Tour", "Reine")
+#	elif GlobalValueChessGame.startWhite == false:
+#		if chessBoard[i][j].begins_with("PawnWhite") and i == 9:
+#			promotion("White","Cavalier", "Fou", "Tour", "Reine")
+#		elif chessBoard[i][j].begins_with("PawnBlack") and i == 2:
+#			promotion("Black","Cavalier", "Fou", "Tour", "Reine")
 	if promoteInProgress == false:
 		GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
@@ -226,12 +228,12 @@ func moveWithPinBlack(dx,dy,enPassantI):
 				move(dx,dy)
 			enPassant = true
 		else :
-			if i == enPassantI and chessBoard[i][j-1].begins_with("PawnWhite")\
+			if i == enPassantI and chessBoard[i][j-dx].begins_with("PawnWhite")\
 			and get_node("/root/Game/ChessBoard/" + chessBoard[i][j-dx]).enPassant == true:
 				get_node("/root/Game/ChessBoard/" + chessBoard[i][j-dx]).queue_free()
 				chessBoard[i][j-dx] = "0"
 				move(-dx,dy)
-			if i == enPassantI and chessBoard[i][j+1].begins_with("PawnWhite")\
+			if i == enPassantI and chessBoard[i][j+dx].begins_with("PawnWhite")\
 			and get_node("/root/Game/ChessBoard/" + chessBoard[i][j+dx]).enPassant == true:
 				get_node("/root/Game/ChessBoard/" + chessBoard[i][j+dx]).queue_free()
 				chessBoard[i][j+dx] = "0"
@@ -285,12 +287,35 @@ func defenceMove(attacki,attackj):
 		self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func moveDefencePiece(targetCaseX,targetCaseY,attacki,attackj):
-	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	if GlobalValueChessGame.turnWhite == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=attacki
+			j=attackj
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=reverseCoordonate(attacki)
+			j=reverseCoordonate(attackj)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
+	elif GlobalValueChessGame.turnWhite == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=reverseCoordonate(attacki)
+			j=reverseCoordonate(attackj)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=attacki
+			j=attackj
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=attacki
-	j=attackj
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
 	if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
 		promotion("White","Cavalier", "Fou", "Tour", "Reine")
 	elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
@@ -308,26 +333,26 @@ func defenceMove(attacki,attackj):
 	lastMovePlay()
 
 func moveFinal(checkColor):
-	if GlobalValueChessGame.startWhite == true:
-		if checkColor == false:
-			if white == true:
-				moveWithPinWhite(1,-1,5) #Le premier paramètre restera toujours 1, le 2nd doit varier entre 1 et -1 (bas/haut).
-			elif white == false:
-				moveWithPinBlack(1,1,6) #Le premier paramètre restera toujours 1, le 2nd doit varier entre 1 et -1 (bas/haut).
-		elif checkColor == true and pieceProtectTheKing == true:
-			if pieceProtectsAgainstAnAttack == false:
-				defenceMove(attackerPositionshiftI,attackerPositionshiftJ)
-				defenceMove(attackerPositionshift2I,attackerPositionshift2J)
-	if GlobalValueChessGame.startWhite == false:
-		if checkColor == false:
-			if white == true:
-				moveWithPinWhite(1,1,6)
-			elif white == false:
-				moveWithPinBlack(1,-1,5)
-		elif checkColor == true and pieceProtectTheKing == true:
-			if pieceProtectsAgainstAnAttack == false:
-				defenceMove(attackerPositionshiftI,attackerPositionshiftJ)
-				defenceMove(attackerPositionshift2I,attackerPositionshift2J)
+#	if GlobalValueChessGame.startWhite == true:
+	if checkColor == false:
+#			if white == true:
+		moveWithPinWhite(1,-1,5) #Le premier paramètre restera toujours 1, le 2nd doit varier entre 1 et -1 (bas/haut).
+#			elif white == false:
+#				moveWithPinBlack(1,1,6) #Le premier paramètre restera toujours 1, le 2nd doit varier entre 1 et -1 (bas/haut).
+	elif checkColor == true and pieceProtectTheKing == true:
+		if pieceProtectsAgainstAnAttack == false:
+			defenceMove(attackerPositionshiftI,attackerPositionshiftJ)
+			defenceMove(attackerPositionshift2I,attackerPositionshift2J)
+#	if GlobalValueChessGame.startWhite == false:
+#		if checkColor == false:
+#			if white == true:
+#				moveWithPinWhite(1,1,6)
+#			elif white == false:
+#				moveWithPinBlack(1,-1,5)
+#		elif checkColor == true and pieceProtectTheKing == true:
+#			if pieceProtectsAgainstAnAttack == false:
+#				defenceMove(attackerPositionshiftI,attackerPositionshiftJ)
+#				defenceMove(attackerPositionshift2I,attackerPositionshift2J)
 
 func _on_area_2d_area_entered(area):
 		var pieceName = area.get_parent().get_name()
@@ -634,14 +659,8 @@ func previewMovePattern(dy,color, color2):
 		previewMove(1, 1*dy, color, color2,attackerPositionshiftI,attackerPositionshiftJ,attackerPositionshift2I,attackerPositionshift2J)
 
 func previewAllMove():
-	if GlobalValueChessGame.startWhite == true:
 		if white == true:
 			previewMovePattern(-1,"White", "Black")
-		elif white == false:
-			previewMovePattern(1,"Black", "White")
-	elif GlobalValueChessGame.startWhite == false:
-		if white == true:
-			previewMovePattern(1,"White", "Black")
 		elif white == false:
 			previewMovePattern(-1,"Black", "White")
 
@@ -736,3 +755,23 @@ func playBlack():
 				Position.y = 650
 		
 	print(nameOfPiece, " i: ", i, " j: ", j, " new position: ", Position )
+
+func reverseCoordonate(i):
+	match i:
+		2:
+			i = 9
+		3:
+			i = 8
+		4:
+			i = 7
+		5:
+			i = 6
+		6:
+			i = 5
+		7:
+			i = 4
+		8:
+			i = 3
+		9:
+			i = 2
+	return i

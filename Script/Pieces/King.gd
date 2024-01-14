@@ -10,6 +10,8 @@ var moveCase = GlobalValueChessGame.oneMoveCase
 var chessBoard = GlobalValueChessGame.chessBoard
 var attackWhite = GlobalValueChessGame.attackPieceWhiteOnTheChessboard
 var attackBlack = GlobalValueChessGame.attackPieceBlackOnTheChessboard
+var attackWhiteReverse = GlobalValueChessGame.attackPieceWhiteOnTheChessboardReverse
+var attackBlackReverse = GlobalValueChessGame.attackPieceBlackOnTheChessboardReverse
 var i = 9
 var j = 6
 var positionChessBoard
@@ -61,7 +63,7 @@ func _input(event):
 				if white == true and GlobalValueChessGame.turnWhite == true:
 					allMove("RookWhite","RookWhite2",attackBlack)
 				elif white == false and GlobalValueChessGame.turnWhite == false:
-					allMove("RookBlack","RookBlack2",attackWhite)
+					allMove("RookBlack","RookBlack2",attackWhiteReverse)
 				self.position = Vector2(Position.x, Position.y)
 				dragging = false
 				z_index = 0
@@ -83,9 +85,9 @@ func move(dx, dy) :
 		if global_position.x >= (Position.x - 50) + newTargetCaseX  and global_position.x <= (Position.x + 50) + newTargetCaseX \
 		and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
 		and ((chessBoard[i+(dy*f)][j+(dx*f)] == "0" or "Black" in chessBoard[i+(dy*f)][j+(dx*f)]) and GlobalValueChessGame.turnWhite == true\
-		and GlobalValueChessGame.attackPieceBlackOnTheChessboard[i+(dy*f)][j+(dx*f)] == 0\
+		and attackBlack[i+(dy*f)][j+(dx*f)] == 0\
 		or (chessBoard[i+(dy*f)][j+(dx*f)] == "0" or "White" in chessBoard[i+(dy*f)][j+(dx*f)]) and GlobalValueChessGame.turnWhite == false\
-		and GlobalValueChessGame.attackPieceWhiteOnTheChessboard[i+(dy*f)][j+(dx*f)] == 0):
+		and attackWhiteReverse[i+(dy*f)][j+(dx*f)] == 0):
 			rpc("movePiece",f,targetCaseX,targetCaseY,dx,dy)
 			break
 		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
@@ -137,8 +139,12 @@ func allMove(rookColor,rookColor2,attackColor):
 	move(1,-1)
 	move(-1,1)
 	move(-1,-1)
-	kingSizeCasteling(1,1,rookColor2,attackColor)
-	queenSizeCasteling(-1,1,rookColor,attackColor)
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		kingSizeCasteling(1,1,rookColor2,attackColor)
+		queenSizeCasteling(-1,1,rookColor,attackColor)
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		kingSizeCasteling(-1,1,rookColor2,attackColor)
+		queenSizeCasteling(1,1,rookColor,attackColor)
 	
 func _on_area_2d_area_entered(area):
 		var pieceName = area.get_parent().get_name()
@@ -154,23 +160,57 @@ func kingSizeCasteling(dx, dy, rookColor, attackColor):
 		var targetCaseY = dy*(0*moveCase)
 		var newTargetCaseX = targetCaseX + positionChessBoard.x
 		var newTargetCaseY = targetCaseY + positionChessBoard.y
-		if global_position.x >= (Position.x - 50) + newTargetCaseX  and global_position.x <= (Position.x + 50) + newTargetCaseX \
-		and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
-		and chessBoard[i][j+1] == "0" and chessBoard[i][j+2] == "0" and chessBoard[i][j+3].begins_with("Rook") \
-		and attackColor[i][j] == 0 and attackColor[i][j+1] == 0 and attackColor[i][j+2] == 0 and initialPosition == true \
-		and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
-			rpc("moveKingSizeCasteling",targetCaseX,targetCaseY,dx,dy)
-		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
-		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
-			self.position = Vector2(Position.x, Position.y)
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			if global_position.x >= (Position.x - 50) + newTargetCaseX  and global_position.x <= (Position.x + 50) + newTargetCaseX \
+			and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
+			and chessBoard[i][j+1] == "0" and chessBoard[i][j+2] == "0" and chessBoard[i][j+3].begins_with("Rook") \
+			and attackColor[i][j] == 0 and attackColor[i][j+1] == 0 and attackColor[i][j+2] == 0 and initialPosition == true \
+			and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
+				rpc("moveKingSizeCasteling",targetCaseX,targetCaseY,dx,dy)
+			elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
+			 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
+				self.position = Vector2(Position.x, Position.y)
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			if global_position.x >= (Position.x - 50) + newTargetCaseX and global_position.x <= (Position.x + 50) + newTargetCaseX \
+			and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
+			and chessBoard[i][j-1] == "0" and chessBoard[i][j-2] == "0" and chessBoard[i][j-3].begins_with("Rook")\
+			and attackColor[i][j] == 0 and attackColor[i][j-1] == 0 and attackColor[i][j-2] == 0 and initialPosition == true \
+			and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
+				rpc("moveKingSizeCasteling",targetCaseX,targetCaseY,dx,dy)
+			elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
+			 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
+				self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func moveKingSizeCasteling(targetCaseX,targetCaseY,dx,dy):
-	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	if GlobalValueChessGame.turnWhite == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j+(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j-(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
+	elif GlobalValueChessGame.turnWhite == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j-(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j+(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=i
-	j=j+(dx*2)
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
 	initialPosition = false
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
@@ -183,23 +223,57 @@ func queenSizeCasteling(dx, dy, rookColor, attackColor):
 		var targetCaseY = dy*(0*moveCase)
 		var newTargetCaseX = targetCaseX + positionChessBoard.x
 		var newTargetCaseY = targetCaseY + positionChessBoard.y
-		if global_position.x >= (Position.x - 50) + newTargetCaseX and global_position.x <= (Position.x + 50) + newTargetCaseX \
-		and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
-		and chessBoard[i][j-1] == "0" and chessBoard[i][j-2] == "0" and chessBoard[i][j-3] == "0" and chessBoard[i][j-4].begins_with("Rook") \
-		and attackColor[i][j] == 0 and attackColor[i][j-1] == 0 and attackColor[i][j-2] == 0  and attackColor[i][j-3] == 0 and initialPosition == true \
-		and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
-			rpc("moveQueenSizeCasteling",targetCaseX,targetCaseY,dx,dy)
-		elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
-		 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
-			self.position = Vector2(Position.x, Position.y)
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			if global_position.x >= (Position.x - 50) + newTargetCaseX and global_position.x <= (Position.x + 50) + newTargetCaseX \
+			and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
+			and chessBoard[i][j-1] == "0" and chessBoard[i][j-2] == "0" and chessBoard[i][j-3] == "0" and chessBoard[i][j-4].begins_with("Rook") \
+			and attackColor[i][j] == 0 and attackColor[i][j-1] == 0 and attackColor[i][j-2] == 0  and attackColor[i][j-3] == 0 and initialPosition == true \
+			and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
+				rpc("moveQueenSizeCasteling",targetCaseX,targetCaseY,dx,dy)
+			elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
+			 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
+				self.position = Vector2(Position.x, Position.y)
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			if global_position.x >= (Position.x - 50) + newTargetCaseX  and global_position.x <= (Position.x + 50) + newTargetCaseX \
+			and global_position.y >= (Position.y - 50) + newTargetCaseY and global_position.y <= (Position.y + 50) + newTargetCaseY \
+			and chessBoard[i][j+1] == "0" and chessBoard[i][j+2] == "0" and chessBoard[i][j+3] == "0" and chessBoard[i][j+4].begins_with("Rook") \
+			and attackColor[i][j] == 0 and attackColor[i][j+1] == 0 and attackColor[i][j+2] == 0 and attackColor[i][j+3] == 0 and initialPosition == true \
+			and get_node("/root/Game/ChessBoard/" + rookColor).initialPosition == true:
+				rpc("moveQueenSizeCasteling",targetCaseX,targetCaseY,dx,dy)
+			elif global_position.x >= get_parent().texture.get_width() + positionChessBoard.x\
+			 or global_position.y >= get_parent().texture.get_height() + positionChessBoard.y :
+				self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func moveQueenSizeCasteling(targetCaseX,targetCaseY,dx,dy):
-	self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+	if GlobalValueChessGame.turnWhite == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j+(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j-(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
+	elif GlobalValueChessGame.turnWhite == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2((Position.x - targetCaseX), (Position.y - targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j-(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
+			chessBoard[i][j] = "0"
+			i=i
+			j=j+(dx*2)
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=i
-	j=j+(dx*2)
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
 	initialPosition = false
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
@@ -250,9 +324,9 @@ func previewMovePattern(color, color2, attackPieceColorOnTheChessboard):
 	
 func previewAllMove():
 	if white == true:
-		previewMovePattern("White", "Black", GlobalValueChessGame.attackPieceBlackOnTheChessboard)
+		previewMovePattern("White", "Black", attackBlack)
 	elif white == false:
-		previewMovePattern("Black", "White", GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
+		previewMovePattern("Black", "White", attackWhiteReverse)
 
 func deleteAllChildMovePreview():
 	var numberOfChildren = get_node("/root/Game/MovePreview").get_child_count()

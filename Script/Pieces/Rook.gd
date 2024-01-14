@@ -46,8 +46,8 @@ func _ready():
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	request_ready()
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
@@ -240,40 +240,76 @@ func checkMaxAllMove():
 	maxMoveUp = checkMaxMove(0,-1)
 	
 func _on_king_king_size_casteling_signal():
-	self.position = Vector2(550,750)
-	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=9
-	j=7
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
-	initialPosition = false
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		self.position = Vector2(550,750)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=9
+		j=7
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		self.position = Vector2(250,50)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=2
+		j=4
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
 
 func _on_king_2_king_size_casteling_signal():
-	self.position = Vector2(550,50)
-	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=2
-	j=7
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
-	initialPosition = false
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		self.position = Vector2(550,50)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=2
+		j=7
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		self.position = Vector2(250,750)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=9
+		j=4
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
 
 func _on_king_queen_size_casteling_signal():
-	self.position = Vector2(350,750)
-	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=9
-	j=5
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
-	initialPosition = false
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		self.position = Vector2(350,750)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=9
+		j=5
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		self.position = Vector2(450,50)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=2
+		j=6
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
 
 func _on_king_2_queen_size_casteling_signal():
-	self.position = Vector2(350,50)
-	Position = Vector2(self.position.x, self.position.y)
-	chessBoard[i][j] = "0"
-	i=2
-	j=5
-	chessBoard[i][j] = nameOfPiece.replace("@", "")
-	initialPosition = false
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		self.position = Vector2(350,50)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=2
+		j=5
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		self.position = Vector2(450,750)
+		Position = Vector2(self.position.x, self.position.y)
+		chessBoard[i][j] = "0"
+		i=9
+		j=6
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		initialPosition = false
 
 func findDirectionAttackRow(dx, dy, rookColor, queenColor):
 	for f in range(1,9):

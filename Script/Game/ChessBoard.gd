@@ -31,57 +31,76 @@ func updateVariablePiecePromoted():
 	print("Enter in updateVariablePiecePromoted")
 	var numberOfChildren = get_child_count()
 	
-	if GlobalValueChessGame.startWhite == true:
-		for f in range(numberOfChildren):
-			var piece = get_child(f)
-			var pieceName = piece.get_name()
-			if piece.get_instance_id() == promotionID:
-				if "White" in pieceName:
+	for f in range(numberOfChildren):
+		var piece = get_child(f)
+		var pieceName = piece.get_name()
+		print("pieceName: ", pieceName)
+		if piece.get_instance_id() == promotionID:
+			if "White" in pieceName:
+				piece.white = true
+			elif "Black" in pieceName:
+				piece.white = false
+			if GlobalValueChessGame.turnWhite == true:
+				if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 					piece.i = 2
-					piece.white = true
-				elif "Black" in pieceName:
-					piece.i = 9
-					piece.white = false
-				for ff in range(2,10):
-					if GlobalValueChessGame.chessBoard[piece.i][ff] == pieceName:
-						piece.j = ff
-				if piece.i == 2:
+					for ff in range(2,9):
+						print("piece.position.x: ", piece.position.x)
+						if piece.position.x == ((ff - 2) * 100) + 50:
+							piece.j = ff
+							break
+					piece.position.x = ((piece.j - 2) * 100) + 50
+					piece.position.y = 50
 					piece.Position = Vector2(((piece.j - 2) * 100) + 50, 50)
-				elif piece.i == 9:
+					piece.positionChessBoard = global_position
+					piece.chessBoard = get_node("KingWhite").chessBoard
+					if piece.white == true:
+						piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
+				elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+					piece.i = 9
+					for ff in range(2,9):
+						if piece.position.x == ((ff - 2) * 100) + 50:
+							piece.j = ff
+							break
+					piece.position.x = ((piece.j - 2) * 100) + 50
+					piece.position.y = 750
 					piece.Position = Vector2(((piece.j - 2) * 100) + 50, 750)
+					piece.positionChessBoard = global_position
+					piece.chessBoard = get_node("KingBlack").chessBoard
+					if piece.white == false:
+						piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 				piece.nameOfPiece = pieceName
 				piece.initialPosition = false
-				piece.positionChessBoard = global_position
-				if piece.white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
-				elif piece.white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 				break
-	elif GlobalValueChessGame.startWhite == false:
-		for f in range(numberOfChildren):
-			var piece = get_child(f)
-			var pieceName = piece.get_name()
-			if piece.get_instance_id() == promotionID:
-				if "White" in pieceName:
+			elif GlobalValueChessGame.turnWhite == false:
+				if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 					piece.i = 9
-					piece.white = true
-				elif "Black" in pieceName:
-					piece.i = 2
-					piece.white = false
-				for ff in range(2,10):
-					if GlobalValueChessGame.chessBoard[piece.i][ff] == pieceName:
-						piece.j = ff
-				if piece.i == 2:
-					piece.Position = Vector2(((piece.j - 2) * 100) + 50, 50)
-				elif piece.i == 9:
+					for ff in range(2,9):
+						print("piece.position.x: ", piece.position.x)
+						if piece.position.x == ((ff - 2) * 100) + 50:
+							piece.j = ff
+							break
+					piece.position.x = ((piece.j - 2) * 100) + 50
+					piece.position.y = 750
 					piece.Position = Vector2(((piece.j - 2) * 100) + 50, 750)
+					piece.positionChessBoard = global_position
+					piece.chessBoard = get_node("KingWhite").chessBoard
+					if piece.white == true:
+						piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
+				elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+					piece.i = 2
+					for ff in range(2,9):
+						if piece.position.x == ((ff - 2) * 100) + 50:
+							piece.j = ff
+							break
+					piece.position.x = ((piece.j - 2) * 100) + 50
+					piece.position.y = 50
+					piece.Position = Vector2(((piece.j - 2) * 100) + 50, 50)
+					piece.positionChessBoard = global_position
+					piece.chessBoard = get_node("KingBlack").chessBoard
+					if piece.white == false:
+						piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 				piece.nameOfPiece = pieceName
 				piece.initialPosition = false
-				piece.positionChessBoard = global_position
-				if piece.white == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
-				elif piece.white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-					piece.playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 				break
 
 func _on_pawn_promotion_turn(promoteInProgress):
@@ -95,7 +114,6 @@ func _on_pawn_2_promotion_turn(promoteInProgress):
 func _on_pawn_3_promotion_turn(promoteInProgress):
 	print("Enter _on_pawn_3_promotion_turn")
 	blockMoveDuringPromotion(promoteInProgress)
-#	rpc("blockMoveDuringPromotion",promoteInProgress)
 
 func _on_pawn_4_promotion_turn(promoteInProgress):
 	print("Enter _on_pawn_4_promotion_turn")

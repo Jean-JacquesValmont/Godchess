@@ -6,8 +6,10 @@ var pieceWhite = [null,null,"RookWhite","KnightWhite","BishopWhite","QueenWhite"
 var pieceBlack = [null,null,"RookBlack","KnightBlack","BishopBlack","QueenBlack","KingBlack","BishopBlack2","KnightBlack2","RookBlack2"]
 var attackPieceWhiteOnTheChessboard = []
 var attackPieceBlackOnTheChessboard = []
+var attackPieceWhiteOnTheChessboardReverse = []
+var attackPieceBlackOnTheChessboardReverse = []
 
-var startWhite = true
+#var startWhite = true
 var gameLaunch = false
 var initialisationDone = false
 var pathKingWhite
@@ -28,21 +30,17 @@ var checkmateBlack = false
 var checkmate = false
 
 func _ready():
-	await get_tree().process_frame
+#	await get_tree().process_frame
 	createBoard(12,12)
 	createAttackBoardWhiteAndBlack(12,12)
 	pathKingWhite = "/root/Game/ChessBoard/KingWhite"
 	pathKingBlack = "/root/Game/ChessBoard/KingBlack"
-	
 
 func _process(delta):
 	if gameLaunch == true:
 		if initialisationDone == false:
-#			if startWhite == true :
 			initialisingChessBoard("PawnBlack", "PawnWhite", pieceBlack, pieceWhite)
 			initialisingReverseChessBoard(chessBoard)
-#			elif startWhite == false :
-#				initialisingChessBoard("PawnWhite", "PawnBlack", pieceWhite, pieceBlack)
 			initialisingAttackBoardWhiteAndBlack()
 			initialisationDone = true
 			
@@ -72,6 +70,13 @@ func createBoard(rowSize,columnSize):
 		for j in range(columnSize):
 			row.append(null)
 		chessBoard.append(row)
+	
+	for i in range(rowSize):
+		var row = []
+		for j in range(columnSize):
+			row.append(null)
+		chessBoardReverse.append(row)
+	
 	#	print(chessBoard)
 	#	print("ChessBoard created. Size: ", rowSize, "x", columnSize)
 
@@ -110,15 +115,50 @@ func initialisingReverseChessBoard(chessBoard):
 	chessBoardSaved.reverse()
 	
 	chessBoardReverse = chessBoardSaved
-	print("ChessBoardReverse: ")
+	print("ChessBoardReverse de initialisingReverseChessBoard: ")
 	for i in range(0,12):
 		print(chessBoardReverse[i])
+	
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("/root/Game/ChessBoard/PawnWhite").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnWhite2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnWhite3").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnWhite4").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnWhite5").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnWhite6").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnWhite7").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnWhite8").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/KnightWhite").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/KnightWhite2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/BishopWhite").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/BishopWhite2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/RookWhite").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/RookWhite2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/QueenWhite").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/KingWhite").chessBoard = chessBoardReverse
+		
+		get_node("/root/Game/ChessBoard/PawnBlack").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnBlack2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnBlack3").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnBlack4").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnBlack5").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnBlack6").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnBlack7").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/PawnBlack8").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/KnightBlack").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/KnightBlack2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/BishopBlack").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/BishopBlack2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/RookBlack").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/RookBlack2").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/QueenBlack").chessBoard = chessBoardReverse
+		get_node("/root/Game/ChessBoard/KingBlack").chessBoard = chessBoardReverse
 
 func reverseChessBoard(chessBoard):
 	var chessBoardSaved = []
 	# Créer une copie du tableau sans lien avec l'original
 	chessBoardSaved = chessBoard.duplicate(true) #Le true permet de faire une copie du tableau qui n'est pas liée à l'original
-
+	
 	# Inverser chaque ligne du tableau
 	for i in range(chessBoardSaved.size()):
 		chessBoardSaved[i].reverse()
@@ -397,6 +437,9 @@ func attackPiecesWhite():
 				kingAttackWhite(i, j, chessBoard, attackPieceWhiteOnTheChessboard)
 				
 	#printAttackWhite()
+	attackPieceWhiteOnTheChessboardReverse = reverseChessBoard(attackPieceWhiteOnTheChessboard)
+	get_node(pathKingWhite).attackWhiteReverse = attackPieceWhiteOnTheChessboardReverse
+	get_node(pathKingBlack).attackWhiteReverse = attackPieceWhiteOnTheChessboardReverse
 
 func attackPiecesBlack():
 	for i in range(12):
@@ -427,6 +470,9 @@ func attackPiecesBlack():
 				kingAttackBlack(i, j, chessBoard, attackPieceBlackOnTheChessboard)
 					
 	#printAttackBlack()
+	attackPieceBlackOnTheChessboardReverse = reverseChessBoard(attackPieceBlackOnTheChessboard)
+	get_node(pathKingWhite).attackBlackReverse = attackPieceBlackOnTheChessboardReverse
+	get_node(pathKingBlack).attackBlackReverse = attackPieceBlackOnTheChessboardReverse
 
 func enPassantFinish():
 	print("Enter in enPassantFinish")

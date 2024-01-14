@@ -44,7 +44,7 @@ func _ready():
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
-	
+
 #func _process(delta):
 #	pass
 
@@ -53,16 +53,10 @@ func _input(event):
 		#J'ai un problème quand je met le bouton MOUSE_BUTTON_LEFT 2 fois dans deux if différent.
 		#J'ai donc mit le MOUSE_BUTTON_RIGHT pour la promotion
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-#			if GlobalValueChessGame.startWhite == true:
 			if promoteInProgress == true and GlobalValueChessGame.turnWhite == true and i == 2:
 				promotionSelectionWhite()
-			elif promoteInProgress == true and GlobalValueChessGame.turnWhite == false and i == 9:
+			elif promoteInProgress == true and GlobalValueChessGame.turnWhite == false and i == 2:
 				promotionSelectionBlack()
-#			elif GlobalValueChessGame.startWhite == false:
-#				if promoteInProgress == true and GlobalValueChessGame.turnWhite == true and i == 9:
-#					promotionSelectionWhite()
-#				elif promoteInProgress == true and GlobalValueChessGame.turnWhite == false and i == 2:
-#					promotionSelectionBlack()
 				
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT\
 		and promoteInProgress == false and GlobalValueChessGame.checkmate == false and GlobalValueChessGame.stalemate == false:
@@ -143,16 +137,10 @@ func move(dx, dy) :
 			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
-#	if GlobalValueChessGame.startWhite == true:
-	if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
+	if chessBoard[i][j].begins_with("PawnWhite") and (i == 2 or i == 9): #Sinon le promoteInProgress ne passe pas à true pour le player 2
 		promotion("White","Cavalier", "Fou", "Tour", "Reine")
-	elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
+	elif chessBoard[i][j].begins_with("PawnBlack") and (i == 2 or i == 9): #Sinon le promoteInProgress ne passe pas à true pour le player 1
 		promotion("Black","Cavalier", "Fou", "Tour", "Reine")
-#	elif GlobalValueChessGame.startWhite == false:
-#		if chessBoard[i][j].begins_with("PawnWhite") and i == 9:
-#			promotion("White","Cavalier", "Fou", "Tour", "Reine")
-#		elif chessBoard[i][j].begins_with("PawnBlack") and i == 2:
-#			promotion("Black","Cavalier", "Fou", "Tour", "Reine")
 	if promoteInProgress == false:
 		GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
@@ -318,7 +306,7 @@ func defenceMove(attacki,attackj):
 	Position = Vector2(self.position.x, self.position.y)
 	if chessBoard[i][j].begins_with("PawnWhite") and i == 2:
 		promotion("White","Cavalier", "Fou", "Tour", "Reine")
-	elif chessBoard[i][j].begins_with("PawnBlack") and i == 9:
+	elif chessBoard[i][j].begins_with("PawnBlack") and i == 2:
 		promotion("Black","Cavalier", "Fou", "Tour", "Reine")
 	if promoteInProgress == false:
 		GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
@@ -333,26 +321,12 @@ func defenceMove(attacki,attackj):
 	lastMovePlay()
 
 func moveFinal(checkColor):
-#	if GlobalValueChessGame.startWhite == true:
 	if checkColor == false:
-#			if white == true:
 		moveWithPinWhite(1,-1,5) #Le premier paramètre restera toujours 1, le 2nd doit varier entre 1 et -1 (bas/haut).
-#			elif white == false:
-#				moveWithPinBlack(1,1,6) #Le premier paramètre restera toujours 1, le 2nd doit varier entre 1 et -1 (bas/haut).
 	elif checkColor == true and pieceProtectTheKing == true:
 		if pieceProtectsAgainstAnAttack == false:
 			defenceMove(attackerPositionshiftI,attackerPositionshiftJ)
 			defenceMove(attackerPositionshift2I,attackerPositionshift2J)
-#	if GlobalValueChessGame.startWhite == false:
-#		if checkColor == false:
-#			if white == true:
-#				moveWithPinWhite(1,1,6)
-#			elif white == false:
-#				moveWithPinBlack(1,-1,5)
-#		elif checkColor == true and pieceProtectTheKing == true:
-#			if pieceProtectsAgainstAnAttack == false:
-#				defenceMove(attackerPositionshiftI,attackerPositionshiftJ)
-#				defenceMove(attackerPositionshift2I,attackerPositionshift2J)
 
 func _on_area_2d_area_entered(area):
 		var pieceName = area.get_parent().get_name()
@@ -541,16 +515,10 @@ func promotionSelectionWhite():
 		var scriptPath = promotionOptions[f][3]
 		var texturePath = promotionOptions[f][4]
 		
-		if GlobalValueChessGame.startWhite == true:
-			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
-			and mousePos.y >= 250 and mousePos.y <= 450:
-				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-				break  # Sortir de la boucle après avoir trouvé une correspondance
-		elif GlobalValueChessGame.startWhite == false:
-			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
-			and mousePos.y >= -450 and mousePos.y <= -250:
-				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-				break  # Sortir de la boucle après avoir trouvé une correspondance
+		if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
+		and mousePos.y >= 250 and mousePos.y <= 450:
+			rpc("promotionSelectionSelect",texturePath,promotionName,scriptPath)
+			break  # Sortir de la boucle après avoir trouvé une correspondance
 
 func promotionSelectionBlack():
 	print("Enter in promotionSelection: ", self.nameOfPiece)
@@ -571,27 +539,21 @@ func promotionSelectionBlack():
 		var scriptPath = promotionOptions[f][3]
 		var texturePath = promotionOptions[f][4]
 		
-		if GlobalValueChessGame.startWhite == true:
-			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
-			and mousePos.y >= -450 and mousePos.y <= -250:
-				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-				break  # Sortir de la boucle après avoir trouvé une correspondance
-		elif GlobalValueChessGame.startWhite == false:
-			if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
-			and mousePos.y >= 250 and mousePos.y <= 450:
-				rpc("promotionSelectionWhiteSelect",texturePath,promotionName,scriptPath)
-				break  # Sortir de la boucle après avoir trouvé une correspondance
+		if mousePos.x >= minX - position.x and mousePos.x <= maxX - position.x \
+		and mousePos.y >= 250 and mousePos.y <= 450:
+			rpc("promotionSelectionSelect",texturePath,promotionName,scriptPath)
+			break  # Sortir de la boucle après avoir trouvé une correspondance
 
-@rpc("any_peer","call_local") func promotionSelectionWhiteSelect(texturePath,promotionName,scriptPath):
+@rpc("any_peer","call_local") func promotionSelectionSelect(texturePath,promotionName,scriptPath):
 	print("Enter in promotionSelection selection piece")
 	texture = load(texturePath)
 	namingPromotion(promotionName)
 	deletePiecesSelectionPromotion()
 	promoteInProgress = false
 	emit_signal("promotionTurn", promoteInProgress)
-	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_parent().promotionID = get_instance_id()
 	set_script(load("res://Script/Pieces/" + scriptPath))
+	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 
 func get_promoteInProgress():
 	return promoteInProgress

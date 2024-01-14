@@ -143,7 +143,7 @@ func _on_button_abandon_button_down():
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 	OnlineMatch.leave()
 	#Reset variables global
-	GlobalValueChessGame.startWhite = true
+#	GlobalValueChessGame.startWhite = true
 	GlobalValueChessGame.gameLaunch = false
 	GlobalValueChessGame.initialisationDone = false
 	GlobalValueChessGame.oneMoveCase = 100

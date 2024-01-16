@@ -1,5 +1,6 @@
 res://default_env.tres
 res://Scene/Menu/Menu.tscn
+res://Script/Game/GlobalValueChessGame.gd
 res://Scene/Game/SelectGodsScreen.tscn
 res://Scene/Game/Game.tscn
 res://Scene/Game/ChessBoard.tscn
@@ -9,7 +10,4 @@ res://Scene/Pieces/Bishop.tscn
 res://Scene/Pieces/Rook.tscn
 res://Scene/Pieces/Queen.tscn
 res://Scene/Pieces/King.tscn
-res://Script/Game/ChessBoard.gd
-res://Script/Pieces/King.gd
-res://Script/Game/GlobalValueChessGame.gd
 res://Script/Pieces/Pawn.gd

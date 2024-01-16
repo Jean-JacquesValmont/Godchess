@@ -147,6 +147,9 @@ func move(dx, dy) :
 	resetLastMovePlay()
 	lastMovePlay()
 
+@rpc("any_peer", "call_local") func enPassantRPC(boolen):
+	enPassant = boolen
+
 func moveWithPinWhite(dx,dy,enPassantI):
 	if pieceProtectsAgainstAnAttack == false:
 		if initialPosition == true:
@@ -158,14 +161,14 @@ func moveWithPinWhite(dx,dy,enPassantI):
 				move(-dx,dy)
 			if chessBoard[i+dy][j+dx] != "0":
 				move(dx,dy)
-			enPassant = true
+			rpc("enPassantRPC", true)
 		else :
-			if i == enPassantI and chessBoard[i][j-dx].begins_with("PawnBlack")\
+			if i == enPassantI and chessBoard[i][j-dx].begins_with("Pawn")\
 			and get_node("/root/Game/ChessBoard/" + chessBoard[i][j-dx]).enPassant == true:
 				get_node("/root/Game/ChessBoard/" + chessBoard[i][j-dx]).queue_free()
 				chessBoard[i][j-dx] = "0"
 				move(-dx,dy)
-			if i == enPassantI and chessBoard[i][j+dx].begins_with("PawnBlack")\
+			if i == enPassantI and chessBoard[i][j+dx].begins_with("Pawn")\
 			and get_node("/root/Game/ChessBoard/" + chessBoard[i][j+dx]).enPassant == true:
 				get_node("/root/Game/ChessBoard/" + chessBoard[i][j+dx]).queue_free()
 				chessBoard[i][j+dx] = "0"
@@ -176,7 +179,7 @@ func moveWithPinWhite(dx,dy,enPassantI):
 				move(-dx,dy)
 			if chessBoard[i+dy][j+dx] != "0":
 				move(dx,dy)
-			enPassant = false
+			rpc("enPassantRPC", false)
 	elif pieceProtectsAgainstAnAttack == true:
 		if initialPosition == true:
 			if directionAttackProtectKing == "Haut":
@@ -190,7 +193,7 @@ func moveWithPinWhite(dx,dy,enPassantI):
 			elif directionAttackProtectKing == "Haut/Droite":
 				if chessBoard[i+dy][j+dx] != "0":
 					move(dx,dy)
-			enPassant = true
+			rpc("enPassantRPC", true)
 		else :
 			if directionAttackProtectKing == "Haut":
 				if chessBoard[i+dy][j] == "0":
@@ -201,63 +204,7 @@ func moveWithPinWhite(dx,dy,enPassantI):
 			elif directionAttackProtectKing == "Haut/Droite":
 				if chessBoard[i+dy][j+dx] != "0":
 					move(dx,dy)
-			enPassant = false
-
-func moveWithPinBlack(dx,dy,enPassantI):
-	if pieceProtectsAgainstAnAttack == false:
-		if initialPosition == true:
-			if chessBoard[i+dy][j] == "0":
-				move(0,dy)
-			if chessBoard[i+dy*2][j] == "0":
-				move(0,dy*2)
-			if chessBoard[i+dy][j-dx] != "0":
-				move(-dx,dy)
-			if chessBoard[i+dy][j+dx] != "0":
-				move(dx,dy)
-			enPassant = true
-		else :
-			if i == enPassantI and chessBoard[i][j-dx].begins_with("PawnWhite")\
-			and get_node("/root/Game/ChessBoard/" + chessBoard[i][j-dx]).enPassant == true:
-				get_node("/root/Game/ChessBoard/" + chessBoard[i][j-dx]).queue_free()
-				chessBoard[i][j-dx] = "0"
-				move(-dx,dy)
-			if i == enPassantI and chessBoard[i][j+dx].begins_with("PawnWhite")\
-			and get_node("/root/Game/ChessBoard/" + chessBoard[i][j+dx]).enPassant == true:
-				get_node("/root/Game/ChessBoard/" + chessBoard[i][j+dx]).queue_free()
-				chessBoard[i][j+dx] = "0"
-				move(dx,dy)
-			if chessBoard[i+dy][j] == "0":
-				move(0,dy)
-			if chessBoard[i+dy][j-dx] != "0":
-				move(-dx,dy)
-			if chessBoard[i+dy][j+dx] != "0":
-				move(dx,dy)
-			enPassant = false
-	elif pieceProtectsAgainstAnAttack == true:
-		if initialPosition == true:
-			if directionAttackProtectKing == "Bas":
-				if chessBoard[i+dy][j] == "0":
-					move(0,dy)
-				if chessBoard[i+dy*2][j] == "0":
-					move(0,dy*2)
-			elif directionAttackProtectKing == "Bas/Gauche":
-				if chessBoard[i+dy][j-dx] != "0":
-					move(-dx,dy)
-			elif directionAttackProtectKing == "Bas/Droite":
-				if chessBoard[i+dy][j+dx] != "0":
-					move(dx,dy)
-			enPassant = true
-		else :
-			if directionAttackProtectKing == "Bas":
-				if chessBoard[i+dy][j] == "0":
-					move(0,dy)
-			elif directionAttackProtectKing == "Bas/Gauche":
-				if chessBoard[i+dy][j-dx] != "0":
-					move(-dx,dy)
-			elif directionAttackProtectKing == "Bas/Droite":
-				if chessBoard[i+dy][j+dx] != "0":
-					move(dx,dy)
-			enPassant = false
+			rpc("enPassantRPC", false)
 
 func defenceMove(attacki,attackj):
 	print("Enter in defenceMove")

@@ -53,78 +53,49 @@ func _on_gods_screen_god_selected(godName):
 	godNameInPowerGods = godName
 	initialisationScreen(godName)
 
-func _on_button_passif_button_down():
+func buttonPiece(namePiece: String, namePiece2: String, posX: int, posY: int):
 	if godNameInPowerGods in godTexts:
 		var godData = godTexts[godNameInPowerGods]
-		get_node("TextPowerFactions").text = godData["passif"]
-		get_node("ZoneGif/GifPowerFactions").set_animation("Passif" + godNameInPowerGods )
+		get_node("TextPowerFactions").text = godData[namePiece]
+		get_node("ZoneGif/GifPowerFactions").set_animation(namePiece2 + godNameInPowerGods )
 		get_node("ZoneGif/GifPowerFactions").play()
-	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPassif.png")
-	get_node("HoverSelectionFaction").position.x = 608
-	get_node("HoverSelectionFaction").position.y = 167
+	if namePiece2 == "Passif":
+		get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPassif.png")
+	else:
+		get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
+	get_node("HoverSelectionFaction").position.x = posX
+	get_node("HoverSelectionFaction").position.y = posY
+
+func _on_button_passif_button_down():
+	buttonPiece("passif", "Passif", 608, 167)
 
 func _on_button_pawn_button_down():
-	if godNameInPowerGods in godTexts:
-		var godData = godTexts[godNameInPowerGods]
-		get_node("TextPowerFactions").text = godData["pawn"]
-		get_node("ZoneGif/GifPowerFactions").set_animation("Pawn" + godNameInPowerGods )
-		get_node("ZoneGif/GifPowerFactions").play()
-	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
-	get_node("HoverSelectionFaction").position.x = -7
-	get_node("HoverSelectionFaction").position.y = 281
+	buttonPiece("pawn", "Pawn", -7, 281)
 
 func _on_button_knight_button_down():
-	if godNameInPowerGods in godTexts:
-		var godData = godTexts[godNameInPowerGods]
-		get_node("TextPowerFactions").text = godData["knight"]
-		get_node("ZoneGif/GifPowerFactions").set_animation("Knight" + godNameInPowerGods )
-		get_node("ZoneGif/GifPowerFactions").play()
-	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
-	get_node("HoverSelectionFaction").position.x = 290
-	get_node("HoverSelectionFaction").position.y = 281
+	buttonPiece("knight", "Knight", 290, 281)
 
 func _on_button_bishop_button_down():
-	if godNameInPowerGods in godTexts:
-		var godData = godTexts[godNameInPowerGods]
-		get_node("TextPowerFactions").text = godData["bishop"]
-		get_node("ZoneGif/GifPowerFactions").set_animation("Bishop" + godNameInPowerGods )
-		get_node("ZoneGif/GifPowerFactions").play()
-	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
-	get_node("HoverSelectionFaction").position.x = 620
-	get_node("HoverSelectionFaction").position.y = 281
+	buttonPiece("bishop", "Bishop", 620, 281)
 
 func _on_button_rook_button_down():
-	if godNameInPowerGods in godTexts:
-		var godData = godTexts[godNameInPowerGods]
-		get_node("TextPowerFactions").text = godData["rook"]
-		get_node("ZoneGif/GifPowerFactions").set_animation("Rook" + godNameInPowerGods )
-		get_node("ZoneGif/GifPowerFactions").play()
-	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
-	get_node("HoverSelectionFaction").position.x = 940
-	get_node("HoverSelectionFaction").position.y = 281
+	buttonPiece("rook", "Rook", 940, 281)
 
 func _on_button_queen_button_down():
-	if godNameInPowerGods in godTexts:
-		var godData = godTexts[godNameInPowerGods]
-		get_node("TextPowerFactions").text = godData["queen"]
-		get_node("ZoneGif/GifPowerFactions").set_animation("Queen" + godNameInPowerGods )
-		get_node("ZoneGif/GifPowerFactions").play()
-	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
-	get_node("HoverSelectionFaction").position.x = 1277
-	get_node("HoverSelectionFaction").position.y = 281
+	buttonPiece("queen", "Queen", 1277, 281)
 
 func _on_button_king_button_down():
-	if godNameInPowerGods in godTexts:
-		var godData = godTexts[godNameInPowerGods]
-		get_node("TextPowerFactions").text = godData["king"]
-		get_node("ZoneGif/GifPowerFactions").set_animation("King" + godNameInPowerGods )
-		get_node("ZoneGif/GifPowerFactions").play()
-	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPiece.png")
-	get_node("HoverSelectionFaction").position.x = 1600
-	get_node("HoverSelectionFaction").position.y = 281
+	buttonPiece("king", "King", 1600, 281)
+
+func _on_button_return_god_selection_button_down():
+	self.hide()
+	get_node("/root/Menu/Background/GodsScreen").show()
 
 func _on_zone_gif_mouse_entered():
 	get_node("ZoneGif/GifPowerFactions").play()
 
 func _on_zone_gif_mouse_exited():
 	get_node("ZoneGif/GifPowerFactions").stop()
+
+
+

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh7fdchs08gib"]
 
-[ext_resource type="Texture2D" uid="uid://sduxq4n5gocw" path="res://Image/Menu/CustomGameWaitRoom.png" id="1_pn6vx"]
+[ext_resource type="Texture2D" uid="uid://vj3eh2pnh8n" path="res://Image/Menu/CustomGameWaitRoom.png" id="1_pn6vx"]
 [ext_resource type="Script" path="res://Script/Menu/CustomiseGameScreen.gd" id="2_e2m5u"]
 [ext_resource type="PackedScene" uid="uid://de34ypdb6irdo" path="res://Scene/Menu/PeerStatus.tscn" id="2_ildcw"]
-[ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="2_n8ewn"]
+[ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="2_n8ewn"]
 
 [node name="CustomiseGameScreen" type="Sprite2D"]
 texture = ExtResource("1_pn6vx")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dogs0vuacleth"]
 
-[ext_resource type="Texture2D" uid="uid://d140u4huu7vlb" path="res://Image/Menu/ListGods.png" id="1_oxofg"]
+[ext_resource type="Texture2D" uid="uid://cbu6vb3p7wqc5" path="res://Image/Menu/ListGods.png" id="1_oxofg"]
 [ext_resource type="Script" path="res://Script/Menu/GodsScreen.gd" id="2_rulih"]
-[ext_resource type="Texture2D" uid="uid://cvnd1uf05m4ev" path="res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png" id="3_2sbm3"]
-[ext_resource type="Texture2D" uid="uid://caolmhqkuxlnj" path="res://Image/Menu/HoverSelectionGods.png" id="4_vs0xu"]
+[ext_resource type="Texture2D" uid="uid://k8fybc88w2qe" path="res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png" id="3_2sbm3"]
+[ext_resource type="Texture2D" uid="uid://bfjx8qq6s608f" path="res://Image/Menu/HoverSelectionGods.png" id="4_vs0xu"]
 
 [node name="GodsScreen" type="Sprite2D"]
 texture = ExtResource("1_oxofg")

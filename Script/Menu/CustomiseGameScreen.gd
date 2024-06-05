@@ -72,6 +72,9 @@ func set_ready_button_enabled(enabled: bool = true) -> void:
 	if enabled:
 		buttonReady.grab_focus()
 
+func _on_button_copy_match_id_button_down():
+	DisplayServer.clipboard_set(matchIDLabel.text)
+
 func _on_button_ready_button_down():
 	emit_signal("ready_pressed")
 
@@ -95,5 +98,8 @@ func _on_OnlineMatch_match_ready(_players: Dictionary) -> void:
 
 func _on_OnlineMatch_match_not_ready() -> void:
 	set_ready_button_enabled(false)
+
+
+
 
 

@@ -31,7 +31,7 @@ mouse_default_cursor_shape = 2
 layout_mode = 0
 offset_left = 264.0
 offset_top = 659.0
-offset_right = 1080.0
+offset_right = 905.0
 offset_bottom = 702.0
 theme_override_font_sizes/font_size = 25
 
@@ -44,6 +44,15 @@ offset_bottom = 394.0
 
 [node name="PeerStatus" parent="Room/StatusContainer" instance=ExtResource("2_ildcw")]
 layout_mode = 2
+
+[node name="ButtonCopyMatchID" type="Button" parent="Room"]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 655.0
+offset_right = 1082.0
+offset_bottom = 705.0
+theme_override_font_sizes/font_size = 30
+text = "Copie ID"
 
 [node name="Options" type="Control" parent="."]
 layout_mode = 3
@@ -124,4 +133,5 @@ offset_bottom = 713.0
 mouse_default_cursor_shape = 2
 
 [connection signal="button_down" from="Room/ButtonQuitRoom" to="." method="_on_button_quit_room_button_down"]
+[connection signal="button_down" from="Room/ButtonCopyMatchID" to="." method="_on_button_copy_match_id_button_down"]
 [connection signal="button_down" from="Options/ButtonReady" to="." method="_on_button_ready_button_down"]

@@ -3,8 +3,8 @@ extends Sprite2D
 var email = ''
 var password = ''
 
-@onready var pathConnectionEmail = $EmailText
-@onready var pathConnectionPassword = $PasswordText
+@onready var pathConnectionEmail = $Control/EmailText
+@onready var pathConnectionPassword = $Control/PasswordText
 @onready var pathConnectionErrorText = $ErreurTextConnection
 
 # Called when the node enters the scene tree for the first time.

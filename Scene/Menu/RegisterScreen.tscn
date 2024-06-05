@@ -8,23 +8,32 @@ texture = ExtResource("1_lxxoh")
 centered = false
 script = ExtResource("2_vo7kf")
 
-[node name="UsernameText" type="LineEdit" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UsernameText" type="LineEdit" parent="Control"]
+layout_mode = 2
 offset_left = 693.0
 offset_top = 582.0
 offset_right = 1266.0
-offset_bottom = 630.0
+offset_bottom = 632.0
 theme_override_font_sizes/font_size = 30
 placeholder_text = "Enter a username"
 
-[node name="EmailText" type="LineEdit" parent="."]
+[node name="EmailText" type="LineEdit" parent="Control"]
+layout_mode = 2
 offset_left = 693.0
 offset_top = 717.0
 offset_right = 1266.0
-offset_bottom = 765.0
+offset_bottom = 767.0
 theme_override_font_sizes/font_size = 30
 placeholder_text = "Enter a email"
 
-[node name="PasswordText" type="LineEdit" parent="."]
+[node name="PasswordText" type="LineEdit" parent="Control"]
+layout_mode = 2
 offset_left = 693.0
 offset_top = 846.0
 offset_right = 957.0
@@ -33,7 +42,8 @@ theme_override_font_sizes/font_size = 28
 placeholder_text = "Enter a password"
 secret = true
 
-[node name="ConfirmPassword" type="LineEdit" parent="."]
+[node name="ConfirmPassword" type="LineEdit" parent="Control"]
+layout_mode = 2
 offset_left = 1003.0
 offset_top = 846.0
 offset_right = 1267.0

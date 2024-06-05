@@ -1,9 +1,9 @@
 extends Sprite2D
 
-@onready var pathRegisterUsername = $UsernameText
-@onready var pathRegisterEmail = $EmailText
-@onready var pathRegisterPassword = $PasswordText
-@onready var pathRegisterConfirmPassword = $ConfirmPassword
+@onready var pathRegisterUsername = $Control/UsernameText
+@onready var pathRegisterEmail = $Control/EmailText
+@onready var pathRegisterPassword = $Control/PasswordText
+@onready var pathRegisterConfirmPassword = $Control/ConfirmPassword
 @onready var pathRegisterErrorText = $ErrorTextRegister
 
 var email = ""

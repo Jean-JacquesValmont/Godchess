@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwawk0k02t6bj"]
 
-[ext_resource type="Texture2D" uid="uid://ckuwtdc7vpj3o" path="res://Image/Menu/Connexion.png" id="1_7117v"]
+[ext_resource type="Texture2D" uid="uid://cuu02hpmhuuu2" path="res://Image/Menu/Connexion.png" id="1_7117v"]
 [ext_resource type="Script" path="res://Script/Menu/ConnectionScreen.gd" id="2_y4aov"]
 
 [node name="ConnexionScreen" type="Sprite2D"]
@@ -8,7 +8,13 @@ texture = ExtResource("1_7117v")
 centered = false
 script = ExtResource("2_y4aov")
 
-[node name="EmailText" type="LineEdit" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EmailText" type="LineEdit" parent="Control"]
 offset_left = 693.0
 offset_top = 630.0
 offset_right = 1268.0
@@ -16,7 +22,7 @@ offset_bottom = 695.0
 theme_override_font_sizes/font_size = 30
 text = "guest@gmail.com"
 
-[node name="PasswordText" type="LineEdit" parent="."]
+[node name="PasswordText" type="LineEdit" parent="Control"]
 offset_left = 693.0
 offset_top = 788.0
 offset_right = 1268.0

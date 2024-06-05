@@ -11,3 +11,5 @@ res://Scene/Pieces/Queen.tscn
 res://Scene/Pieces/King.tscn
 res://Scene/Menu/RegisterScreen.tscn
 res://Script/Menu/RegisterScreen.gd
+res://Scene/Menu/ConnexionScreen.tscn
+res://Script/Menu/ConnectionScreen.gd

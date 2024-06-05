@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://drp67d0iw5wm3"]
 
-[ext_resource type="Texture2D" uid="uid://bqn4g2sw6r2kx" path="res://Image/Pieces/White/queen_white.png" id="1_s6nry"]
-[ext_resource type="AudioStream" uid="uid://bn3idy02b2e67" path="res://Sound/Sound_piece_move.mp3" id="2_foxf0"]
+[ext_resource type="Texture2D" uid="uid://bdc2su14pd8pa" path="res://Image/Pieces/White/queen_white.png" id="1_s6nry"]
+[ext_resource type="AudioStream" uid="uid://cjgigne6xnga4" path="res://Sound/Sound_piece_move.mp3" id="2_foxf0"]
 [ext_resource type="Script" path="res://Script/Pieces/Queen.gd" id="2_xwmql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4c2"]

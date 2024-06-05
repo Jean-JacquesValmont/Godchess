@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccb5p5ljgby2h"]
 
-[ext_resource type="Texture2D" uid="uid://bu2dxdit6voq6" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
+[ext_resource type="Texture2D" uid="uid://cye35k3n1ilkw" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
 [ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
 [ext_resource type="PackedScene" uid="uid://caicvg7ub7mxg" path="res://Scene/Game/ChessBoard.tscn" id="2_ry56a"]
-[ext_resource type="FontFile" uid="uid://cxdqxyi5rffvv" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
-[ext_resource type="Texture2D" uid="uid://cxobycs3vdrhn" path="res://Image/Game/MenuChessBoard.png" id="7_k76lp"]
+[ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
+[ext_resource type="Texture2D" uid="uid://b0cmlyeo70i1u" path="res://Image/Game/MenuChessBoard.png" id="7_k76lp"]
 
 [node name="Game" type="Sprite2D"]
 texture = ExtResource("1_0b1s8")

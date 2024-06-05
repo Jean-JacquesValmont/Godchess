@@ -54,13 +54,15 @@ func _on_register_button_button_down():
 			pathRegisterUsername.text = ""
 			pathRegisterEmail.text = ""
 			pathRegisterPassword.text = ""
+			pathRegisterConfirmPassword.text = ""
 			pathRegisterErrorText.text = "Création du compte validé."
-			pathRegisterErrorText.modulate = Color(0,1,0)
+			pathRegisterErrorText.modulate = Color(0,0.5,0)
 
 
 func _on_connection_screen_button_button_down():
 	pathRegisterUsername.text = ""
 	pathRegisterEmail.text = ""
 	pathRegisterPassword.text = ""
+	pathRegisterConfirmPassword.text = ""
 	self.hide()
 	get_node("/root/Main/Background/ConnexionScreen").show()

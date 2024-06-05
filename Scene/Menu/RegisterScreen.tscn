@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtmrnkvmyv2ix"]
 
-[ext_resource type="Texture2D" uid="uid://1i7q8akrhk27" path="res://Image/Menu/Inscription.png" id="1_lxxoh"]
+[ext_resource type="Texture2D" uid="uid://b4id8kxnrmmm8" path="res://Image/Menu/Inscription.png" id="1_lxxoh"]
 [ext_resource type="Script" path="res://Script/Menu/RegisterScreen.gd" id="2_vo7kf"]
 
 [node name="RegisterScreen" type="Sprite2D"]
@@ -31,6 +31,7 @@ offset_right = 957.0
 offset_bottom = 894.0
 theme_override_font_sizes/font_size = 28
 placeholder_text = "Enter a password"
+secret = true
 
 [node name="ConfirmPassword" type="LineEdit" parent="."]
 offset_left = 1003.0
@@ -39,6 +40,7 @@ offset_right = 1267.0
 offset_bottom = 894.0
 theme_override_font_sizes/font_size = 28
 placeholder_text = "Confirm password"
+secret = true
 
 [node name="ConnectionScreenButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)

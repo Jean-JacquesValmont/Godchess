@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3c6u4nfak1d6"]
 
-[ext_resource type="Texture2D" uid="uid://c5qknlb0rspfp" path="res://Image/Pieces/White/pawn_white.png" id="1_e06i6"]
+[ext_resource type="Texture2D" uid="uid://bfysf8py86tfh" path="res://Image/Pieces/White/pawn_white.png" id="1_e06i6"]
 [ext_resource type="Script" path="res://Script/Pieces/Pawn.gd" id="2_4b3a0"]
-[ext_resource type="AudioStream" uid="uid://bn3idy02b2e67" path="res://Sound/Sound_piece_move.mp3" id="2_h5ing"]
+[ext_resource type="AudioStream" uid="uid://cjgigne6xnga4" path="res://Sound/Sound_piece_move.mp3" id="2_h5ing"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al12d"]
 size = Vector2(50, 50)

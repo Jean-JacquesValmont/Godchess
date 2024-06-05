@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkdifrh7ran3j"]
 
 [ext_resource type="Script" path="res://Script/Menu/Menu.gd" id="1_lxqfr"]
-[ext_resource type="Texture2D" uid="uid://bcoxvipdpuoii" path="res://Image/Menu/BackgroundGodchess.png" id="1_v653j"]
+[ext_resource type="Texture2D" uid="uid://cioebn5fjvbm1" path="res://Image/Menu/BackgroundGodchess.png" id="1_v653j"]
 [ext_resource type="PackedScene" uid="uid://bwbyxry3hcbw0" path="res://Scene/Menu/OngletScreen.tscn" id="2_ebh6i"]
 [ext_resource type="PackedScene" uid="uid://6vogyu4wlmgv" path="res://Scene/Menu/PlayScreen.tscn" id="2_u5bpd"]
 [ext_resource type="PackedScene" uid="uid://dogs0vuacleth" path="res://Scene/Menu/GodsScreen.tscn" id="3_a5pkn"]

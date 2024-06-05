@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://g2af2vww4dc5"]
 
-[ext_resource type="Texture2D" uid="uid://0nj2pnqro0ix" path="res://Image/Pieces/White/bishop_white.png" id="1_huy3v"]
+[ext_resource type="Texture2D" uid="uid://b2be4n3fg4mtv" path="res://Image/Pieces/White/bishop_white.png" id="1_huy3v"]
 [ext_resource type="Script" path="res://Script/Pieces/Bishop.gd" id="2_8a7cg"]
-[ext_resource type="AudioStream" uid="uid://bn3idy02b2e67" path="res://Sound/Sound_piece_move.mp3" id="2_q0bpb"]
+[ext_resource type="AudioStream" uid="uid://cjgigne6xnga4" path="res://Sound/Sound_piece_move.mp3" id="2_q0bpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5judi"]
 size = Vector2(50, 50)

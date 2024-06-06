@@ -49,7 +49,7 @@ func _ready():
 #	pass
 
 func _input(event):
-	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
+	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false:
 		#J'ai un problème quand je met le bouton MOUSE_BUTTON_LEFT 2 fois dans deux if différent.
 		#J'ai donc mit le MOUSE_BUTTON_RIGHT pour la promotion
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:

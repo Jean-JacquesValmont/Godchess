@@ -7,6 +7,7 @@ var godSelectPlayer2 = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await get_tree().process_frame
+	GlobalValueMenu.menuOpen = false
 	player_in_game = GlobalValueMenu.players
 	godSelectPlayer1 = GlobalValueMenu.godSelectPlayer1
 	godSelectPlayer2 = GlobalValueMenu.godSelectPlayer2
@@ -69,6 +70,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	checkPlayerDisconnected()
+	
 	#Display turn player
 	if GlobalValueChessGame.turnWhite == true and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 		get_node("TurnPlayer").set_text("A votre tour de jouer")
@@ -121,12 +124,18 @@ func _process(delta):
 		else:
 			get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
 
+func checkPlayerDisconnected():
+	if OnlineMatch.__players.size() < 2:
+		get_node("PlayerLeftGame").show()
+		GlobalValueMenu.menuOpen = true
+
 func _on_button_game_menu_button_down():
 	if get_node("GameMenu").visible == false:
 		get_node("GameMenu").show()
 		get_node("GameMenu/ButtonResume").disabled = false
 		get_node("GameMenu/ButtonOption").disabled = false
 		get_node("GameMenu/ButtonAbandon").disabled = false
+		GlobalValueMenu.menuOpen = true
 
 func _on_button_resume_button_down():
 	if get_node("GameMenu").visible == true:
@@ -134,12 +143,19 @@ func _on_button_resume_button_down():
 		get_node("GameMenu/ButtonResume").disabled = true
 		get_node("GameMenu/ButtonOption").disabled = true
 		get_node("GameMenu/ButtonAbandon").disabled = true
+		GlobalValueMenu.menuOpen = false
 
 func _on_button_option_button_down():
 	pass # Replace with function body.
 
 func _on_button_abandon_button_down():
-	rpc("playerDisconnected")
+	get_node("ModalConfirmAbandon").show()
+	
+func _on_button_cancel_button_down():
+	get_node("ModalConfirmAbandon").hide()
+
+func _on_button_confirm_abandon_button_down():
+	rpc("playerplayerAbandons")
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 	OnlineMatch.leave()
 	#Reset variables global
@@ -159,5 +175,26 @@ func _on_button_abandon_button_down():
 	GlobalValueChessGame.checkmateBlack = false
 	GlobalValueChessGame.checkmate = false
 
-@rpc("any_peer","call_remote") func playerDisconnected():
-	get_node("PlayerDisconnected").visible = true
+@rpc("any_peer","call_remote") func playerAbandons():
+	get_node("PlayerLeftGame").show()
+	GlobalValueMenu.menuOpen = true
+
+func _on_button_left_game_button_down():
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+	OnlineMatch.leave()
+	#Reset variables global
+#	GlobalValueChessGame.startWhite = true
+	GlobalValueChessGame.gameLaunch = false
+	GlobalValueChessGame.initialisationDone = false
+	GlobalValueChessGame.oneMoveCase = 100
+	GlobalValueChessGame.turnWhite = true
+	GlobalValueChessGame.updateOfThePartsAttack = false
+	GlobalValueChessGame.directionOfAttack = "Aucune"
+	GlobalValueChessGame.checkWhite = false
+	GlobalValueChessGame.checkBlack = false
+	GlobalValueChessGame.pieceProtectTheKing = false
+	GlobalValueChessGame.threatened = false
+	GlobalValueChessGame.stalemate = false
+	GlobalValueChessGame.checkmateWhite = false
+	GlobalValueChessGame.checkmateBlack = false
+	GlobalValueChessGame.checkmate = false

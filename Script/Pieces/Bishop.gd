@@ -50,7 +50,7 @@ func _ready():
 #	pass
 
 func _input(event):
-	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
+	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT\
 		and promoteInProgress == false and GlobalValueChessGame.checkmate == false and GlobalValueChessGame.stalemate == false:
 			if (event.position - self.position - positionChessBoard).length() < clickRadius:

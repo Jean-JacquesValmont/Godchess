@@ -12,3 +12,4 @@ res://Scene/Pieces/Rook.tscn
 res://Scene/Pieces/Queen.tscn
 res://Scene/Pieces/King.tscn
 res://Scene/Menu/CustomiseGameScreen.tscn
+res://Script/Menu/Menu.gd

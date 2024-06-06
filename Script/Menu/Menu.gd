@@ -27,16 +27,12 @@ func _on_customise_game_screen_start_pressed():
 	elif customiseGameScreen.get_status(peer_id) == "READY!":
 		customiseGameScreen.set_status(peer_id, "Not ready")
 		players_ready[peer_id] = false
-	
-	print(players_ready)
 		
 @rpc("any_peer", "call_local") func press_start_game() -> void:
-	var allPlayerIsReady = false
+	var allPlayerIsReady = true
 	for key in players_ready.keys():
 		var value = players_ready[key]
-		if value == true:
-			allPlayerIsReady = true
-		else:
+		if value == false:
 			allPlayerIsReady = false
 			
 	if players_ready.size() == OnlineMatch.players.size() and allPlayerIsReady == true:

@@ -8,6 +8,7 @@ var PeerStatus = preload("res://Scene/Menu/PeerStatus.tscn");
 @onready var statusContainer := $Room/StatusContainer
 
 signal ready_pressed()
+signal start_pressed()
 
 func _ready() -> void:
 	clear_players()
@@ -78,6 +79,9 @@ func _on_button_copy_match_id_button_down():
 func _on_button_ready_button_down():
 	emit_signal("ready_pressed")
 
+func _on_button_start_button_down():
+	emit_signal("start_pressed")
+
 func _on_button_quit_room_button_down():
 	OnlineMatch.leave()
 	self.hide()
@@ -98,8 +102,5 @@ func _on_OnlineMatch_match_ready(_players: Dictionary) -> void:
 
 func _on_OnlineMatch_match_not_ready() -> void:
 	set_ready_button_enabled(false)
-
-
-
 
 

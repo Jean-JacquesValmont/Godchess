@@ -46,5 +46,11 @@ func _on_button_gods_button_down():
 		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").stop()
 
 func _on_button_quit_menu_button_down():
+	get_node("ModalQuitGame").show()
+
+func _on_button_quit_game_button_down():
 	Online.nakama_session = null
 	get_tree().change_scene_to_file("res://Scene/Main.tscn")
+
+func _on_button_cancel_button_down():
+	get_node("ModalQuitGame").hide()

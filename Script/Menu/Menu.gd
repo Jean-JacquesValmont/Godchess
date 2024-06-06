@@ -8,18 +8,38 @@ var players_ready := {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	customiseGameScreen.connect("ready_pressed", Callable(self, "_on_customise_game_screen_ready_pressed"))
+	customiseGameScreen.connect("start_pressed", Callable(self, "_on_customise_game_screen_start_pressed"))	
 
 #Code matchmaking part##########################################################
 func _on_customise_game_screen_ready_pressed():
 	rpc("player_ready", OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id)
 
+func _on_customise_game_screen_start_pressed():
+	rpc("press_start_game")
+	
 @rpc("any_peer", "call_local") func player_ready(peer_id: int) -> void:
-	customiseGameScreen.set_status(peer_id, "READY!")
+	if customiseGameScreen.get_status(peer_id) == "Not ready":
+		customiseGameScreen.set_status(peer_id, "READY!")
 
-##	if get_tree().is_network_server() and not players_ready.has(peer_id):
-#	if get_tree().network_server:
-	players_ready[peer_id] = true
-	if players_ready.size() == OnlineMatch.players.size():
+	##	if get_tree().is_network_server() and not players_ready.has(peer_id):
+	#	if get_tree().network_server:
+		players_ready[peer_id] = true
+	elif customiseGameScreen.get_status(peer_id) == "READY!":
+		customiseGameScreen.set_status(peer_id, "Not ready")
+		players_ready[peer_id] = false
+	
+	print(players_ready)
+		
+@rpc("any_peer", "call_local") func press_start_game() -> void:
+	var allPlayerIsReady = false
+	for key in players_ready.keys():
+		var value = players_ready[key]
+		if value == true:
+			allPlayerIsReady = true
+		else:
+			allPlayerIsReady = false
+			
+	if players_ready.size() == OnlineMatch.players.size() and allPlayerIsReady == true:
 		if OnlineMatch.match_state != OnlineMatch.MatchState.PLAYING:
 			OnlineMatch.start_playing()
 		start_game()

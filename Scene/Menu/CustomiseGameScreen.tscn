@@ -132,6 +132,16 @@ offset_right = 374.0
 offset_bottom = 713.0
 mouse_default_cursor_shape = 2
 
+[node name="ButtonStart" type="Button" parent="Options"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 515.0
+offset_right = 379.0
+offset_bottom = 597.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
 [connection signal="button_down" from="Room/ButtonQuitRoom" to="." method="_on_button_quit_room_button_down"]
 [connection signal="button_down" from="Room/ButtonCopyMatchID" to="." method="_on_button_copy_match_id_button_down"]
 [connection signal="button_down" from="Options/ButtonReady" to="." method="_on_button_ready_button_down"]
+[connection signal="button_down" from="Options/ButtonStart" to="." method="_on_button_start_button_down"]

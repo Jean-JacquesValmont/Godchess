@@ -8,7 +8,7 @@ var players_ready := {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	customiseGameScreen.connect("ready_pressed", Callable(self, "_on_customise_game_screen_ready_pressed"))
-	customiseGameScreen.connect("start_pressed", Callable(self, "_on_customise_game_screen_start_pressed"))	
+	customiseGameScreen.connect("start_pressed", Callable(self, "_on_customise_game_screen_start_pressed"))
 
 #Code matchmaking part##########################################################
 func _on_customise_game_screen_ready_pressed():

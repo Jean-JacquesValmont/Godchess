@@ -5,6 +5,7 @@ var selectGod = false
 var selectGodConfirm = false
 var selectGodName = ""
 var turnPlayer = "Player1"
+var alreadySelected = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,11 +42,11 @@ func game_start(players: Dictionary) -> void:
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
 		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[0]]
 		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[1]]
-		get_node("Username").text = "Au Joueur: " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
+		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
 	else:
 		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[1]]
 		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[0]]
-		get_node("Username").text = "Au Joueur: " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
+		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
 	
 	print("Joueur: ", Online.nakama_session.username, " player_in_game: ", player_in_game)
 	
@@ -57,10 +58,12 @@ func game_start(players: Dictionary) -> void:
 func _on_button_goddess_of_teleportation_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 		rpc("selectGoddessOfTeleportation", "Player1")
+		selectGod = true
 	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1 and turnPlayer == "Player2":
-		rpc("selectGoddessOfTeleportation", "Player2")
-	selectGod = true
-
+		if alreadySelected != "GoddessOfTeleportation":
+			rpc("selectGoddessOfTeleportation", "Player2")
+			selectGod = true
+			
 func _on_button_goddess_of_teleportation_mouse_entered():
 	get_node("GodsSelection/HoverSelectionGods").texture = load("res://Image/Game/HoverSelectionGods.png")
 	get_node("GodsSelection/HoverSelectionGods").position.x = 7
@@ -118,9 +121,11 @@ func _on_button_goddess_of_teleportation_mouse_exited():
 func _on_button_god_of_death_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 		rpc("selectGodOfDeath", "Player1")
+		selectGod = true
 	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1 and turnPlayer == "Player2":
-		rpc("selectGodOfDeath", "Player2")
-	selectGod = true
+		if alreadySelected != "GodOfDeath":
+			rpc("selectGodOfDeath", "Player2")
+			selectGod = true
 
 func _on_button_god_of_death_mouse_entered():
 	get_node("GodsSelection/HoverSelectionGods").texture = load("res://Image/Game/HoverSelectionGods.png")
@@ -186,15 +191,17 @@ func _on_button_confirm_button_down():
 
 @rpc("any_peer", "call_local") func selectGodConfirmed() -> void:
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
-		get_node("Username").text = "Au Joueur: " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
+		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
 	else:
-		get_node("Username").text = "Au Joueur: " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
+		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
 			
 	if turnPlayer == "Player1":
 		turnPlayer = "Player2"
+		alreadySelected = selectGodName
 		GlobalValueMenu.godSelectPlayer1 = selectGodName
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
 	elif turnPlayer == "Player2":
+		alreadySelected = ""
 		GlobalValueMenu.godSelectPlayer2 = selectGodName
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer2: ", GlobalValueMenu.godSelectPlayer2)
 		get_tree().change_scene_to_file("res://Scene/Game/Game.tscn")

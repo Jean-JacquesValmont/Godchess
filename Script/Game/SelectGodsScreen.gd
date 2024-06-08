@@ -42,11 +42,11 @@ func game_start(players: Dictionary) -> void:
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 :
 		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[0]]
 		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[1]]
-		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
+		get_node("PlayerTurnSelectGod").text = "Au Joueur " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
 	else:
 		get_node("Player1/Username").text = player_in_game[player_in_game.keys()[1]]
 		get_node("Player2/Username").text = player_in_game[player_in_game.keys()[0]]
-		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
+		get_node("PlayerTurnSelectGod").text = "Au Joueur " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
 	
 	print("Joueur: ", Online.nakama_session.username, " player_in_game: ", player_in_game)
 	
@@ -191,14 +191,24 @@ func _on_button_confirm_button_down():
 
 @rpc("any_peer", "call_local") func selectGodConfirmed() -> void:
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
-		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
+		get_node("PlayerTurnSelectGod").text = "Au Joueur " + player_in_game[player_in_game.keys()[1]] + " de choisir son dieu."
+		
 	else:
-		get_node("Username").text = "Au Joueur " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
+		get_node("PlayerTurnSelectGod").text = "Au Joueur " + player_in_game[player_in_game.keys()[0]] + " de choisir son dieu."
+		
+	get_node("Player1/HoverPlayerSelecting").hide()
+	get_node("Player2/HoverPlayerSelecting").show()
 			
 	if turnPlayer == "Player1":
 		turnPlayer = "Player2"
 		alreadySelected = selectGodName
 		GlobalValueMenu.godSelectPlayer1 = selectGodName
+		##Pour mettre le sprite pour dire que le dieu est déjà selectionner
+		if alreadySelected == "GoddessOfTeleportation":
+			get_node("GodsSelection/GodSelectingByPlayer1").show()
+		elif alreadySelected == "GodOfDeath":
+			get_node("GodsSelection/GodSelectingByPlayer1").show()
+			get_node("GodsSelection/GodSelectingByPlayer1").position.x = 143
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
 	elif turnPlayer == "Player2":
 		alreadySelected = ""

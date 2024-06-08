@@ -1,10 +1,10 @@
-Button
+Sprite2D
 Label
+Control
+Button
 Panel
 CenterContainer
-Control
 Container
-Sprite2D
 AspectRatioContainer
 VideoStreamPlayer
 ResourcePreloader

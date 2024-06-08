@@ -2,8 +2,9 @@ extends Sprite2D
 
 var PeerStatus = preload("res://Scene/Menu/PeerStatus.tscn");
 
-@onready var buttonReady := $Options/ButtonReady
-@onready var buttonBack := $Room/ButtonQuitRoom
+@onready var buttonReady := $Options/Ready/ButtonReady
+@onready var textButtonReady := $Options/Ready/TextButtonReady
+@onready var buttonBack := $Options/ButtonQuitRoom
 @onready var matchIDLabel := $Room/MatchIDText
 @onready var statusContainer := $Room/StatusContainer
 
@@ -77,6 +78,10 @@ func _on_button_copy_match_id_button_down():
 	DisplayServer.clipboard_set(matchIDLabel.text)
 
 func _on_button_ready_button_down():
+	if textButtonReady.text == "Prêt":
+		textButtonReady.text = "Pas Prêt"
+	elif textButtonReady.text == "Pas Prêt":
+		textButtonReady.text = "Prêt"
 	emit_signal("ready_pressed")
 
 func _on_button_start_button_down():

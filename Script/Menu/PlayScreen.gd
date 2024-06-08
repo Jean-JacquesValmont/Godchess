@@ -29,6 +29,7 @@ func _on_match_button_pressed(mode) -> void:
 	
 func _create_match() -> void:
 	OnlineMatch.create_match(Online.nakama_socket)
+	get_node("/root/Menu/Background/CustomiseGameScreen/Options/StartGame").show()
 	
 func _join_match() -> void:
 	var match_id = joinMatchID.text.strip_edges()
@@ -38,6 +39,7 @@ func _join_match() -> void:
 		match_id += '.'
 
 	OnlineMatch.join_match(Online.nakama_socket, match_id)
+	get_node("/root/Menu/Background/CustomiseGameScreen/Options/StartGame").hide()
 
 func _on_OnlineMatch_joined(match_id: String, match_mode: int):
 	var info = {

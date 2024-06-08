@@ -70,7 +70,7 @@ func _on_button_passif_button_down():
 	buttonPiece("passif", "Passif", 608, 167)
 
 func _on_button_pawn_button_down():
-	buttonPiece("pawn", "Pawn", -7, 281)
+	buttonPiece("pawn", "Pawn", -40, 281)
 
 func _on_button_knight_button_down():
 	buttonPiece("knight", "Knight", 290, 281)

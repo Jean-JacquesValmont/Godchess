@@ -18,20 +18,11 @@ offset_top = 191.0
 offset_right = 1168.0
 offset_bottom = 933.0
 
-[node name="ButtonQuitRoom" type="Button" parent="Room"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 25.0
-offset_top = 15.0
-offset_right = 90.0
-offset_bottom = 80.0
-mouse_default_cursor_shape = 2
-
 [node name="MatchIDText" type="LineEdit" parent="Room"]
 layout_mode = 0
 offset_left = 264.0
 offset_top = 659.0
-offset_right = 905.0
+offset_right = 895.0
 offset_bottom = 702.0
 theme_override_font_sizes/font_size = 25
 
@@ -46,13 +37,14 @@ offset_bottom = 394.0
 layout_mode = 2
 
 [node name="ButtonCopyMatchID" type="Button" parent="Room"]
+modulate = Color(0, 0, 0, 0)
 layout_mode = 0
-offset_left = 914.0
-offset_top = 655.0
-offset_right = 1082.0
-offset_bottom = 705.0
+offset_left = 899.0
+offset_top = 659.0
+offset_right = 1079.0
+offset_bottom = 703.0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 30
-text = "Copie ID"
 
 [node name="Options" type="Control" parent="."]
 layout_mode = 3
@@ -123,25 +115,70 @@ theme_override_fonts/font = ExtResource("2_n8ewn")
 theme_override_font_sizes/font_size = 40
 text = "Illimité"
 
-[node name="ButtonReady" type="Button" parent="Options"]
+[node name="Ready" type="Control" parent="Options"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextButtonReady" type="Label" parent="Options/Ready"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 643.0
+offset_right = 468.0
+offset_bottom = 717.0
+theme_override_fonts/font = ExtResource("2_n8ewn")
+theme_override_font_sizes/font_size = 50
+text = "Prêt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonReady" type="Button" parent="Options/Ready"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 138.0
-offset_top = 624.0
-offset_right = 374.0
-offset_bottom = 713.0
+offset_left = 276.0
+offset_top = 643.0
+offset_right = 467.0
+offset_bottom = 717.0
 mouse_default_cursor_shape = 2
 
-[node name="ButtonStart" type="Button" parent="Options"]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 515.0
-offset_right = 379.0
-offset_bottom = 597.0
-theme_override_font_sizes/font_size = 50
-text = "Start"
+[node name="StartGame" type="Control" parent="Options"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[connection signal="button_down" from="Room/ButtonQuitRoom" to="." method="_on_button_quit_room_button_down"]
+[node name="TextButtonStartGame" type="Label" parent="Options/StartGame"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 642.0
+offset_right = 227.0
+offset_bottom = 717.0
+theme_override_fonts/font = ExtResource("2_n8ewn")
+theme_override_font_sizes/font_size = 60
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonStart" type="Button" parent="Options/StartGame"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 642.0
+offset_right = 228.0
+offset_bottom = 717.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+
+[node name="ButtonQuitRoom" type="Button" parent="Options"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 419.0
+offset_top = 15.0
+offset_right = 484.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+
 [connection signal="button_down" from="Room/ButtonCopyMatchID" to="." method="_on_button_copy_match_id_button_down"]
-[connection signal="button_down" from="Options/ButtonReady" to="." method="_on_button_ready_button_down"]
-[connection signal="button_down" from="Options/ButtonStart" to="." method="_on_button_start_button_down"]
+[connection signal="button_down" from="Options/Ready/ButtonReady" to="." method="_on_button_ready_button_down"]
+[connection signal="button_down" from="Options/StartGame/ButtonStart" to="." method="_on_button_start_button_down"]
+[connection signal="button_down" from="Options/ButtonQuitRoom" to="." method="_on_button_quit_room_button_down"]

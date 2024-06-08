@@ -125,7 +125,8 @@ func _process(delta):
 			get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
 
 func checkPlayerDisconnected():
-	if OnlineMatch.__players.size() < 2:
+	if OnlineMatch.__players.size() < 2 and get_node("PlayerLeftGame").visible != true:
+		get_node("PlayerLeftGame/TextPlayerLeftGame").text = "L'adversaire c'est déconnecté."
 		get_node("PlayerLeftGame").show()
 		GlobalValueMenu.menuOpen = true
 
@@ -155,7 +156,7 @@ func _on_button_cancel_button_down():
 	get_node("ModalConfirmAbandon").hide()
 
 func _on_button_confirm_abandon_button_down():
-	rpc("playerplayerAbandons")
+	rpc("playerAbandons")
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 	OnlineMatch.leave()
 	#Reset variables global

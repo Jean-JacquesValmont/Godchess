@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8vbijy7pfbej"]
+[gd_scene load_steps=22 format=3 uid="uid://c8vbijy7pfbej"]
 
 [ext_resource type="Texture2D" uid="uid://c8kole14ena05" path="res://Image/Game/SelectGodsClan.png" id="1_bwn3n"]
 [ext_resource type="Texture2D" uid="uid://k8fybc88w2qe" path="res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png" id="2_j0u8u"]
@@ -13,18 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://t8120e1gigna" path="res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png" id="9_2oebp"]
 [ext_resource type="Texture2D" uid="uid://bd1htsy7dl5rt" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Pion.png" id="10_qod6r"]
 [ext_resource type="Texture2D" uid="uid://ppnix40qrlnv" path="res://Image/Game/HoverSelectionGods.png" id="11_2iujh"]
+[ext_resource type="Texture2D" uid="uid://ivaweev7p1my" path="res://Image/Menu/HoverPlayer1Selecting.png" id="11_ja33u"]
 [ext_resource type="Texture2D" uid="uid://bdkfqi3grb1hh" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Cavalier.png" id="11_xorgs"]
 [ext_resource type="Texture2D" uid="uid://b8hfoxkyylalb" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Fou.png" id="12_rfgj0"]
 [ext_resource type="Texture2D" uid="uid://diq3a3gimc0wl" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Tour.png" id="13_i7581"]
+[ext_resource type="Texture2D" uid="uid://kwhrrketcjnr" path="res://Image/Menu/NoGodSelectSelectionGods.png" id="13_qchtu"]
 [ext_resource type="Texture2D" uid="uid://dnegftn2ghvcw" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Reine.png" id="14_0soax"]
 [ext_resource type="Texture2D" uid="uid://dytau56ucb64w" path="res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png" id="15_kntfo"]
+[ext_resource type="Texture2D" uid="uid://kpj25kkxlv06" path="res://Image/Menu/HoverPlayer2Selecting.png" id="20_lwy8y"]
 
 [node name="SelectGodsScreen" type="Sprite2D"]
 texture = ExtResource("1_bwn3n")
 centered = false
 script = ExtResource("2_lqked")
 
-[node name="Username" type="Label" parent="."]
+[node name="PlayerTurnSelectGod" type="Label" parent="."]
 offset_left = 605.0
 offset_top = 159.0
 offset_right = 1336.0
@@ -92,6 +95,11 @@ scale = Vector2(0.475, 0.475)
 texture = ExtResource("8_xefhh")
 centered = false
 
+[node name="HoverPlayerSelecting" type="Sprite2D" parent="Player1"]
+position = Vector2(-39, -248)
+texture = ExtResource("11_ja33u")
+centered = false
+
 [node name="GodsSelection" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -121,6 +129,13 @@ mouse_default_cursor_shape = 2
 [node name="HoverSelectionGods" type="Sprite2D" parent="GodsSelection"]
 position = Vector2(7, 33)
 texture = ExtResource("11_2iujh")
+centered = false
+
+[node name="GodSelectingByPlayer1" type="Sprite2D" parent="GodsSelection"]
+visible = false
+position = Vector2(6.5, 33)
+scale = Vector2(1.00667, 1)
+texture = ExtResource("13_qchtu")
 centered = false
 
 [node name="Player2" type="Control" parent="."]
@@ -181,6 +196,12 @@ centered = false
 position = Vector2(1, 577)
 scale = Vector2(0.475, 0.475)
 texture = ExtResource("15_kntfo")
+centered = false
+
+[node name="HoverPlayerSelecting" type="Sprite2D" parent="Player2"]
+visible = false
+position = Vector2(-1380, -249)
+texture = ExtResource("20_lwy8y")
 centered = false
 
 [node name="ButtonConfirm" type="Button" parent="."]

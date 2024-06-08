@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6vogyu4wlmgv"]
 
-[ext_resource type="Texture2D" uid="uid://bksume604pin4" path="res://Image/Menu/ModCustomizedGame.png" id="1_g7wr7"]
+[ext_resource type="Texture2D" uid="uid://cfj7u1psrljya" path="res://Image/Menu/ModCustomizedGame.png" id="1_g7wr7"]
 [ext_resource type="Script" path="res://Script/Menu/PlayScreen.gd" id="2_vin2r"]
 
 [node name="PlayScreen" type="Sprite2D"]

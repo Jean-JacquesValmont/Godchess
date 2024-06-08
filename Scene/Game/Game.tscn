@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccb5p5ljgby2h"]
+[gd_scene load_steps=7 format=3 uid="uid://ccb5p5ljgby2h"]
 
 [ext_resource type="Texture2D" uid="uid://cye35k3n1ilkw" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
 [ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
 [ext_resource type="PackedScene" uid="uid://caicvg7ub7mxg" path="res://Scene/Game/ChessBoard.tscn" id="2_ry56a"]
 [ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
+[ext_resource type="Texture2D" uid="uid://b5626uqw1cos5" path="res://Image/Menu/ConfirmationWindow.png" id="6_qtndm"]
 [ext_resource type="Texture2D" uid="uid://b0cmlyeo70i1u" path="res://Image/Game/MenuChessBoard.png" id="7_k76lp"]
 
 [node name="Game" type="Sprite2D"]
@@ -132,74 +133,65 @@ offset_right = 154.0
 offset_bottom = 84.0
 mouse_default_cursor_shape = 2
 
-[node name="ModalConfirmAbandon" type="Panel" parent="."]
+[node name="ModalConfirmAbandon" type="Sprite2D" parent="."]
 visible = false
-offset_left = 660.0
-offset_top = 442.0
-offset_right = 1265.0
-offset_bottom = 622.0
+texture = ExtResource("6_qtndm")
+centered = false
 
 [node name="TextConfirmAbandon" type="Label" parent="ModalConfirmAbandon"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 16.0
-offset_right = 602.0
-offset_bottom = 67.0
+offset_left = 668.0
+offset_top = 463.0
+offset_right = 1271.0
+offset_bottom = 514.0
 theme_override_font_sizes/font_size = 30
 text = "Etes vous sûr de vouloir abandonner?"
 horizontal_alignment = 1
 
 [node name="ButtonCancel" type="Button" parent="ModalConfirmAbandon"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 62.0
-offset_top = -8.0
-offset_right = 244.0
-offset_bottom = 53.0
+offset_left = 723.0
+offset_top = 11.0
+offset_right = 905.0
+offset_bottom = 72.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Annuler"
 
 [node name="ButtonConfirmAbandon" type="Button" parent="ModalConfirmAbandon"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -239.0
-offset_top = -5.0
-offset_right = -57.0
-offset_bottom = 56.0
+offset_left = -905.0
+offset_top = 10.0
+offset_right = -723.0
+offset_bottom = 71.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "Abandonner"
 
-[node name="PlayerLeftGame" type="Panel" parent="."]
+[node name="PlayerLeftGame" type="Sprite2D" parent="."]
 visible = false
-offset_left = 661.0
-offset_top = 438.0
-offset_right = 1265.0
-offset_bottom = 644.0
+texture = ExtResource("6_qtndm")
+centered = false
 
 [node name="TextPlayerLeftGame" type="Label" parent="PlayerLeftGame"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 28.0
-offset_right = 525.0
-offset_bottom = 77.0
+offset_left = 737.0
+offset_top = 466.0
+offset_right = 1197.0
+offset_bottom = 515.0
 theme_override_font_sizes/font_size = 35
-text = "L'adversaire à abandonner"
+text = "L'adversaire à abandonner."
 
 [node name="ButtonLeftGame" type="Button" parent="PlayerLeftGame"]
-layout_mode = 0
-offset_left = 174.0
-offset_top = 111.0
-offset_right = 424.0
-offset_bottom = 179.0
+offset_left = 836.0
+offset_top = 549.0
+offset_right = 1086.0
+offset_bottom = 617.0
 theme_override_font_sizes/font_size = 30
 text = "Quiter la partie"
 

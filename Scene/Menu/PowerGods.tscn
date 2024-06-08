@@ -4038,12 +4038,12 @@ texture = ExtResource("921_otco0")
 centered = false
 
 [node name="ButtonReturnGodSelection" type="Button" parent="."]
-offset_left = 1836.0
-offset_top = 133.0
-offset_right = 1909.0
-offset_bottom = 210.0
+modulate = Color(0, 0, 0, 0)
+offset_left = 1859.0
+offset_top = 126.0
+offset_right = 1914.0
+offset_bottom = 180.0
 theme_override_font_sizes/font_size = 50
-text = "X"
 
 [connection signal="button_down" from="ButtonsFactions/ButtonPassif" to="." method="_on_button_passif_button_down"]
 [connection signal="button_down" from="ButtonsFactions/ButtonPawn" to="." method="_on_button_pawn_button_down"]

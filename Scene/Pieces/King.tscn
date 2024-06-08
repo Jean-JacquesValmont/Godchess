@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcba7cvum2j13"]
+[gd_scene load_steps=6 format=3 uid="uid://dcba7cvum2j13"]
 
 [ext_resource type="Texture2D" uid="uid://cr4omdd61u8rd" path="res://Image/Pieces/White/king_white.png" id="1_hhk43"]
 [ext_resource type="Script" path="res://Script/Pieces/King.gd" id="2_tl52n"]
 [ext_resource type="AudioStream" uid="uid://cjgigne6xnga4" path="res://Sound/Sound_piece_move.mp3" id="2_w5fak"]
+[ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="4_0i2b2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf4cn"]
 size = Vector2(50, 50)
@@ -19,5 +20,17 @@ shape = SubResource("RectangleShape2D_vf4cn")
 
 [node name="SoundMovePiece" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_w5fak")
+
+[node name="Timer" type="Label" parent="."]
+visible = false
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 55.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("4_0i2b2")
+theme_override_font_sizes/font_size = 50
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

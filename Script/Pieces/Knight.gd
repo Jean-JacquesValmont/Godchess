@@ -213,6 +213,7 @@ func _on_area_2d_area_entered(area):
 				if "Black" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == true:
+				print("In _on_area_2d_area_entered: ", " playerID: ", playerID,)
 				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
 				if "White" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()

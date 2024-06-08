@@ -27,6 +27,7 @@ var attackerPositionshiftJ = 0
 var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var playerID
+var timer = -1
 
 func _ready():
 	await get_tree().process_frame
@@ -46,8 +47,8 @@ func _ready():
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
-func _process(delta):
-	request_ready()
+#func _process(delta):
+#	pass()
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false:
@@ -222,6 +223,7 @@ func _on_area_2d_area_entered(area):
 				if "Black" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == true:
+				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
 				if "White" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 				

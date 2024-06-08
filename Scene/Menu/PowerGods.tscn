@@ -4043,6 +4043,7 @@ offset_left = 1859.0
 offset_top = 126.0
 offset_right = 1914.0
 offset_bottom = 180.0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 50
 
 [connection signal="button_down" from="ButtonsFactions/ButtonPassif" to="." method="_on_button_passif_button_down"]

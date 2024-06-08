@@ -20,7 +20,7 @@ var godTexts = {
 		"bishop": "Pose un compte à rebours aléatoirement sur un pion ou un cavalier adverse",
 		"rook": "Pose un compte à rebours aléatoirement sur un pion, un cavalier ou un fou adverse",
 		"queen": "Pose un compte à rebours aléatoirement sur un pion, un cavalier, un fou ou une tour adverse",
-		"king": "Quand le roi se fait mettre en échec pose un compte un rebours n’importe quelles pièces. (3 utilisations)"
+		"king": "Quand le roi se fait mettre en échec pose un compte un rebours sur n’importe quelles pièces. (3 utilisations)"
 	}
 }
 

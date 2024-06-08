@@ -52,6 +52,7 @@ func _process(delta):
 				enPassantFinish()
 				verificationCheckAndCheckmate()
 				verificationStalemate("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
+				GlobalValueChessGamePower.allPowerOfGods()
 				updateOfThePartsAttack = true
 				
 		elif turnWhite == false:
@@ -62,6 +63,7 @@ func _process(delta):
 				enPassantFinish()
 				verificationCheckAndCheckmate()
 				verificationStalemate("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
+				GlobalValueChessGamePower.allPowerOfGods()
 				updateOfThePartsAttack = false
 
 func createBoard(rowSize,columnSize):

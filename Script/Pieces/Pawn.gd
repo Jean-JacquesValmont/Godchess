@@ -26,6 +26,7 @@ var attackerPositionshiftJ = 0
 var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var playerID
+var timer = -1
 
 func _ready():
 	await get_tree().process_frame
@@ -282,6 +283,7 @@ func _on_area_2d_area_entered(area):
 				if "Black" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == true:
+				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
 				if "White" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 		elif promoteInProgress == true:
@@ -289,6 +291,7 @@ func _on_area_2d_area_entered(area):
 				if "Black" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == false:
+				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
 				if "White" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 

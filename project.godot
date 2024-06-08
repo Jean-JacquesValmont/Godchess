@@ -26,6 +26,9 @@ Online="*res://Script/Multiplayer/Online.gd"
 OnlineMatch="*res://Script/Multiplayer/OnlineMatch.gd"
 GlobalValueMenu="*res://Script/Menu/GlobalValueMenu.gd"
 GlobalValueChessGame="*res://Script/Game/GlobalValueChessGame.gd"
+GlobalValueChessGamePower="*res://Script/Game/GlobalValueChessGamePower.gd"
+GodsPowerPiece="*res://Script/Pieces/GodsPowerPiece.gd"
+GodOfDeathPower="*res://Script/PowerOfGods/GodOfDeathPower.gd"
 
 [debug]
 

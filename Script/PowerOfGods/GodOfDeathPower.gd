@@ -3,7 +3,7 @@ extends Node
 var usePowerKing = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	usePowerKing = 3
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -58,6 +58,10 @@ func deathPowerPawn(playerID, chessBoard):
 					if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
 						rpc("deathPowerTargetPiece", randomPiece, randomNumber)
 					findPiece = true
+					
+			elif has_node(path) == false:
+				randomPiece.remove_at(randomNumber)
+				randomNumber = randi_range(0, randomPiece.size() - 1)
 
 			if randomPiece.size() == 0:
 				break  # Ensure we exit if no pieces are left
@@ -95,6 +99,10 @@ func deathPower(playerID, randomNumMax):
 				if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id:
 					rpc("deathPowerTargetPiece", randomPiece, randomNumber)
 				findPiece = true
+				
+		elif has_node(path) == false:
+				randomPiece.remove_at(randomNumber)
+				randomNumber = randi_range(0, randomPiece.size() - 1)
 
 		if randomPiece.size() == 0:
 			break  # Ensure we exit if no pieces are left
@@ -123,6 +131,10 @@ func deathPowerKing(playerID):
 					rpc("deathPowerTargetPiece", randomPiece, randomNumber)
 				usePowerKing -= 1
 				findPiece = true
+		
+		elif has_node(path) == false:
+				randomPiece.remove_at(randomNumber)
+				randomNumber = randi_range(0, randomPiece.size() - 1)
 
 		if randomPiece.size() == 0:
 			break  # Ensure we exit if no pieces are left

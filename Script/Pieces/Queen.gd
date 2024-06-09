@@ -248,8 +248,8 @@ func _on_area_2d_area_entered(area):
 				if "Black" in pieceName and dragging == false :
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 			elif white == false and GlobalValueChessGame.turnWhite == true:
-				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
 				if "White" in pieceName and dragging == false :
+					GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
 					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 				
 func checkMaxMove(dx, dy):

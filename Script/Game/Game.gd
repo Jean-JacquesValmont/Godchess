@@ -130,6 +130,23 @@ func checkPlayerDisconnected():
 		get_node("PlayerLeftGame").show()
 		GlobalValueMenu.menuOpen = true
 
+func variableGlobalReset():
+	#	GlobalValueChessGame.startWhite = true
+	GlobalValueChessGame.gameLaunch = false
+	GlobalValueChessGame.initialisationDone = false
+	GlobalValueChessGame.oneMoveCase = 100
+	GlobalValueChessGame.turnWhite = true
+	GlobalValueChessGame.updateOfThePartsAttack = false
+	GlobalValueChessGame.directionOfAttack = "Aucune"
+	GlobalValueChessGame.checkWhite = false
+	GlobalValueChessGame.checkBlack = false
+	GlobalValueChessGame.pieceProtectTheKing = false
+	GlobalValueChessGame.threatened = false
+	GlobalValueChessGame.stalemate = false
+	GlobalValueChessGame.checkmateWhite = false
+	GlobalValueChessGame.checkmateBlack = false
+	GlobalValueChessGame.checkmate = false
+
 func _on_button_game_menu_button_down():
 	if get_node("GameMenu").visible == false:
 		get_node("GameMenu").show()
@@ -160,21 +177,10 @@ func _on_button_confirm_abandon_button_down():
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 	OnlineMatch.leave()
 	#Reset variables global
-#	GlobalValueChessGame.startWhite = true
-	GlobalValueChessGame.gameLaunch = false
-	GlobalValueChessGame.initialisationDone = false
-	GlobalValueChessGame.oneMoveCase = 100
-	GlobalValueChessGame.turnWhite = true
-	GlobalValueChessGame.updateOfThePartsAttack = false
-	GlobalValueChessGame.directionOfAttack = "Aucune"
-	GlobalValueChessGame.checkWhite = false
-	GlobalValueChessGame.checkBlack = false
-	GlobalValueChessGame.pieceProtectTheKing = false
-	GlobalValueChessGame.threatened = false
-	GlobalValueChessGame.stalemate = false
-	GlobalValueChessGame.checkmateWhite = false
-	GlobalValueChessGame.checkmateBlack = false
-	GlobalValueChessGame.checkmate = false
+	variableGlobalReset()
+	
+	#Reset variables power global
+	GodOfDeathPower.usePowerKing = 3
 
 @rpc("any_peer","call_remote") func playerAbandons():
 	get_node("PlayerLeftGame").show()
@@ -184,18 +190,7 @@ func _on_button_left_game_button_down():
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 	OnlineMatch.leave()
 	#Reset variables global
-#	GlobalValueChessGame.startWhite = true
-	GlobalValueChessGame.gameLaunch = false
-	GlobalValueChessGame.initialisationDone = false
-	GlobalValueChessGame.oneMoveCase = 100
-	GlobalValueChessGame.turnWhite = true
-	GlobalValueChessGame.updateOfThePartsAttack = false
-	GlobalValueChessGame.directionOfAttack = "Aucune"
-	GlobalValueChessGame.checkWhite = false
-	GlobalValueChessGame.checkBlack = false
-	GlobalValueChessGame.pieceProtectTheKing = false
-	GlobalValueChessGame.threatened = false
-	GlobalValueChessGame.stalemate = false
-	GlobalValueChessGame.checkmateWhite = false
-	GlobalValueChessGame.checkmateBlack = false
-	GlobalValueChessGame.checkmate = false
+	variableGlobalReset()
+	
+	#Reset variables power global
+	GodOfDeathPower.usePowerKing = 3

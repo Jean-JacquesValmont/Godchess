@@ -13,12 +13,10 @@ func _process(delta):
 #Power of Gods
 #God of Death
 func enablePowerOfDeath(pieceName,playerID,chessBoard):
-	print("In enablePowerOfDeath: ", " pieceName: ", pieceName, " playerID: ", playerID,)
 	if GlobalValueMenu.godSelectPlayer1 == "GodOfDeath":
 		if "PawnWhite" in pieceName:
 			GodOfDeathPower.deathPowerPawn(playerID, chessBoard)
 		elif "KnightWhite" in pieceName:
-			print("In enablePowerOfDeath KnightWhite")
 			GodOfDeathPower.deathPower(playerID,7)
 		elif "BishopWhite" in pieceName:
 			GodOfDeathPower.deathPower(playerID,9)
@@ -26,6 +24,12 @@ func enablePowerOfDeath(pieceName,playerID,chessBoard):
 			GodOfDeathPower.deathPower(playerID,11)
 		elif "QueenWhite" in pieceName:
 			GodOfDeathPower.deathPower(playerID,13)
+
+func enablePowerOfDeathKing():
+	if GlobalValueMenu.godSelectPlayer1 == "GodOfDeath":
+		if GlobalValueChessGame.checkWhite == true:
+			var playerIDKingBlack = get_node("/root/Game/ChessBoard/KingBlack").playerID
+			GodOfDeathPower.deathPowerKing(playerIDKingBlack)
 
 func deadPowerTimer():
 	for piece in pieces:

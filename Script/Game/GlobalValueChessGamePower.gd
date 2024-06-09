@@ -16,3 +16,4 @@ func allPowerOfGods():
 #God of Death
 func deadTimerPowerActived():
 	GodsPowerPiece.deadPowerTimer()
+	GodsPowerPiece.enablePowerOfDeathKing()

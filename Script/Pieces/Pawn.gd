@@ -27,6 +27,8 @@ var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var playerID
 var timer = -1
+#var collideBetweenPiece = false
+#var turnProcess = 0
 
 func _ready():
 	await get_tree().process_frame
@@ -46,8 +48,13 @@ func _ready():
 	elif white == false and OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	#if timer == 0 :
+		#turnProcess += 1
+	if timer == 0: # or (timer == 0 and turnProcess == 1):
+		#collideBetweenPiece = false
+		chessBoard[i][j] = "0"
+		get_node(".").queue_free()
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false:
@@ -277,23 +284,23 @@ func moveFinal(checkColor):
 			defenceMove(attackerPositionshift2I,attackerPositionshift2J)
 
 func _on_area_2d_area_entered(area):
-		var pieceName = area.get_parent().get_name()
-		if promoteInProgress == false:
-			if white == true and GlobalValueChessGame.turnWhite == false:
-				if "Black" in pieceName and dragging == false :
-					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
-			elif white == false and GlobalValueChessGame.turnWhite == true:
-				if "White" in pieceName and dragging == false :
-					GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
-					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
-		elif promoteInProgress == true:
-			if white == true and GlobalValueChessGame.turnWhite == true:
-				if "Black" in pieceName and dragging == false :
-					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
-			elif white == false and GlobalValueChessGame.turnWhite == false:
-				if "White" in pieceName and dragging == false :
-					GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
-					get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
+	var pieceName = area.get_parent().get_name()
+	if promoteInProgress == false:
+		if white == true and GlobalValueChessGame.turnWhite == false:
+			if "Black" in pieceName and dragging == false :
+				get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
+		elif white == false and GlobalValueChessGame.turnWhite == true:
+			if "White" in pieceName and dragging == false :
+				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
+				get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
+	elif promoteInProgress == true:
+		if white == true and GlobalValueChessGame.turnWhite == true:
+			if "Black" in pieceName and dragging == false :
+				get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
+		elif white == false and GlobalValueChessGame.turnWhite == false:
+			if "White" in pieceName and dragging == false :
+				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
+				get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 
 func findDirectionAttackRow(dx, dy, rookColor, queenColor):
 	for f in range(1,9):

@@ -37,11 +37,8 @@ func deadPowerTimer():
 		if has_node(path) == true:
 			var nameNodePiece = get_node(path)
 			if nameNodePiece != null:
-				if nameNodePiece.get_node("Timer").visible == true and GlobalValueChessGame.turnWhite == true :
+				if nameNodePiece.get_node("Timer").visible == true and GlobalValueChessGame.turnWhite == false :
 					nameNodePiece.timer -= 1
 					nameNodePiece.get_node("Timer").text = str(nameNodePiece.timer)
-				if nameNodePiece.timer == 0:
-					nameNodePiece.chessBoard[nameNodePiece.i][nameNodePiece.j] = "0"
-					nameNodePiece.queue_free()
 		elif has_node(path) == false:
 			continue

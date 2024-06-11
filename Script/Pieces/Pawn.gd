@@ -54,6 +54,12 @@ func _process(delta):
 	if timer == 0: # or (timer == 0 and turnProcess == 1):
 		#collideBetweenPiece = false
 		chessBoard[i][j] = "0"
+		if GlobalValueChessGame.turnWhite == true:
+			print("Enter in _process timer = 0 GlobalValueChessGame.turnWhite == true ", get_name())
+			GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
+		elif GlobalValueChessGame.turnWhite == false:
+			print("Enter in _process timer = 0 GlobalValueChessGame.turnWhite == false ", get_name())
+			GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
 		get_node(".").queue_free()
 
 func _input(event):

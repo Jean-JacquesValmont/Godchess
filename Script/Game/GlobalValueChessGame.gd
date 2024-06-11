@@ -46,25 +46,23 @@ func _process(delta):
 			
 		if turnWhite == true:
 			if updateOfThePartsAttack == false:
-				updateAttackWhiteandBlack()
-				attackPiecesWhite()
-				attackPiecesBlack()
-				enPassantFinish()
-				verificationCheckAndCheckmate()
-				verificationStalemate("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
+				updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
 				GlobalValueChessGamePower.allPowerOfGods()
 				updateOfThePartsAttack = true
 				
 		elif turnWhite == false:
 			if updateOfThePartsAttack == true:
-				updateAttackWhiteandBlack()
-				attackPiecesWhite()
-				attackPiecesBlack()
-				enPassantFinish()
-				verificationCheckAndCheckmate()
-				verificationStalemate("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
+				updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
 				GlobalValueChessGamePower.allPowerOfGods()
 				updateOfThePartsAttack = false
+
+func updateTurn(color, pawnColor, knightColor, bishopColor, rookColor, queenColor, chessboardColor):
+	updateAttackWhiteandBlack()
+	attackPiecesWhite()
+	attackPiecesBlack()
+	enPassantFinish()
+	verificationCheckAndCheckmate()
+	verificationStalemate(color, pawnColor, knightColor, bishopColor, rookColor, queenColor, chessboardColor)
 
 func createBoard(rowSize,columnSize):
 	for i in range(rowSize):
@@ -1349,6 +1347,11 @@ func verificationCheckAndCheckmate():
 		if attackPieceWhiteOnTheChessboard[KingBlack.i][KingBlack.j] == 0:
 			checkBlack = false
 			pieceProtectTheKing = false
+		#Ici C'est l'auto-échec.
+		elif attackPieceWhiteOnTheChessboard[KingBlack.i][KingBlack.j] >= 1:
+			checkBlack = true
+			checkmate = true
+			print("Auto Echec pour le roi noir")
 		if attackPieceBlackOnTheChessboard[KingWhite.i][KingWhite.j] >= 1:
 			print("Enter in verificationCheckAndCheckmate attackPieceBlackOnTheChessboard")
 			checkWhite = true
@@ -1376,6 +1379,11 @@ func verificationCheckAndCheckmate():
 		if attackPieceBlackOnTheChessboard[KingWhite.i][KingWhite.j] == 0:
 			checkWhite = false
 			pieceProtectTheKing = false
+		#Ici C'est l'auto-échec.
+		elif attackPieceBlackOnTheChessboard[KingWhite.i][KingWhite.j] >= 1:
+			checkWhite = true
+			checkmate = true
+			print("Auto echec pour le roi blanc")
 		if attackPieceWhiteOnTheChessboard[KingBlack.i][KingBlack.j] >= 1:
 			checkBlack = true
 

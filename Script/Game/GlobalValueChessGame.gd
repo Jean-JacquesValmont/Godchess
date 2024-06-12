@@ -46,14 +46,16 @@ func _process(delta):
 			
 		if turnWhite == true:
 			if updateOfThePartsAttack == false:
-				updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
 				GlobalValueChessGamePower.allPowerOfGods()
+				updatedReverseChessBoard(chessBoard)
+				updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
 				updateOfThePartsAttack = true
 				
 		elif turnWhite == false:
 			if updateOfThePartsAttack == true:
-				updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
 				GlobalValueChessGamePower.allPowerOfGods()
+				updatedReverseChessBoard(chessBoard)
+				updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
 				updateOfThePartsAttack = false
 
 func updateTurn(color, pawnColor, knightColor, bishopColor, rookColor, queenColor, chessboardColor):
@@ -107,6 +109,8 @@ func initialisingChessBoard(pawnColor, pawnColor2, pieceColor, pieceColor2):
 
 func initialisingReverseChessBoard(chessBoard):
 	var chessBoardSaved = chessBoard.duplicate(true) #Le true permet de faire une copie du tableau qui n'est pas liée à l'original
+	var piecesBlack = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack","KingBlack"]
+	var piecesWhite = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2","RookWhite","RookWhite2","QueenWhite","KingWhite"]
 	
 	# Inverser chaque ligne du tableau
 	for i in range(chessBoardSaved.size()):
@@ -119,40 +123,49 @@ func initialisingReverseChessBoard(chessBoard):
 	for i in range(0,12):
 		print(chessBoardReverse[i])
 	
-	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		get_node("/root/Game/ChessBoard/PawnWhite").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnWhite2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnWhite3").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnWhite4").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnWhite5").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnWhite6").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnWhite7").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnWhite8").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/KnightWhite").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/KnightWhite2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/BishopWhite").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/BishopWhite2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/RookWhite").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/RookWhite2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/QueenWhite").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/KingWhite").chessBoard = chessBoardReverse
+	for piece in piecesWhite:
+		var path = "/root/Game/ChessBoard/" + piece
+		if has_node(path) == true:
+			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+				var nameNodePiece = get_node(path)
+				nameNodePiece.chessBoard = chessBoardReverse
+	
+	for piece in piecesBlack:
+		var path = "/root/Game/ChessBoard/" + piece
+		if has_node(path) == true:
+			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+				var nameNodePiece = get_node(path)
+				nameNodePiece.chessBoard = chessBoardReverse
+
+func updatedReverseChessBoard(chessBoard):
+	var chessBoardSaved = chessBoard.duplicate(true) #Le true permet de faire une copie du tableau qui n'est pas liée à l'original
+	var piecesBlack = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack","KingBlack"]
+	var piecesWhite = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2","RookWhite","RookWhite2","QueenWhite","KingWhite"]
+	
+	# Inverser chaque ligne du tableau
+	for i in range(chessBoardSaved.size()):
+		chessBoardSaved[i].reverse()
 		
-		get_node("/root/Game/ChessBoard/PawnBlack").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnBlack2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnBlack3").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnBlack4").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnBlack5").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnBlack6").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnBlack7").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/PawnBlack8").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/KnightBlack").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/KnightBlack2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/BishopBlack").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/BishopBlack2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/RookBlack").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/RookBlack2").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/QueenBlack").chessBoard = chessBoardReverse
-		get_node("/root/Game/ChessBoard/KingBlack").chessBoard = chessBoardReverse
+	chessBoardSaved.reverse()
+	
+	chessBoardReverse = chessBoardSaved
+	print("ChessBoardReverse de updatedReverseChessBoard: ")
+	for i in range(0,12):
+		print(chessBoardReverse[i])
+	
+	for piece in piecesWhite:
+		var path = "/root/Game/ChessBoard/" + piece
+		if has_node(path) == true:
+			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+				var nameNodePiece = get_node(path)
+				nameNodePiece.chessBoard = chessBoardReverse
+	
+	for piece in piecesBlack:
+		var path = "/root/Game/ChessBoard/" + piece
+		if has_node(path) == true:
+			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+				var nameNodePiece = get_node(path)
+				nameNodePiece.chessBoard = chessBoardReverse
 
 func reverseChessBoard(chessBoard):
 	var chessBoardSaved = []

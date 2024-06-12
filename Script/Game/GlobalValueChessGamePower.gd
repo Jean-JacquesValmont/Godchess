@@ -11,7 +11,6 @@ func _process(delta):
 
 #All powers
 func allPowerOfGods():
-	print("Enter in allPowerOfGods")
 	deadTimerPowerActived()
 
 #God of Death

@@ -46,19 +46,20 @@ func _process(delta):
 			
 		if turnWhite == true:
 			if updateOfThePartsAttack == false:
-				GlobalValueChessGamePower.allPowerOfGods()
-				updatedReverseChessBoard(chessBoard)
+				GlobalValueChessGamePowerTimer.allPowerOfGodsTimer()
 				updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
+				GlobalValueChessGamePower.allPowerOfGods()
 				updateOfThePartsAttack = true
 				
 		elif turnWhite == false:
 			if updateOfThePartsAttack == true:
-				GlobalValueChessGamePower.allPowerOfGods()
-				updatedReverseChessBoard(chessBoard)
+				GlobalValueChessGamePowerTimer.allPowerOfGodsTimer()
 				updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
+				GlobalValueChessGamePower.allPowerOfGods()
 				updateOfThePartsAttack = false
 
 func updateTurn(color, pawnColor, knightColor, bishopColor, rookColor, queenColor, chessboardColor):
+	updatedReverseChessBoard(chessBoard)
 	updateAttackWhiteandBlack()
 	attackPiecesWhite()
 	attackPiecesBlack()

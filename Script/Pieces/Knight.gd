@@ -219,6 +219,7 @@ func _on_area_2d_area_entered(area):
 	if promoteInProgress == false:
 		if white == true and GlobalValueChessGame.turnWhite == false:
 			if "Black" in pieceName and dragging == false :
+				GodsPowerPiece.enablePowerOfDeath(pieceName,playerID,chessBoard)
 				get_node("/root/Game/ChessBoard/" + pieceName).queue_free()
 		elif white == false and GlobalValueChessGame.turnWhite == true:
 			if "White" in pieceName and dragging == false :

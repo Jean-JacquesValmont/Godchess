@@ -12,26 +12,46 @@ func _process(delta):
 #Powers of God of Death
 func deathPowerPawn(playerID, chessBoard):
 	var countPawn = 8
-	var randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8"]
+	var randomPiece = []
 	var randomNumber = randi_range(0, 7)
 	var findPiece = false
+	
+	if playerID == 1:
+		randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8"]
+		# Compter le nombre de "PawnBlack" sur le plateau
+		for i in range(2, 10):
+			for j in range(2, 10):
+				if chessBoard[i][j].begins_with("PawnBlack"):
+					countPawn -= 1
 
-	# Compter le nombre de "PawnWhite" sur le plateau
-	for i in range(2, 10):
-		for j in range(2, 10):
-			if chessBoard[i][j].begins_with("PawnWhite"):
-				countPawn -= 1
+		# Ajuster la plage de randomNumber en fonction de countPawn
+		if countPawn == 4:
+			randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2"]
+			randomNumber = randi_range(0, 9)
+		elif countPawn == 6:
+			randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2"]
+			randomNumber = randi_range(0, 11)
+		elif countPawn == 8:
+			randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2","RookWhite","RookWhite2"]
+			randomNumber = randi_range(0, 13)
+	else:
+		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8"]
+		# Compter le nombre de "PawnWhite" sur le plateau
+		for i in range(2, 10):
+			for j in range(2, 10):
+				if chessBoard[i][j].begins_with("PawnWhite"):
+					countPawn -= 1
 
-	# Ajuster la plage de randomNumber en fonction de countPawn
-	if countPawn == 4:
-		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2"]
-		randomNumber = randi_range(0, 9)
-	elif countPawn == 6:
-		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2"]
-		randomNumber = randi_range(0, 11)
-	elif countPawn == 8:
-		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2"]
-		randomNumber = randi_range(0, 13)
+		# Ajuster la plage de randomNumber en fonction de countPawn
+		if countPawn == 4:
+			randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2"]
+			randomNumber = randi_range(0, 9)
+		elif countPawn == 6:
+			randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2"]
+			randomNumber = randi_range(0, 11)
+		elif countPawn == 8:
+			randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2"]
+			randomNumber = randi_range(0, 13)
 
 	if countPawn in [2, 4, 6, 8]: #if countPawn == 2 or countPawn == 4 or countPawn == 6 or countPawn == 8: C'est pareil que ça.
 		while not findPiece:
@@ -70,15 +90,25 @@ func deathPower(playerID, randomNumMax):
 	var randomPiece = []
 	var findPiece = false
 	
-	if randomNumMax == 7:
-		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8"]
-	elif randomNumMax == 9:
-		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2"]
-	elif randomNumMax == 11:
-		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2"]
-	elif randomNumMax == 13:
-		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2"]
-	
+	if playerID == 1:
+		if randomNumMax == 7:
+			randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8"]
+		elif randomNumMax == 9:
+			randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2"]
+		elif randomNumMax == 11:
+			randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2"]
+		elif randomNumMax == 13:
+			randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2","RookWhite","RookWhite2"]
+	else:
+		if randomNumMax == 7:
+			randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8"]
+		elif randomNumMax == 9:
+			randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2"]
+		elif randomNumMax == 11:
+			randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2"]
+		elif randomNumMax == 13:
+			randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2"]
+			
 	var randomNumber = randi_range(0, randomNumMax)
 	
 	while not findPiece:
@@ -110,8 +140,14 @@ func deathPower(playerID, randomNumMax):
 func deathPowerKing(playerID):
 	if usePowerKing <= 0:
 		return
-
-	var randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack"]
+	
+	var randomPiece = []
+	
+	if playerID == 1:
+		randomPiece = ["PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2","RookWhite","RookWhite2","QueenWhite"]
+	else:
+		randomPiece = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack"]
+	
 	var randomNumber = randi_range(0, randomPiece.size() - 1)
 	var findPiece = false
 

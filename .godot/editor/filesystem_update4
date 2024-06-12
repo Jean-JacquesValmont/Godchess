@@ -18,3 +18,5 @@ res://Script/Pieces/Rook.gd
 res://Script/Game/GlobalValueChessGamePower.gd
 res://Script/Game/GlobalValueChessGame.gd
 res://Script/Pieces/GodsPowerPiece.gd
+res://Script/PowerOfGods/GodOfDeathPower.gd
+res://Script/Game/GlobalValueChessGamePowerTimer.gd

@@ -5,14 +5,13 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-#All powers
-func allPowerOfGods():
-	powerOfDeathActived()
+func allPowerOfGodsTimer():
+	powerOfDeathTimerActived()
 
-#God of Death
-func powerOfDeathActived():
-	GodsPowerPiece.enablePowerOfDeathKing()
+func powerOfDeathTimerActived():
+	GodsPowerPiece.deadPowerTimer()

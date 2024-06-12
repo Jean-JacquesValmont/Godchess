@@ -1,7 +1,5 @@
 extends Node
 
-var pieces = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack"]
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -62,12 +60,28 @@ func enablePowerOfDeath(pieceName,playerID,chessBoard):
 			GodOfDeathPower.deathPower(playerID,11)
 		elif "QueenWhite" in pieceName:
 			GodOfDeathPower.deathPower(playerID,13)
+			
+	if GlobalValueMenu.godSelectPlayer2 == "GodOfDeath":
+		if "PawnBlack" in pieceName:
+			GodOfDeathPower.deathPowerPawn(playerID, chessBoard)
+		elif "KnightBlack" in pieceName:
+			GodOfDeathPower.deathPower(playerID,7)
+		elif "BishopBlack" in pieceName:
+			GodOfDeathPower.deathPower(playerID,9)
+		elif "RookBlack" in pieceName:
+			GodOfDeathPower.deathPower(playerID,11)
+		elif "QueenBlack" in pieceName:
+			GodOfDeathPower.deathPower(playerID,13)
 
 func enablePowerOfDeathKing():
 	if GlobalValueMenu.godSelectPlayer1 == "GodOfDeath":
 		if GlobalValueChessGame.checkWhite == true:
-			var playerIDKingBlack = get_node("/root/Game/ChessBoard/KingBlack").playerID
-			GodOfDeathPower.deathPowerKing(playerIDKingBlack)
+			var playerIDKing = get_node("/root/Game/ChessBoard/KingBlack").playerID
+			GodOfDeathPower.deathPowerKing(playerIDKing)
+	if GlobalValueMenu.godSelectPlayer2 == "GodOfDeath":
+		if GlobalValueChessGame.checkBlack == true:
+			var playerIDKing = get_node("/root/Game/ChessBoard/KingWhite").playerID
+			GodOfDeathPower.deathPowerKing(playerIDKing)
 
 func colorPieceTimer(color,turnColor,piece,nameNodePiece):
 	if color in piece:
@@ -85,7 +99,10 @@ func colorPieceTimer(color,turnColor,piece,nameNodePiece):
 				nameNodePiece.queue_free()
 
 func deadPowerTimer():
-	for piece in pieces:
+	var allPiecesWithoutKing = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack",
+	"PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2","RookWhite","RookWhite2","QueenWhite"]
+	
+	for piece in allPiecesWithoutKing:
 		var path = "/root/Game/ChessBoard/" + piece
 		if has_node(path) == true:
 			var nameNodePiece = get_node(path)

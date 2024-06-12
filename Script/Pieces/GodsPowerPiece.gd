@@ -69,23 +69,28 @@ func enablePowerOfDeathKing():
 			var playerIDKingBlack = get_node("/root/Game/ChessBoard/KingBlack").playerID
 			GodOfDeathPower.deathPowerKing(playerIDKingBlack)
 
+func colorPieceTimer(color,turnColor,piece,nameNodePiece):
+	if color in piece:
+		if GlobalValueChessGame.turnWhite == turnColor:
+			nameNodePiece.timer -= 1
+			nameNodePiece.get_node("Timer").text = str(nameNodePiece.timer)
+		if nameNodePiece.timer == 0:
+			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+				GlobalValueChessGame.chessBoard[nameNodePiece.i][nameNodePiece.j] = "0"
+				nameNodePiece.queue_free()
+			elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+				var coordonatesReverseI = reverseCoordonatesPieceI(nameNodePiece)
+				var coordonatesReverseJ = reverseCoordonatesPieceJ(nameNodePiece)
+				GlobalValueChessGame.chessBoard[coordonatesReverseI][coordonatesReverseJ] = "0"
+				nameNodePiece.queue_free()
+
 func deadPowerTimer():
 	for piece in pieces:
 		var path = "/root/Game/ChessBoard/" + piece
 		if has_node(path) == true:
 			var nameNodePiece = get_node(path)
-			if nameNodePiece != null:
-				if nameNodePiece.get_node("Timer").visible == true and GlobalValueChessGame.turnWhite == true :
-					nameNodePiece.timer -= 1
-					nameNodePiece.get_node("Timer").text = str(nameNodePiece.timer)
-				if nameNodePiece.timer == 0:
-					if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-						GlobalValueChessGame.chessBoard[nameNodePiece.i][nameNodePiece.j] = "0"
-						nameNodePiece.queue_free()
-					elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-						var coordonatesReverseI = reverseCoordonatesPieceI(nameNodePiece)
-						var coordonatesReverseJ = reverseCoordonatesPieceJ(nameNodePiece)
-						GlobalValueChessGame.chessBoard[coordonatesReverseI][coordonatesReverseJ] = "0"
-						nameNodePiece.queue_free()
+			if nameNodePiece.get_node("Timer").visible == true:
+				colorPieceTimer("White",false,piece,nameNodePiece)
+				colorPieceTimer("Black",true,piece,nameNodePiece)
 		elif has_node(path) == false:
 			continue

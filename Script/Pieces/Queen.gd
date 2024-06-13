@@ -34,8 +34,7 @@ var attackerPositionshift3I = 0
 var attackerPositionshift3J = 0
 var playerID
 var timer = -1
-#var collideBetweenPiece = false
-#var turnProcess = 0
+var spawnedTimerSpawnedThisTurn = false
 
 func _ready():
 	await get_tree().process_frame
@@ -56,13 +55,8 @@ func _ready():
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
 func _process(delta):
-	pass
-	##if timer == 0 :
-		##turnProcess += 1
-	#if timer == 0: # or (timer == 0 and turnProcess == 1):
-		##collideBetweenPiece = false
-		#chessBoard[i][j] = "0"
-		#get_node(".").queue_free()
+	if chessBoard[i][j] == "0":
+		queue_free()
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false:
@@ -77,15 +71,6 @@ func _input(event):
 					checkMaxAllMove()
 					theKingIsBehind()
 					previewAllMove()
-					print("GlobalValueChessGame.checkWhite: ", GlobalValueChessGame.checkWhite)
-					print("GlobalValueChessGame.checkBlack: ", GlobalValueChessGame.checkBlack)
-					print("pieceProtectTheKing: ", pieceProtectTheKing)
-					print("attackerPositionshiftI: ", attackerPositionshiftI)
-					print("attackerPositionshiftJ: ", attackerPositionshiftJ)
-					print("attackerPositionshift2I: ", attackerPositionshift2I)
-					print("attackerPositionshift2J: ", attackerPositionshift2J)
-					print("attackerPositionshift2I: ", attackerPositionshift3I)
-					print("attackerPositionshift2J: ", attackerPositionshift3J)
 			# Stop dragging if the button is released.
 			if dragging and not event.pressed:
 				deleteAllChildMovePreview()

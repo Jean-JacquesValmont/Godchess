@@ -24,6 +24,7 @@ var textureBlack = preload("res://Image/Pieces/Black/king_black.png")
 var promoteInProgress = false
 var playerID
 var timer = -1
+var spawnedTimerSpawnedThisTurn = false
 
 func _ready():
 	await get_tree().process_frame

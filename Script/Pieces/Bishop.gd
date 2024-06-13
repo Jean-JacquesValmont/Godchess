@@ -28,8 +28,7 @@ var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var playerID
 var timer = -1
-#var collideBetweenPiece = false
-#var turnProcess = 0
+var spawnedTimerSpawnedThisTurn = false
 
 func _ready():
 	await get_tree().process_frame
@@ -50,13 +49,8 @@ func _ready():
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
 func _process(delta):
-	pass
-	##if timer == 0 :
-		##turnProcess += 1
-	#if timer == 0: # or (timer == 0 and turnProcess == 1):
-		##collideBetweenPiece = false
-		#chessBoard[i][j] = "0"
-		#get_node(".").queue_free()
+	if chessBoard[i][j] == "0":
+		queue_free()
 
 func _input(event):
 	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false:

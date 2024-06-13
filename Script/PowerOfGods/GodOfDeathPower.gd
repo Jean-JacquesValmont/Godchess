@@ -177,7 +177,8 @@ func deathPowerKing(playerID):
 
 @rpc("any_peer", "call_local") func deathPowerTargetPiece(randomPiece,randomNumber):
 	var path = "/root/Game/ChessBoard/" + randomPiece[randomNumber]
-	get_node(path).timer = 5
 	get_node(path).get_node("Timer").visible = true
-	get_node(path).get_node("Timer").text = "5"
 	get_node(path).get_node("Timer").scale = Vector2(2,2)
+	get_node(path).timer = 5
+	get_node(path).get_node("Timer").text = "5"
+	get_node(path).spawnedTimerSpawnedThisTurn = true

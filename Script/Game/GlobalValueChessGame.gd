@@ -104,9 +104,9 @@ func initialisingChessBoard(pawnColor, pawnColor2, pieceColor, pieceColor2):
 			if chessBoard[i][j] ==  null:
 				chessBoard[i][j] = "x"
 	
-	print("ChessBoard: ")
-	for i in range(0,12):
-		print(chessBoard[i])
+	#print("ChessBoard: ")
+	#for i in range(0,12):
+		#print(chessBoard[i])
 
 func initialisingReverseChessBoard(chessBoard):
 	var chessBoardSaved = chessBoard.duplicate(true) #Le true permet de faire une copie du tableau qui n'est pas liée à l'original
@@ -120,9 +120,9 @@ func initialisingReverseChessBoard(chessBoard):
 	chessBoardSaved.reverse()
 	
 	chessBoardReverse = chessBoardSaved
-	print("ChessBoardReverse de initialisingReverseChessBoard: ")
-	for i in range(0,12):
-		print(chessBoardReverse[i])
+	#print("ChessBoardReverse de initialisingReverseChessBoard: ")
+	#for i in range(0,12):
+		#print(chessBoardReverse[i])
 	
 	for piece in piecesWhite:
 		var path = "/root/Game/ChessBoard/" + piece
@@ -179,10 +179,10 @@ func reverseChessBoard(chessBoard):
 
 	# Inverser l'ordre des lignes dans le tableau
 	chessBoardSaved.reverse()
-	print("OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id: ", OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id)
-	print("ChessBoardReverse of reverseChessBoard: ")
-	for i in range(0,12):
-		print(chessBoardSaved[i])
+	#print("OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id: ", OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id)
+	#print("ChessBoardReverse of reverseChessBoard: ")
+	#for i in range(0,12):
+		#print(chessBoardSaved[i])
 
 	return chessBoardSaved
 
@@ -651,7 +651,7 @@ func reverseCoordonate(i):
 	return i
 
 func sendDefenceCoordinates(pathPiece,attackI,attackJ,targetPiece):
-	print("Enter in sendDefenceCoordinates")
+	#print("Enter in sendDefenceCoordinates")
 	if targetPiece.begins_with("Queen"):
 		if pathPiece.attackerPositionshiftI == 0\
 		and pathPiece.attackerPositionshiftJ == 0:
@@ -697,7 +697,7 @@ func sendDefenceCoordinates(pathPiece,attackI,attackJ,targetPiece):
 	pathPiece.pieceProtectTheKing = true
 
 func searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,piece1,piece2):
-	print("Enter in searchDefenderRow")
+	#print("Enter in searchDefenderRow")
 	var directions = [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0), Vector2(-1, 0)]
 	
 	for direction in directions:
@@ -716,18 +716,18 @@ func searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,piece1,piece2
 			if targetPiece == "x":
 				break
 			elif targetPiece != "0":
-				print("targetPiece: ", targetPiece)
+				#print("targetPiece: ", targetPiece)
 				if targetPiece.begins_with(piece1) or targetPiece.begins_with(piece2):
 					var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 					pieceProtectTheKing = true
 					sendDefenceCoordinates(pathPiece,attackerPositionILoop,attackerPositionJLoop,targetPiece)
-					print("pieceProtectTheKing: ", pieceProtectTheKing)
+					#print("pieceProtectTheKing: ", pieceProtectTheKing)
 					break
 				else:
 					break
 
 func searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,piece1,piece2):
-	print("Enter in searchDefenderDiagonal")
+	#print("Enter in searchDefenderDiagonal")
 	var directions = [Vector2(1, 1), Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1)]
 	
 	for direction in directions:
@@ -746,18 +746,18 @@ func searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,piece1,p
 			if targetPiece == "x":
 				break
 			elif targetPiece != "0":
-				print("targetPiece: ", targetPiece)
+				#print("targetPiece: ", targetPiece)
 				if targetPiece.begins_with(piece1) or targetPiece.begins_with(piece2):
 					var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 					pieceProtectTheKing = true
 					sendDefenceCoordinates(pathPiece,attackerPositionILoop,attackerPositionJLoop,targetPiece)
-					print("pieceProtectTheKing: ", pieceProtectTheKing)
+					#print("pieceProtectTheKing: ", pieceProtectTheKing)
 					break
 				else:
 					break
 
 func searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,piece):
-	print("Enter in searchDefenderKnight")
+	#print("Enter in searchDefenderKnight")
 	var directions = [
 		Vector2(-2, -1), Vector2(-2, 1),
 		Vector2(-1, 2), Vector2(1, 2),
@@ -776,136 +776,136 @@ func searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,piece):
 		if targetPiece == "x":
 			continue
 		elif targetPiece != "0":
-			print("targetPiece: ", targetPiece)
+			#print("targetPiece: ", targetPiece)
 			if targetPiece.begins_with(piece):
 				var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 				pieceProtectTheKing = true
 				sendDefenceCoordinates(pathPiece,attackerPositionILoop,attackerPositionJLoop,targetPiece)
-				print("pieceProtectTheKing: ", pieceProtectTheKing)
+				#print("pieceProtectTheKing: ", pieceProtectTheKing)
 
 func searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop):
-	print("Enter in searchDefenderPawnWhiteRow")
+	#print("Enter in searchDefenderPawnWhiteRow")
 #	if startWhite == true:
 	#vers le bas de 1
-	print("ffpwb: ",chessBoard[attackerPositionILoop+1][attackerPositionJLoop])
+	#print("ffpwb: ",chessBoard[attackerPositionILoop+1][attackerPositionJLoop])
 	if chessBoard[attackerPositionILoop+1][attackerPositionJLoop] == "x":
 		pass
 	elif chessBoard[attackerPositionILoop+1][attackerPositionJLoop] != "0":
-		print("ffpwb: ",chessBoard[attackerPositionILoop+1][attackerPositionJLoop])
+		#print("ffpwb: ",chessBoard[attackerPositionILoop+1][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop+1][attackerPositionJLoop].begins_with("PawnWhite"):
 			var targetPiece = chessBoard[attackerPositionILoop+1][attackerPositionJLoop]
 			var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 			pieceProtectTheKing = true
 			sendDefenceCoordinates(pathPiece,attackerPositionILoop,attackerPositionJLoop,targetPiece)
-			print("pieceProtectTheKing: ", pieceProtectTheKing)
+			#print("pieceProtectTheKing: ", pieceProtectTheKing)
 
 	#vers le bas de 2 si initialPosition == true
-	print("ffpwb: ",chessBoard[attackerPositionILoop+2][attackerPositionJLoop])
+	#print("ffpwb: ",chessBoard[attackerPositionILoop+2][attackerPositionJLoop])
 	if chessBoard[attackerPositionILoop+2][attackerPositionJLoop] == "x":
 		pass
 	elif chessBoard[attackerPositionILoop+2][attackerPositionJLoop] != "0":
 		var pawnName = chessBoard[attackerPositionILoop+2][attackerPositionJLoop]
-		print("ffpwb: ",chessBoard[attackerPositionILoop+2][attackerPositionJLoop])
+		#print("ffpwb: ",chessBoard[attackerPositionILoop+2][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop+2][attackerPositionJLoop].begins_with("PawnWhite")\
 		and get_node("/root/Game/ChessBoard/" + pawnName).initialPosition == true:
 			var targetPiece = chessBoard[attackerPositionILoop+2][attackerPositionJLoop]
 			var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 			pieceProtectTheKing = true
 			sendDefenceCoordinates(pathPiece,attackerPositionILoop,attackerPositionJLoop,targetPiece)
-			print("pieceProtectTheKing: ", pieceProtectTheKing)
+			#print("pieceProtectTheKing: ", pieceProtectTheKing)
 
 func searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop):
-	print("Enter in searchDefenderPawnBlackRow")
+	#print("Enter in searchDefenderPawnBlackRow")
 #	if startWhite == true:
 	#vers le haut de 1
-	print("ffpbh: ",chessBoard[attackerPositionILoop-1][attackerPositionJLoop])
+	#print("ffpbh: ",chessBoard[attackerPositionILoop-1][attackerPositionJLoop])
 	if chessBoard[attackerPositionILoop-1][attackerPositionJLoop] == "x":
 		pass
 	elif chessBoard[attackerPositionILoop-1][attackerPositionJLoop] != "0":
-		print("ffpbh: ",chessBoard[attackerPositionILoop-1][attackerPositionJLoop])
+		#print("ffpbh: ",chessBoard[attackerPositionILoop-1][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop-1][attackerPositionJLoop].begins_with("PawnBlack"):
 			var targetPiece = chessBoard[attackerPositionILoop-1][attackerPositionJLoop]
 			var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 			pieceProtectTheKing = true
 			sendDefenceCoordinates(pathPiece,attackerPositionILoop,attackerPositionJLoop,targetPiece)
-			print("pieceProtectTheKing: ", pieceProtectTheKing)
+			#print("pieceProtectTheKing: ", pieceProtectTheKing)
 
 	#vers le haut de 2 si initialPosition == true
-	print("ffpbh: ",chessBoard[attackerPositionILoop-2][attackerPositionJLoop])
+	#print("ffpbh: ",chessBoard[attackerPositionILoop-2][attackerPositionJLoop])
 	if chessBoard[attackerPositionILoop-2][attackerPositionJLoop] == "x":
 		pass
 	elif chessBoard[attackerPositionILoop-2][attackerPositionJLoop] != "0":
 		var pawnName = chessBoard[attackerPositionILoop-2][attackerPositionJLoop]
-		print("ffpbh: ",chessBoard[attackerPositionILoop-2][attackerPositionJLoop])
+		#print("ffpbh: ",chessBoard[attackerPositionILoop-2][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop-2][attackerPositionJLoop].begins_with("PawnBlack")\
 		and get_node("/root/Game/ChessBoard/" + pawnName).initialPosition == true:
 			var targetPiece = chessBoard[attackerPositionILoop-2][attackerPositionJLoop]
 			var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 			pieceProtectTheKing = true
 			sendDefenceCoordinates(pathPiece,attackerPositionILoop,attackerPositionJLoop,targetPiece)
-			print("pieceProtectTheKing: ", pieceProtectTheKing)
+			#print("pieceProtectTheKing: ", pieceProtectTheKing)
 
 func searchDefenderPawnWhiteDiagonal(attack1, attack2):
-	print("Enter in searchDefenderPawnWhiteDiagonal")
+	#print("Enter in searchDefenderPawnWhiteDiagonal")
 #	if startWhite == true:
 	if attack1 == true:
 	#Vers le bas à droite
-		print("ffpwd: ",chessBoard[attackerPositioni+1][attackerPositionj+1])
+		#print("ffpwd: ",chessBoard[attackerPositioni+1][attackerPositionj+1])
 		if chessBoard[attackerPositioni+1][attackerPositionj+1] == "x":
 			pass
 		elif chessBoard[attackerPositioni+1][attackerPositionj+1] != "0":
-			print("ffpwd: ",chessBoard[attackerPositioni+1][attackerPositionj+1])
+			#print("ffpwd: ",chessBoard[attackerPositioni+1][attackerPositionj+1])
 			if chessBoard[attackerPositioni+1][attackerPositionj+1].begins_with("PawnWhite"):
 				var targetPiece = chessBoard[attackerPositioni+1][attackerPositionj+1]
 				var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 				pieceProtectTheKing = true
 				sendDefenceCoordinates(pathPiece,attackerPositioni,attackerPositionj,targetPiece)
-				print("pieceProtectTheKing: ", pieceProtectTheKing)
+				#print("pieceProtectTheKing: ", pieceProtectTheKing)
 				
 	if attack2 == true:
 		#Vers le bas à gauche
-		print("ffpwg: ",chessBoard[attackerPositioni+1][attackerPositionj-1])
+		#print("ffpwg: ",chessBoard[attackerPositioni+1][attackerPositionj-1])
 		if chessBoard[attackerPositioni+1][attackerPositionj-1] == "x":
 			pass
 		elif chessBoard[attackerPositioni+1][attackerPositionj-1] != "0":
-			print("ffpwg: ",chessBoard[attackerPositioni+1][attackerPositionj-1])
+			#print("ffpwg: ",chessBoard[attackerPositioni+1][attackerPositionj-1])
 			if chessBoard[attackerPositioni+1][attackerPositionj-1].begins_with("PawnWhite"):
 				var targetPiece = chessBoard[attackerPositioni+1][attackerPositionj-1]
 				var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 				pieceProtectTheKing = true
 				sendDefenceCoordinates(pathPiece,attackerPositioni,attackerPositionj,targetPiece)
-				print("pieceProtectTheKing: ", pieceProtectTheKing)
+				#print("pieceProtectTheKing: ", pieceProtectTheKing)
 
 func searchDefenderPawnBlackDiagonal(attack1, attack2):
-	print("Enter in searchDefenderPawnBlack")
+	#print("Enter in searchDefenderPawnBlack")
 #	if startWhite == true:
 	if attack1 == true:
 	#Vers le haut à droite
-		print("ffpbd: ",chessBoard[attackerPositioni-1][attackerPositionj+1])
+		#print("ffpbd: ",chessBoard[attackerPositioni-1][attackerPositionj+1])
 		if chessBoard[attackerPositioni-1][attackerPositionj+1] == "x":
 			pass
 		elif chessBoard[attackerPositioni-1][attackerPositionj+1] != "0":
-			print("ffpbd: ",chessBoard[attackerPositioni-1][attackerPositionj+1])
+			#print("ffpbd: ",chessBoard[attackerPositioni-1][attackerPositionj+1])
 			if chessBoard[attackerPositioni-1][attackerPositionj+1].begins_with("PawnBlack"):
 				var targetPiece = chessBoard[attackerPositioni-1][attackerPositionj+1]
 				var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 				pieceProtectTheKing = true
 				sendDefenceCoordinates(pathPiece,attackerPositioni,attackerPositionj,targetPiece)
-				print("pieceProtectTheKing: ", pieceProtectTheKing)
+				#print("pieceProtectTheKing: ", pieceProtectTheKing)
 				
 	if attack2 == true:
 		#Vers le haut à gauche
-		print("ffpbg: ",chessBoard[attackerPositioni-1][attackerPositionj-1])
+		#print("ffpbg: ",chessBoard[attackerPositioni-1][attackerPositionj-1])
 		if chessBoard[attackerPositioni-1][attackerPositionj-1] == "x":
 			pass
 		elif chessBoard[attackerPositioni-1][attackerPositionj-1] != "0":
-			print("ffpbg: ",chessBoard[attackerPositioni-1][attackerPositionj-1])
+			#print("ffpbg: ",chessBoard[attackerPositioni-1][attackerPositionj-1])
 			if chessBoard[attackerPositioni-1][attackerPositionj-1].begins_with("PawnBlack"):
 				var targetPiece = chessBoard[attackerPositioni-1][attackerPositionj-1]
 				var pathPiece = get_node("/root/Game/ChessBoard/" + targetPiece)
 				pieceProtectTheKing = true
 				sendDefenceCoordinates(pathPiece,attackerPositioni,attackerPositionj,targetPiece)
-				print("pieceProtectTheKing: ", pieceProtectTheKing)
+				#print("pieceProtectTheKing: ", pieceProtectTheKing)
 
 func attackComingUp(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	#Vérifier quelle pièce peut protéger le roi
@@ -919,9 +919,9 @@ func attackComingUp(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni + f
 		var attackerPositionJLoop = attackerPositionj
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 			searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
@@ -941,9 +941,9 @@ func attackComingDown(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni - f
 		var attackerPositionJLoop = attackerPositionj
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 			searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
@@ -963,9 +963,9 @@ func attackComingRight(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni
 		var attackerPositionJLoop = attackerPositionj - f
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
@@ -992,9 +992,9 @@ func attackComingLeft(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni
 		var attackerPositionJLoop = attackerPositionj + f
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
@@ -1021,9 +1021,9 @@ func attackComingUpRight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni + f
 		var attackerPositionJLoop = attackerPositionj - f
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
@@ -1050,9 +1050,9 @@ func attackComingUpLeft(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni + f
 		var attackerPositionJLoop = attackerPositionj + f
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
@@ -1079,9 +1079,9 @@ func attackComingDownRight(knightColor,bishopColor,rookColor,queenColor,kingColo
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni - f
 		var attackerPositionJLoop = attackerPositionj - f
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
@@ -1108,9 +1108,9 @@ func attackComingDownLeft(knightColor,bishopColor,rookColor,queenColor,kingColor
 	for f in range(9):
 		var attackerPositionILoop = attackerPositioni - f
 		var attackerPositionJLoop = attackerPositionj + f
-		print("attackerPositionILoop: ",attackerPositionILoop)
-		print("attackerPositionJLoop: ",attackerPositionJLoop)
-		print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+		#print("attackerPositionILoop: ",attackerPositionILoop)
+		#print("attackerPositionJLoop: ",attackerPositionJLoop)
+		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
 				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
@@ -1136,40 +1136,40 @@ func attackComingKnight(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	#Lignes et cavaliers
 	var attackerPositionILoop = attackerPositioni
 	var attackerPositionJLoop = attackerPositionj
-	print("attackerPositionILoop: ",attackerPositionILoop)
-	print("attackerPositionJLoop: ",attackerPositionJLoop)
-	print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
+	#print("attackerPositionILoop: ",attackerPositionILoop)
+	#print("attackerPositionJLoop: ",attackerPositionJLoop)
+	#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 	searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 	searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 	searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 
 func verificationDefenderAllAttack(knightColor,bishopColor,rookColor,queenColor,kingColor):
 	if directionOfAttack == "Haut":
-		print("Enter AttackCommingUp")
+		#print("Enter AttackCommingUp")
 		attackComingUp(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Bas":
-		print("Enter AttackCommingDown")
+		#print("Enter AttackCommingDown")
 		attackComingDown(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Droite":
-		print("Enter AttackCommingRight")
+		#print("Enter AttackCommingRight")
 		attackComingRight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Gauche":
-		print("Enter AttackCommingLeft")
+		#print("Enter AttackCommingLeft")
 		attackComingLeft(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Haut/Droite":
-		print("Enter AttackCommingUpRight")
+		#print("Enter AttackCommingUpRight")
 		attackComingUpRight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Haut/Gauche":
-		print("Enter AttackCommingUpLeft")
+		#print("Enter AttackCommingUpLeft")
 		attackComingUpLeft(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Bas/Droite":
-		print("Enter AttackCommingDownRight")
+		#print("Enter AttackCommingDownRight")
 		attackComingDownRight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Bas/Gauche":
-		print("Enter AttackCommingDownLeft")
+		#print("Enter AttackCommingDownLeft")
 		attackComingDownLeft(knightColor,bishopColor,rookColor,queenColor,kingColor)
 	elif directionOfAttack == "Cavalier":
-		print("Enter AttackCommingKnight")
+		#print("Enter AttackCommingKnight")
 		attackComingKnight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 
 func checkmateKing(pawnColor,knightColor,bishopColor,rookColor,queenColor,kingNode,attackColor):

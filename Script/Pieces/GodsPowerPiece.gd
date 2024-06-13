@@ -106,8 +106,10 @@ func deadPowerTimer():
 		var path = "/root/Game/ChessBoard/" + piece
 		if has_node(path) == true:
 			var nameNodePiece = get_node(path)
-			if nameNodePiece.get_node("Timer").visible == true:
+			if nameNodePiece.get_node("Timer").visible == true and nameNodePiece.spawnedTimerSpawnedThisTurn == false:
 				colorPieceTimer("White",false,piece,nameNodePiece)
 				colorPieceTimer("Black",true,piece,nameNodePiece)
+			elif nameNodePiece.get_node("Timer").visible == true and nameNodePiece.spawnedTimerSpawnedThisTurn == true:
+				nameNodePiece.spawnedTimerSpawnedThisTurn = false
 		elif has_node(path) == false:
 			continue

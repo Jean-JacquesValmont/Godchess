@@ -45,11 +45,10 @@ func _ready():
 		playerID = OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id
 
 func _process(delta):
-	if chessBoard[i][j] == "0":
-		queue_free()
+	pass
 
 func _input(event):
-	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false:
+	if playerID == OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id and GlobalValueMenu.menuOpen == false and GlobalValueChessGame.animationPlayed == false:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT\
 		and promoteInProgress == false and GlobalValueChessGame.checkmate == false and GlobalValueChessGame.stalemate == false:
 			if (event.position - self.position - positionChessBoard).length() < clickRadius:
@@ -494,3 +493,16 @@ func reverseCoordonate(i):
 		9:
 			i = 2
 	return i
+
+func _on_animation_power_of_god_animation_finished():
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTaked":
+		get_node("AnimationPowerOfGod").visible = false
+		get_node("Timer").visible = true
+		get_node("Timer").scale = Vector2(2,2)
+		timer = 5
+		get_node("Timer").text = "5"
+		spawnedTimerSpawnedThisTurn = true
+		GlobalValueChessGame.animationPlayed = false
+	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTimerFinish":
+		GlobalValueChessGame.animationPlayed = false
+		queue_free()

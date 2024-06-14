@@ -1,12 +1,725 @@
-[gd_scene load_steps=6 format=3 uid="uid://g2af2vww4dc5"]
+[gd_scene load_steps=182 format=3 uid="uid://g2af2vww4dc5"]
 
 [ext_resource type="Texture2D" uid="uid://b2be4n3fg4mtv" path="res://Image/Pieces/White/bishop_white.png" id="1_huy3v"]
 [ext_resource type="Script" path="res://Script/Pieces/Bishop.gd" id="2_8a7cg"]
 [ext_resource type="AudioStream" uid="uid://cjgigne6xnga4" path="res://Sound/Sound_piece_move.mp3" id="2_q0bpb"]
 [ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="4_0x6b7"]
+[ext_resource type="Texture2D" uid="uid://q32jhbvdjv10" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0000.png" id="5_1ilds"]
+[ext_resource type="Texture2D" uid="uid://doqf6jvbvyjsf" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0001.png" id="6_qggwv"]
+[ext_resource type="Texture2D" uid="uid://cyjn6x41p2tlr" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0002.png" id="7_xup0a"]
+[ext_resource type="Texture2D" uid="uid://gbdr8i0oaq7k" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0003.png" id="8_4u5r8"]
+[ext_resource type="Texture2D" uid="uid://cjybmv6obyh7r" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0004.png" id="9_k4qo4"]
+[ext_resource type="Texture2D" uid="uid://d4bpgxuy01pja" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0005.png" id="10_nbp4f"]
+[ext_resource type="Texture2D" uid="uid://htqeoyjwgwgj" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0006.png" id="11_tgun7"]
+[ext_resource type="Texture2D" uid="uid://ceeao2cmgfcu1" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0007.png" id="12_g3oce"]
+[ext_resource type="Texture2D" uid="uid://me8kyfbpf7rh" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0008.png" id="13_mu2kc"]
+[ext_resource type="Texture2D" uid="uid://he3u2n1jrmmy" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0009.png" id="14_mx3m0"]
+[ext_resource type="Texture2D" uid="uid://1lfd7cixoui0" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0010.png" id="15_brwno"]
+[ext_resource type="Texture2D" uid="uid://dv7chntg74ywa" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0011.png" id="16_y2qs1"]
+[ext_resource type="Texture2D" uid="uid://hmnq6qte4fvx" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0012.png" id="17_i4uwp"]
+[ext_resource type="Texture2D" uid="uid://cb1gem2dxp0r0" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0013.png" id="18_44gnr"]
+[ext_resource type="Texture2D" uid="uid://clhqdp8sl1gvy" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0014.png" id="19_77w4i"]
+[ext_resource type="Texture2D" uid="uid://ctrcgs18f2877" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0015.png" id="20_sjr1w"]
+[ext_resource type="Texture2D" uid="uid://b4fvmjutm16q5" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0016.png" id="21_jrue4"]
+[ext_resource type="Texture2D" uid="uid://d1e84hl5dl4up" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0017.png" id="22_sj2dk"]
+[ext_resource type="Texture2D" uid="uid://c1u1gpvbu1rpn" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0018.png" id="23_1sgfe"]
+[ext_resource type="Texture2D" uid="uid://uru5fifg0hkp" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0019.png" id="24_jbjr1"]
+[ext_resource type="Texture2D" uid="uid://dn8rxevhk14wo" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0020.png" id="25_43yqn"]
+[ext_resource type="Texture2D" uid="uid://b3xgbl6etmekc" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0021.png" id="26_ue3be"]
+[ext_resource type="Texture2D" uid="uid://cabuwr1udqhi8" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0022.png" id="27_syc0t"]
+[ext_resource type="Texture2D" uid="uid://jh6pkpxoy18n" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0023.png" id="28_1r8o6"]
+[ext_resource type="Texture2D" uid="uid://djs3xokrjagd5" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0024.png" id="29_0lh6b"]
+[ext_resource type="Texture2D" uid="uid://cxnup5feqpskv" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0025.png" id="30_8rx4t"]
+[ext_resource type="Texture2D" uid="uid://cm8jews5lni14" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0026.png" id="31_qlf82"]
+[ext_resource type="Texture2D" uid="uid://mhx15nc5skkt" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0027.png" id="32_pnor0"]
+[ext_resource type="Texture2D" uid="uid://bl4jn5g34as2l" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0028.png" id="33_7srfq"]
+[ext_resource type="Texture2D" uid="uid://c06koyp6j28jc" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0029.png" id="34_ub3ec"]
+[ext_resource type="Texture2D" uid="uid://douwljgp5bb1f" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0030.png" id="35_tstlt"]
+[ext_resource type="Texture2D" uid="uid://3tgrhdhkr33f" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0031.png" id="36_vw2a7"]
+[ext_resource type="Texture2D" uid="uid://o1qyj1qb3u47" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0032.png" id="37_7pl31"]
+[ext_resource type="Texture2D" uid="uid://bmeljre8xqodu" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0033.png" id="38_vueld"]
+[ext_resource type="Texture2D" uid="uid://c7kfx7pf0apxj" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0034.png" id="39_6ieqn"]
+[ext_resource type="Texture2D" uid="uid://8h210tvlkgth" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0035.png" id="40_xaid4"]
+[ext_resource type="Texture2D" uid="uid://bh0ry4ouy8b5y" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0036.png" id="41_qdqpi"]
+[ext_resource type="Texture2D" uid="uid://dm2bvbofm3iy1" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0037.png" id="42_qjcsk"]
+[ext_resource type="Texture2D" uid="uid://cs21tll4gxge3" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0038.png" id="43_htsmo"]
+[ext_resource type="Texture2D" uid="uid://b8oaxps6j5ckb" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0039.png" id="44_08fl3"]
+[ext_resource type="Texture2D" uid="uid://ch6t10a5kt8ja" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0040.png" id="45_t82bm"]
+[ext_resource type="Texture2D" uid="uid://brj6y1mt1kkpx" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0041.png" id="46_hxbtf"]
+[ext_resource type="Texture2D" uid="uid://c5t4now5tkt4v" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0042.png" id="47_81iqm"]
+[ext_resource type="Texture2D" uid="uid://do2mvy8pdcyva" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0043.png" id="48_o8dxh"]
+[ext_resource type="Texture2D" uid="uid://berthaud526jt" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0044.png" id="49_shvdt"]
+[ext_resource type="Texture2D" uid="uid://dgw1xoyq1sn7n" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0045.png" id="50_1el2c"]
+[ext_resource type="Texture2D" uid="uid://cddda724jdr7" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0046.png" id="51_h65wl"]
+[ext_resource type="Texture2D" uid="uid://bkqx6bq1ff24c" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0047.png" id="52_7le0f"]
+[ext_resource type="Texture2D" uid="uid://doj3ceg4l0x75" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0048.png" id="53_vqald"]
+[ext_resource type="Texture2D" uid="uid://b4747n11y5xdr" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0049.png" id="54_6w247"]
+[ext_resource type="Texture2D" uid="uid://cur2oqpy0u38t" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0050.png" id="55_8utao"]
+[ext_resource type="Texture2D" uid="uid://xgnd3e1atr6t" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0051.png" id="56_ir6t6"]
+[ext_resource type="Texture2D" uid="uid://bg2f2hn8p1jnu" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0052.png" id="57_k83bl"]
+[ext_resource type="Texture2D" uid="uid://cl24jvjp3qvav" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0053.png" id="58_4mkui"]
+[ext_resource type="Texture2D" uid="uid://dott18c7jhujo" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0054.png" id="59_ae10f"]
+[ext_resource type="Texture2D" uid="uid://b1hw5041osjan" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0055.png" id="60_hra0c"]
+[ext_resource type="Texture2D" uid="uid://dxr0wtjq31y8b" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0056.png" id="61_nkows"]
+[ext_resource type="Texture2D" uid="uid://d20qryaa8qy2i" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0057.png" id="62_1xa84"]
+[ext_resource type="Texture2D" uid="uid://dr42fbr71ocpg" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0058.png" id="63_v577v"]
+[ext_resource type="Texture2D" uid="uid://rqj730u5w0dp" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0059.png" id="64_glfv8"]
+[ext_resource type="Texture2D" uid="uid://1ioqpol87qhg" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0060.png" id="65_5y5au"]
+[ext_resource type="Texture2D" uid="uid://b17faay7dejls" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0000.png" id="65_lr5n8"]
+[ext_resource type="Texture2D" uid="uid://bqobxqnpo2r2u" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0001.png" id="66_m1f4w"]
+[ext_resource type="Texture2D" uid="uid://chk3ub3sxlbke" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0061.png" id="66_pnspi"]
+[ext_resource type="Texture2D" uid="uid://dgcud3nrsp8lr" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0062.png" id="67_jtl25"]
+[ext_resource type="Texture2D" uid="uid://b63yrdiwae48e" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0002.png" id="67_srqc3"]
+[ext_resource type="Texture2D" uid="uid://brvi46pexv2ep" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0063.png" id="68_0kcoo"]
+[ext_resource type="Texture2D" uid="uid://br0jdws7bpegk" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0003.png" id="68_poohn"]
+[ext_resource type="Texture2D" uid="uid://d2c3dthjijdsj" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0064.png" id="69_2621b"]
+[ext_resource type="Texture2D" uid="uid://c8i5wpcpgfen8" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0004.png" id="69_s1d7h"]
+[ext_resource type="Texture2D" uid="uid://dmefu3avm28ke" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0005.png" id="70_wbmmd"]
+[ext_resource type="Texture2D" uid="uid://jcfaes57ppo3" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0065.png" id="70_x8cts"]
+[ext_resource type="Texture2D" uid="uid://ber801a5c71pw" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0066.png" id="71_1ds74"]
+[ext_resource type="Texture2D" uid="uid://wevnlmpjhlt1" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0006.png" id="71_at0nj"]
+[ext_resource type="Texture2D" uid="uid://bex0mb7qf1r7h" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0067.png" id="72_77mjo"]
+[ext_resource type="Texture2D" uid="uid://d2b6uril6b4qs" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0007.png" id="72_blaf1"]
+[ext_resource type="Texture2D" uid="uid://bqbq37n7bm41q" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0008.png" id="73_cykcx"]
+[ext_resource type="Texture2D" uid="uid://xe06ut5c2yah" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0068.png" id="73_va8db"]
+[ext_resource type="Texture2D" uid="uid://foavlymjwckj" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0069.png" id="74_glbl8"]
+[ext_resource type="Texture2D" uid="uid://bumv2v7c3l27c" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0009.png" id="74_oagnc"]
+[ext_resource type="Texture2D" uid="uid://bbpk6exhwdeg5" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0010.png" id="75_ja3f0"]
+[ext_resource type="Texture2D" uid="uid://dahj6ci04l35h" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0070.png" id="75_kw1sn"]
+[ext_resource type="Texture2D" uid="uid://dej16gq37bxjf" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0011.png" id="76_7otys"]
+[ext_resource type="Texture2D" uid="uid://40gj4sl8o26i" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0071.png" id="76_eidhi"]
+[ext_resource type="Texture2D" uid="uid://bq7khgkkiayj" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0072.png" id="77_hbuke"]
+[ext_resource type="Texture2D" uid="uid://c7a4uxnlmrsg0" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0012.png" id="77_j5lg4"]
+[ext_resource type="Texture2D" uid="uid://dgwfxaa5obkt1" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0013.png" id="78_guwnd"]
+[ext_resource type="Texture2D" uid="uid://d2id4vhi0rxoh" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0073.png" id="78_nrwc2"]
+[ext_resource type="Texture2D" uid="uid://c33hfuj1qj60e" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0014.png" id="79_1h2qb"]
+[ext_resource type="Texture2D" uid="uid://cnbdk8lqwe7yi" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0074.png" id="79_e2tsc"]
+[ext_resource type="Texture2D" uid="uid://ccod37flaq5n" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0075.png" id="80_3vmhy"]
+[ext_resource type="Texture2D" uid="uid://cod7knqd31x1r" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0015.png" id="80_b730w"]
+[ext_resource type="Texture2D" uid="uid://dbctjf2ex3chb" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0016.png" id="81_ix25i"]
+[ext_resource type="Texture2D" uid="uid://b3yvyiek0d376" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0076.png" id="81_jn651"]
+[ext_resource type="Texture2D" uid="uid://b8wty43fxpm0o" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0017.png" id="82_7n2on"]
+[ext_resource type="Texture2D" uid="uid://beopkiotftn0n" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0077.png" id="82_hddb6"]
+[ext_resource type="Texture2D" uid="uid://5qlaf5k1rptb" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0018.png" id="83_hqt1t"]
+[ext_resource type="Texture2D" uid="uid://w4afisvylkow" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked/Chronologie 1_0078.png" id="83_orjhq"]
+[ext_resource type="Texture2D" uid="uid://4brpasnllgae" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0019.png" id="84_pf16v"]
+[ext_resource type="Texture2D" uid="uid://b4kvgsl57f0qq" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0020.png" id="85_7a7s4"]
+[ext_resource type="Texture2D" uid="uid://tkat8maalwkd" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0021.png" id="86_73y15"]
+[ext_resource type="Texture2D" uid="uid://3aijccq5a3qq" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0022.png" id="87_ypepy"]
+[ext_resource type="Texture2D" uid="uid://lgq5lo7lkcvf" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0023.png" id="88_gl3oe"]
+[ext_resource type="Texture2D" uid="uid://skb4p7adunyw" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0024.png" id="89_ogpvc"]
+[ext_resource type="Texture2D" uid="uid://chls044xo5psd" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0025.png" id="90_dtaqv"]
+[ext_resource type="Texture2D" uid="uid://bsno63ta8jegx" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0026.png" id="91_0kmo8"]
+[ext_resource type="Texture2D" uid="uid://bfp3k614lr36i" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0027.png" id="92_i3njj"]
+[ext_resource type="Texture2D" uid="uid://i7rh33h4txde" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0028.png" id="93_cxhd7"]
+[ext_resource type="Texture2D" uid="uid://dh6kbtynar8ta" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0029.png" id="94_6l2bp"]
+[ext_resource type="Texture2D" uid="uid://wwcb3a6xjlnv" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0030.png" id="95_bj4wn"]
+[ext_resource type="Texture2D" uid="uid://bmawhnuaaop6i" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0031.png" id="96_0r5d7"]
+[ext_resource type="Texture2D" uid="uid://d4mbtnokkqubv" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0032.png" id="97_wqu30"]
+[ext_resource type="Texture2D" uid="uid://dhcl38qmbmo3s" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0033.png" id="98_5rl28"]
+[ext_resource type="Texture2D" uid="uid://dlve71ce5r10t" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0034.png" id="99_paytb"]
+[ext_resource type="Texture2D" uid="uid://ln7jr7d0pu67" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0035.png" id="100_0mm8h"]
+[ext_resource type="Texture2D" uid="uid://bi0pl8lmwwjnw" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0036.png" id="120_ic6s5"]
+[ext_resource type="Texture2D" uid="uid://bd52lw6i1lvww" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0037.png" id="121_ecv0e"]
+[ext_resource type="Texture2D" uid="uid://dua30vulxdshd" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0038.png" id="122_dy3u3"]
+[ext_resource type="Texture2D" uid="uid://bee8hjf8ni01d" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0039.png" id="123_j7fec"]
+[ext_resource type="Texture2D" uid="uid://cx3afgtolppnr" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0040.png" id="124_3x6yj"]
+[ext_resource type="Texture2D" uid="uid://dso8njg5gajad" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0041.png" id="125_akv1s"]
+[ext_resource type="Texture2D" uid="uid://dnxtbdlrhs6np" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0042.png" id="126_q0ydo"]
+[ext_resource type="Texture2D" uid="uid://q5r1ycna5srd" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0043.png" id="127_3813u"]
+[ext_resource type="Texture2D" uid="uid://ckm4xkhy7wjm4" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0044.png" id="128_s8dsw"]
+[ext_resource type="Texture2D" uid="uid://cornbkf8qmm78" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0045.png" id="129_8gayi"]
+[ext_resource type="Texture2D" uid="uid://yvcjmpbg1kx4" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0046.png" id="130_g3tnu"]
+[ext_resource type="Texture2D" uid="uid://b3siyhmedwail" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0047.png" id="131_6xfwv"]
+[ext_resource type="Texture2D" uid="uid://b53whmrkyq5gb" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0048.png" id="132_qrdtk"]
+[ext_resource type="Texture2D" uid="uid://bq2d63gfy0t11" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0049.png" id="133_y1xuy"]
+[ext_resource type="Texture2D" uid="uid://ceewl1ctxvkyj" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0050.png" id="134_tp7yb"]
+[ext_resource type="Texture2D" uid="uid://cvlddykl4kyol" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0051.png" id="135_r38te"]
+[ext_resource type="Texture2D" uid="uid://bk4b242w1ckf" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0052.png" id="136_jenxr"]
+[ext_resource type="Texture2D" uid="uid://fctb4be2oh2p" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0053.png" id="137_xgvph"]
+[ext_resource type="Texture2D" uid="uid://df5tmy1jhbt4f" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0054.png" id="138_cbjpd"]
+[ext_resource type="Texture2D" uid="uid://b3qhld8nlw251" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0055.png" id="139_dhvoh"]
+[ext_resource type="Texture2D" uid="uid://trvvaheq1ebs" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0056.png" id="140_ax0hp"]
+[ext_resource type="Texture2D" uid="uid://cejaqqs6btjuj" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0057.png" id="141_hr7l7"]
+[ext_resource type="Texture2D" uid="uid://cof6q0e05ko1d" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0058.png" id="142_85o0p"]
+[ext_resource type="Texture2D" uid="uid://bbk5348aaav12" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0059.png" id="143_m435e"]
+[ext_resource type="Texture2D" uid="uid://bg8ka81l228ge" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0060.png" id="144_cpnca"]
+[ext_resource type="Texture2D" uid="uid://3fpagkhxmau2" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0061.png" id="145_sgn4j"]
+[ext_resource type="Texture2D" uid="uid://dbyjbnugeorec" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0062.png" id="146_1pe8n"]
+[ext_resource type="Texture2D" uid="uid://c3jto4bi8nxy" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0063.png" id="147_y2iug"]
+[ext_resource type="Texture2D" uid="uid://csows0p2cvmyo" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0064.png" id="148_k1vsb"]
+[ext_resource type="Texture2D" uid="uid://d3kh6xfwvpt7" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0065.png" id="149_mbx26"]
+[ext_resource type="Texture2D" uid="uid://df5ycxgi78vpi" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0066.png" id="150_fk8gy"]
+[ext_resource type="Texture2D" uid="uid://fs1ppr6phgf7" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0067.png" id="151_0ukjo"]
+[ext_resource type="Texture2D" uid="uid://cri8di26krxc1" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0068.png" id="152_8ghfl"]
+[ext_resource type="Texture2D" uid="uid://cygmm6n4l3uis" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0069.png" id="153_02fhs"]
+[ext_resource type="Texture2D" uid="uid://dykt4tlw20d05" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0070.png" id="154_n76aj"]
+[ext_resource type="Texture2D" uid="uid://dkca24cytehl6" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0071.png" id="155_mcyc5"]
+[ext_resource type="Texture2D" uid="uid://bx5jmkkkkqa85" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0072.png" id="156_nn04v"]
+[ext_resource type="Texture2D" uid="uid://brdiulncufmf6" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0073.png" id="157_onwdu"]
+[ext_resource type="Texture2D" uid="uid://ck1lkuxepcpml" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0074.png" id="158_2f1lq"]
+[ext_resource type="Texture2D" uid="uid://cw8pmveh2m0ai" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0075.png" id="159_w6jew"]
+[ext_resource type="Texture2D" uid="uid://cp25xnodgo6tv" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0076.png" id="160_01gmq"]
+[ext_resource type="Texture2D" uid="uid://ckeiwr6fbugw6" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0077.png" id="161_er3ve"]
+[ext_resource type="Texture2D" uid="uid://bckmg7ut6gqe2" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0078.png" id="162_pppua"]
+[ext_resource type="Texture2D" uid="uid://cl0buf267k7xi" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0079.png" id="163_f2abg"]
+[ext_resource type="Texture2D" uid="uid://dinsxlotf5ty2" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0080.png" id="164_mgsru"]
+[ext_resource type="Texture2D" uid="uid://de8ow268vmj7o" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0081.png" id="165_75xlv"]
+[ext_resource type="Texture2D" uid="uid://5ykrp8u3fyhn" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0082.png" id="166_5kjtm"]
+[ext_resource type="Texture2D" uid="uid://bwfrnlxewgh5m" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0083.png" id="167_hdk38"]
+[ext_resource type="Texture2D" uid="uid://b4j4yc06phj32" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0084.png" id="168_kxj6i"]
+[ext_resource type="Texture2D" uid="uid://bwnotnwou3f7q" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0085.png" id="169_uowk8"]
+[ext_resource type="Texture2D" uid="uid://bk2w4iu1mjcyd" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0086.png" id="170_tnix7"]
+[ext_resource type="Texture2D" uid="uid://ddy6ippy2ouny" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0087.png" id="171_6onvg"]
+[ext_resource type="Texture2D" uid="uid://eijf31qwmyrs" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0088.png" id="172_bg5df"]
+[ext_resource type="Texture2D" uid="uid://dhpww7gkhe2j4" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0089.png" id="173_hoc41"]
+[ext_resource type="Texture2D" uid="uid://0ci76xlypkuh" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0090.png" id="174_dhawh"]
+[ext_resource type="Texture2D" uid="uid://blvc3eahdxnn1" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0091.png" id="175_tw4db"]
+[ext_resource type="Texture2D" uid="uid://ew4lauvgppv" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0092.png" id="176_baa4o"]
+[ext_resource type="Texture2D" uid="uid://d107vsn3c2qm3" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0093.png" id="177_eogko"]
+[ext_resource type="Texture2D" uid="uid://de26voh67yii2" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0094.png" id="178_kke35"]
+[ext_resource type="Texture2D" uid="uid://bc5ky58mx33nb" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0095.png" id="179_12e1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5judi"]
 size = Vector2(50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v03ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1ilds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qggwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xup0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4u5r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_k4qo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nbp4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tgun7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_g3oce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mu2kc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mx3m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_brwno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y2qs1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i4uwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_44gnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_77w4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_sjr1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_jrue4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_sj2dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1sgfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jbjr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_43yqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ue3be")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_syc0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_1r8o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0lh6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8rx4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_qlf82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_pnor0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_7srfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ub3ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_tstlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_vw2a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_7pl31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_vueld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_6ieqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_xaid4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_qdqpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_qjcsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_htsmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_08fl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_t82bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_hxbtf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_81iqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_o8dxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_shvdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_1el2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_h65wl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_7le0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_vqald")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_6w247")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_8utao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_ir6t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_k83bl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_4mkui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_ae10f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_hra0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_nkows")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_1xa84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_v577v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_glfv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_5y5au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_pnspi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_jtl25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_0kcoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_2621b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_x8cts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_1ds74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_77mjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_va8db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_glbl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_kw1sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_eidhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_hbuke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_nrwc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_e2tsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_3vmhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_jn651")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_hddb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_orjhq")
+}],
+"loop": false,
+"name": &"PowerGodOfDeathPieceTaked",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_lr5n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_m1f4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_srqc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_poohn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_s1d7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_wbmmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_at0nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_blaf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_cykcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_oagnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_ja3f0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_7otys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_j5lg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_guwnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_1h2qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_b730w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_ix25i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_7n2on")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_hqt1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_pf16v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_7a7s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_73y15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_ypepy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_gl3oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_ogpvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_dtaqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_0kmo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_i3njj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_cxhd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_6l2bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_bj4wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_0r5d7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_wqu30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_5rl28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_paytb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_0mm8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_ic6s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_ecv0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_dy3u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_j7fec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_3x6yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_akv1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_q0ydo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_3813u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_s8dsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_8gayi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_g3tnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_6xfwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_qrdtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_y1xuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_tp7yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_r38te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_jenxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_xgvph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_cbjpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_dhvoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_ax0hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_hr7l7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_85o0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_m435e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_cpnca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_sgn4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_1pe8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_y2iug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_k1vsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_mbx26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_fk8gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_0ukjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_8ghfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_02fhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_n76aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_mcyc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_nn04v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_onwdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_2f1lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_w6jew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_01gmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_er3ve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_pppua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_f2abg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_mgsru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_75xlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_5kjtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_hdk38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_kxj6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_uowk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_tnix7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_6onvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_bg5df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_hoc41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_dhawh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_tw4db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_baa4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_eogko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_kke35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_12e1d")
+}],
+"loop": false,
+"name": &"PowerGodOfDeathPieceTimerFinish",
+"speed": 30.0
+}]
 
 [node name="Bishop" type="Sprite2D"]
 position = Vector2(50, 50)
@@ -34,4 +747,11 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AnimationPowerOfGod" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-3, -2)
+sprite_frames = SubResource("SpriteFrames_v03ib")
+animation = &"PowerGodOfDeathPieceTimerFinish"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPowerOfGod" to="." method="_on_animation_power_of_god_animation_finished"]

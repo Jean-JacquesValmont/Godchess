@@ -4030,6 +4030,8 @@ position = Vector2(-0.999878, 1)
 scale = Vector2(0.99, 0.99)
 sprite_frames = SubResource("SpriteFrames_60sku")
 animation = &"BishopGoddessOfTeleportation"
+frame = 149
+frame_progress = 1.0
 centered = false
 
 [node name="HoverSelectionFaction" type="Sprite2D" parent="."]

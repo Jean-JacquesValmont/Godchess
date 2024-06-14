@@ -28,6 +28,7 @@ var stalemate = false
 var checkmateWhite = false
 var checkmateBlack = false
 var checkmate = false
+var animationPlayed = false
 
 func _ready():
 #	await get_tree().process_frame

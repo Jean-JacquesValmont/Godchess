@@ -91,12 +91,20 @@ func colorPieceTimer(color,turnColor,piece,nameNodePiece):
 		if nameNodePiece.timer == 0:
 			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 				GlobalValueChessGame.chessBoard[nameNodePiece.i][nameNodePiece.j] = "0"
-				nameNodePiece.queue_free()
+				nameNodePiece.get_node("AnimationPowerOfGod").visible = true
+				nameNodePiece.get_node("AnimationPowerOfGod").set_animation("PowerGodOfDeathPieceTimerFinish")
+				nameNodePiece.get_node("AnimationPowerOfGod").scale = Vector2(2,2)
+				nameNodePiece.get_node("AnimationPowerOfGod").play()
+				GlobalValueChessGame.animationPlayed = true
 			elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
 				var coordonatesReverseI = reverseCoordonatesPieceI(nameNodePiece)
 				var coordonatesReverseJ = reverseCoordonatesPieceJ(nameNodePiece)
 				GlobalValueChessGame.chessBoard[coordonatesReverseI][coordonatesReverseJ] = "0"
-				nameNodePiece.queue_free()
+				nameNodePiece.get_node("AnimationPowerOfGod").visible = true
+				nameNodePiece.get_node("AnimationPowerOfGod").set_animation("PowerGodOfDeathPieceTimerFinish")
+				nameNodePiece.get_node("AnimationPowerOfGod").scale = Vector2(2,2)
+				nameNodePiece.get_node("AnimationPowerOfGod").play()
+				GlobalValueChessGame.animationPlayed = true
 
 func deadPowerTimer():
 	var allPiecesWithoutKing = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack",

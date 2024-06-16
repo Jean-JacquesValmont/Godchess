@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=3 uid="uid://drp67d0iw5wm3"]
+[gd_scene load_steps=299 format=3 uid="uid://drp67d0iw5wm3"]
 
 [ext_resource type="Texture2D" uid="uid://bdc2su14pd8pa" path="res://Image/Pieces/White/queen_white.png" id="1_s6nry"]
 [ext_resource type="AudioStream" uid="uid://cjgigne6xnga4" path="res://Sound/Sound_piece_move.mp3" id="2_foxf0"]
@@ -179,11 +179,128 @@
 [ext_resource type="Texture2D" uid="uid://d107vsn3c2qm3" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0093.png" id="177_xsnxh"]
 [ext_resource type="Texture2D" uid="uid://de26voh67yii2" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0094.png" id="178_vukw5"]
 [ext_resource type="Texture2D" uid="uid://bc5ky58mx33nb" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0095.png" id="179_4uhqc"]
+[ext_resource type="Texture2D" uid="uid://bijtldgss6mwq" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_001.png" id="180_u30f7"]
+[ext_resource type="Texture2D" uid="uid://dqjxufk8g5e0k" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_002.png" id="181_g255w"]
+[ext_resource type="Texture2D" uid="uid://3purtuown453" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_003.png" id="182_xe68h"]
+[ext_resource type="Texture2D" uid="uid://8gjl233jajpx" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_004.png" id="183_eeegb"]
+[ext_resource type="Texture2D" uid="uid://dh4cpn2n3yxuj" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_005.png" id="184_3uhbe"]
+[ext_resource type="Texture2D" uid="uid://dh7yabfy0vyla" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_006.png" id="185_ajabw"]
+[ext_resource type="Texture2D" uid="uid://6g7g47ts7el6" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_007.png" id="186_hsuhk"]
+[ext_resource type="Texture2D" uid="uid://bw8oyfwndkput" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_008.png" id="187_qeppk"]
+[ext_resource type="Texture2D" uid="uid://c5mbov60xw6rj" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_009.png" id="188_n0p7h"]
+[ext_resource type="Texture2D" uid="uid://b2cmf3l7kc8u3" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_010.png" id="189_hsiev"]
+[ext_resource type="Texture2D" uid="uid://b43pn4shl7mc8" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_011.png" id="190_rg6no"]
+[ext_resource type="Texture2D" uid="uid://boafkgsc085ep" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_012.png" id="191_j8bay"]
+[ext_resource type="Texture2D" uid="uid://b3iorag2kxohx" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_013.png" id="192_2au7v"]
+[ext_resource type="Texture2D" uid="uid://c464kbmkkcpu" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_014.png" id="193_vbuxp"]
+[ext_resource type="Texture2D" uid="uid://buhphcthxm8wn" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_015.png" id="194_o3dww"]
+[ext_resource type="Texture2D" uid="uid://hcuowdmjiaen" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_016.png" id="195_y6tif"]
+[ext_resource type="Texture2D" uid="uid://vfx6xiuy20i5" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_017.png" id="196_adw35"]
+[ext_resource type="Texture2D" uid="uid://bmgeqva8m8jcu" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_018.png" id="197_bkor4"]
+[ext_resource type="Texture2D" uid="uid://wvsvdj6342tn" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_019.png" id="198_do5nv"]
+[ext_resource type="Texture2D" uid="uid://ghail0sx2bui" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_020.png" id="199_7wk4u"]
+[ext_resource type="Texture2D" uid="uid://drki7amfflf" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_021.png" id="200_yqn1w"]
+[ext_resource type="Texture2D" uid="uid://8r015pyq4alg" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_022.png" id="201_evqhd"]
+[ext_resource type="Texture2D" uid="uid://df4o83pc581wd" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_023.png" id="202_x2quk"]
+[ext_resource type="Texture2D" uid="uid://cqy10k440u2k6" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_024.png" id="203_qgl6q"]
+[ext_resource type="Texture2D" uid="uid://cnrpyjx7qbr30" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_025.png" id="204_ue765"]
+[ext_resource type="Texture2D" uid="uid://b13s34on3to2i" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_026.png" id="205_bfkc0"]
+[ext_resource type="Texture2D" uid="uid://dxsgdl3vxlx04" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_027.png" id="206_vjos3"]
+[ext_resource type="Texture2D" uid="uid://3ygjvso427ew" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_028.png" id="207_thrj4"]
+[ext_resource type="Texture2D" uid="uid://d23oytfryx7bp" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_029.png" id="208_thqyy"]
+[ext_resource type="Texture2D" uid="uid://cd51wd5g702x1" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_030.png" id="209_vbaw4"]
+[ext_resource type="Texture2D" uid="uid://cwg5valectdy3" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_031.png" id="210_d1vua"]
+[ext_resource type="Texture2D" uid="uid://u2nb3yl0tv1e" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_032.png" id="211_eb1rv"]
+[ext_resource type="Texture2D" uid="uid://dggyexwoob7ed" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_033.png" id="212_vvhp0"]
+[ext_resource type="Texture2D" uid="uid://f2jf12p4py70" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_034.png" id="213_m7kdk"]
+[ext_resource type="Texture2D" uid="uid://c8w75kvbc2j82" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_035.png" id="214_ij706"]
+[ext_resource type="Texture2D" uid="uid://ty56y2vlf6br" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_036.png" id="215_yl36n"]
+[ext_resource type="Texture2D" uid="uid://chsru8dqnwxkc" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_037.png" id="216_fal26"]
+[ext_resource type="Texture2D" uid="uid://dnp6n36hcawdf" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_038.png" id="217_fp285"]
+[ext_resource type="Texture2D" uid="uid://c25rycm54jnwj" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_039.png" id="218_xlwhb"]
+[ext_resource type="Texture2D" uid="uid://5lu2k6vqrm6" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_040.png" id="219_q845a"]
+[ext_resource type="Texture2D" uid="uid://cxm6opngdpn3b" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_041.png" id="220_bthrm"]
+[ext_resource type="Texture2D" uid="uid://bams6so5cv003" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_042.png" id="221_rqc8r"]
+[ext_resource type="Texture2D" uid="uid://ch7ajgqssq6xc" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_043.png" id="222_lcfut"]
+[ext_resource type="Texture2D" uid="uid://c5cyg8epw81p4" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_044.png" id="223_hqhqs"]
+[ext_resource type="Texture2D" uid="uid://gbkaa8dudf37" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_045.png" id="224_aqcut"]
+[ext_resource type="Texture2D" uid="uid://dewgg2sacbctx" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_046.png" id="225_2ivpe"]
+[ext_resource type="Texture2D" uid="uid://c3dy5ha8exmbt" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_047.png" id="226_72t4c"]
+[ext_resource type="Texture2D" uid="uid://c1jvjgorj1kmd" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_048.png" id="227_ti623"]
+[ext_resource type="Texture2D" uid="uid://da272x3srvbg7" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_049.png" id="228_0sdeb"]
+[ext_resource type="Texture2D" uid="uid://3xccbajbhxe7" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_050.png" id="229_teacj"]
+[ext_resource type="Texture2D" uid="uid://bnusu3f2acymk" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_051.png" id="230_olvd7"]
+[ext_resource type="Texture2D" uid="uid://b33qspcqnx306" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_052.png" id="231_jdcnd"]
+[ext_resource type="Texture2D" uid="uid://c4vx8b1twd3rx" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_053.png" id="232_3uus8"]
+[ext_resource type="Texture2D" uid="uid://43x7v48wc4yo" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_054.png" id="233_wucxs"]
+[ext_resource type="Texture2D" uid="uid://druqggkmgl5uh" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_055.png" id="234_p4xno"]
+[ext_resource type="Texture2D" uid="uid://plqia12rs5c1" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_056.png" id="235_8v4el"]
+[ext_resource type="Texture2D" uid="uid://cbsrdfo7kh4sa" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_057.png" id="236_8ydby"]
+[ext_resource type="Texture2D" uid="uid://dy6uvgkpah55s" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_058.png" id="237_fp4iy"]
+[ext_resource type="Texture2D" uid="uid://c00bli458taei" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_001.png" id="239_5i2f7"]
+[ext_resource type="Texture2D" uid="uid://dn10aps4b7d2o" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_002.png" id="240_hkoc4"]
+[ext_resource type="Texture2D" uid="uid://vrinieumqwfb" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_003.png" id="241_n21b6"]
+[ext_resource type="Texture2D" uid="uid://b0jh6iy3c2arf" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_004.png" id="242_f68gw"]
+[ext_resource type="Texture2D" uid="uid://b503uf75wi0qw" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_005.png" id="243_og4h2"]
+[ext_resource type="Texture2D" uid="uid://hg47w5emvcuk" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_006.png" id="244_6sy5y"]
+[ext_resource type="Texture2D" uid="uid://cx7haj0e4obys" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_007.png" id="245_n25r0"]
+[ext_resource type="Texture2D" uid="uid://operjtite11d" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_008.png" id="246_mfevy"]
+[ext_resource type="Texture2D" uid="uid://bx5w02yt2eskc" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_009.png" id="247_6yrvd"]
+[ext_resource type="Texture2D" uid="uid://qvn621n4tdpu" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_010.png" id="248_r5mom"]
+[ext_resource type="Texture2D" uid="uid://drhrbsrme7sr2" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_011.png" id="249_j82n7"]
+[ext_resource type="Texture2D" uid="uid://cju833ad1yc4j" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_012.png" id="250_ax6sf"]
+[ext_resource type="Texture2D" uid="uid://y4k6xqmlc5mu" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_013.png" id="251_di1jv"]
+[ext_resource type="Texture2D" uid="uid://b3cdvnpbirdss" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_014.png" id="252_xf7d1"]
+[ext_resource type="Texture2D" uid="uid://bilsth6e1rdu1" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_015.png" id="253_jc0yy"]
+[ext_resource type="Texture2D" uid="uid://dpkw3isen2dgv" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_016.png" id="254_e5rxc"]
+[ext_resource type="Texture2D" uid="uid://d3k0dcv4qmgap" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_017.png" id="255_hj1y8"]
+[ext_resource type="Texture2D" uid="uid://dg7c2cjimskk3" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_018.png" id="256_odjl5"]
+[ext_resource type="Texture2D" uid="uid://cgd2kcs202vrl" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_019.png" id="257_kvlkn"]
+[ext_resource type="Texture2D" uid="uid://cjav7qg5egbnt" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_020.png" id="258_c1ofy"]
+[ext_resource type="Texture2D" uid="uid://bt4uysnuvjs3e" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_021.png" id="259_qe1et"]
+[ext_resource type="Texture2D" uid="uid://dgw5j355xw21" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_022.png" id="260_y2xq2"]
+[ext_resource type="Texture2D" uid="uid://bj57yhvuucxe0" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_023.png" id="261_yjnbn"]
+[ext_resource type="Texture2D" uid="uid://b0d8ki8ki6k5o" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_024.png" id="262_rs8qj"]
+[ext_resource type="Texture2D" uid="uid://cjf5agq1yugmf" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_025.png" id="263_67b6e"]
+[ext_resource type="Texture2D" uid="uid://dt1wpjpj36d37" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_026.png" id="264_p4c7m"]
+[ext_resource type="Texture2D" uid="uid://bhpunvo6j84fu" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_027.png" id="265_sgqju"]
+[ext_resource type="Texture2D" uid="uid://v33fmemqiknj" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_028.png" id="266_nnp0j"]
+[ext_resource type="Texture2D" uid="uid://dl4qsrq1sch0v" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_029.png" id="267_pkewh"]
+[ext_resource type="Texture2D" uid="uid://cxa6xlbsrknng" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_030.png" id="268_bxhhq"]
+[ext_resource type="Texture2D" uid="uid://dhuc2f5sexebp" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_031.png" id="269_j60mw"]
+[ext_resource type="Texture2D" uid="uid://b4i0n1u8en72a" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_032.png" id="270_mdkip"]
+[ext_resource type="Texture2D" uid="uid://gg851nkf7nal" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_033.png" id="271_gvehp"]
+[ext_resource type="Texture2D" uid="uid://bi031jjyw5rhi" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_034.png" id="272_ca4ts"]
+[ext_resource type="Texture2D" uid="uid://bq4xokokqbefm" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_035.png" id="273_i04sf"]
+[ext_resource type="Texture2D" uid="uid://cjl1uxj6l8rc8" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_036.png" id="274_713rj"]
+[ext_resource type="Texture2D" uid="uid://8330jd53y6mf" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_037.png" id="275_8xdrj"]
+[ext_resource type="Texture2D" uid="uid://ce25fi236g1dh" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_038.png" id="276_puk6q"]
+[ext_resource type="Texture2D" uid="uid://m4074iw3alr4" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_039.png" id="277_8ctww"]
+[ext_resource type="Texture2D" uid="uid://b0hqes2upikow" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_040.png" id="278_0ewes"]
+[ext_resource type="Texture2D" uid="uid://d18rs5g7a6ohh" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_041.png" id="279_dsifb"]
+[ext_resource type="Texture2D" uid="uid://crnwwspvurhjf" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_042.png" id="280_477xr"]
+[ext_resource type="Texture2D" uid="uid://c2p0v8i32p3uc" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_043.png" id="281_2mvu4"]
+[ext_resource type="Texture2D" uid="uid://d0x36awqbsew1" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_044.png" id="282_14y4f"]
+[ext_resource type="Texture2D" uid="uid://b8ax8y18esitc" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_045.png" id="283_tfide"]
+[ext_resource type="Texture2D" uid="uid://chosag0ipkrk0" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_046.png" id="284_xekja"]
+[ext_resource type="Texture2D" uid="uid://dy1ycu11cehre" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_047.png" id="285_jyotx"]
+[ext_resource type="Texture2D" uid="uid://chbwr245ck6g4" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_048.png" id="286_yhb18"]
+[ext_resource type="Texture2D" uid="uid://5e3qutmck6hr" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_049.png" id="287_rheqi"]
+[ext_resource type="Texture2D" uid="uid://dqr88dogiikfq" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_050.png" id="288_kcq3f"]
+[ext_resource type="Texture2D" uid="uid://bcexn3yle7361" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_051.png" id="289_un3p4"]
+[ext_resource type="Texture2D" uid="uid://dy3f436pdm01j" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_052.png" id="290_xmj2s"]
+[ext_resource type="Texture2D" uid="uid://bio3h6qa3t3wy" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_053.png" id="291_lwvig"]
+[ext_resource type="Texture2D" uid="uid://cm6kofey7vnev" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_054.png" id="292_s118f"]
+[ext_resource type="Texture2D" uid="uid://cw41nroi0tjco" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_055.png" id="293_3xwsq"]
+[ext_resource type="Texture2D" uid="uid://b1aog2ocmtro7" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_056.png" id="294_oi2gj"]
+[ext_resource type="Texture2D" uid="uid://b7tok7dfxovh1" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_057.png" id="295_8mynd"]
+[ext_resource type="Texture2D" uid="uid://d0i6gdmmoldpe" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_058.png" id="296_a80pr"]
+[ext_resource type="Texture2D" uid="uid://bh1ff3wio58cu" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial/Téléportation_059.png" id="297_7yf1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4c2"]
 size = Vector2(50, 50)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_20doc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2x2v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -719,6 +836,370 @@ animations = [{
 "loop": false,
 "name": &"PowerGodOfDeathPieceTimerFinish",
 "speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("180_u30f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_g255w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_xe68h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_eeegb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_3uhbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_ajabw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_hsuhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_qeppk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_n0p7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_hsiev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_rg6no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_j8bay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_2au7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_vbuxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_o3dww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_y6tif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_adw35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_bkor4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_do5nv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_7wk4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("200_yqn1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_evqhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_x2quk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_qgl6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_ue765")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_bfkc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_vjos3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_thrj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_thqyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_vbaw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_d1vua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_eb1rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_vvhp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_m7kdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_ij706")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_yl36n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_fal26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_fp285")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_xlwhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_q845a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("220_bthrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("221_rqc8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("222_lcfut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("223_hqhqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("224_aqcut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("225_2ivpe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("226_72t4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("227_ti623")
+}, {
+"duration": 1.0,
+"texture": ExtResource("228_0sdeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("229_teacj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("230_olvd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("231_jdcnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("232_3uus8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("233_wucxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("234_p4xno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("235_8v4el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("236_8ydby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("237_fp4iy")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"PowerGoddessOfTeleportationEffectFinal",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("239_5i2f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("240_hkoc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("241_n21b6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("242_f68gw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("243_og4h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("244_6sy5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("245_n25r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("246_mfevy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("247_6yrvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("248_r5mom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("249_j82n7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("250_ax6sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_di1jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("252_xf7d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("253_jc0yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("254_e5rxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("255_hj1y8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("256_odjl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("257_kvlkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("258_c1ofy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("259_qe1et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("260_y2xq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("261_yjnbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("262_rs8qj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("263_67b6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("264_p4c7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("265_sgqju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("266_nnp0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("267_pkewh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("268_bxhhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("269_j60mw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("270_mdkip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("271_gvehp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("272_ca4ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("273_i04sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("274_713rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("275_8xdrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("276_puk6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("277_8ctww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("278_0ewes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("279_dsifb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("280_477xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("281_2mvu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("282_14y4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("283_tfide")
+}, {
+"duration": 1.0,
+"texture": ExtResource("284_xekja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("285_jyotx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("286_yhb18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("287_rheqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("288_kcq3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("289_un3p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("290_xmj2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("291_lwvig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("292_s118f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("293_3xwsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("294_oi2gj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("295_8mynd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("296_a80pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("297_7yf1t")
+}],
+"loop": false,
+"name": &"PowerGoddessOfTeleportationEffectInitial",
+"speed": 30.0
 }]
 
 [node name="Queen" type="Sprite2D"]
@@ -750,8 +1231,8 @@ vertical_alignment = 1
 [node name="AnimationPowerOfGod" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-3, -2)
-sprite_frames = SubResource("SpriteFrames_20doc")
-animation = &"PowerGodOfDeathPieceTimerFinish"
+sprite_frames = SubResource("SpriteFrames_o2x2v")
+animation = &"PowerGoddessOfTeleportationEffectFinal"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="AnimationPowerOfGod" to="." method="_on_animation_power_of_god_animation_finished"]

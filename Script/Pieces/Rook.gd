@@ -133,6 +133,7 @@ func move(dx, dy, maxMove) :
 			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
+	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece)
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
 	resetLastMovePlay()
@@ -605,3 +606,21 @@ func _on_animation_power_of_god_animation_finished():
 	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTimerFinish":
 		GlobalValueChessGame.animationPlayed = false
 		queue_free()
+	
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitial":
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			self.position = Vector2(self.position.x, self.position.y - 200)
+			chessBoard[i][j] = "0"
+			i = i-2
+			chessBoard[i-2][j] = nameOfPiece.replace("@", "")
+			Position = Vector2(self.position.x, self.position.y)
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			self.position = Vector2(self.position.x, self.position.y + 200)
+			chessBoard[i][j] = "0"
+			i = i+2
+			chessBoard[i+2][j] = nameOfPiece.replace("@", "")
+			Position = Vector2(self.position.x, self.position.y)
+		get_node("AnimationPowerOfGod").set_animation("PowerGoddessOfTeleportationEffectFinal")
+		get_node("AnimationPowerOfGod").play()
+	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectFinal":
+		get_node("AnimationPowerOfGod").visible = false

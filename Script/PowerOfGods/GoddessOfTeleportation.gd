@@ -10,71 +10,99 @@ func _ready():
 func _process(delta):
 	pass
 
-func teleportationPower(i, j,chessBoard,nameOfPiece):
+func countTeleportationZone(i, j,chessBoard,white):
+	var count = 0
+	var direction = ""
+	if white == true:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			if "PawnWhite" in chessBoard[i-1][j] or "BishopWhite" in chessBoard[i-1][j] or "QueenWhite" in chessBoard[i-1][j] or "KingWhite" in chessBoard[i-1][j]:
+				count += 1
+				direction = "Haut"
+			if "RookWhite" in chessBoard[i-1][j+1] or "QueenWhite" in chessBoard[i-1][j+1] or "KingWhite" in chessBoard[i-1][j+1]:
+				count += 1
+				direction = "Haut/Droite"
+			if "BishopWhite" in chessBoard[i][j+1] or "QueenWhite" in chessBoard[i][j+1] or "KingWhite" in chessBoard[i][j+1]:
+				count += 1
+				direction = "Droite"
+			if "RookWhite" in chessBoard[i+1][j+1] or "QueenWhite" in chessBoard[i+1][j+1] or "KingWhite" in chessBoard[i+1][j+1]:
+				count += 1
+				direction = "Bas/Droite"
+			if "BishopWhite" in chessBoard[i+1][j] or "QueenWhite" in chessBoard[i+1][j] or "KingWhite" in chessBoard[i+1][j]:
+				count += 1
+				direction = "Bas"
+			if "RookWhite" in chessBoard[i+1][j-1] or "QueenWhite" in chessBoard[i+1][j-1] or "KingWhite" in chessBoard[i+1][j-1]:
+				count += 1
+				direction = "Bas/Gauche"
+			if "BishopWhite" in chessBoard[i][j-1] or "QueenWhite" in chessBoard[i][j-1] or "KingWhite" in chessBoard[i][j-1]:
+				count += 1
+				direction = "Gauche"
+			if "RookWhite" in chessBoard[i-1][j-1] or "QueenWhite" in chessBoard[i-1][j-1] or "KingWhite" in chessBoard[i-1][j-1]:
+				count += 1
+				direction = "Haut/Gauche"
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			if "PawnWhite" in chessBoard[i+1][j] or "BishopWhite" in chessBoard[i+1][j] or "QueenWhite" in chessBoard[i+1][j] or "KingWhite" in chessBoard[i+1][j]:
+				count += 1
+				direction = "Bas"
+			if "RookWhite" in chessBoard[i+1][j-1] or "QueenWhite" in chessBoard[i+1][j-1] or "KingWhite" in chessBoard[i+1][j-1]:
+				count += 1
+				direction = "Bas/Gauche"
+			if "BishopWhite" in chessBoard[i][j-1] or "QueenWhite" in chessBoard[i][j-1] or "KingWhite" in chessBoard[i][j-1]:
+				count += 1
+				direction = "Gauche"
+			if "RookWhite" in chessBoard[i-1][j-1] or "QueenWhite" in chessBoard[i-1][j-1] or "KingWhite" in chessBoard[i-1][j-1]:
+				count += 1
+				direction = "Haut/Gauche"
+			if "BishopWhite" in chessBoard[i-1][j] or "QueenWhite" in chessBoard[i-1][j] or "KingWhite" in chessBoard[i-1][j]:
+				count += 1
+				direction = "Haut"
+			if "RookWhite" in chessBoard[i-1][j+1] or "QueenWhite" in chessBoard[i-1][j+1] or "KingWhite" in chessBoard[i-1][j+1]:
+				count += 1
+				direction = "Haut/Droite"
+			if "BishopWhite" in chessBoard[i][j+1] or "QueenWhite" in chessBoard[i][j+1] or "KingWhite" in chessBoard[i][j+1]:
+				count += 1
+				direction = "Droite"
+			if "RookWhite" in chessBoard[i+1][j+1] or "QueenWhite" in chessBoard[i+1][j+1] or "KingWhite" in chessBoard[i+1][j+1]:
+				count += 1
+				direction = "Bas/Droite"
+
+	return {"count": count, "direction": direction}
+
+func animationPowerTeleportationDirection(i, j,chessBoard,nameOfPiece,directionFindPiece):
+	var directionMap = {
+		"Haut": Vector2(-2, 0),
+		"Bas": Vector2(2, 0),
+		"Droite": Vector2(0, 2),
+		"Gauche": Vector2(0, -2),
+		"Haut/Droite": Vector2(-2, 2),
+		"Haut/Gauche": Vector2(-2, -2),
+		"Bas/Droite": Vector2(2, 2),
+		"Bas/Gauche": Vector2(2, -2)
+	}
+	var path = "/root/Game/ChessBoard/" + nameOfPiece
+	get_node(path).teleportationDirection = directionFindPiece
+	
+	if "White" in nameOfPiece:
+		var offset = directionMap[directionFindPiece]
+		var newI = i + offset.x
+		var newJ = j + offset.y
+		if chessBoard[newI][newJ] == "0" or ("Black" in chessBoard[newI][newJ] and not "King" in chessBoard[newI][newJ]):
+			var animation_node = get_node(path + "/AnimationPowerOfGod")
+			animation_node.visible = true
+			animation_node.set_animation("PowerGoddessOfTeleportationEffectInitial")
+			animation_node.scale = Vector2(2, 2)
+			animation_node.play()
+			GlobalValueChessGame.animationPlayed = true
+
+func teleportationPower(i, j,chessBoard,nameOfPiece,white):
 	var countZoneTeleportation = 0
 	var directionFindPiece = ""
-	var path = "/root/Game/ChessBoard/" + nameOfPiece
 	print("Enter in teleportation power ", nameOfPiece)
 	
-	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-		if "Pawn" in chessBoard[i-1][j] or "Bishop" in chessBoard[i-1][j] or "Queen" in chessBoard[i-1][j] or "King" in chessBoard[i-1][j]:
-			print("Enter in teleportation power directionFindPiece = Haut")
-			countZoneTeleportation += 1
-			directionFindPiece = "Haut"
-	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
-		if "Pawn" in chessBoard[i+1][j] or "Bishop" in chessBoard[i+1][j] or "Queen" in chessBoard[i-1][j] or "King" in chessBoard[i+1][j]:
-			print("Enter in teleportation power directionFindPiece = Bas")
-			countZoneTeleportation += 1
-			directionFindPiece = "Bas"
-	if "Rook" in chessBoard[i-1][j+1] or "Queen" in chessBoard[i-1][j+1] or "King" in chessBoard[i-1][j+1]:
-		countZoneTeleportation += 1
-		directionFindPiece = "Haut/Droite"
-	if "Bishop" in chessBoard[i][j+1] or "Queen" in chessBoard[i][j+1] or "King" in chessBoard[i][j+1]:
-		countZoneTeleportation += 1
-		directionFindPiece = "Droite"
-	if "Rook" in chessBoard[i+1][j+1] or "Queen" in chessBoard[i+1][j+1] or "King" in chessBoard[i+1][j+1]:
-		countZoneTeleportation += 1
-		directionFindPiece = "Bas/Droite"
-	if "Bishop" in chessBoard[i+1][j] or "Queen" in chessBoard[i+1][j] or "King" in chessBoard[i+1][j]:
-		countZoneTeleportation += 1
-		directionFindPiece = "Bas"
-	if "Rook" in chessBoard[i+1][j-1] or "Queen" in chessBoard[i+1][j-1] or "King" in chessBoard[i+1][j-1]:
-		countZoneTeleportation += 1
-		directionFindPiece = "Bas/Gauche"
-	if "Bishop" in chessBoard[i][j-1] or "Queen" in chessBoard[i][j-1] or "King" in chessBoard[i][j-1]:
-		countZoneTeleportation += 1
-		directionFindPiece = "Gauche"
-	if "Rook" in chessBoard[i-1][j-1] or "Queen" in chessBoard[i-1][j-1] or "King" in chessBoard[i-1][j-1]:
-		countZoneTeleportation += 1
-		directionFindPiece = "Haut/Gauche"
+	var result = countTeleportationZone(i, j, chessBoard,white)
+	countZoneTeleportation = result.count
+	directionFindPiece = result.direction
 	
 	if countZoneTeleportation == 0 or countZoneTeleportation > 1:
 		return
 	elif countZoneTeleportation == 1:
-		print("Enter in teleportation power countZoneTeleportation == 1")
-		if "White" in nameOfPiece:
-			print("Enter in teleportation power White in nameOfPiece")
-			if directionFindPiece == "Haut":
-				if chessBoard[i-2][j] == "0" or ("Black" in chessBoard[i-2][j] and not "King" in chessBoard[i-2][j]):
-					get_node(path + "/AnimationPowerOfGod").visible = true
-					get_node(path + "/AnimationPowerOfGod").set_animation("PowerGoddessOfTeleportationEffectInitial")
-					#get_node(path + "/AnimationPowerOfGod").scale = Vector2(2,2)
-					get_node(path + "/AnimationPowerOfGod").play()
-			elif directionFindPiece == "Bas":
-				if chessBoard[i+2][j] == "0" or ("Black" in chessBoard[i+2][j] and not "King" in chessBoard[i+2][j]):
-					get_node(path + "/AnimationPowerOfGod").visible = true
-					get_node(path + "/AnimationPowerOfGod").set_animation("PowerGoddessOfTeleportationEffectInitial")
-					#get_node(path + "/AnimationPowerOfGod").scale = Vector2(2,2)
-					get_node(path + "/AnimationPowerOfGod").play()
-			elif directionFindPiece == "Droite":
-				pass
-			elif directionFindPiece == "Gauche":
-				pass
-			elif directionFindPiece == "Haut/Droite":
-				pass
-			elif directionFindPiece == "Haut/Gauche":
-				pass
-			elif directionFindPiece == "Bas/Droite":
-				pass
-			elif directionFindPiece == "Bas/Gauche":
-				pass
+		animationPowerTeleportationDirection(i, j,chessBoard,nameOfPiece,directionFindPiece)

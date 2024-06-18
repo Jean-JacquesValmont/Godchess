@@ -123,6 +123,6 @@ func deadPowerTimer():
 			continue
 
 #Goddess of Teleportation
-func enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece):
+func enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white):
 	if GlobalValueMenu.godSelectPlayer1 == "GoddessOfTeleportation":
-		GoddessOfTeleportation.teleportationPower(i, j,chessBoard,nameOfPiece)
+		GoddessOfTeleportation.teleportationPower(i, j,chessBoard,nameOfPiece,white)

@@ -33,8 +33,10 @@ var attackerPositionshift2J = 0
 var attackerPositionshift3I = 0
 var attackerPositionshift3J = 0
 var playerID
+# Variable for power of gods
 var timer = -1
 var spawnedTimerSpawnedThisTurn = false
+var teleportationDirection = ""
 
 func _ready():
 	await get_tree().process_frame
@@ -137,6 +139,7 @@ func move(dx, dy, maxMove) :
 			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
+	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white)
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
 	resetLastMovePlay()
@@ -546,3 +549,29 @@ func _on_animation_power_of_god_animation_finished():
 	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTimerFinish":
 		GlobalValueChessGame.animationPlayed = false
 		queue_free()
+	
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitial":
+		var directionMap = {
+			"Haut": [Vector2(0, -200), 0, -2],
+			"Bas": [Vector2(0, 200), 0, 2],
+			"Droite": [Vector2(200, 0), 2, 0],
+			"Gauche": [Vector2(-200, 0), -2, 0],
+			"Haut/Droite": [Vector2(200, -200), 2, -2],
+			"Haut/Gauche": [Vector2(-200, -200), -2, -2],
+			"Bas/Droite": [Vector2(200, 200), 2, 2],
+			"Bas/Gauche": [Vector2(-200, 200), -2, 2]
+		}
+		var positionChange = directionMap[teleportationDirection][0]
+		var indexChangeI = directionMap[teleportationDirection][2]
+		var indexChangeJ = directionMap[teleportationDirection][1]
+		chessBoard[i][j] = "0"
+		self.position += positionChange
+		i += indexChangeI
+		j += indexChangeJ
+		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		Position = Vector2(self.position.x, self.position.y)
+		get_node("AnimationPowerOfGod").set_animation("PowerGoddessOfTeleportationEffectFinal")
+		get_node("AnimationPowerOfGod").play()
+	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectFinal":
+		get_node("AnimationPowerOfGod").visible = false
+		GlobalValueChessGame.animationPlayed = false

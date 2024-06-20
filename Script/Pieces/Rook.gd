@@ -610,19 +610,26 @@ func _on_animation_power_of_god_animation_finished():
 		queue_free()
 	
 	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitial":
+		var offsetKingI = GoddessOfTeleportation.offsetKingI
+		var offsetKingJ = GoddessOfTeleportation.offsetKingJ
+		print("Animation offsetKingI: ", offsetKingI)
+		print("Animation  offsetKingJ: ", offsetKingJ)
 		var directionMap = {
-			"Haut": [Vector2(0, -200), 0, -2],
-			"Bas": [Vector2(0, 200), 0, 2],
-			"Droite": [Vector2(200, 0), 2, 0],
-			"Gauche": [Vector2(-200, 0), -2, 0],
-			"Haut/Droite": [Vector2(200, -200), 2, -2],
+			"Haut": [Vector2(0, -200), -2, 0],
+			"Bas": [Vector2(0, 200), 2, 0],
+			"Droite": [Vector2(200, 0), 0, 2],
+			"Gauche": [Vector2(-200, 0), 0, -2],
+			"Haut/Droite": [Vector2(200, -200), -2, 2],
 			"Haut/Gauche": [Vector2(-200, -200), -2, -2],
 			"Bas/Droite": [Vector2(200, 200), 2, 2],
-			"Bas/Gauche": [Vector2(-200, 200), -2, 2]
+			"Bas/Gauche": [Vector2(-200, 200), 2, -2],
+			"Autre": [Vector2(offsetKingJ*100*2, offsetKingI*100*2), offsetKingI*2, offsetKingJ*2]
 		}
+		
+		print("Animation directionMap: ", directionMap)
 		var positionChange = directionMap[teleportationDirection][0]
-		var indexChangeI = directionMap[teleportationDirection][2]
-		var indexChangeJ = directionMap[teleportationDirection][1]
+		var indexChangeI = directionMap[teleportationDirection][1]
+		var indexChangeJ = directionMap[teleportationDirection][2]
 		chessBoard[i][j] = "0"
 		self.position += positionChange
 		i += indexChangeI
@@ -633,4 +640,8 @@ func _on_animation_power_of_god_animation_finished():
 		get_node("AnimationPowerOfGod").play()
 	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectFinal":
 		get_node("AnimationPowerOfGod").visible = false
+		#if GlobalValueChessGame.turnWhite == true:
+			#GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
+		#elif GlobalValueChessGame.turnWhite == false:
+			#GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
 		GlobalValueChessGame.animationPlayed = false

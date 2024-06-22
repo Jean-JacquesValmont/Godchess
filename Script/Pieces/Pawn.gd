@@ -141,7 +141,7 @@ func move(dx, dy) :
 			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
-	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white)
+	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white,0,0)
 	if chessBoard[i][j].begins_with("PawnWhite") and (i == 2 or i == 9): #Sinon le promoteInProgress ne passe pas à true pour le player 2
 		promotion("White","Cavalier", "Fou", "Tour", "Reine")
 	elif chessBoard[i][j].begins_with("PawnBlack") and (i == 2 or i == 9): #Sinon le promoteInProgress ne passe pas à true pour le player 1

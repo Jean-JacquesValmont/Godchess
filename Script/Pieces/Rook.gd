@@ -135,7 +135,7 @@ func move(dx, dy, maxMove) :
 			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
-	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white)
+	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white,0,0)
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
 	resetLastMovePlay()

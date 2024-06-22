@@ -27,6 +27,8 @@ var playerID
 var timer = -1
 var spawnedTimerSpawnedThisTurn = false
 var teleportationDirection = ""
+var coordinateILastMove = 0
+var coordinateJLastMove = 0
 
 func _ready():
 	await get_tree().process_frame
@@ -99,6 +101,8 @@ func move(dx, dy) :
 			self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func movePiece(f,targetCaseX,targetCaseY,dx,dy):
+	coordinateILastMove = i
+	coordinateJLastMove = j
 	if GlobalValueChessGame.turnWhite == true:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
@@ -127,9 +131,11 @@ func move(dx, dy) :
 			j=j+(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
 			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
+	print('coordinateILastMove: ', coordinateILastMove)
+	print('coordinateJLastMove: ', coordinateJLastMove)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
-	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white)
+	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white, coordinateILastMove,coordinateJLastMove)
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
 	resetLastMovePlay()

@@ -710,8 +710,6 @@ func _on_animation_power_of_god_animation_finished():
 	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitial":
 		var offsetKingI = GoddessOfTeleportation.offsetKingI
 		var offsetKingJ = GoddessOfTeleportation.offsetKingJ
-		print("Animation offsetKingI: ", offsetKingI)
-		print("Animation  offsetKingJ: ", offsetKingJ)
 		var directionMap = {
 			"Haut": [Vector2(0, -200), -2, 0],
 			"Bas": [Vector2(0, 200), 2, 0],
@@ -724,7 +722,6 @@ func _on_animation_power_of_god_animation_finished():
 			"Autre": [Vector2(offsetKingJ*100*2, offsetKingI*100*2), offsetKingI*2, offsetKingJ*2]
 		}
 		
-		print("Animation directionMap: ", directionMap)
 		var positionChange = directionMap[teleportationDirection][0]
 		var indexChangeI = directionMap[teleportationDirection][1]
 		var indexChangeJ = directionMap[teleportationDirection][2]

@@ -50,6 +50,7 @@ func _process(delta):
 				GlobalValueChessGamePowerTimer.allPowerOfGodsTimer()
 				updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",attackPieceBlackOnTheChessboard)
 				GlobalValueChessGamePower.allPowerOfGods()
+				enPassantFinish()
 				updateOfThePartsAttack = true
 				
 		elif turnWhite == false:
@@ -57,6 +58,7 @@ func _process(delta):
 				GlobalValueChessGamePowerTimer.allPowerOfGodsTimer()
 				updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",attackPieceWhiteOnTheChessboard)
 				GlobalValueChessGamePower.allPowerOfGods()
+				enPassantFinish()
 				updateOfThePartsAttack = false
 
 func updateTurn(color, pawnColor, knightColor, bishopColor, rookColor, queenColor, chessboardColor):
@@ -64,7 +66,6 @@ func updateTurn(color, pawnColor, knightColor, bishopColor, rookColor, queenColo
 	updateAttackWhiteandBlack()
 	attackPiecesWhite()
 	attackPiecesBlack()
-	enPassantFinish()
 	verificationCheckAndCheckmate()
 	verificationStalemate(color, pawnColor, knightColor, bishopColor, rookColor, queenColor, chessboardColor)
 

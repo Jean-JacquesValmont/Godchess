@@ -516,7 +516,9 @@ func _on_animation_power_of_god_animation_finished():
 		GlobalValueChessGame.animationPlayed = false
 		queue_free()
 	
-	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitial":
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitialKnight":
+		GlobalValueChessGame.checkBlack = false
+		GlobalValueChessGame.checkWhite = false
 		var offsetKingI = GoddessOfTeleportation.offsetKingI
 		var offsetKingJ = GoddessOfTeleportation.offsetKingJ
 		var directionMap = {
@@ -534,19 +536,28 @@ func _on_animation_power_of_god_animation_finished():
 		var positionChange = directionMap[teleportationDirection][0]
 		var indexChangeI = directionMap[teleportationDirection][1]
 		var indexChangeJ = directionMap[teleportationDirection][2]
-		chessBoard[i][j] = "0"
-		self.position += positionChange
-		i += indexChangeI
-		j += indexChangeJ
-		chessBoard[i][j] = nameOfPiece.replace("@", "")
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			chessBoard[i][j] = "0"
+			self.position += positionChange
+			i += indexChangeI
+			j += indexChangeJ
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			chessBoard[i][j] = "0"
+			self.position += positionChange
+			i += indexChangeI
+			j += indexChangeJ
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 		Position = Vector2(self.position.x, self.position.y)
-		get_node("AnimationPowerOfGod").set_animation("PowerGoddessOfTeleportationEffectFinal")
+		get_node("AnimationPowerOfGod").set_animation("PowerGoddessOfTeleportationEffectFinalKnight")
 		get_node("AnimationPowerOfGod").play()
-	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectFinal":
+	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectFinalKnight":
+		self.self_modulate.a = 1
 		get_node("AnimationPowerOfGod").visible = false
-		#if GlobalValueChessGame.turnWhite == true:
-			#GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
-		#elif GlobalValueChessGame.turnWhite == false:
-			#GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
+		if GlobalValueChessGame.turnWhite == true:
+			GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
+		if GlobalValueChessGame.turnWhite == false:
+			GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
 		GlobalValueChessGame.animationPlayed = false
 

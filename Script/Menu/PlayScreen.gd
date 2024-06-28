@@ -53,3 +53,8 @@ func _on_OnlineMatch_joined(match_id: String, match_mode: int):
 	self.hide()
 	get_node("/root/Menu/Background/CustomiseGameScreen").show()
 	get_node("/root/Menu/Background/CustomiseGameScreen").callv("_show_screen", [info])
+
+
+func _on_button_tutoriel_button_down():
+	get_node("/root/Menu/Background/TutorielScreen").show()
+	get_node("/root/Menu/Background/PlayScreen").hide()

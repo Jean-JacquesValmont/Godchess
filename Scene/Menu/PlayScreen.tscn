@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6vogyu4wlmgv"]
+[gd_scene load_steps=4 format=3 uid="uid://6vogyu4wlmgv"]
 
-[ext_resource type="Texture2D" uid="uid://cfj7u1psrljya" path="res://Image/Menu/ModCustomizedGame.png" id="1_g7wr7"]
+[ext_resource type="Texture2D" uid="uid://dm487eu3jilji" path="res://Image/Menu/ModCustomizedGame.png" id="1_g7wr7"]
 [ext_resource type="Script" path="res://Script/Menu/PlayScreen.gd" id="2_vin2r"]
+[ext_resource type="FontFile" uid="uid://caxco446f2je1" path="res://Font/Forgotten.ttf" id="3_w1ri3"]
 
 [node name="PlayScreen" type="Sprite2D"]
 texture = ExtResource("1_g7wr7")
@@ -42,3 +43,14 @@ offset_top = 652.0
 offset_right = 365.0
 offset_bottom = 726.0
 mouse_default_cursor_shape = 2
+
+[node name="ButtonTutoriel" type="Button" parent="."]
+offset_left = 196.0
+offset_top = 524.0
+offset_right = 587.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_w1ri3")
+theme_override_font_sizes/font_size = 40
+text = "Règle de GodsChess"
+
+[connection signal="button_down" from="ButtonTutoriel" to="." method="_on_button_tutoriel_button_down"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv0q6ejhjm40l"]
+
+[ext_resource type="Texture2D" uid="uid://u647u3gsxrfm" path="res://Image/Menu/TutorielGodschess.png" id="1_xa23c"]
+[ext_resource type="Script" path="res://Script/Menu/TutorielScreen.gd" id="2_o4bf1"]
+[ext_resource type="FontFile" uid="uid://caxco446f2je1" path="res://Font/Forgotten.ttf" id="3_o0a63"]
+
+[node name="TutorielScreen" type="Sprite2D"]
+texture = ExtResource("1_xa23c")
+centered = false
+script = ExtResource("2_o4bf1")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 700.0
+offset_top = 153.0
+offset_right = 1301.0
+offset_bottom = 261.0
+theme_override_fonts/font = ExtResource("3_o0a63")
+theme_override_font_sizes/font_size = 80
+text = "Règle de GodsChess"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RuleTitleLabel" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 316.0
+offset_right = 900.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("3_o0a63")
+theme_override_font_sizes/font_size = 60
+text = "Comment jouer à GodsChess ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RuleExplanationText" type="RichTextLabel" parent="."]
+offset_left = 84.0
+offset_top = 452.0
+offset_right = 963.0
+offset_bottom = 880.0
+theme_override_fonts/normal_font = ExtResource("3_o0a63")
+theme_override_font_sizes/normal_font_size = 40
+text = "GodsChess conserve les règles classiques des échecs tout en y incorporant des pouvoirs, sans détruire ce qui a été construit.
+Au contraire, il apporte une nouvelle dimension avec la division des pièces en factions et un niveau stratégique accru grâce à l'ajout de pouvoirs se jouant de manière passive. Vous devez toujours mettre en échec et mat le roi adverse pour gagner.
+Cependant, l'inventivité, l'imagination et la créativité vous permettront de développer votre propre façon de jouer à GodsChess"
+
+[node name="RuleSpriteExplanation" type="Sprite2D" parent="."]
+position = Vector2(1121, 308)
+scale = Vector2(0.765, 0.765)
+centered = false
+
+[node name="ButtonRigth" type="Button" parent="."]
+modulate = Color(0, 0, 0, 0)
+offset_left = 915.0
+offset_top = 326.0
+offset_right = 964.0
+offset_bottom = 419.0
+mouse_default_cursor_shape = 2
+
+[node name="ButtonLeft" type="Button" parent="."]
+modulate = Color(0, 0, 0, 0)
+offset_left = 72.0
+offset_top = 329.0
+offset_right = 121.0
+offset_bottom = 422.0
+mouse_default_cursor_shape = 2
+
+[connection signal="button_down" from="ButtonRigth" to="." method="_on_button_rigth_button_down"]
+[connection signal="button_down" from="ButtonLeft" to="." method="_on_button_left_button_down"]

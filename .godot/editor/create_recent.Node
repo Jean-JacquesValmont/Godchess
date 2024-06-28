@@ -1,8 +1,9 @@
-AnimatedSprite2D
-Label
-Sprite2D
-Control
 Button
+Sprite2D
+RichTextLabel
+Label
+AnimatedSprite2D
+Control
 Panel
 CenterContainer
 Container
@@ -11,5 +12,3 @@ VideoStreamPlayer
 ResourcePreloader
 Node2D
 AudioStreamPlayer2D
-AudioListener2D
-CollisionShape2D

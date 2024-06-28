@@ -16,6 +16,7 @@ func _on_button_play_button_down():
 		get_node("/root/Menu/Background/GodsScreen").hide()
 		get_node("/root/Menu/Background/CustomiseGameScreen").show()
 		get_node("/root/Menu/Background/PowerGods").hide()
+		get_node("/root/Menu/Background/TutorielScreen").hide()
 		GlobalValueMenu.godSelect = ""
 	else:
 		get_node("/root/Menu/Background/PlayScreen").show()
@@ -40,6 +41,7 @@ func _on_button_gods_button_down():
 		get_node("/root/Menu/Background/GodsScreen").show()
 		get_node("/root/Menu/Background/CustomiseGameScreen").hide()
 		get_node("/root/Menu/Background/PowerGods").hide()
+		get_node("/root/Menu/Background/TutorielScreen").hide()
 		GlobalValueMenu.godSelect = ""
 		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").stop()
 		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").stop()

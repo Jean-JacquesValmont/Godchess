@@ -75,7 +75,7 @@ func conditionGameDirectionPlayer1(i, j,chessBoard,count,direction,positions,paw
 		var x = i+pos.x
 		var y = j+pos.y
 		if x >= 0 and x < chessBoard.size() and y >= 0 and y < chessBoard[0].size():
-			if "KingWhite" in chessBoard[i+pos.x][j+pos.y]:
+			if kingColor in chessBoard[i+pos.x][j+pos.y]:
 				count += 1
 				offsetKingI = pos.x
 				offsetKingJ = pos.y
@@ -114,7 +114,7 @@ func conditionGameDirectionPlayer2(i, j,chessBoard,count,direction,positions,paw
 		var x = i+pos.x
 		var y = j+pos.y
 		if x >= 0 and x < chessBoard.size() and y >= 0 and y < chessBoard[0].size():
-			if "KingWhite" in chessBoard[i+pos.x][j+pos.y]:
+			if kingColor in chessBoard[i+pos.x][j+pos.y]:
 				count += 1
 				offsetKingI = pos.x
 				offsetKingJ = pos.y
@@ -146,6 +146,19 @@ func countTeleportationZone(i, j,chessBoard,white):
 			direction = result.direction
 			offsetKingI = result.offsetKingI
 			offsetKingJ = result.offsetKingJ
+	elif white == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			var result = conditionGameDirectionPlayer2(i, j,chessBoard,count,direction,positions,"PawnBlack","BishopBlack","RookBlack","QueenBlack","KingBlack")
+			count = result.count
+			direction = result.direction
+			offsetKingI = result.offsetKingI
+			offsetKingJ = result.offsetKingJ
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			var result = conditionGameDirectionPlayer1(i, j,chessBoard,count,direction,positions,"PawnBlack","BishopBlack","RookBlack","QueenBlack","KingBlack")
+			count = result.count
+			direction = result.direction
+			offsetKingI = result.offsetKingI
+			offsetKingJ = result.offsetKingJ
 					
 	return {"count": count, "direction": direction, "offsetKingI": offsetKingI, "offsetKingJ": offsetKingJ}
 
@@ -155,6 +168,18 @@ func animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset1,offset2,c
 		get_node(path).teleportationDirection = directionTP
 		namePieceAnimation = getNamePieceAnimation(chessBoard[i+offset1.x][j+offset1.y])
 		if chessBoard[i+offset2.x][j+offset2.y] == "0" or ("Black" in chessBoard[i+offset2.x][j+offset2.y] and not "King" in chessBoard[i+offset2.x][j+offset2.y]):
+			var animation_node = get_node(path + "/AnimationPowerOfGod")
+			animation_node.visible = true
+			animation_node.set_animation("PowerGoddessOfTeleportationEffectInitial" + namePieceAnimation)
+			animation_node.scale = Vector2(2, 2)
+			get_node(path).self_modulate.a = 0
+			animation_node.play()
+			GlobalValueChessGame.animationPlayed = true
+	elif "Black" in chessBoard[i+offset1.x][j+offset1.y] and countZoneTeleportationPiece == 0:
+		var path = "/root/Game/ChessBoard/" + chessBoard[i+offset1.x][j+offset1.y]
+		get_node(path).teleportationDirection = directionTP
+		namePieceAnimation = getNamePieceAnimation(chessBoard[i+offset1.x][j+offset1.y])
+		if chessBoard[i+offset2.x][j+offset2.y] == "0" or ("White" in chessBoard[i+offset2.x][j+offset2.y] and not "King" in chessBoard[i+offset2.x][j+offset2.y]):
 			var animation_node = get_node(path + "/AnimationPowerOfGod")
 			animation_node.visible = true
 			animation_node.set_animation("PowerGoddessOfTeleportationEffectInitial" + namePieceAnimation)
@@ -203,6 +228,24 @@ func teleportationPowerKnight(i, j,chessBoard,nameOfPiece,white,coordinateILastM
 		
 		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[0],offset[1],countZoneTeleportationPiece1,directionTP[0],namePiece1Animation)
 		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[2],offset[3],countZoneTeleportationPiece2,directionTP[1],namePiece2Animation)
+		
+	elif "KnightBlack" in chessBoard[i][j]:
+		var diffI = i-coordinateILastMove
+		var diffJ = j-coordinateJLastMove
+		
+		moveKnight = searchMoveDirectionKnight(diffI,diffJ)
+		
+		var offset = directionMapKnightOffset[moveKnight]
+		var directionTP = directionMapKnightDirectionTP[moveKnight]
+		var result1 = countTeleportationZone(i+offset[0].x, j+offset[0].y,chessBoard,white)
+		var result2 = countTeleportationZone(i+offset[2].x, j+offset[2].y,chessBoard,white)
+		var countZoneTeleportationPiece1 = result1.count
+		var countZoneTeleportationPiece2 = result2.count
+		var namePiece1Animation = ""
+		var namePiece2Animation = ""
+		
+		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[0],offset[1],countZoneTeleportationPiece1,directionTP[0],namePiece1Animation)
+		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[2],offset[3],countZoneTeleportationPiece2,directionTP[1],namePiece2Animation)
 
 func animationPowerTeleportationDirection(i, j,chessBoard,nameOfPiece,directionFindPiece,offsetKingFinalI,offsetKingFinalJ):
 	var directionMap = {
@@ -228,7 +271,19 @@ func animationPowerTeleportationDirection(i, j,chessBoard,nameOfPiece,directionF
 		var newJ = j + offset.y
 		if newI >= 0 and newI < chessBoard.size() and newJ >= 0 and newJ < chessBoard[0].size():
 			if chessBoard[newI][newJ] == "0" or ("Black" in chessBoard[newI][newJ] and not "King" in chessBoard[newI][newJ]):
-				print("Enter in animationPowerTeleportationDirection chessBoard == 0 or Black")
+				var animation_node = get_node(path + "/AnimationPowerOfGod")
+				animation_node.visible = true
+				animation_node.set_animation("PowerGoddessOfTeleportationEffectInitial" + namePieceAnimation)
+				animation_node.scale = Vector2(2, 2)
+				get_node(path).self_modulate.a = 0
+				animation_node.play()
+				GlobalValueChessGame.animationPlayed = true
+	elif "Black" in nameOfPiece:
+		var offset = directionMap[directionFindPiece]
+		var newI = i + offset.x
+		var newJ = j + offset.y
+		if newI >= 0 and newI < chessBoard.size() and newJ >= 0 and newJ < chessBoard[0].size():
+			if chessBoard[newI][newJ] == "0" or ("White" in chessBoard[newI][newJ] and not "King" in chessBoard[newI][newJ]):
 				var animation_node = get_node(path + "/AnimationPowerOfGod")
 				animation_node.visible = true
 				animation_node.set_animation("PowerGoddessOfTeleportationEffectInitial" + namePieceAnimation)
@@ -241,21 +296,13 @@ func teleportationPower(i, j,chessBoard,nameOfPiece,white,coordinateILastMove,co
 	var countZoneTeleportation = 0
 	var directionFindPiece = ""
 	
-	print("Enter in teleportation power ", nameOfPiece, " ", OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id)
-	
-	var result = countTeleportationZone(i, j, chessBoard,white)
+	var result = countTeleportationZone(i, j, chessBoard, white)
 	countZoneTeleportation = result.count
 	directionFindPiece = result.direction
 	offsetKingFinalI = result.offsetKingI
 	offsetKingFinalJ = result.offsetKingJ
 	
-	print("Before teleportationPowerKnight offsetKingI: ", offsetKingFinalI)
-	print("Before teleportationPowerKnight offsetKingJ: ", offsetKingFinalJ)
-	
 	teleportationPowerKnight(i, j,chessBoard,nameOfPiece,white,coordinateILastMove,coordinateJLastMove)
-	
-	print("After teleportationPowerKnight offsetKingI: ", offsetKingFinalI)
-	print("After teleportationPowerKnight offsetKingJ: ", offsetKingFinalJ)
 	
 	if countZoneTeleportation == 1:
 		animationPowerTeleportationDirection(i, j,chessBoard,nameOfPiece,directionFindPiece,offsetKingFinalI,offsetKingFinalJ)

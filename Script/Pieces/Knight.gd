@@ -523,8 +523,6 @@ func _on_animation_power_of_god_animation_finished():
 		GlobalValueChessGame.checkWhite = false
 		var offsetKingI = GoddessOfTeleportation.offsetKingFinalI
 		var offsetKingJ = GoddessOfTeleportation.offsetKingFinalJ
-		print("offsetKingI: ", offsetKingI)
-		print("offsetKingJ: ", offsetKingJ)
 		var directionMap = {
 			"Haut": [Vector2(0, -200), -2, 0],
 			"Bas": [Vector2(0, 200), 2, 0],
@@ -540,9 +538,6 @@ func _on_animation_power_of_god_animation_finished():
 		var positionChange = directionMap[teleportationDirection][0]
 		var indexChangeI = directionMap[teleportationDirection][1]
 		var indexChangeJ = directionMap[teleportationDirection][2]
-		print("directionMap[teleportationDirection][0]: ", directionMap[teleportationDirection][0])
-		print("directionMap[teleportationDirection][1]: ", directionMap[teleportationDirection][1])
-		print("directionMap[teleportationDirection][2]: ", directionMap[teleportationDirection][2])
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 			chessBoard[i][j] = "0"
 			self.position += positionChange

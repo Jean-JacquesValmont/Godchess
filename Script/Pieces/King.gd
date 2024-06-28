@@ -417,11 +417,12 @@ func reverseCoordonate(i):
 
 
 func _on_animation_power_of_god_animation_finished():
+	#GoddessOfTeleportation
 	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitialKing":
 		GlobalValueChessGame.checkBlack = false
 		GlobalValueChessGame.checkWhite = false
-		var offsetKingI = GoddessOfTeleportation.offsetKingI
-		var offsetKingJ = GoddessOfTeleportation.offsetKingJ
+		var offsetKingI = GoddessOfTeleportation.offsetKingFinalI
+		var offsetKingJ = GoddessOfTeleportation.offsetKingFinalJ
 		var directionMap = {
 			"Haut": [Vector2(0, -200), -2, 0],
 			"Bas": [Vector2(0, 200), 2, 0],

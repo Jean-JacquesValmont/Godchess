@@ -523,6 +523,7 @@ func reverseCoordonate(i):
 	return i
 
 func _on_animation_power_of_god_animation_finished():
+	#GodGodOfDeath
 	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTaked":
 		get_node("AnimationPowerOfGod").visible = false
 		get_node("Timer").visible = true
@@ -535,11 +536,12 @@ func _on_animation_power_of_god_animation_finished():
 		GlobalValueChessGame.animationPlayed = false
 		queue_free()
 	
+	#GoddessOfTeleportation
 	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitialBishop":
 		GlobalValueChessGame.checkBlack = false
 		GlobalValueChessGame.checkWhite = false
-		var offsetKingI = GoddessOfTeleportation.offsetKingI
-		var offsetKingJ = GoddessOfTeleportation.offsetKingJ
+		var offsetKingI = GoddessOfTeleportation.offsetKingFinalI
+		var offsetKingJ = GoddessOfTeleportation.offsetKingFinalJ
 		var directionMap = {
 			"Haut": [Vector2(0, -200), -2, 0],
 			"Bas": [Vector2(0, 200), 2, 0],

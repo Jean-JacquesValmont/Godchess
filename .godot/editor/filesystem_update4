@@ -6,3 +6,6 @@ res://Scene/Game/ChessBoard.tscn
 res://Scene/Menu/TutorielScreen.tscn
 res://Scene/Menu/PlayScreen.tscn
 res://Script/Menu/TutorielScreen.gd
+res://Scene/Menu/PowerGods.tscn
+res://Scene/Menu/OngletScreen.tscn
+res://Script/Menu/OngletScreen.gd

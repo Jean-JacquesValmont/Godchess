@@ -62,3 +62,7 @@ func _on_button_rigth_button_down():
 	
 func _on_button_left_button_down():
 	counter -= 1
+	
+func _on_button_return_main_menu_button_down():
+	self.hide()
+	get_node("/root/Menu/Background/PlayScreen").show()

@@ -63,5 +63,14 @@ offset_right = 121.0
 offset_bottom = 422.0
 mouse_default_cursor_shape = 2
 
+[node name="ButtonReturnMainMenu" type="Button" parent="."]
+offset_left = 1874.0
+offset_top = 124.0
+offset_right = 1921.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 50
+text = "X"
+
 [connection signal="button_down" from="ButtonRigth" to="." method="_on_button_rigth_button_down"]
 [connection signal="button_down" from="ButtonLeft" to="." method="_on_button_left_button_down"]
+[connection signal="button_down" from="ButtonReturnMainMenu" to="." method="_on_button_return_main_menu_button_down"]

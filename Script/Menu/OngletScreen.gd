@@ -22,6 +22,7 @@ func _on_button_play_button_down():
 		get_node("/root/Menu/Background/PlayScreen").show()
 		get_node("/root/Menu/Background/GodsScreen").hide()
 		get_node("/root/Menu/Background/PowerGods").hide()
+		get_node("/root/Menu/Background/TutorielScreen").hide()
 		GlobalValueMenu.godSelect = ""
 
 func _on_button_play_mouse_entered():

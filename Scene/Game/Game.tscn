@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccb5p5ljgby2h"]
 
-[ext_resource type="Texture2D" uid="uid://5itsmao3bern" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
+[ext_resource type="Texture2D" uid="uid://cye35k3n1ilkw" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
 [ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
 [ext_resource type="PackedScene" uid="uid://caicvg7ub7mxg" path="res://Scene/Game/ChessBoard.tscn" id="2_ry56a"]
-[ext_resource type="FontFile" uid="uid://caxco446f2je1" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
-[ext_resource type="Texture2D" uid="uid://bt5gfiiaofija" path="res://Image/Menu/ConfirmationWindow.png" id="6_qtndm"]
-[ext_resource type="Texture2D" uid="uid://gnkunfk7pmbu" path="res://Image/Game/MenuChessBoard.png" id="7_k76lp"]
+[ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
+[ext_resource type="Texture2D" uid="uid://b5626uqw1cos5" path="res://Image/Menu/ConfirmationWindow.png" id="6_qtndm"]
+[ext_resource type="Texture2D" uid="uid://b0cmlyeo70i1u" path="res://Image/Game/MenuChessBoard.png" id="7_k76lp"]
 
 [node name="Game" type="Sprite2D"]
 texture = ExtResource("1_0b1s8")

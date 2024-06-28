@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://caicvg7ub7mxg"]
 
-[ext_resource type="Texture2D" uid="uid://yboc8h71t3nq" path="res://Image/Game/ChessBoardWood.png" id="1_31msv"]
+[ext_resource type="Texture2D" uid="uid://cxy6m3xljna4s" path="res://Image/Game/ChessBoardWood.png" id="1_31msv"]
 [ext_resource type="PackedScene" uid="uid://d3c6u4nfak1d6" path="res://Scene/Pieces/Pawn.tscn" id="2_07qch"]
 [ext_resource type="Script" path="res://Script/Game/ChessBoard.gd" id="2_s2x3d"]
 [ext_resource type="PackedScene" uid="uid://beim7gvtgvqxl" path="res://Scene/Pieces/Knight.tscn" id="3_b7tcs"]

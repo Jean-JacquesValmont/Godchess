@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkdifrh7ran3j"]
 
 [ext_resource type="Script" path="res://Script/Menu/Menu.gd" id="1_lxqfr"]
-[ext_resource type="Texture2D" uid="uid://b1itx1qvyvdi" path="res://Image/Menu/BackgroundGodchess.png" id="1_v653j"]
+[ext_resource type="Texture2D" uid="uid://cioebn5fjvbm1" path="res://Image/Menu/BackgroundGodchess.png" id="1_v653j"]
 [ext_resource type="PackedScene" uid="uid://bwbyxry3hcbw0" path="res://Scene/Menu/OngletScreen.tscn" id="2_ebh6i"]
 [ext_resource type="PackedScene" uid="uid://6vogyu4wlmgv" path="res://Scene/Menu/PlayScreen.tscn" id="2_u5bpd"]
 [ext_resource type="PackedScene" uid="uid://dogs0vuacleth" path="res://Scene/Menu/GodsScreen.tscn" id="3_a5pkn"]
 [ext_resource type="PackedScene" uid="uid://bh7fdchs08gib" path="res://Scene/Menu/CustomiseGameScreen.tscn" id="3_y332t"]
 [ext_resource type="PackedScene" uid="uid://bsnq217ron51k" path="res://Scene/Menu/PowerGods.tscn" id="6_0l1cl"]
-[ext_resource type="PackedScene" uid="uid://cv0q6ejhjm40l" path="res://Scene/Menu/TutorielScreen.tscn" id="8_pkl42"]
+[ext_resource type="PackedScene" path="res://Scene/Menu/TutorielScreen.tscn" id="8_pkl42"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_lxqfr")

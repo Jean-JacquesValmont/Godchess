@@ -23,8 +23,12 @@ var attackerPositionshiftJ = 0
 var attackerPositionshift2I = 0
 var attackerPositionshift2J = 0
 var playerID
+# Variable for power of gods
 var timer = -1
 var spawnedTimerSpawnedThisTurn = false
+var teleportationDirection = ""
+var coordinateILastMove = 0
+var coordinateJLastMove = 0
 
 func _ready():
 	await get_tree().process_frame
@@ -97,6 +101,8 @@ func move(dx, dy) :
 			self.position = Vector2(Position.x, Position.y)
 
 @rpc("any_peer", "call_local") func movePiece(f,targetCaseX,targetCaseY,dx,dy):
+	coordinateILastMove = i
+	coordinateJLastMove = j
 	if GlobalValueChessGame.turnWhite == true:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
 			self.position = Vector2((Position.x + targetCaseX), (Position.y + targetCaseY))
@@ -125,8 +131,11 @@ func move(dx, dy) :
 			j=j+(dx*f)
 			chessBoard[i][j] = nameOfPiece.replace("@", "")
 			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
+	print('coordinateILastMove: ', coordinateILastMove)
+	print('coordinateJLastMove: ', coordinateJLastMove)
 	Position = Vector2(self.position.x, self.position.y)
 	initialPosition = false
+	GodsPowerPiece.enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white, coordinateILastMove,coordinateJLastMove)
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
 	get_node("SoundMovePiece").play()
 	resetLastMovePlay()
@@ -495,6 +504,7 @@ func reverseCoordonate(i):
 	return i
 
 func _on_animation_power_of_god_animation_finished():
+	#GodGodOfDeath
 	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTaked":
 		get_node("AnimationPowerOfGod").visible = false
 		get_node("Timer").visible = true
@@ -506,3 +516,51 @@ func _on_animation_power_of_god_animation_finished():
 	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTimerFinish":
 		GlobalValueChessGame.animationPlayed = false
 		queue_free()
+	
+	#GoddessOfTeleportation
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectInitialKnight":
+		GlobalValueChessGame.checkBlack = false
+		GlobalValueChessGame.checkWhite = false
+		var offsetKingI = GoddessOfTeleportation.offsetKingFinalI
+		var offsetKingJ = GoddessOfTeleportation.offsetKingFinalJ
+		var directionMap = {
+			"Haut": [Vector2(0, -200), -2, 0],
+			"Bas": [Vector2(0, 200), 2, 0],
+			"Droite": [Vector2(200, 0), 0, 2],
+			"Gauche": [Vector2(-200, 0), 0, -2],
+			"Haut/Droite": [Vector2(200, -200), -2, 2],
+			"Haut/Gauche": [Vector2(-200, -200), -2, -2],
+			"Bas/Droite": [Vector2(200, 200), 2, 2],
+			"Bas/Gauche": [Vector2(-200, 200), 2, -2],
+			"Autre": [Vector2(offsetKingJ*100*2, offsetKingI*100*2), offsetKingI*2, offsetKingJ*2]
+		}
+		
+		var positionChange = directionMap[teleportationDirection][0]
+		var indexChangeI = directionMap[teleportationDirection][1]
+		var indexChangeJ = directionMap[teleportationDirection][2]
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			chessBoard[i][j] = "0"
+			self.position += positionChange
+			i += indexChangeI
+			j += indexChangeJ
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			chessBoard[i][j] = "0"
+			self.position += positionChange
+			i += indexChangeI
+			j += indexChangeJ
+			chessBoard[i][j] = nameOfPiece.replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
+		Position = Vector2(self.position.x, self.position.y)
+		get_node("AnimationPowerOfGod").set_animation("PowerGoddessOfTeleportationEffectFinalKnight")
+		get_node("AnimationPowerOfGod").play()
+	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGoddessOfTeleportationEffectFinalKnight":
+		self.self_modulate.a = 1
+		get_node("AnimationPowerOfGod").visible = false
+		if GlobalValueChessGame.turnWhite == true:
+			GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
+		if GlobalValueChessGame.turnWhite == false:
+			GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
+		GlobalValueChessGame.animationPlayed = false
+
+

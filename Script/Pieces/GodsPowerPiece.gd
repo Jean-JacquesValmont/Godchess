@@ -46,7 +46,7 @@ func reverseCoordonatesPieceJ(pieceColor):
 		9:
 			return 2
 
-#Power of Gods
+##Power of Gods
 #God of Death
 func enablePowerOfDeath(pieceName,playerID,chessBoard):
 	if GlobalValueMenu.godSelectPlayer1 == "GodOfDeath":
@@ -121,3 +121,10 @@ func deadPowerTimer():
 				nameNodePiece.spawnedTimerSpawnedThisTurn = false
 		elif has_node(path) == false:
 			continue
+
+#Goddess of Teleportation
+func enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white,coordinateILastMove,coordinateJLastMove):
+	if GlobalValueMenu.godSelectPlayer1 == "GoddessOfTeleportation" and white == true:
+		GoddessOfTeleportation.teleportationPower(i, j,chessBoard,nameOfPiece,white,coordinateILastMove,coordinateJLastMove)
+	if GlobalValueMenu.godSelectPlayer2 == "GoddessOfTeleportation" and white == false:
+		GoddessOfTeleportation.teleportationPower(i, j,chessBoard,nameOfPiece,white,coordinateILastMove,coordinateJLastMove)

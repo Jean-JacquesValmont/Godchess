@@ -179,8 +179,6 @@
 [ext_resource type="Texture2D" uid="uid://pwtmq6rx1vnb" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0093.png" id="177_xsnxh"]
 [ext_resource type="Texture2D" uid="uid://bj42mp75nteqd" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0094.png" id="178_vukw5"]
 [ext_resource type="Texture2D" uid="uid://cpc6lp7ylj4yp" path="res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish/Chronologie 1_0095.png" id="179_4uhqc"]
-<<<<<<< HEAD
-=======
 [ext_resource type="Texture2D" uid="uid://bijtldgss6mwq" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_001.png" id="180_u30f7"]
 [ext_resource type="Texture2D" uid="uid://dqjxufk8g5e0k" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_002.png" id="181_g255w"]
 [ext_resource type="Texture2D" uid="uid://3purtuown453" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal/Téléportation_003.png" id="182_xe68h"]
@@ -1117,7 +1115,6 @@
 [ext_resource type="Texture2D" uid="uid://dshtcghy2vk75" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationInitial/Chronologie 1_0064.png" id="1113_xk7sr"]
 [ext_resource type="Texture2D" uid="uid://bgoj1fld7cnmg" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationInitial/Chronologie 1_0065.png" id="1114_qwg42"]
 [ext_resource type="Texture2D" uid="uid://dvwoah77cg3vt" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationInitial/Chronologie 1_0066.png" id="1115_1a0o3"]
->>>>>>> powerGoddessOfTeleportation
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4c2"]
 size = Vector2(50, 50)

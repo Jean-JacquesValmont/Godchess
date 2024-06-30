@@ -1,23 +1,5 @@
-<<<<<<< HEAD
 res://Script/Menu
 res://Scene/Menu
-=======
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationInitial
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationFinal
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Queen/EffectTeleportationInitial
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Queen/EffectTeleportationFinal
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Pawn/EffectTeleportationInitial
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Pawn/EffectTeleportationFinal
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Knight/EffectTeleportationInitial
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Knight/EffectTeleportationFinal
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/King/EffectTeleportationInitial
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/King/EffectTeleportationFinal
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Bishop/EffectTeleportationInitial
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/Bishop/EffectTeleportationFinal
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationFinal
-res://Image/Gods/GoddessOfTeleportation/AnimationPower/EffectTeleportationInitial
-res://Script/PowerOfGods
->>>>>>> powerGoddessOfTeleportation
 res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish
 res://Image/Gods/GodOfDeath/AnimationPower/PieceTaked
 res://Script/Game
@@ -25,7 +7,6 @@ res://Script/Pieces
 C:/Ada_tech_school/Projet_Godot/Godot_4.1/GodsChess
 res://Image/Gods/GoddessOfTeleportation/Gif/Rook
 res://Image/Gods/GoddessOfTeleportation/Gif/Queen
-<<<<<<< HEAD
 res://Image/Gods/GoddessOfTeleportation/Gif/Pawn
 res://Image/Gods/GoddessOfTeleportation/Gif/Passif
 res://Image/Gods/GoddessOfTeleportation/Gif/Knight
@@ -35,5 +16,3 @@ res://Scene/Game
 res://Scene/Pieces
 res://Image
 res://Image/Animation/Menu/ButtonLeft
-=======
->>>>>>> powerGoddessOfTeleportation

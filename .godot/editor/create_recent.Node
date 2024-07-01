@@ -1,10 +1,10 @@
+Panel
+Label
 Button
 Sprite2D
 RichTextLabel
-Label
 AnimatedSprite2D
 Control
-Panel
 CenterContainer
 Container
 AspectRatioContainer

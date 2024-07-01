@@ -1,3 +1,4 @@
+res://Scene/Game
 res://Script/Menu
 res://Scene/Menu
 res://Image/Gods/GodOfDeath/AnimationPower/PieceTimerFinish
@@ -12,7 +13,6 @@ res://Image/Gods/GoddessOfTeleportation/Gif/Passif
 res://Image/Gods/GoddessOfTeleportation/Gif/Knight
 res://Image/Gods/GoddessOfTeleportation/Gif/King
 res://Image/Gods/GoddessOfTeleportation/Gif/Bishop
-res://Scene/Game
 res://Scene/Pieces
 res://Image
 res://Image/Animation/Menu/ButtonLeft

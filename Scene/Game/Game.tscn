@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccb5p5ljgby2h"]
+[gd_scene load_steps=8 format=3 uid="uid://ccb5p5ljgby2h"]
 
 [ext_resource type="Texture2D" uid="uid://cye35k3n1ilkw" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
 [ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="3_tm7ce"]
 [ext_resource type="Texture2D" uid="uid://b5626uqw1cos5" path="res://Image/Menu/ConfirmationWindow.png" id="6_qtndm"]
 [ext_resource type="Texture2D" uid="uid://b0cmlyeo70i1u" path="res://Image/Game/MenuChessBoard.png" id="7_k76lp"]
+[ext_resource type="PackedScene" uid="uid://dtm1opj50wwlv" path="res://Scene/Game/DisplayPieceAndAttackArray.tscn" id="7_wirjm"]
 
 [node name="Game" type="Sprite2D"]
 texture = ExtResource("1_0b1s8")
@@ -194,6 +195,8 @@ offset_right = 1086.0
 offset_bottom = 617.0
 theme_override_font_sizes/font_size = 30
 text = "Quiter la partie"
+
+[node name="DisplayArrayPieceAndAttack" parent="." instance=ExtResource("7_wirjm")]
 
 [connection signal="button_down" from="GameMenu/ButtonResume" to="." method="_on_button_resume_button_down"]
 [connection signal="button_down" from="GameMenu/ButtonOption" to="." method="_on_button_option_button_down"]

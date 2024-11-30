@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://gjwnuklfuxki"]
+
+[ext_resource type="Script" path="res://Script/Game/DisplayPieceAndAttackArray.gd" id="1_sus7w"]
+
+[node name="DisplayArrayPieceAndAttack" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sus7w")
+
+[node name="DisplayPiece" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 559.0
+offset_top = 140.0
+offset_right = 1359.0
+offset_bottom = 940.0
+
+[node name="DisplayAttackWhite" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 559.0
+offset_top = 140.0
+offset_right = 1359.0
+offset_bottom = 940.0
+
+[node name="DisplayAttackBlack" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 559.0
+offset_top = 140.0
+offset_right = 1359.0
+offset_bottom = 940.0

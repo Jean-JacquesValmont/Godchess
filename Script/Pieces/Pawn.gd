@@ -500,16 +500,26 @@ func promotionSelectionBlack():
 			rpc("promotionSelectionSelect",texturePath,promotionName,scriptPath)
 			break  # Sortir de la boucle après avoir trouvé une correspondance
 
+func duplicatePromotion(texturePath,promotionName,scriptPath):
+	var selfPath = get_node(".")
+	var selfClone = selfPath.duplicate()
+	var parentNode = selfPath.get_parent()
+	parentNode.add_child(selfClone)
+	var numberOfChildren = parentNode.get_child_count()
+	var lastChild = parentNode.get_child(parentNode.get_child_count() - 1)
+	lastChild.texture = load(texturePath)
+	lastChild.namingPromotion(promotionName)
+	lastChild.promoteInProgress = false
+	lastChild.get_parent().promotionID = get_instance_id()
+	lastChild.set_script(load("res://Script/Pieces/" + scriptPath))
+	
 @rpc("any_peer","call_local") func promotionSelectionSelect(texturePath,promotionName,scriptPath):
-	print("Enter in promotionSelection selection piece")
-	texture = load(texturePath)
-	namingPromotion(promotionName)
 	deletePiecesSelectionPromotion()
+	duplicatePromotion(texturePath,promotionName,scriptPath)
 	promoteInProgress = false
 	emit_signal("promotionTurn", promoteInProgress)
-	get_parent().promotionID = get_instance_id()
-	set_script(load("res://Script/Pieces/" + scriptPath))
 	GlobalValueChessGame.turnWhite = !GlobalValueChessGame.turnWhite
+	call_deferred("queue_free")
 
 func get_promoteInProgress():
 	return promoteInProgress

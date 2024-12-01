@@ -3,6 +3,9 @@ extends Sprite2D
 var player_in_game := {}
 var godSelectPlayer1 = ""
 var godSelectPlayer2 = ""
+var animationEchecPlayer1 = true
+var animationEchecPlayer2 = true
+var animationStop = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,6 +70,7 @@ func _ready():
 		get_node("ChessBoard").get_child(i).scale = Vector2(0.5, 0.5)
 	
 	GlobalValueChessGame.gameLaunch = true
+	get_node("AnimationText").play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -89,36 +93,70 @@ func _process(delta):
 	if GlobalValueChessGame.checkWhite == true:
 		if GlobalValueChessGame.turnWhite == true:
 			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-				get_node("Player1/DisplayCheckmate").set_text("Echec")
+				if animationEchecPlayer1 == true:
+					get_node("Player1/AnimationPlayer1").visible = true
+					get_node("Player1/AnimationPlayer1").play()
 			else:
-				get_node("Player2/DisplayCheckmate").set_text("Echec")
+				if animationEchecPlayer2 == true:
+					get_node("Player2/AnimationPlayer2").visible = true
+					get_node("Player2/AnimationPlayer2").play()
 		elif GlobalValueChessGame.turnWhite == false:
 			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-				get_node("Player1/DisplayCheckmate").set_text("Auto-Echec")
+				if animationStop == false:
+					get_node("AnimationText").set_animation("Defeat")
+					get_node("AnimationText").play()
+					get_node("TextVictoryCondition").set_text("par Auto-Echec")
+					get_node("ButtonQuitGame").show()
+					animationStop = true
 			else:
-				get_node("Player2/DisplayCheckmate").set_text("Auto-Echec")
+				if animationStop == false:
+					get_node("AnimationText").set_animation("Victory")
+					get_node("AnimationText").play()
+					get_node("TextVictoryCondition").set_text("par Auto-Echec")
+					get_node("ButtonQuitGame").show()
+					animationStop = true
+					
 	elif GlobalValueChessGame.checkWhite == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-			get_node("Player1/DisplayCheckmate").set_text("")
+			get_node("Player1/AnimationPlayer1").visible = false
+			animationEchecPlayer1 = true
 		else:
-			get_node("Player2/DisplayCheckmate").set_text("")
+			get_node("Player2/AnimationPlayer2").visible = false
+			animationEchecPlayer2 = true
 	
 	if GlobalValueChessGame.checkBlack == true:
 		if GlobalValueChessGame.turnWhite == false:
 			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-				get_node("Player2/DisplayCheckmate").set_text("Echec")
+				if animationEchecPlayer2 == true:
+					get_node("Player2/AnimationPlayer2").visible = true
+					get_node("Player2/AnimationPlayer2").play()
 			else:
-				get_node("Player1/DisplayCheckmate").set_text("Echec")
+				if animationEchecPlayer1 == true:
+					get_node("Player1/AnimationPlayer1").visible = true
+					get_node("Player1/AnimationPlayer1").play()
 		if GlobalValueChessGame.turnWhite == true:
 			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-				get_node("Player2/DisplayCheckmate").set_text("Auto-Echec")
+				if animationStop == false:
+					get_node("AnimationText").set_animation("Victory")
+					get_node("AnimationText").play()
+					get_node("TextVictoryCondition").set_text("par Auto-Echec")
+					get_node("ButtonQuitGame").show()
+					animationStop = true
 			else:
-				get_node("Player1/DisplayCheckmate").set_text("Auto-Echec")
+				if animationStop == false:
+					get_node("AnimationText").set_animation("Defeat")
+					get_node("AnimationText").play()
+					get_node("TextVictoryCondition").set_text("par Auto-Echec")
+					get_node("ButtonQuitGame").show()
+					animationStop = true
+					
 	elif GlobalValueChessGame.checkBlack == false:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-			get_node("Player2/DisplayCheckmate").set_text("")
+			get_node("Player2/AnimationPlayer2").visible = false
+			animationEchecPlayer2 = true
 		else:
-			get_node("Player1/DisplayCheckmate").set_text("")
+			get_node("Player1/AnimationPlayer1").visible = false
+			animationEchecPlayer1 = true
 	
 	if GlobalValueChessGame.stalemate == true:
 		get_node("Player1/DisplayCheckmate").set_text("Pat")
@@ -126,21 +164,55 @@ func _process(delta):
 	
 	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-			get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
+			if animationStop == false:
+				get_node("TextVictoryCondition").set_text("par Echec et mat")
+				get_node("AnimationText").set_animation("Victory")
+				get_node("AnimationText").play()
+				get_node("ButtonQuitGame").show()
+				animationStop = true
 		else:
-			get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
+			if animationStop == false:
+				get_node("TextVictoryCondition").set_text("par Echec et mat")
+				get_node("AnimationText").set_animation("Defeat")
+				get_node("AnimationText").play()
+				get_node("ButtonQuitGame").show()
+				animationStop = true
 	
 	if GlobalValueChessGame.checkmateBlack == true and GlobalValueChessGame.checkmate == true:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
-			get_node("Player2/DisplayCheckmate").set_text("Echec et Mat")
+			if animationStop == false:
+				get_node("TextVictoryCondition").set_text("par Echec et mat")
+				get_node("AnimationText").set_animation("Victory")
+				get_node("AnimationText").play()
+				get_node("ButtonQuitGame").show()
+				animationStop = true
 		else:
-			get_node("Player1/DisplayCheckmate").set_text("Echec et Mat")
+			if animationStop == false:
+				get_node("TextVictoryCondition").set_text("par Echec et mat")
+				get_node("AnimationText").set_animation("Defeat")
+				get_node("AnimationText").play()
+				get_node("ButtonQuitGame").show()
+				animationStop = true
 
 func checkPlayerDisconnected():
 	if OnlineMatch.__players.size() < 2 and get_node("PlayerLeftGame").visible != true:
 		get_node("PlayerLeftGame/TextPlayerLeftGame").text = "L'adversaire c'est déconnecté."
 		get_node("PlayerLeftGame").show()
 		GlobalValueMenu.menuOpen = true
+
+func _on_animation_text_animation_finished():
+	if animationStop == true:
+		get_node("AnimationText").set_frame(39)
+
+func _on_animation_player_1_animation_finished():
+	animationEchecPlayer1 = false
+	get_node("Player1/AnimationPlayer1").stop()
+	get_node("Player1/AnimationPlayer1").set_frame(58)
+
+func _on_animation_player_2_animation_finished():
+	animationEchecPlayer2 = false
+	get_node("Player2/AnimationPlayer2").stop()
+	get_node("Player2/AnimationPlayer2").set_frame(58)
 
 func variableGlobalReset():
 	#	GlobalValueChessGame.startWhite = true
@@ -199,6 +271,15 @@ func _on_button_confirm_abandon_button_down():
 	GlobalValueMenu.menuOpen = true
 
 func _on_button_left_game_button_down():
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+	OnlineMatch.leave()
+	#Reset variables global
+	variableGlobalReset()
+	
+	#Reset variables power global
+	GodOfDeathPower.usePowerKing = 3
+
+func _on_button_quit_game_pressed():
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 	OnlineMatch.leave()
 	#Reset variables global

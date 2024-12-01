@@ -1,8 +1,9 @@
 Button
-Sprite2D
-RichTextLabel
 Label
 AnimatedSprite2D
+Timer
+Sprite2D
+RichTextLabel
 Control
 Panel
 CenterContainer
@@ -11,4 +12,3 @@ AspectRatioContainer
 VideoStreamPlayer
 ResourcePreloader
 Node2D
-AudioStreamPlayer2D

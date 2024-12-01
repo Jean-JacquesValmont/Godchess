@@ -29,7 +29,6 @@ func blockMoveDuringPromotion(promoteInProgress):
 
 func updateVariablePiecePromoted():
 	print("Enter in updateVariablePiecePromoted")
-	#var numberOfChildren = get_child_count()
 
 	var lastChild = get_child(get_child_count() - 1)
 	var pieceName = lastChild.get_name()

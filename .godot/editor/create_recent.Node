@@ -1,9 +1,9 @@
-Label
-Timer
 Button
+Label
+AnimatedSprite2D
+Timer
 Sprite2D
 RichTextLabel
-AnimatedSprite2D
 Control
 Panel
 CenterContainer

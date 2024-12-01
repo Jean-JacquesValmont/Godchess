@@ -48,7 +48,7 @@ offset_right = 546.0
 offset_bottom = 974.0
 
 [node name="TimerSelectionGodPlayer1" type="Timer" parent="Player1"]
-wait_time = 15.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
@@ -168,7 +168,7 @@ offset_right = 1888.0
 offset_bottom = 976.0
 
 [node name="TimerSelectionGodPlayer2" type="Timer" parent="Player2"]
-wait_time = 15.0
+wait_time = 20.0
 one_shot = true
 
 [node name="Username" type="Label" parent="Player2"]

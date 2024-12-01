@@ -3895,6 +3895,16 @@ texture = ExtResource("1_bcrkw")
 centered = false
 script = ExtResource("2_1muft")
 
+[node name="NameOfGod" type="Label" parent="."]
+offset_left = 731.0
+offset_top = 138.0
+offset_right = 1187.0
+offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("3_rh4fj")
+theme_override_font_sizes/font_size = 50
+text = "Nom du dieu"
+horizontal_alignment = 1
+
 [node name="ButtonsFactions" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -3904,8 +3914,8 @@ offset_right = 1918.0
 offset_bottom = 416.0
 
 [node name="SignOfGod" type="Sprite2D" parent="ButtonsFactions"]
-position = Vector2(1016, -54)
-scale = Vector2(0.2, 0.2)
+position = Vector2(970, -3.00001)
+scale = Vector2(0.127604, 0.137963)
 texture = ExtResource("3_w6mxm")
 centered = false
 
@@ -3922,7 +3932,7 @@ texture = ExtResource("5_kym3q")
 centered = false
 
 [node name="SpriteBishop" type="Sprite2D" parent="ButtonsFactions"]
-position = Vector2(670, 121)
+position = Vector2(670, 120)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_1mksk")
 centered = false
@@ -4026,8 +4036,8 @@ offset_right = 1868.0
 offset_bottom = 985.0
 
 [node name="GifPowerFactions" type="AnimatedSprite2D" parent="ZoneGif"]
-position = Vector2(-0.999878, 1)
-scale = Vector2(0.99, 0.99)
+position = Vector2(35, 20)
+scale = Vector2(0.905, 0.905)
 sprite_frames = SubResource("SpriteFrames_60sku")
 animation = &"BishopGoddessOfTeleportation"
 frame = 149
@@ -4041,9 +4051,9 @@ centered = false
 
 [node name="ButtonReturnGodSelection" type="Button" parent="."]
 modulate = Color(0, 0, 0, 0)
-offset_left = 1859.0
+offset_left = 4.0
 offset_top = 126.0
-offset_right = 1914.0
+offset_right = 59.0
 offset_bottom = 180.0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 50

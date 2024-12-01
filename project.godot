@@ -14,9 +14,10 @@ config/name="GodsChess"
 run/main_scene="res://Scene/Main.tscn"
 config/features=PackedStringArray("4.2")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://Image/New logo Dimension.png"
+boot_splash/image="res://Image/New logo MJ.png"
 boot_splash/fullsize=false
-config/icon="res://Image/New logo Dimension.png"
+config/icon="res://Image/New logo MJ.png"
+boot_splash/icon="res://Image/New logo Dimension.png"
 
 [autoload]
 

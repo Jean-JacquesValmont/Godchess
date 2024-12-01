@@ -6,10 +6,10 @@
 [node name="PeerStatus" type="HBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -854.0
+offset_right = -904.0
 offset_bottom = 57.0
 grow_horizontal = 2
-theme_override_constants/separation = 680
+theme_override_constants/separation = 630
 script = ExtResource("1_swyi2")
 
 [node name="NameLabel" type="Label" parent="."]

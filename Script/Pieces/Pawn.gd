@@ -423,7 +423,7 @@ func promotion(color,knight,bishop,rook,queen):
 	promoteInProgress = true
 	emit_signal("promotionTurn", promoteInProgress)
 		
-func namingPromotion(piece):
+func namingPromotion(piece,i,j):
 	var numberMax = 0
 	var pieceFind = false
 	for f in range(2,10): 
@@ -508,7 +508,7 @@ func duplicatePromotion(texturePath,promotionName,scriptPath):
 	var numberOfChildren = parentNode.get_child_count()
 	var lastChild = parentNode.get_child(parentNode.get_child_count() - 1)
 	lastChild.texture = load(texturePath)
-	lastChild.namingPromotion(promotionName)
+	lastChild.namingPromotion(promotionName,selfPath.i,selfPath.j)
 	lastChild.promoteInProgress = false
 	lastChild.get_parent().promotionID = get_instance_id()
 	lastChild.set_script(load("res://Script/Pieces/" + scriptPath))

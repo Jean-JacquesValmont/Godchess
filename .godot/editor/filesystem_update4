@@ -1,12 +1,9 @@
 res://default_env.tres
-res://Scene/Game/ChessBoard.tscn
-res://Script/Game/ChessBoard.gd
-res://Script/Pieces/King.gd
-res://Scene/Pieces/Pawn.tscn
-res://Script/Pieces/Pawn.gd
 res://Scene/Menu/Menu.tscn
 res://Scene/Game/SelectGodsScreen.tscn
 res://Scene/Game/Game.tscn
+res://Scene/Game/ChessBoard.tscn
+res://Scene/Pieces/Pawn.tscn
 res://Scene/Pieces/Knight.tscn
 res://Scene/Pieces/Bishop.tscn
 res://Scene/Pieces/Rook.tscn

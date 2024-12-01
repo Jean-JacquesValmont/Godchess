@@ -1,4 +1,5 @@
 Label
+Timer
 Button
 Sprite2D
 RichTextLabel
@@ -11,4 +12,3 @@ AspectRatioContainer
 VideoStreamPlayer
 ResourcePreloader
 Node2D
-AudioStreamPlayer2D

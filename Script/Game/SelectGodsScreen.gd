@@ -12,9 +12,18 @@ func _ready():
 	game_start(GlobalValueMenu.players)
 	get_node("GodsSelection/HoverSelectionGods").texture = null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+ #Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if turnPlayer == "Player1":
+		var timeLeftPlayer1 = max(get_node("Player1/TimerSelectionGodPlayer1").time_left, 0)  # Toujours positif
+		var minutes = int(timeLeftPlayer1) / 60
+		var seconds = int(timeLeftPlayer1) % 60
+		get_node("Player1/TimerTextPlayer1").text = str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
+	if turnPlayer == "Player2":
+		var timeLeftPlayer2 = max(get_node("Player2/TimerSelectionGodPlayer2").time_left, 0)  # Toujours positif
+		var minutes = int(timeLeftPlayer2) / 60
+		var seconds = int(timeLeftPlayer2) % 60
+		get_node("Player2/TimerTextPlayer2").text = str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
 
 func game_start(players: Dictionary) -> void:
 	player_in_game = players
@@ -200,6 +209,10 @@ func _on_button_confirm_button_down():
 	get_node("Player2/HoverPlayerSelecting").show()
 			
 	if turnPlayer == "Player1":
+		get_node("Player1/TimerSelectionGodPlayer1").stop()
+		get_node("Player1/TimerTextPlayer1").visible = false
+		get_node("Player2/TimerTextPlayer2").visible = true
+		get_node("Player2/TimerSelectionGodPlayer2").start()
 		turnPlayer = "Player2"
 		alreadySelected = selectGodName
 		GlobalValueMenu.godSelectPlayer1 = selectGodName
@@ -211,7 +224,22 @@ func _on_button_confirm_button_down():
 			get_node("GodsSelection/GodSelectingByPlayer1").position.x = 143
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
 	elif turnPlayer == "Player2":
+		get_node("Player2/TimerSelectionGodPlayer2").stop()
+		get_node("Player2/TimerTextPlayer2").visible = false
 		alreadySelected = ""
 		GlobalValueMenu.godSelectPlayer2 = selectGodName
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer2: ", GlobalValueMenu.godSelectPlayer2)
-		get_tree().change_scene_to_file("res://Scene/Game/Game.tscn")
+		get_node("TimerStartGame").start()
+		get_node("PlayerTurnSelectGod").text = "La partie va commencer dans quelques secondes."
+
+func _on_timer_selection_god_player_1_timeout():
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+	OnlineMatch.leave()
+
+func _on_timer_selection_god_player_2_timeout():
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+	OnlineMatch.leave()
+
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://Scene/Game/Game.tscn")
+

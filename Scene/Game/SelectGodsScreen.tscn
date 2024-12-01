@@ -27,6 +27,10 @@ texture = ExtResource("1_bwn3n")
 centered = false
 script = ExtResource("2_lqked")
 
+[node name="TimerStartGame" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="PlayerTurnSelectGod" type="Label" parent="."]
 offset_left = 605.0
 offset_top = 159.0
@@ -42,6 +46,11 @@ offset_left = 38.0
 offset_top = 248.0
 offset_right = 546.0
 offset_bottom = 974.0
+
+[node name="TimerSelectionGodPlayer1" type="Timer" parent="Player1"]
+wait_time = 15.0
+one_shot = true
+autostart = true
 
 [node name="Username" type="Label" parent="Player1"]
 layout_mode = 0
@@ -100,6 +109,18 @@ position = Vector2(-39, -248)
 texture = ExtResource("11_ja33u")
 centered = false
 
+[node name="TimerTextPlayer1" type="Label" parent="Player1"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = -216.0
+offset_right = 452.0
+offset_bottom = -135.0
+theme_override_fonts/font = ExtResource("2_l1qb8")
+theme_override_font_sizes/font_size = 60
+text = "Timer player1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="GodsSelection" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -145,6 +166,10 @@ offset_left = 1380.0
 offset_top = 250.0
 offset_right = 1888.0
 offset_bottom = 976.0
+
+[node name="TimerSelectionGodPlayer2" type="Timer" parent="Player2"]
+wait_time = 15.0
+one_shot = true
 
 [node name="Username" type="Label" parent="Player2"]
 layout_mode = 0
@@ -204,6 +229,17 @@ position = Vector2(-1380, -249)
 texture = ExtResource("20_lwy8y")
 centered = false
 
+[node name="TimerTextPlayer2" type="Label" parent="Player2"]
+visible = false
+offset_left = 56.0
+offset_top = -214.0
+offset_right = 385.0
+offset_bottom = -133.0
+theme_override_fonts/font = ExtResource("2_l1qb8")
+theme_override_font_sizes/font_size = 60
+text = "Timer player2"
+vertical_alignment = 1
+
 [node name="ButtonConfirm" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 819.0
@@ -212,10 +248,13 @@ offset_right = 1115.0
 offset_bottom = 1063.0
 mouse_default_cursor_shape = 2
 
+[connection signal="timeout" from="TimerStartGame" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Player1/TimerSelectionGodPlayer1" to="." method="_on_timer_selection_god_player_1_timeout"]
 [connection signal="button_down" from="GodsSelection/ButtonGoddessOfTeleportation" to="." method="_on_button_goddess_of_teleportation_button_down"]
 [connection signal="mouse_entered" from="GodsSelection/ButtonGoddessOfTeleportation" to="." method="_on_button_goddess_of_teleportation_mouse_entered"]
 [connection signal="mouse_exited" from="GodsSelection/ButtonGoddessOfTeleportation" to="." method="_on_button_goddess_of_teleportation_mouse_exited"]
 [connection signal="button_down" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_button_down"]
 [connection signal="mouse_entered" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_mouse_entered"]
 [connection signal="mouse_exited" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_mouse_exited"]
+[connection signal="timeout" from="Player2/TimerSelectionGodPlayer2" to="." method="_on_timer_selection_god_player_2_timeout"]
 [connection signal="button_down" from="ButtonConfirm" to="." method="_on_button_confirm_button_down"]

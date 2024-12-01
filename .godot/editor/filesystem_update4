@@ -14,3 +14,4 @@ res://Scene/Main.tscn
 res://Scene/Menu/PeerStatus.tscn
 res://Scene/Menu/CustomiseGameScreen.tscn
 res://Script/Menu/PowerGods.gd
+res://Script/Game/SelectGodsScreen.gd

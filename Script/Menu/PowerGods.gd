@@ -6,7 +6,7 @@ var godNameInPowerGods = ""
 var godTexts = {
 	"GoddessOfTeleportation": {
 		"name": "Déesse de la Téléportation",
-		"passif": "Chaque pièces possèdent sa zone de téléportation. La téléportation est obligatoirement symétrique par rapport à la pièce. Une pièce jouée sur une case comprenant deux zones de téléportation ou plus, la téléportation ne s’effectue pas. Il ne peut y avoir qu’une téléportation au cours d’un mouvement. Les pièces adverses ne peuvent pas activer la téléportation. Une pièce qui se téléporte sur une case comprenant une pièce adverse la prend.",
+		"passif": "Chaque pièces possèdent sa zone de téléportation. La téléportation est obligatoirement symétrique par rapport à la pièce. Une pièce jouée sur une case comprenant deux zones de téléportation ou plus, la téléportation ne s’effectue pas. Les pièces adverses ne peuvent pas activer la téléportation. Une pièce qui se téléporte sur une case comprenant une pièce adverse la prend.",
 		"pawn": "Zone de téléportation d’une case derrière",
 		"knight": "Quand elle enjambe une pièce active la téléportation",
 		"bishop": "Zone de téléportation en croix d’une case",

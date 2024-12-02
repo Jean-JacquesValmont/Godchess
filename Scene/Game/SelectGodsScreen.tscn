@@ -231,6 +231,7 @@ centered = false
 
 [node name="TimerTextPlayer2" type="Label" parent="Player2"]
 visible = false
+layout_mode = 0
 offset_left = 56.0
 offset_top = -214.0
 offset_right = 385.0

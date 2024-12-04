@@ -11,3 +11,4 @@ res://Scene/Pieces/Rook.tscn
 res://Scene/Pieces/Queen.tscn
 res://Scene/Pieces/King.tscn
 res://Scene/Menu/PowerGods.tscn
+res://Script/Game/SelectGodsScreen.gd

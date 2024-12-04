@@ -1,8 +1,8 @@
 Button
 Label
+Sprite2D
 AnimatedSprite2D
 Timer
-Sprite2D
 RichTextLabel
 Control
 Panel

@@ -233,13 +233,14 @@ func _on_button_confirm_button_down():
 		get_node("PlayerTurnSelectGod").text = "La partie va commencer dans quelques secondes."
 
 func _on_timer_selection_god_player_1_timeout():
-	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
-	OnlineMatch.leave()
+	get_node("ModalEndTimer").show()
 
 func _on_timer_selection_god_player_2_timeout():
-	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
-	OnlineMatch.leave()
+	get_node("ModalEndTimer").show()
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://Scene/Game/Game.tscn")
 
+func _on_button_return_menu_pressed():
+	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
+	OnlineMatch.leave()

@@ -1,12 +1,114 @@
 extends Sprite2D
 
 var promotionID
+var piecesBlack = [["Pawn", "" , "Pion.png", 50, 250],["Pawn", "2", "Pion.png", 100, 250],["Pawn", "3", "Pion.png", 150, 250],["Pawn", "4", "Pion.png", 200, 250],
+	["Pawn", "5", "Pion.png", 250, 250],["Pawn", "6", "Pion.png", 300, 250],["Pawn", "7", "Pion.png", 350, 250],["Pawn", "8", "Pion.png", 400, 250],
+	["Knight", "", "Cavalier.png", 50, 300],["Knight", "2", "Cavalier.png", 100, 300],["Bishop", "", "Fou.png", 150, 300],["Bishop", "2", "Fou.png", 200, 300],
+	["Rook", "", "Tour.png", 250, 300],["Rook", "2", "Tour.png", 300, 300],["Queen", "", "Reine.png", 350, 300]
+	]
+var piecesWhite = [["Pawn",  "", "Pion.png", 1450, 775],["Pawn", "2", "Pion.png", 1500, 775],["Pawn", "3", "Pion.png", 1550, 775],["Pawn", "4", "Pion.png", 1600, 775],
+	["Pawn", "5", "Pion.png", 1650, 775],["Pawn", "6", "Pion.png", 1700, 775],["Pawn", "7", "Pion.png", 1775, 775],["Pawn", "8", "Pion.png", 1800, 775],
+	["Knight", "", "Cavalier.png", 1450, 825],["Knight", "2", "Cavalier.png", 1500, 825],["Bishop", "", "Fou.png", 1550, 825],["Bishop", "2", "Fou.png", 1600, 825],
+	["Rook", "", "Tour.png", 1650, 825],["Rook", "2", "Tour.png", 1700, 825],["Queen", "", "Reine.png", 1750, 825]
+]
 
 func _ready():
 	pass
 
 func _process(delta):
-	pass
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		for pieceData in piecesBlack:
+			var pieceType = pieceData[0]
+			var number = pieceData[1]  # Type de la pièce (Pawn, Knight, Bishop, Rook, Queen)
+			var piecePNG = pieceData[2] # Le .png
+			var positionX = pieceData[3]  # Position x du sprite
+			var positionY = pieceData[4]  # Position y du sprite
+
+			# Vérifier si le nœud n'existe pas déjà
+			if get_node_or_null(pieceType + "Black" + number) == null:
+			# Créer un nouveau sprite
+				var deadSprite = Sprite2D.new()
+				#deadSprite.texture = load("res://Image/Pieces/Black/" + pieceType.to_lower() + "_black.png")
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.name = pieceType + "Black" + number
+				deadSprite.centered = true
+				deadSprite.position.x = positionX
+				deadSprite.position.y = positionY
+				deadSprite.scale.x = 0.25
+				deadSprite.scale.y = 0.25
+				
+				# Ajouter le sprite comme enfant du nœud gameScreen
+				get_node("/root/Game/DisplayPiecesDied").add_child(deadSprite)
+				
+		for pieceData in piecesWhite:
+			var pieceType = pieceData[0]
+			var number = pieceData[1]  # Type de la pièce (Pawn, Knight, Bishop, Rook, Queen)
+			var piecePNG = pieceData[2] # Le .png
+			var positionX = pieceData[3]  # Position x du sprite
+			var positionY = pieceData[4]  # Position y du sprite
+
+			# Vérifier si le nœud n'existe pas déjà
+			if get_node_or_null(pieceType + "White" + number) == null:
+			# Créer un nouveau sprite
+				var deadSprite = Sprite2D.new()
+				#deadSprite.texture = load("res://Image/Pieces/White/" + pieceType.to_lower() + "_white.png")
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.name = pieceType + "White" + number
+				deadSprite.centered = true
+				deadSprite.position.x = positionX
+				deadSprite.position.y = positionY
+				deadSprite.scale.x = 0.25
+				deadSprite.scale.y = 0.25
+				
+				# Ajouter le sprite comme enfant du nœud gameScreen
+				get_node("/root/Game/DisplayPiecesDied").add_child(deadSprite)
+
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		for pieceData in piecesBlack:
+			var pieceType = pieceData[0]
+			var number = pieceData[1]  # Type de la pièce (Pawn, Knight, Bishop, Rook, Queen)
+			var piecePNG = pieceData[2] # Le .png
+			var positionX = pieceData[3]  # Position x du sprite
+			var positionY = pieceData[4]  # Position y du sprite
+
+			# Vérifier si le nœud n'existe pas déjà
+			if get_node_or_null(pieceType + "White" + number) == null:
+			# Créer un nouveau sprite
+				var deadSprite = Sprite2D.new()
+				#deadSprite.texture = load("res://Image/Pieces/White/" + pieceType.to_lower() + "_white.png")
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.name = pieceType + "White" + number
+				deadSprite.centered = true
+				deadSprite.position.x = positionX
+				deadSprite.position.y = positionY
+				deadSprite.scale.x = 0.25
+				deadSprite.scale.y = 0.25
+				
+				# Ajouter le sprite comme enfant du nœud gameScreen
+				get_node("/root/Game/DisplayPiecesDied").add_child(deadSprite)
+				
+		for pieceData in piecesWhite:
+			var pieceType = pieceData[0]
+			var number = pieceData[1]  # Type de la pièce (Pawn, Knight, Bishop, Rook, Queen)
+			var piecePNG = pieceData[2] # Le .png
+			var positionX = pieceData[3]  # Position x du sprite
+			var positionY = pieceData[4]  # Position y du sprite
+
+			# Vérifier si le nœud n'existe pas déjà
+			if get_node_or_null(pieceType + "Black" + number) == null:
+			# Créer un nouveau sprite
+				var deadSprite = Sprite2D.new()
+				#deadSprite.texture = load("res://Image/Pieces/Black/" + pieceType.to_lower() + "_black.png")
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.name = pieceType + "Black" + number
+				deadSprite.centered = true
+				deadSprite.position.x = positionX
+				deadSprite.position.y = positionY
+				deadSprite.scale.x = 0.25
+				deadSprite.scale.y = 0.25
+				
+				# Ajouter le sprite comme enfant du nœud gameScreen
+				get_node("/root/Game/DisplayPiecesDied").add_child(deadSprite)
 
 func blockMoveDuringPromotion(promoteInProgress):
 	var numberOfChildren = get_child_count()

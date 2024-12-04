@@ -973,6 +973,8 @@ position = Vector2(559, 140)
 
 [node name="MovePreview" type="Node2D" parent="."]
 
+[node name="DisplayPiecesDied" type="Node2D" parent="."]
+
 [node name="TextVictoryCondition" type="Label" parent="."]
 offset_left = 759.0
 offset_top = 609.0

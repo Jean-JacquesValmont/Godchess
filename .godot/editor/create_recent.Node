@@ -1,3 +1,4 @@
+Node2D
 Button
 Label
 AnimatedSprite2D
@@ -11,4 +12,3 @@ Container
 AspectRatioContainer
 VideoStreamPlayer
 ResourcePreloader
-Node2D

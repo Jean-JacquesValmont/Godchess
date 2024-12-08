@@ -4,6 +4,7 @@ var player_in_game := {}
 var selectGod = false
 var selectGodConfirm = false
 var selectGodName = ""
+var godName = ""
 var turnPlayer = "Player1"
 var alreadySelected = ""
 
@@ -124,6 +125,7 @@ func _on_button_goddess_of_teleportation_mouse_exited():
 	get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Reine.png")
 	get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GoddessOfTeleportation/Pieces/Base pièce doubler - Roi.png")
 	selectGodName = "GoddessOfTeleportation"
+	godName = "Déesse de la Téleportation"
 
 #########################################################
 
@@ -187,6 +189,7 @@ func _on_button_god_of_death_mouse_exited():
 	get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Reine.png")
 	get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfDeath/Pieces/Base pièce doubler - Roi.png")
 	selectGodName = "GodOfDeath"
+	godName = "Dieu de la Mort"
 
 func _on_button_confirm_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1\
@@ -209,13 +212,17 @@ func _on_button_confirm_button_down():
 	get_node("Player2/HoverPlayerSelecting").show()
 			
 	if turnPlayer == "Player1":
+		#Timer
 		get_node("Player1/TimerSelectionGodPlayer1").stop()
 		get_node("Player1/TimerTextPlayer1").visible = false
 		get_node("Player2/TimerTextPlayer2").visible = true
 		get_node("Player2/TimerSelectionGodPlayer2").start()
+		
 		turnPlayer = "Player2"
 		alreadySelected = selectGodName
 		GlobalValueMenu.godSelectPlayer1 = selectGodName
+		get_node("Player1/NameOfGodSelect").text = godName
+		
 		##Pour mettre le sprite pour dire que le dieu est déjà selectionner
 		if alreadySelected == "GoddessOfTeleportation":
 			get_node("GodsSelection/GodSelectingByPlayer1").show()
@@ -224,18 +231,29 @@ func _on_button_confirm_button_down():
 			get_node("GodsSelection/GodSelectingByPlayer1").position.x = 143
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
 	elif turnPlayer == "Player2":
+		#Timer
 		get_node("Player2/TimerSelectionGodPlayer2").stop()
 		get_node("Player2/TimerTextPlayer2").visible = false
+		
 		alreadySelected = ""
 		GlobalValueMenu.godSelectPlayer2 = selectGodName
+		get_node("Player2/NameOfGodSelect").text = godName
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer2: ", GlobalValueMenu.godSelectPlayer2)
 		get_node("TimerStartGame").start()
 		get_node("PlayerTurnSelectGod").text = "La partie va commencer dans quelques secondes."
 
 func _on_timer_selection_god_player_1_timeout():
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		get_node("ModalEndTimer/TextEndTimer").text = "Vous avez mis trop de temps pour choisir un dieu."
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("ModalEndTimer/TextEndTimer").text = "Votre adversaire a mis trop de temps pour choisir un dieu."
 	get_node("ModalEndTimer").show()
 
 func _on_timer_selection_god_player_2_timeout():
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+		get_node("ModalEndTimer/TextEndTimer").text = "Votre adversaire a mis trop de temps pour choisir un dieu."
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+		get_node("ModalEndTimer/TextEndTimer").text = "Vous avez mis trop de temps pour choisir un dieu."
 	get_node("ModalEndTimer").show()
 
 func _on_timer_timeout():

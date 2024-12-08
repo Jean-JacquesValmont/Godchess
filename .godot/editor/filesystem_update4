@@ -8,3 +8,4 @@ res://Scene/Pieces/Pawn.tscn
 res://Script/PowerOfGods/GoddessOfTeleportation.gd
 res://Script/PowerOfGods/GodOfDeathPower.gd
 res://Script/Game/GlobalValueChessGame.gd
+res://Script/Game/ChessBoard.gd

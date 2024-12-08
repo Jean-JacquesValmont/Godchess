@@ -63,6 +63,17 @@ theme_override_fonts/font = ExtResource("2_l1qb8")
 theme_override_font_sizes/font_size = 60
 text = "Username1"
 
+[node name="NameOfGodSelect" type="Label" parent="Player1"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 742.0
+offset_right = 418.0
+offset_bottom = 801.0
+theme_override_fonts/font = ExtResource("2_l1qb8")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="DisplayGodSelect" type="Sprite2D" parent="Player1"]
 position = Vector2(0, 3)
 scale = Vector2(0.188, 0.188)
@@ -182,6 +193,16 @@ theme_override_fonts/font = ExtResource("2_l1qb8")
 theme_override_font_sizes/font_size = 60
 text = "Username2"
 
+[node name="NameOfGodSelect" type="Label" parent="Player2"]
+offset_left = 92.0
+offset_top = 736.0
+offset_right = 515.0
+offset_bottom = 795.0
+theme_override_fonts/font = ExtResource("2_l1qb8")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="DisplayGodSelect" type="Sprite2D" parent="Player2"]
 position = Vector2(101, 2)
 scale = Vector2(0.188, 0.188)
@@ -256,15 +277,16 @@ texture = ExtResource("4_e2rn7")
 centered = false
 
 [node name="TextEndTimer" type="Label" parent="ModalEndTimer"]
-offset_left = 684.0
-offset_top = 463.0
-offset_right = 1237.0
-offset_bottom = 506.0
+offset_left = 678.0
+offset_top = 462.0
+offset_right = 1245.0
+offset_bottom = 505.0
 theme_override_fonts/font = ExtResource("2_l1qb8")
 theme_override_font_sizes/font_size = 30
 text = "Vous avez mis trop de temps pour choisir un dieu."
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 1
 
 [node name="ButtonReturnMenu" type="Button" parent="ModalEndTimer"]
 offset_left = 833.0

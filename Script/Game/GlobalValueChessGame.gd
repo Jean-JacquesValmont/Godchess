@@ -1028,12 +1028,14 @@ func attackComingUpRight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
-				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack": #and f != 0:
-				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
@@ -1057,12 +1059,14 @@ func attackComingUpLeft(knightColor,bishopColor,rookColor,queenColor,kingColor):
 		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
-				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack": #and f != 0:
-				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
@@ -1086,12 +1090,14 @@ func attackComingDownRight(knightColor,bishopColor,rookColor,queenColor,kingColo
 		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
-				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack": #and f != 0:
-				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
@@ -1115,12 +1121,14 @@ func attackComingDownLeft(knightColor,bishopColor,rookColor,queenColor,kingColor
 		#print("piece name: ", chessBoard[attackerPositionILoop][attackerPositionJLoop])
 		if chessBoard[attackerPositionILoop][attackerPositionJLoop] != kingColor:
 			if kingColor == "KingWhite": #and f != 0:
-				searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnWhiteRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
 			elif kingColor == "KingBlack": #and f != 0:
-				searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
+				if f != 0:
+					searchDefenderPawnBlackRow(attackerPositionILoop,attackerPositionJLoop)
 				searchDefenderRow(attackerPositionILoop,attackerPositionJLoop,rookColor,queenColor)
 				searchDefenderDiagonal(attackerPositionILoop,attackerPositionJLoop,bishopColor,queenColor)
 				searchDefenderKnight(attackerPositionILoop,attackerPositionJLoop,knightColor)
@@ -1174,6 +1182,137 @@ func verificationDefenderAllAttack(knightColor,bishopColor,rookColor,queenColor,
 		#print("Enter AttackCommingKnight")
 		attackComingKnight(knightColor,bishopColor,rookColor,queenColor,kingColor)
 
+func verificationKingIsStalemate(color, kingWhite, kingBlack, attackColor):
+	if color == "Black":
+		if attackColor[kingWhite.i][kingWhite.j] == 0:
+			if (attackColor[kingWhite.i-1][kingWhite.j] >= 1 or attackColor[kingWhite.i-1][kingWhite.j] <= -1)\
+			and (attackColor[kingWhite.i-1][kingWhite.j+1] >= 1 or attackColor[kingWhite.i-1][kingWhite.j+1] <= -1)\
+			and (attackColor[kingWhite.i][kingWhite.j+1] >= 1 or attackColor[kingWhite.i][kingWhite.j+1] <= -1)\
+			and (attackColor[kingWhite.i+1][kingWhite.j+1] >= 1 or attackColor[kingWhite.i+1][kingWhite.j+1] <= -1)\
+			and (attackColor[kingWhite.i+1][kingWhite.j] >= 1 or attackColor[kingWhite.i+1][kingWhite.j] <= -1)\
+			and (attackColor[kingWhite.i+1][kingWhite.j-1] >= 1 or attackColor[kingWhite.i+1][kingWhite.j-1] <= -1)\
+			and (attackColor[kingWhite.i][kingWhite.j-1] >= 1 or attackColor[kingWhite.i][kingWhite.j-1] <= -1)\
+			and (attackColor[kingWhite.i-1][kingWhite.j-1] >= 1 or attackColor[kingWhite.i-1][kingWhite.j-1] <= -1):
+				stalemate = true
+
+		if color == "White":
+			if attackColor[kingBlack.i][kingBlack.j] == 0:
+				if (attackColor[kingBlack.i-1][kingBlack.j] >= 1 or attackColor[kingBlack.i-1][kingBlack.j] <= -1)\
+				and (attackColor[kingBlack.i-1][kingBlack.j+1] >= 1 or attackColor[kingBlack.i-1][kingBlack.j+1] <= -1)\
+				and (attackColor[kingBlack.i][kingBlack.j+1] >= 1 or attackColor[kingBlack.i][kingBlack.j+1] <= -1)\
+				and (attackColor[kingBlack.i+1][kingBlack.j+1] >= 1 or attackColor[kingBlack.i+1][kingBlack.j+1] <= -1)\
+				and (attackColor[kingBlack.i+1][kingBlack.j] >= 1 or attackColor[kingBlack.i+1][kingBlack.j] <= -1)\
+				and (attackColor[kingBlack.i+1][kingBlack.j-1] >= 1 or attackColor[kingBlack.i+1][kingBlack.j-1] <= -1)\
+				and (attackColor[kingBlack.i][kingBlack.j-1] >= 1 or attackColor[kingBlack.i][kingBlack.j-1] <= -1)\
+				and (attackColor[kingBlack.i-1][kingBlack.j-1] >= 1 or attackColor[kingBlack.i-1][kingBlack.j-1] <= -1):
+					stalemate = true
+
+func stalemateOnlyKing():
+	var pieceFinded = false
+	for i in range(2,10): 
+		for j in range(2,10):
+			if chessBoard[i][j].begins_with("PawnWhite") or chessBoard[i][j].begins_with("KnightWhite")\
+			or chessBoard[i][j].begins_with("BishopWhite") or chessBoard[i][j].begins_with("RookWhite")\
+			or chessBoard[i][j].begins_with("QueenWhite") or chessBoard[i][j].begins_with("PawnBlack")\
+			or chessBoard[i][j].begins_with("KnightBlack") or chessBoard[i][j].begins_with("BishopBlack")\
+			or chessBoard[i][j].begins_with("RookBlack") or chessBoard[i][j].begins_with("QueenBlack"):
+				pieceFinded = true
+				break
+		if pieceFinded == true:
+			break
+	if pieceFinded == false:
+		stalemate = true
+	print("stalemateOnlyKing: ", stalemate)
+
+func stalemateKingAlone(color, kingWhite, kingBlack, attackColor):
+	var kingAlone = false
+	var pieceFinded = false
+	for i in range(2,10): 
+		for j in range(2,10):
+			if color == "Black":
+				if chessBoard[i][j].begins_with("PawnWhite") or chessBoard[i][j].begins_with("KnightWhite")\
+				or chessBoard[i][j].begins_with("BishopWhite") or chessBoard[i][j].begins_with("RookWhite")\
+				or chessBoard[i][j].begins_with("QueenWhite"):
+					pieceFinded = true
+					break
+			elif color == "White":
+				if chessBoard[i][j].begins_with("PawnBlack") or chessBoard[i][j].begins_with("KnightBlack")\
+				or chessBoard[i][j].begins_with("BishopBlack") or chessBoard[i][j].begins_with("RookBlack")\
+				or chessBoard[i][j].begins_with("QueenBlack"):
+					pieceFinded = true
+					break
+		if pieceFinded == true:
+			break
+	if pieceFinded == false:
+		kingAlone = true
+	print("kingAlone: ", kingAlone)
+	
+	if kingAlone == true:
+		verificationKingIsStalemate(color, kingWhite, kingBlack, attackColor)
+	print("stalemateKingAlone: ", stalemate)
+
+func stalemateKingWithPawn(color,pawnColor,knightColor,bishopColor,rookColor,queenColor,kingWhite,kingBlack,attackColor):
+	var knightBishopRookQueenExisted = false
+	var pawnFinded = false
+	var onePawnMove = false
+	var onlyPawnAndKing = false
+	var pawnMove = true
+	#Permet de savoir s'il n'y a plus de cavalier, fou, tour et reine pour celui qui joue.
+	for i in range(2,10): 
+		for j in range(2,10):
+			if chessBoard[i][j].begins_with(knightColor) or chessBoard[i][j].begins_with(bishopColor)\
+			or chessBoard[i][j].begins_with(rookColor) or chessBoard[i][j].begins_with(queenColor):
+				knightBishopRookQueenExisted = true
+				break
+		if knightBishopRookQueenExisted == true:
+			break
+	if knightBishopRookQueenExisted == false:
+		onlyPawnAndKing = true
+	print("onlyPawnAndKing: ", onlyPawnAndKing)
+	
+	#Permet de savoir s'il reste au moins 1 pion pour celui qui joue.
+	if onlyPawnAndKing == true:
+		for i in range(2,10): 
+			for j in range(2,10):
+				if chessBoard[i][j].begins_with(pawnColor):
+					pawnFinded = true
+					break
+			if pawnFinded == true:
+				break
+		#if pawnFinded == false:
+			#verificationKingIsStalemate(color, kingWhite, kingBlack, attackColor)
+			#print("pawnFinded false stalemate: ", stalemate)
+
+	#Permet de savoir s'il les pions de celui qui joue peuvent bouger (même si le roi ne peut pas).
+	if pawnFinded == true:
+		for i in range(2,10): 
+			for j in range(2,10):
+				if chessBoard[i][j].begins_with(pawnColor):
+					if "White" in chessBoard[i][j]:
+						if chessBoard[i-1][j] == "0" or color in chessBoard[i-1][j+1]\
+						or color in chessBoard[i-1][j-1]:
+							onePawnMove = true
+							break
+					elif "Black" in chessBoard[i][j]:
+						if chessBoard[i+1][j] == "0" or color in chessBoard[i+1][j+1]\
+						or color in chessBoard[i+1][j-1]:
+							onePawnMove = true
+							break
+			if onePawnMove == true:
+				break
+		if onePawnMove == false:
+			verificationKingIsStalemate(color, kingWhite, kingBlack, attackColor)
+			print("onePawnMove false stalemate: ", stalemate)
+
+func verificationStalemate(color,pawnColor,knightColor,bishopColor,rookColor,queenColor,attackColor):
+	var kingWhite = get_node(pathKingWhite)
+	var kingBlack = get_node(pathKingBlack)
+	print("Enter in verificationStalemate")
+	stalemateOnlyKing()
+	stalemateKingAlone(color, kingWhite, kingBlack, attackColor)
+	stalemateKingWithPawn(color,pawnColor,knightColor,bishopColor,rookColor,queenColor,kingWhite,kingBlack,attackColor)
+	print("stalemate: ", stalemate)
+
 func checkmateKing(pawnColor,knightColor,bishopColor,rookColor,queenColor,kingNode,attackColor):
 	#On verifie l'échec et mat si aucune pièce ne peut protèger le roi
 	var case1 = false
@@ -1215,103 +1354,6 @@ func checkmateKing(pawnColor,knightColor,bishopColor,rookColor,queenColor,kingNo
 	if case1 == true and case2 == true and case3 == true and case4 == true\
 	and case5 == true and case6 == true and case7 == true and case8 == true:
 		threatened = true
-
-func stalemateOnlyKing():
-	var pieceFinded = false
-	for i in range(2,10): 
-		if pieceFinded == true:
-			break
-		for j in range(2,10):
-			if chessBoard[i][j].begins_with("PawnWhite") or chessBoard[i][j].begins_with("KnightWhite")\
-			or chessBoard[i][j].begins_with("BishopWhite") or chessBoard[i][j].begins_with("RookWhite")\
-			or chessBoard[i][j].begins_with("QueenWhite") or chessBoard[i][j].begins_with("PawnBlack")\
-			or chessBoard[i][j].begins_with("KnightBlack") or chessBoard[i][j].begins_with("BishopBlack")\
-			or chessBoard[i][j].begins_with("RookBlack") or chessBoard[i][j].begins_with("QueenBlack"):
-				stalemate = false
-				pieceFinded = true
-				break
-			else:
-				stalemate = true
-	print("stalemateOnlyKing: ", stalemate)
-
-func verificationStalemate(color,pawnColor,knightColor,bishopColor,rookColor,queenColor,attackColor):
-	var KingWhite = get_node(pathKingWhite)
-	var KingBlack = get_node(pathKingBlack)
-	var pieceFinded1 = false
-	var pieceFinded2 = false
-	var onlyPawnAndKing = false
-	var pawnMove = true
-	print("Enter in verificationStalemate")
-
-	stalemateOnlyKing()
-
-	for i in range(2,10): 
-		for j in range(2,10):
-			if chessBoard[i][j].begins_with(knightColor) or chessBoard[i][j].begins_with(bishopColor)\
-			or chessBoard[i][j].begins_with(rookColor) or chessBoard[i][j].begins_with(queenColor):
-				onlyPawnAndKing = false
-				pieceFinded1 = true
-				break
-			else:
-				onlyPawnAndKing = true
-		if pieceFinded1 == true:
-			break
-	print("onlyPawnAndKing: ", onlyPawnAndKing)
-
-	if onlyPawnAndKing == true:
-		for i in range(2,10): 
-			for j in range(2,10):
-				if chessBoard[i][j].begins_with(pawnColor):
-					if "White" in chessBoard[i][j]:
-						if chessBoard[i-1][j] == "0" or color in chessBoard[i-1][j+1]\
-						or color in chessBoard[i-1][j-1]:
-							pawnMove = true
-							pieceFinded2 = true
-							break
-						else:
-							pawnMove = false
-
-					elif "Black" in chessBoard[i][j]:
-						if chessBoard[i+1][j] == "0" or color in chessBoard[i+1][j+1]\
-						or color in chessBoard[i+1][j-1]:
-							pawnMove = true
-							pieceFinded2 = true
-							break
-						else:
-							pawnMove = false
-			if pieceFinded2 == true:
-				break
-		print("pawnMove: ", pawnMove)
-
-	if pawnMove == false:
-		if color == "Black":
-			if attackColor[KingWhite.i][KingWhite.j] == 0:
-				if attackColor[KingWhite.i-1][KingWhite.j] <= 1\
-				and attackColor[KingWhite.i-1][KingWhite.j+1] <= 1\
-				and attackColor[KingWhite.i][KingWhite.j+1] <= 1\
-				and attackColor[KingWhite.i+1][KingWhite.j+1] <= 1\
-				and attackColor[KingWhite.i+1][KingWhite.j] <= 1\
-				and attackColor[KingWhite.i+1][KingWhite.j-1] <= 1\
-				and attackColor[KingWhite.i][KingWhite.j-1] <= 1\
-				and attackColor[KingWhite.i-1][KingWhite.j-1] <= 1:
-					stalemate = true
-			else:
-				stalemate = false
-
-		if color == "White":
-			if attackColor[KingBlack.i][KingBlack.j] == 0:
-				if attackColor[KingBlack.i-1][KingBlack.j] <= 1\
-				and attackColor[KingBlack.i-1][KingBlack.j+1] <= 1\
-				and attackColor[KingBlack.i][KingBlack.j+1] <= 1\
-				and attackColor[KingBlack.i+1][KingBlack.j+1] <= 1\
-				and attackColor[KingBlack.i+1][KingBlack.j] <= 1\
-				and attackColor[KingBlack.i+1][KingBlack.j-1] <= 1\
-				and attackColor[KingBlack.i][KingBlack.j-1] <= 1\
-				and attackColor[KingBlack.i-1][KingBlack.j-1] <= 1:
-					stalemate = true
-			else:
-				stalemate = false
-		print("stalemate: ", stalemate)
 
 func reverseCoordonatesKing(KingColor):
 	match KingColor.i:

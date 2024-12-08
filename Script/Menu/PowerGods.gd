@@ -48,8 +48,8 @@ func initialisationScreen(godName):
 		get_node("TextPowerFactions").text = godData["passif"]
 		get_node("ZoneGif/GifPowerFactions").set_animation("Passif" + godName )
 	get_node("HoverSelectionFaction").texture = load("res://Image/Menu/HoverSelectionPassif.png")
-	get_node("HoverSelectionFaction").position.x = 608
-	get_node("HoverSelectionFaction").position.y = 167
+	get_node("HoverSelectionFaction").position.x = 0
+	get_node("HoverSelectionFaction").position.y = 0
 	get_node("ZoneGif/GifPowerFactions").play()
 
 func _on_gods_screen_god_selected(godName):
@@ -70,7 +70,7 @@ func buttonPiece(namePiece: String, namePiece2: String, posX: int, posY: int):
 	get_node("HoverSelectionFaction").position.y = posY
 
 func _on_button_passif_button_down():
-	buttonPiece("passif", "Passif", 608, 167)
+	buttonPiece("passif", "Passif", 0, 0)
 
 func _on_button_pawn_button_down():
 	buttonPiece("pawn", "Pawn", -40, 281)

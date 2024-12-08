@@ -1,15 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv0q6ejhjm40l"]
 
-[ext_resource type="Texture2D" uid="uid://u647u3gsxrfm" path="res://Image/Menu/TutorielGodschess.png" id="1_xa23c"]
+[ext_resource type="Texture2D" uid="uid://hq32d4afd88g" path="res://Image/Menu/RulesGodsChess.png" id="1_oapsb"]
 [ext_resource type="Script" path="res://Script/Menu/TutorielScreen.gd" id="2_o4bf1"]
-[ext_resource type="FontFile" uid="uid://caxco446f2je1" path="res://Font/Forgotten.ttf" id="3_o0a63"]
+[ext_resource type="FontFile" uid="uid://dq1fkh6cln463" path="res://Font/Forgotten.ttf" id="3_o0a63"]
 
 [node name="TutorielScreen" type="Sprite2D"]
-texture = ExtResource("1_xa23c")
+texture = ExtResource("1_oapsb")
 centered = false
 script = ExtResource("2_o4bf1")
 
 [node name="TitleLabel" type="Label" parent="."]
+visible = false
 offset_left = 700.0
 offset_top = 153.0
 offset_right = 1301.0
@@ -64,12 +65,12 @@ offset_bottom = 422.0
 mouse_default_cursor_shape = 2
 
 [node name="ButtonReturnMainMenu" type="Button" parent="."]
-offset_left = 1874.0
-offset_top = 124.0
-offset_right = 1921.0
-offset_bottom = 201.0
+self_modulate = Color(0, 0, 0, 0)
+offset_left = 12.0
+offset_top = 128.0
+offset_right = 122.0
+offset_bottom = 195.0
 theme_override_font_sizes/font_size = 50
-text = "X"
 
 [connection signal="button_down" from="ButtonRigth" to="." method="_on_button_rigth_button_down"]
 [connection signal="button_down" from="ButtonLeft" to="." method="_on_button_left_button_down"]

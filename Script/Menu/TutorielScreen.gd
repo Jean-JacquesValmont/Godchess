@@ -13,7 +13,6 @@ func _process(delta):
 Au contraire, il apporte une nouvelle dimension avec la division des pièces en factions et un niveau stratégique accru grâce à l'ajout de pouvoirs se jouant de manière passive. Vous devez toujours mettre en échec et mat le roi adverse pour gagner.
 Cependant, l'inventivité, l'imagination et la créativité vous permettront de développer votre propre façon de jouer à GodsChess"
 		get_node("RuleSpriteExplanation").texture = null
-
 	
 	if counter == 1 :
 		get_node("RuleTitleLabel").text = "L’auto Echec"

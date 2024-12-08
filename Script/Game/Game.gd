@@ -159,9 +159,12 @@ func _process(delta):
 			animationEchecPlayer1 = true
 	
 	if GlobalValueChessGame.stalemate == true:
-		pass
-		#get_node("Player1/DisplayCheckmate").set_text("Pat")
-		#get_node("Player2/DisplayCheckmate").set_text("Pat")
+		if animationStop == false:
+			get_node("AnimationText").set_animation("Draw")
+			get_node("AnimationText").play()
+			get_node("TextVictoryCondition").set_text("par Pat")
+			get_node("ButtonQuitGame").show()
+			animationStop = true
 	
 	if GlobalValueChessGame.checkmateWhite == true and GlobalValueChessGame.checkmate == true:
 		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:

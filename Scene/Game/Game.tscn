@@ -1,4 +1,4 @@
-[gd_scene load_steps=227 format=3 uid="uid://ccb5p5ljgby2h"]
+[gd_scene load_steps=287 format=3 uid="uid://ccb5p5ljgby2h"]
 
 [ext_resource type="Texture2D" uid="uid://cye35k3n1ilkw" path="res://Image/Game/ChessBoardSideWhite.png" id="1_0b1s8"]
 [ext_resource type="Script" path="res://Script/Game/Game.gd" id="2_i7d2e"]
@@ -183,7 +183,67 @@
 [ext_resource type="Texture2D" uid="uid://daokni2kwmn8e" path="res://Image/Game/Animation/Defeat/Defaite_036.png" id="102_35urx"]
 [ext_resource type="Texture2D" uid="uid://cf6svn5jdpmxe" path="res://Image/Game/Animation/Defeat/Defaite_037.png" id="103_13yxu"]
 [ext_resource type="Texture2D" uid="uid://cqetj74nspgr" path="res://Image/Game/Animation/Defeat/Defaite_038.png" id="104_k7gew"]
+[ext_resource type="Texture2D" uid="uid://crqeplo06b4tp" path="res://Image/Game/Animation/Draw/MatchNul_000.png" id="105_gssr4"]
 [ext_resource type="Texture2D" uid="uid://ct74eimt8alee" path="res://Image/Game/Animation/Defeat/Defaite_039.png" id="105_s2nu0"]
+[ext_resource type="Texture2D" uid="uid://cf4rmlo72x8pa" path="res://Image/Game/Animation/Draw/MatchNul_001.png" id="106_rfdfx"]
+[ext_resource type="Texture2D" uid="uid://dcpdglq5ohym2" path="res://Image/Game/Animation/Draw/MatchNul_002.png" id="107_rlgwh"]
+[ext_resource type="Texture2D" uid="uid://dfcxo2ksds1q6" path="res://Image/Game/Animation/Draw/MatchNul_003.png" id="108_8cyab"]
+[ext_resource type="Texture2D" uid="uid://d1kswvdl1syet" path="res://Image/Game/Animation/Draw/MatchNul_004.png" id="109_ebogy"]
+[ext_resource type="Texture2D" uid="uid://c7smireohfqub" path="res://Image/Game/Animation/Draw/MatchNul_005.png" id="110_soh4j"]
+[ext_resource type="Texture2D" uid="uid://bwjfdyr5t65rm" path="res://Image/Game/Animation/Draw/MatchNul_006.png" id="111_jo86b"]
+[ext_resource type="Texture2D" uid="uid://so30omwpmbu0" path="res://Image/Game/Animation/Draw/MatchNul_007.png" id="112_iq22y"]
+[ext_resource type="Texture2D" uid="uid://cjvyo8rl5awn2" path="res://Image/Game/Animation/Draw/MatchNul_008.png" id="113_ljv55"]
+[ext_resource type="Texture2D" uid="uid://caieqcuucfqnh" path="res://Image/Game/Animation/Draw/MatchNul_009.png" id="114_7w77u"]
+[ext_resource type="Texture2D" uid="uid://b1an4oigxbike" path="res://Image/Game/Animation/Draw/MatchNul_010.png" id="115_sabyu"]
+[ext_resource type="Texture2D" uid="uid://mcfpsvy6ebwv" path="res://Image/Game/Animation/Draw/MatchNul_011.png" id="116_u0r7r"]
+[ext_resource type="Texture2D" uid="uid://dcte2llmg1r7g" path="res://Image/Game/Animation/Draw/MatchNul_012.png" id="117_koksn"]
+[ext_resource type="Texture2D" uid="uid://c4r33of5oqoan" path="res://Image/Game/Animation/Draw/MatchNul_013.png" id="118_7hjqf"]
+[ext_resource type="Texture2D" uid="uid://m0tvwulvbjh2" path="res://Image/Game/Animation/Draw/MatchNul_014.png" id="119_ljdt8"]
+[ext_resource type="Texture2D" uid="uid://cw2n71engbnvy" path="res://Image/Game/Animation/Draw/MatchNul_015.png" id="120_7b1o6"]
+[ext_resource type="Texture2D" uid="uid://c6lk8w2g7n4kg" path="res://Image/Game/Animation/Draw/MatchNul_016.png" id="121_1xbr6"]
+[ext_resource type="Texture2D" uid="uid://fg4atmhvhuni" path="res://Image/Game/Animation/Draw/MatchNul_017.png" id="122_aohdr"]
+[ext_resource type="Texture2D" uid="uid://cp5nudif2kwfq" path="res://Image/Game/Animation/Draw/MatchNul_018.png" id="123_7uaec"]
+[ext_resource type="Texture2D" uid="uid://42euxcoeyb0m" path="res://Image/Game/Animation/Draw/MatchNul_019.png" id="124_nx415"]
+[ext_resource type="Texture2D" uid="uid://cxcbal1lvqdie" path="res://Image/Game/Animation/Draw/MatchNul_020.png" id="125_0j6vi"]
+[ext_resource type="Texture2D" uid="uid://cshfk8fiyh5g" path="res://Image/Game/Animation/Draw/MatchNul_021.png" id="126_u8e18"]
+[ext_resource type="Texture2D" uid="uid://y8kks11irr82" path="res://Image/Game/Animation/Draw/MatchNul_022.png" id="127_130tm"]
+[ext_resource type="Texture2D" uid="uid://drfky2ijgnug5" path="res://Image/Game/Animation/Draw/MatchNul_023.png" id="128_rytwk"]
+[ext_resource type="Texture2D" uid="uid://r5cb282g6bl8" path="res://Image/Game/Animation/Draw/MatchNul_024.png" id="129_r0utd"]
+[ext_resource type="Texture2D" uid="uid://7toh47g1gab2" path="res://Image/Game/Animation/Draw/MatchNul_025.png" id="130_kyj76"]
+[ext_resource type="Texture2D" uid="uid://2igeuikaubyv" path="res://Image/Game/Animation/Draw/MatchNul_026.png" id="131_cd066"]
+[ext_resource type="Texture2D" uid="uid://qq37y74ifg5c" path="res://Image/Game/Animation/Draw/MatchNul_027.png" id="132_yfxtf"]
+[ext_resource type="Texture2D" uid="uid://bvam61kn6t3rp" path="res://Image/Game/Animation/Draw/MatchNul_028.png" id="133_8fu0s"]
+[ext_resource type="Texture2D" uid="uid://bggrluht1j3m1" path="res://Image/Game/Animation/Draw/MatchNul_029.png" id="134_iaqnc"]
+[ext_resource type="Texture2D" uid="uid://bkerc6b33wy2i" path="res://Image/Game/Animation/Draw/MatchNul_030.png" id="135_s060i"]
+[ext_resource type="Texture2D" uid="uid://5bnhes1ap8fu" path="res://Image/Game/Animation/Draw/MatchNul_031.png" id="136_pco72"]
+[ext_resource type="Texture2D" uid="uid://be7dmwn6ebvj1" path="res://Image/Game/Animation/Draw/MatchNul_032.png" id="137_qwqd4"]
+[ext_resource type="Texture2D" uid="uid://bahp820aw6u0v" path="res://Image/Game/Animation/Draw/MatchNul_033.png" id="138_507k1"]
+[ext_resource type="Texture2D" uid="uid://pin8axvy0k5i" path="res://Image/Game/Animation/Draw/MatchNul_034.png" id="139_d05ev"]
+[ext_resource type="Texture2D" uid="uid://bkl565upeh8f4" path="res://Image/Game/Animation/Draw/MatchNul_035.png" id="140_g7g1u"]
+[ext_resource type="Texture2D" uid="uid://c4uqw1x7looxh" path="res://Image/Game/Animation/Draw/MatchNul_036.png" id="141_2urtp"]
+[ext_resource type="Texture2D" uid="uid://byl6qpqf8ggje" path="res://Image/Game/Animation/Draw/MatchNul_037.png" id="142_i4ndt"]
+[ext_resource type="Texture2D" uid="uid://chpnbge3og36y" path="res://Image/Game/Animation/Draw/MatchNul_038.png" id="143_0qe00"]
+[ext_resource type="Texture2D" uid="uid://bavqgxtcagu24" path="res://Image/Game/Animation/Draw/MatchNul_039.png" id="144_wvmx2"]
+[ext_resource type="Texture2D" uid="uid://bbk1ul6pttq3s" path="res://Image/Game/Animation/Draw/MatchNul_040.png" id="145_6l8jb"]
+[ext_resource type="Texture2D" uid="uid://dixq7sxije2ak" path="res://Image/Game/Animation/Draw/MatchNul_041.png" id="146_dgnrq"]
+[ext_resource type="Texture2D" uid="uid://drgl0wk2hv0uf" path="res://Image/Game/Animation/Draw/MatchNul_042.png" id="147_1kw6a"]
+[ext_resource type="Texture2D" uid="uid://v32i3xj6seul" path="res://Image/Game/Animation/Draw/MatchNul_043.png" id="148_bxkyf"]
+[ext_resource type="Texture2D" uid="uid://cqrnki8ebu3l" path="res://Image/Game/Animation/Draw/MatchNul_044.png" id="149_cr1e4"]
+[ext_resource type="Texture2D" uid="uid://cssboiaakj5o4" path="res://Image/Game/Animation/Draw/MatchNul_045.png" id="150_det6w"]
+[ext_resource type="Texture2D" uid="uid://cwlmg74qpuykj" path="res://Image/Game/Animation/Draw/MatchNul_046.png" id="151_xgifk"]
+[ext_resource type="Texture2D" uid="uid://bf0ab18vv6f1u" path="res://Image/Game/Animation/Draw/MatchNul_047.png" id="152_q50j0"]
+[ext_resource type="Texture2D" uid="uid://0cyg7vece3me" path="res://Image/Game/Animation/Draw/MatchNul_048.png" id="153_60mny"]
+[ext_resource type="Texture2D" uid="uid://dhdjmycu1xew1" path="res://Image/Game/Animation/Draw/MatchNul_049.png" id="154_e24f1"]
+[ext_resource type="Texture2D" uid="uid://4n7jeuy7hh6n" path="res://Image/Game/Animation/Draw/MatchNul_050.png" id="155_wcxp1"]
+[ext_resource type="Texture2D" uid="uid://upltrl4liav4" path="res://Image/Game/Animation/Draw/MatchNul_051.png" id="156_2igbp"]
+[ext_resource type="Texture2D" uid="uid://b5q5ydm48rwlb" path="res://Image/Game/Animation/Draw/MatchNul_052.png" id="157_hevg4"]
+[ext_resource type="Texture2D" uid="uid://nr7q7sek6jyj" path="res://Image/Game/Animation/Draw/MatchNul_053.png" id="158_s8rwj"]
+[ext_resource type="Texture2D" uid="uid://c7i4q3blojomn" path="res://Image/Game/Animation/Draw/MatchNul_054.png" id="159_7wpo6"]
+[ext_resource type="Texture2D" uid="uid://da8yk8fkdc3gk" path="res://Image/Game/Animation/Draw/MatchNul_055.png" id="160_pslhd"]
+[ext_resource type="Texture2D" uid="uid://b4fkcenefdr2m" path="res://Image/Game/Animation/Draw/MatchNul_056.png" id="161_kgwvr"]
+[ext_resource type="Texture2D" uid="uid://8nfkhceb5b27" path="res://Image/Game/Animation/Draw/MatchNul_057.png" id="162_75l6b"]
+[ext_resource type="Texture2D" uid="uid://5tbq2y6jc7nj" path="res://Image/Game/Animation/Draw/MatchNul_058.png" id="163_jg2xo"]
+[ext_resource type="Texture2D" uid="uid://sch58fukx4qs" path="res://Image/Game/Animation/Draw/MatchNul_059.png" id="164_trk01"]
 [ext_resource type="Texture2D" uid="uid://djq4152roiks4" path="res://Image/Game/Animation/Victory/Victoire_000.png" id="185_o5ve8"]
 [ext_resource type="Texture2D" uid="uid://b7cbvtlascbae" path="res://Image/Game/Animation/Victory/Victoire_001.png" id="186_jklem"]
 [ext_resource type="Texture2D" uid="uid://e6xn721faunr" path="res://Image/Game/Animation/Victory/Victoire_002.png" id="187_tvkf2"]
@@ -535,6 +595,191 @@ animations = [{
 }],
 "loop": false,
 "name": &"Defeat",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("105_gssr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_rfdfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_rlgwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_8cyab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_ebogy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_soh4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_jo86b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_iq22y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_ljv55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_7w77u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_sabyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_u0r7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_koksn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_7hjqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_ljdt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_7b1o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_1xbr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_aohdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_7uaec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_nx415")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_0j6vi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_u8e18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_130tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_rytwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_r0utd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_kyj76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_cd066")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_yfxtf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_8fu0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_iaqnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_s060i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_pco72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_qwqd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_507k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_d05ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_g7g1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_2urtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_i4ndt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_0qe00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_wvmx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_6l8jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_dgnrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_1kw6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_bxkyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_cr1e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_det6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_xgifk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_q50j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_60mny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_e24f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_wcxp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_2igbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_hevg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_s8rwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_7wpo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_pslhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_kgwvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_75l6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_jg2xo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_trk01")
+}],
+"loop": false,
+"name": &"Draw",
 "speed": 30.0
 }, {
 "frames": [{

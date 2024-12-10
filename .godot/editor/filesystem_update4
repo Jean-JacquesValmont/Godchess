@@ -15,3 +15,7 @@ res://Scene/Menu/TutorielScreen.tscn
 res://Scene/Menu/Menu.tscn
 res://Script/Menu/PowerGods.gd
 res://Script/Menu/TutorielScreen.gd
+res://Scene/Menu/PlayScreen.tscn
+res://Scene/Menu/OngletScreen.tscn
+res://Scene/Menu/GodsScreen.tscn
+res://Script/Menu/OngletScreen.gd

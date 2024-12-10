@@ -3,9 +3,9 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("OngletTopScreen/Username").text = Online.nakama_session.username
-	get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").play("default")
-	get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").play("default")
-	get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").play("default")
+	#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").play("default")
+	#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").play("default")
+	#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,16 +26,18 @@ func _on_button_play_button_down():
 		GlobalValueMenu.godSelect = ""
 
 func _on_button_play_mouse_entered():
-	if get_node("/root/Menu/Background/PlayScreen").visible == false:
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").play("default")
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").play("default")
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").play("default")
+	pass
+	#if get_node("/root/Menu/Background/PlayScreen").visible == false:
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").play("default")
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").play("default")
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").play("default")
 
 func _on_button_play_mouse_exited():
-	if get_node("/root/Menu/Background/PlayScreen").visible == false:
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").stop()
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").stop()
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").stop()
+	pass
+	#if get_node("/root/Menu/Background/PlayScreen").visible == false:
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").stop()
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").stop()
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").stop()
 
 func _on_button_gods_button_down():
 		get_node("/root/Menu/Background/PlayScreen").hide()
@@ -44,9 +46,9 @@ func _on_button_gods_button_down():
 		get_node("/root/Menu/Background/PowerGods").hide()
 		get_node("/root/Menu/Background/TutorielScreen").hide()
 		GlobalValueMenu.godSelect = ""
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").stop()
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").stop()
-		get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").stop()
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedParticule").stop()
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedRight").stop()
+		#get_node("OngletTopScreen/ButtonPlayAnimated/AnimatedLeft").stop()
 
 func _on_button_quit_menu_button_down():
 	get_node("ModalQuitGame").show()

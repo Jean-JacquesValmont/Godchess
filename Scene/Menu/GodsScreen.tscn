@@ -21,29 +21,30 @@ offset_bottom = 928.0
 [node name="GoddessOfTeleportation" type="Button" parent="SelectGods"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 18.0
-offset_top = 18.0
-offset_right = 116.0
-offset_bottom = 115.0
+offset_left = 31.0
+offset_top = 34.0
+offset_right = 171.0
+offset_bottom = 174.0
 mouse_default_cursor_shape = 2
 
 [node name="GodOfDeath" type="Button" parent="SelectGods"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 158.0
-offset_top = 19.0
-offset_right = 254.0
-offset_bottom = 115.0
+offset_left = 287.0
+offset_top = 33.0
+offset_right = 429.0
+offset_bottom = 174.0
 mouse_default_cursor_shape = 2
 
 [node name="DisplaySpriteGod" type="Sprite2D" parent="."]
-position = Vector2(1396, 157)
-scale = Vector2(0.206, 0.206)
+position = Vector2(1408, 175)
+scale = Vector2(0.199537, 0.198437)
 texture = ExtResource("3_2sbm3")
 centered = false
 
 [node name="HoverSelectionGods" type="Sprite2D" parent="."]
-position = Vector2(46, 166)
+position = Vector2(57, 178)
+scale = Vector2(1.30667, 1.33333)
 texture = ExtResource("4_vs0xu")
 centered = false
 

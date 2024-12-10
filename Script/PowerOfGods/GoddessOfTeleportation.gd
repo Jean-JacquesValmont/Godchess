@@ -162,7 +162,7 @@ func countTeleportationZone(i, j,chessBoard,white):
 					
 	return {"count": count, "direction": direction, "offsetKingI": offsetKingI, "offsetKingJ": offsetKingJ}
 
-func animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset1,offset2,countZoneTeleportationPiece,directionTP,namePieceAnimation):
+func animationPowerTeleportationDirectionKnightWhite(i,j,chessBoard,offset1,offset2,countZoneTeleportationPiece,directionTP,namePieceAnimation):
 	if "White" in chessBoard[i+offset1.x][j+offset1.y] and countZoneTeleportationPiece == 0:
 		var path = "/root/Game/ChessBoard/" + chessBoard[i+offset1.x][j+offset1.y]
 		get_node(path).teleportationDirection = directionTP
@@ -175,7 +175,9 @@ func animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset1,offset2,c
 			get_node(path).self_modulate.a = 0
 			animation_node.play()
 			GlobalValueChessGame.animationPlayed = true
-	elif "Black" in chessBoard[i+offset1.x][j+offset1.y] and countZoneTeleportationPiece == 0:
+
+func animationPowerTeleportationDirectionKnightBlack(i,j,chessBoard,offset1,offset2,countZoneTeleportationPiece,directionTP,namePieceAnimation):
+	if "Black" in chessBoard[i+offset1.x][j+offset1.y] and countZoneTeleportationPiece == 0:
 		var path = "/root/Game/ChessBoard/" + chessBoard[i+offset1.x][j+offset1.y]
 		get_node(path).teleportationDirection = directionTP
 		namePieceAnimation = getNamePieceAnimation(chessBoard[i+offset1.x][j+offset1.y])
@@ -226,8 +228,8 @@ func teleportationPowerKnight(i, j,chessBoard,nameOfPiece,white,coordinateILastM
 		var namePiece1Animation = ""
 		var namePiece2Animation = ""
 		
-		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[0],offset[1],countZoneTeleportationPiece1,directionTP[0],namePiece1Animation)
-		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[2],offset[3],countZoneTeleportationPiece2,directionTP[1],namePiece2Animation)
+		animationPowerTeleportationDirectionKnightWhite(i,j,chessBoard,offset[0],offset[1],countZoneTeleportationPiece1,directionTP[0],namePiece1Animation)
+		animationPowerTeleportationDirectionKnightWhite(i,j,chessBoard,offset[2],offset[3],countZoneTeleportationPiece2,directionTP[1],namePiece2Animation)
 		
 	elif "KnightBlack" in chessBoard[i][j]:
 		var diffI = i-coordinateILastMove
@@ -244,8 +246,8 @@ func teleportationPowerKnight(i, j,chessBoard,nameOfPiece,white,coordinateILastM
 		var namePiece1Animation = ""
 		var namePiece2Animation = ""
 		
-		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[0],offset[1],countZoneTeleportationPiece1,directionTP[0],namePiece1Animation)
-		animationPowerTeleportationDirectionKnight(i,j,chessBoard,offset[2],offset[3],countZoneTeleportationPiece2,directionTP[1],namePiece2Animation)
+		animationPowerTeleportationDirectionKnightBlack(i,j,chessBoard,offset[0],offset[1],countZoneTeleportationPiece1,directionTP[0],namePiece1Animation)
+		animationPowerTeleportationDirectionKnightBlack(i,j,chessBoard,offset[2],offset[3],countZoneTeleportationPiece2,directionTP[1],namePiece2Animation)
 
 func animationPowerTeleportationDirection(i, j,chessBoard,nameOfPiece,directionFindPiece,offsetKingFinalI,offsetKingFinalJ):
 	var directionMap = {

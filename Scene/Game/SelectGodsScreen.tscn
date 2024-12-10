@@ -194,6 +194,7 @@ theme_override_font_sizes/font_size = 60
 text = "Username2"
 
 [node name="NameOfGodSelect" type="Label" parent="Player2"]
+layout_mode = 0
 offset_left = 92.0
 offset_top = 736.0
 offset_right = 515.0

@@ -36,6 +36,14 @@ offset_right = 429.0
 offset_bottom = 174.0
 mouse_default_cursor_shape = 2
 
+[node name="GodOfTheSect" type="Button" parent="SelectGods"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 549.0
+offset_top = 34.0
+offset_right = 691.0
+offset_bottom = 175.0
+mouse_default_cursor_shape = 2
+
 [node name="DisplaySpriteGod" type="Sprite2D" parent="."]
 position = Vector2(1408, 175)
 scale = Vector2(0.199537, 0.198437)
@@ -53,3 +61,6 @@ centered = false
 [connection signal="button_down" from="SelectGods/GodOfDeath" to="." method="_on_god_of_death_button_down"]
 [connection signal="mouse_entered" from="SelectGods/GodOfDeath" to="." method="_on_god_of_death_mouse_entered"]
 [connection signal="mouse_exited" from="SelectGods/GodOfDeath" to="." method="_on_god_of_death_mouse_exited"]
+[connection signal="button_down" from="SelectGods/GodOfTheSect" to="." method="_on_god_of_the_sect_button_down"]
+[connection signal="mouse_entered" from="SelectGods/GodOfTheSect" to="." method="_on_god_of_the_sect_mouse_entered"]
+[connection signal="mouse_exited" from="SelectGods/GodOfTheSect" to="." method="_on_god_of_the_sect_mouse_exited"]

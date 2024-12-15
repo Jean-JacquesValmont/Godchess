@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var godsNameArray = ["GoddessOfTeleportation", "GodOfDeath"]
+var godsNameArray = ["GoddessOfTeleportation", "GodOfDeath", "GodOfTheSect"]
 var godNameInPowerGods = ""
 
 var godTexts = {
@@ -23,6 +23,16 @@ var godTexts = {
 		"rook": "Pose un compte à rebours aléatoirement sur un pion, un cavalier ou un fou adverse",
 		"queen": "Pose un compte à rebours aléatoirement sur un pion, un cavalier, un fou ou une tour adverse",
 		"king": "Quand le roi se fait mettre en échec pose un compte un rebours sur n’importe quelles pièces. (3 utilisations)"
+	},
+	"GodOfTheSect": {
+		"name": "Dieu de la Secte",
+		"passif": "Chaque pièce possède une zone sectaire. Si une pièce adverse se retrouve dans la zone, elle enclenche un timer qui la fera changer de camp après 5 tours. Si une pièce quitte la zone sectaire, le timer se réinitialise. Les zones peuvent se superposer se qui entraîne une diminution du nombre de tour égale au nombre de zone superposer. Les pièces qui change de camp deviennent de la faction du Dieu de la Secte.",
+		"pawn": "Zone sectaire d’une case devant",
+		"knight": "Zone sectaire d’une case en L",
+		"bishop": "Zone sectaire en diagonale d’une case",
+		"rook": "Zone sectaire en croix d’une case",
+		"queen": "Zone sectaire dans toutes les directions d’une case",
+		"king": "Le premier échec dans sa zone sectaire en carré de deux cases qu’il subit change la pièce dans son camp (1 utilisation)"
 	}
 }
 

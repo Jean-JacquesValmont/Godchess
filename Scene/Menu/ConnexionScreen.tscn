@@ -15,43 +15,45 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="EmailText" type="LineEdit" parent="Control"]
+layout_mode = 0
 offset_left = 693.0
-offset_top = 630.0
-offset_right = 1268.0
-offset_bottom = 695.0
+offset_top = 588.0
+offset_right = 1243.0
+offset_bottom = 652.0
 theme_override_font_sizes/font_size = 30
 text = "guest@gmail.com"
 
 [node name="PasswordText" type="LineEdit" parent="Control"]
-offset_left = 693.0
-offset_top = 788.0
-offset_right = 1268.0
-offset_bottom = 853.0
+layout_mode = 0
+offset_left = 694.0
+offset_top = 739.0
+offset_right = 1244.0
+offset_bottom = 804.0
 theme_override_font_sizes/font_size = 40
 text = "password"
 secret = true
 
 [node name="LoginButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 662.0
-offset_top = 938.0
-offset_right = 958.0
-offset_bottom = 996.0
+offset_left = 663.0
+offset_top = 885.0
+offset_right = 948.0
+offset_bottom = 939.0
 mouse_default_cursor_shape = 2
 
 [node name="RegisterScreenButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 996.0
-offset_top = 938.0
-offset_right = 1294.0
-offset_bottom = 996.0
+offset_left = 984.0
+offset_top = 884.0
+offset_right = 1270.0
+offset_bottom = 940.0
 mouse_default_cursor_shape = 2
 
 [node name="ErreurTextConnection" type="RichTextLabel" parent="."]
-offset_left = 689.0
-offset_top = 866.0
-offset_right = 1270.0
-offset_bottom = 920.0
+offset_left = 676.0
+offset_top = 816.0
+offset_right = 1257.0
+offset_bottom = 870.0
 theme_override_font_sizes/normal_font_size = 20
 
 [connection signal="button_down" from="LoginButton" to="." method="_on_login_button_button_down"]

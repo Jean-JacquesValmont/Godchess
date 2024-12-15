@@ -43,8 +43,7 @@ texture = ExtResource("3_2sbm3")
 centered = false
 
 [node name="HoverSelectionGods" type="Sprite2D" parent="."]
-position = Vector2(57, 178)
-scale = Vector2(1.30667, 1.33333)
+position = Vector2(5, 130)
 texture = ExtResource("4_vs0xu")
 centered = false
 

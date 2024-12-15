@@ -12,7 +12,7 @@ func _process(delta):
 		get_node("RuleExplanationText").text = "GodsChess conserve les règles classiques des échecs tout en y incorporant des pouvoirs, sans détruire ce qui a été construit.
 Au contraire, il apporte une nouvelle dimension avec la division des pièces en factions et un niveau stratégique accru grâce à l'ajout de pouvoirs se jouant de manière passive. Vous devez toujours mettre en échec et mat le roi adverse pour gagner.
 Cependant, l'inventivité, l'imagination et la créativité vous permettront de développer votre propre façon de jouer à GodsChess"
-		get_node("RuleSpriteExplanation").texture = null
+		get_node("RuleSpriteExplanation").texture = preload("res://Image/Tutoriel/LogoTutoriel.png")
 	
 	if counter == 1 :
 		get_node("RuleTitleLabel").text = "L’auto Echec"
@@ -46,7 +46,7 @@ Sur la deuxième image, le cavalier magnétique se déplace en b5, poussant le p
 	
 	if counter == 6 :
 		get_node("RuleTitleLabel").text = "Echelle de force de GodChess"
-		get_node("RuleExplanationText").text = "Faction Pion < Faction Cavalier < Faction Fou < Faction Tour < Faction Reine < Faction Roi"
+		get_node("RuleExplanationText").text = "La faction du roi est supérieur à la faction de la reine. La faction de la reine est supérieur à la faction de la tour. La faction de la tour est supérieur à la faction du fou. La faction du fou est supérieur à la faction du cavalier. Enfin la faction du cavalier est supérieur à la faction des pions."
 		get_node("RuleSpriteExplanation").texture = preload("res://Image/Tutoriel/RégleEchelleDeForceFactionDessin.png")
 	
 	

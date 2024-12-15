@@ -1,15 +1,15 @@
 extends Sprite2D
 
 var promotionID
-var piecesBlack = [["Pawn", "" , "Pion.png", 50, 250],["Pawn", "2", "Pion.png", 100, 250],["Pawn", "3", "Pion.png", 150, 250],["Pawn", "4", "Pion.png", 200, 250],
-	["Pawn", "5", "Pion.png", 250, 250],["Pawn", "6", "Pion.png", 300, 250],["Pawn", "7", "Pion.png", 350, 250],["Pawn", "8", "Pion.png", 400, 250],
-	["Knight", "", "Cavalier.png", 50, 300],["Knight", "2", "Cavalier.png", 100, 300],["Bishop", "", "Fou.png", 150, 300],["Bishop", "2", "Fou.png", 200, 300],
-	["Rook", "", "Tour.png", 250, 300],["Rook", "2", "Tour.png", 300, 300],["Queen", "", "Reine.png", 350, 300]
+var piecesBlack = [["Pawn", "" , "Pion.png", 50, 275],["Pawn", "2", "Pion.png", 100, 275],["Pawn", "3", "Pion.png", 150, 275],["Pawn", "4", "Pion.png", 200, 275],
+	["Pawn", "5", "Pion.png", 250, 275],["Pawn", "6", "Pion.png", 300, 275],["Pawn", "7", "Pion.png", 350, 275],["Pawn", "8", "Pion.png", 400, 275],
+	["Knight", "", "Cavalier.png", 50, 325],["Knight", "2", "Cavalier.png", 100, 325],["Bishop", "", "Fou.png", 150, 325],["Bishop", "2", "Fou.png", 200, 325],
+	["Rook", "", "Tour.png", 250, 325],["Rook", "2", "Tour.png", 300, 325],["Queen", "", "Reine.png", 350, 325]
 	]
-var piecesWhite = [["Pawn",  "", "Pion.png", 1450, 775],["Pawn", "2", "Pion.png", 1500, 775],["Pawn", "3", "Pion.png", 1550, 775],["Pawn", "4", "Pion.png", 1600, 775],
-	["Pawn", "5", "Pion.png", 1650, 775],["Pawn", "6", "Pion.png", 1700, 775],["Pawn", "7", "Pion.png", 1750, 775],["Pawn", "8", "Pion.png", 1800, 775],
-	["Knight", "", "Cavalier.png", 1450, 825],["Knight", "2", "Cavalier.png", 1500, 825],["Bishop", "", "Fou.png", 1550, 825],["Bishop", "2", "Fou.png", 1600, 825],
-	["Rook", "", "Tour.png", 1650, 825],["Rook", "2", "Tour.png", 1700, 825],["Queen", "", "Reine.png", 1750, 825]
+var piecesWhite = [["Pawn",  "", "Pion.png", 1500, 775],["Pawn", "2", "Pion.png", 1550, 775],["Pawn", "3", "Pion.png", 1600, 775],["Pawn", "4", "Pion.png", 1650, 775],
+	["Pawn", "5", "Pion.png", 1700, 775],["Pawn", "6", "Pion.png", 1750, 775],["Pawn", "7", "Pion.png", 1800, 775],["Pawn", "8", "Pion.png", 1850, 775],
+	["Knight", "", "Cavalier.png", 1500, 825],["Knight", "2", "Cavalier.png", 1550, 825],["Bishop", "", "Fou.png", 1600, 825],["Bishop", "2", "Fou.png", 1650, 825],
+	["Rook", "", "Tour.png", 1700, 825],["Rook", "2", "Tour.png", 1750, 825],["Queen", "", "Reine.png", 1800, 825]
 ]
 
 func _ready():
@@ -29,7 +29,7 @@ func _process(delta):
 			# Créer un nouveau sprite
 				var deadSprite = Sprite2D.new()
 				#deadSprite.texture = load("res://Image/Pieces/Black/" + pieceType.to_lower() + "_black.png")
-				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - " + piecePNG)
 				deadSprite.name = pieceType + "Black" + number
 				deadSprite.centered = true
 				deadSprite.position.x = positionX
@@ -52,7 +52,7 @@ func _process(delta):
 			# Créer un nouveau sprite
 				var deadSprite = Sprite2D.new()
 				#deadSprite.texture = load("res://Image/Pieces/White/" + pieceType.to_lower() + "_white.png")
-				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - " + piecePNG)
 				deadSprite.name = pieceType + "White" + number
 				deadSprite.centered = true
 				deadSprite.position.x = positionX
@@ -76,7 +76,7 @@ func _process(delta):
 			# Créer un nouveau sprite
 				var deadSprite = Sprite2D.new()
 				#deadSprite.texture = load("res://Image/Pieces/White/" + pieceType.to_lower() + "_white.png")
-				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - " + piecePNG)
 				deadSprite.name = pieceType + "White" + number
 				deadSprite.centered = true
 				deadSprite.position.x = positionX
@@ -99,7 +99,7 @@ func _process(delta):
 			# Créer un nouveau sprite
 				var deadSprite = Sprite2D.new()
 				#deadSprite.texture = load("res://Image/Pieces/Black/" + pieceType.to_lower() + "_black.png")
-				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer2 + "/Pieces/Base pièce doubler - " + piecePNG)
+				deadSprite.texture = load("res://Image/Gods/" + GlobalValueMenu.godSelectPlayer1 + "/Pieces/Base pièce doubler - " + piecePNG)
 				deadSprite.name = pieceType + "Black" + number
 				deadSprite.centered = true
 				deadSprite.position.x = positionX

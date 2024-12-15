@@ -22,8 +22,8 @@ func _on_goddess_of_teleportation_button_down():
 func _on_goddess_of_teleportation_mouse_entered():
 	get_node("DisplaySpriteGod").texture = load("res://Image/Gods/GoddessOfTeleportation/Déesse de la Téléportation IA - Couleur.png")
 	get_node("HoverSelectionGods").texture = load("res://Image/Menu/HoverSelectionGods.png")
-	get_node("HoverSelectionGods").position.x = 46
-	get_node("HoverSelectionGods").position.y = 166
+	get_node("HoverSelectionGods").position.x = 5
+	get_node("HoverSelectionGods").position.y = 130
 
 func _on_goddess_of_teleportation_mouse_exited():
 	get_node("DisplaySpriteGod").texture = null
@@ -40,8 +40,8 @@ func _on_god_of_death_button_down():
 func _on_god_of_death_mouse_entered():
 	get_node("DisplaySpriteGod").texture = load("res://Image/Gods/GodOfDeath/Dieu de la Mort IA - Couleur.png")
 	get_node("HoverSelectionGods").texture = load("res://Image/Menu/HoverSelectionGods.png")
-	get_node("HoverSelectionGods").position.x = 186
-	get_node("HoverSelectionGods").position.y = 166
+	get_node("HoverSelectionGods").position.x = 262
+	get_node("HoverSelectionGods").position.y = 130
 
 func _on_god_of_death_mouse_exited():
 	get_node("DisplaySpriteGod").texture = null

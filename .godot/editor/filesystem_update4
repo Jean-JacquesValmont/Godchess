@@ -1,7 +1,9 @@
 res://default_env.tres
+res://Scene/Menu/OngletScreen.tscn
 res://Scene/Main.tscn
 res://Scene/Menu/Menu.tscn
 res://Scene/Game/SelectGodsScreen.tscn
 res://Scene/Game/Game.tscn
 res://Scene/Pieces/Pawn.tscn
-res://Script/PowerOfGods/GoddessOfTeleportation.gd
+res://Scene/Game/ChessBoard.tscn
+res://Script/Menu/OngletScreen.gd

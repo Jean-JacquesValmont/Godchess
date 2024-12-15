@@ -159,6 +159,14 @@ offset_right = 269.0
 offset_bottom = 156.0
 mouse_default_cursor_shape = 2
 
+[node name="ButtonGodOfTheSect" type="Button" parent="GodsSelection"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 309.0
+offset_top = 60.0
+offset_right = 406.0
+offset_bottom = 156.0
+
 [node name="HoverSelectionGods" type="Sprite2D" parent="GodsSelection"]
 position = Vector2(7, 33)
 texture = ExtResource("11_2iujh")
@@ -307,6 +315,9 @@ text = "Retour Menu"
 [connection signal="button_down" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_button_down"]
 [connection signal="mouse_entered" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_mouse_entered"]
 [connection signal="mouse_exited" from="GodsSelection/ButtonGodOfDeath" to="." method="_on_button_god_of_death_mouse_exited"]
+[connection signal="button_down" from="GodsSelection/ButtonGodOfTheSect" to="." method="_on_button_god_of_the_sect_button_down"]
+[connection signal="mouse_entered" from="GodsSelection/ButtonGodOfTheSect" to="." method="_on_button_god_of_the_sect_mouse_entered"]
+[connection signal="mouse_exited" from="GodsSelection/ButtonGodOfTheSect" to="." method="_on_button_god_of_the_sect_mouse_exited"]
 [connection signal="timeout" from="Player2/TimerSelectionGodPlayer2" to="." method="_on_timer_selection_god_player_2_timeout"]
 [connection signal="button_down" from="ButtonConfirm" to="." method="_on_button_confirm_button_down"]
 [connection signal="pressed" from="ModalEndTimer/ButtonReturnMenu" to="." method="_on_button_return_menu_pressed"]

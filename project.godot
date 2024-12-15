@@ -32,6 +32,7 @@ GlobalValueChessGamePower="*res://Script/Game/GlobalValueChessGamePower.gd"
 GodsPowerPiece="*res://Script/Pieces/GodsPowerPiece.gd"
 GodOfDeathPower="*res://Script/PowerOfGods/GodOfDeathPower.gd"
 GoddessOfTeleportation="*res://Script/PowerOfGods/GoddessOfTeleportation.gd"
+GodOfTheSectePower="*res://Script/PowerOfGods/GodOfTheSectPower.gd"
 
 [debug]
 

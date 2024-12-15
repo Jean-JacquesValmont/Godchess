@@ -110,5 +110,3 @@ func _on_zone_gif_mouse_entered():
 func _on_zone_gif_mouse_exited():
 	get_node("ZoneGif/GifPowerFactions").stop()
 
-
-

@@ -65,6 +65,8 @@ func game_start(players: Dictionary) -> void:
 @rpc("any_peer", "call_local") func _do_game_start() -> void:
 	get_tree().set_pause(false)
 
+##################################################################################################################
+
 func _on_button_goddess_of_teleportation_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
 		rpc("selectGoddessOfTeleportation", "Player1")
@@ -127,7 +129,7 @@ func _on_button_goddess_of_teleportation_mouse_exited():
 	selectGodName = "GoddessOfTeleportation"
 	godName = "Déesse de la Téleportation"
 
-#########################################################
+##################################################################################################################
 
 func _on_button_god_of_death_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
@@ -191,6 +193,72 @@ func _on_button_god_of_death_mouse_exited():
 	selectGodName = "GodOfDeath"
 	godName = "Dieu de la Mort"
 
+##################################################################################################################
+
+func _on_button_god_of_the_sect_button_down():
+	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
+		rpc("selectGodOfTheSect", "Player1")
+		selectGod = true
+	elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1 and turnPlayer == "Player2":
+		if alreadySelected != "GodOfTheSect":
+			rpc("selectGodOfTheSect", "Player2")
+			selectGod = true
+
+func _on_button_god_of_the_sect_mouse_entered():
+	get_node("GodsSelection/HoverSelectionGods").texture = load("res://Image/Game/HoverSelectionGods.png")
+	get_node("GodsSelection/HoverSelectionGods").position.x = 283
+	get_node("GodsSelection/HoverSelectionGods").position.y = 33
+	if selectGod == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
+			get_node("Player1/DisplayGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Dieu de la Secte IA - Couleur.png")
+			get_node("Player1/DisplayPawnGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Pion.png")
+			get_node("Player1/DisplayKnightGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Cavalier.png")
+			get_node("Player1/DisplayBishopGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Fou.png")
+			get_node("Player1/DisplayRookGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Tour.png")
+			get_node("Player1/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Reine.png")
+			get_node("Player1/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Roi.png")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1 and turnPlayer == "Player2":
+			get_node("Player2/DisplayGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Dieu de la Secte IA - Couleur.png")
+			get_node("Player2/DisplayPawnGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Pion.png")
+			get_node("Player2/DisplayKnightGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Cavalier.png")
+			get_node("Player2/DisplayBishopGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Fou.png")
+			get_node("Player2/DisplayRookGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Tour.png")
+			get_node("Player2/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Reine.png")
+			get_node("Player2/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Roi.png")
+
+func _on_button_god_of_the_sect_mouse_exited():
+	get_node("GodsSelection/HoverSelectionGods").texture = null
+	if selectGod == false:
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1 and turnPlayer == "Player1":
+			get_node("Player1/DisplayGodSelect").texture = null
+			get_node("Player1/DisplayPawnGodSelect").texture = null
+			get_node("Player1/DisplayKnightGodSelect").texture = null
+			get_node("Player1/DisplayBishopGodSelect").texture = null
+			get_node("Player1/DisplayRookGodSelect").texture = null
+			get_node("Player1/DisplayQueenGodSelect").texture = null
+			get_node("Player1/DisplayKingGodSelect").texture = null
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1 and turnPlayer == "Player2":
+			get_node("Player2/DisplayGodSelect").texture = null
+			get_node("Player2/DisplayPawnGodSelect").texture = null
+			get_node("Player2/DisplayKnightGodSelect").texture = null
+			get_node("Player2/DisplayBishopGodSelect").texture = null
+			get_node("Player2/DisplayRookGodSelect").texture = null
+			get_node("Player2/DisplayQueenGodSelect").texture = null
+			get_node("Player2/DisplayKingGodSelect").texture = null
+
+@rpc("any_peer", "call_local") func selectGodOfTheSect(player) -> void:
+	get_node(player + "/DisplayGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Dieu de la Secte IA - Couleur.png")
+	get_node(player + "/DisplayPawnGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Pion.png")
+	get_node(player + "/DisplayKnightGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Cavalier.png")
+	get_node(player + "/DisplayBishopGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Fou.png")
+	get_node(player + "/DisplayRookGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Tour.png")
+	get_node(player + "/DisplayQueenGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Reine.png")
+	get_node(player + "/DisplayKingGodSelect").texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Roi.png")
+	selectGodName = "GodOfTheSect"
+	godName = "Dieu de la Secte"
+
+##################################################################################################################
+
 func _on_button_confirm_button_down():
 	if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1\
 	and turnPlayer == "Player1" and selectGod == true:
@@ -229,6 +297,9 @@ func _on_button_confirm_button_down():
 		elif alreadySelected == "GodOfDeath":
 			get_node("GodsSelection/GodSelectingByPlayer1").show()
 			get_node("GodsSelection/GodSelectingByPlayer1").position.x = 143
+		elif alreadySelected == "GodOfTheSect":
+			get_node("GodsSelection/GodSelectingByPlayer1").show()
+			get_node("GodsSelection/GodSelectingByPlayer1").position.x = 280
 		print("Joueur: ", Online.nakama_session.username, " GlobalValueMenu.godSelectPlayer1: ", GlobalValueMenu.godSelectPlayer1)
 	elif turnPlayer == "Player2":
 		#Timer
@@ -262,3 +333,4 @@ func _on_timer_timeout():
 func _on_button_return_menu_pressed():
 	get_tree().change_scene_to_file("res://Scene/Menu/Menu.tscn")
 	OnlineMatch.leave()
+

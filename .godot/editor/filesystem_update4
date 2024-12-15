@@ -11,3 +11,11 @@ res://Scene/Menu/GodsScreen.tscn
 res://Script/Menu/GodsScreen.gd
 res://Scene/Menu/PowerGods.tscn
 res://Script/Menu/PowerGods.gd
+res://Script/Pieces/GodsPowerPiece.gd
+res://Script/Game/SelectGodsScreen.gd
+res://Scene/Pieces/Knight.tscn
+res://Scene/Pieces/Bishop.tscn
+res://Scene/Pieces/Rook.tscn
+res://Scene/Pieces/Queen.tscn
+res://Scene/Pieces/King.tscn
+res://Script/Menu/ButtonPlayAnimated.gd

@@ -128,3 +128,7 @@ func enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white,coordinateILas
 		GoddessOfTeleportation.teleportationPower(i, j,chessBoard,nameOfPiece,white,coordinateILastMove,coordinateJLastMove)
 	if GlobalValueMenu.godSelectPlayer2 == "GoddessOfTeleportation" and white == false:
 		GoddessOfTeleportation.teleportationPower(i, j,chessBoard,nameOfPiece,white,coordinateILastMove,coordinateJLastMove)
+
+#God of the Secte
+func enablePowerOfSect():
+	pass

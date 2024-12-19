@@ -705,7 +705,7 @@ func reverseCoordonate(i):
 	return i
 
 func _on_animation_power_of_god_animation_finished():
-	#GodGodOfDeath
+	#GodOfDeath
 	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfDeathPieceTaked":
 		get_node("AnimationPowerOfGod").visible = false
 		get_node("Timer").visible = true
@@ -762,4 +762,18 @@ func _on_animation_power_of_god_animation_finished():
 			GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
 		if GlobalValueChessGame.turnWhite == false:
 			GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
+		GlobalValueChessGame.animationPlayed = false
+		
+	#GodOfTheSect
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfTheSectMentalInfluence":
+		get_node("AnimationPowerOfGod").visible = false
+		get_node("Timer").visible = true
+		get_node("Timer").scale = Vector2(2,2)
+		timer = 5
+		get_node("Timer").text = "5"
+		spawnedTimerSpawnedThisTurn = true
+		GlobalValueChessGame.animationPlayed = false
+	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfTheSectConversion":
+		self.texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Pion.png")
+		get_node("AnimationPowerOfGod").visible = false
 		GlobalValueChessGame.animationPlayed = false

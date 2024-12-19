@@ -11,7 +11,12 @@ func _process(delta):
 	pass
 
 func allPowerOfGodsTimer():
+	GodsPowerPiece.decreaseTimer()
 	powerOfDeathTimerActived()
+	powerOfSectTimerActived()
 
 func powerOfDeathTimerActived():
-	GodsPowerPiece.deadPowerTimer()
+	GodsPowerPiece.deathPowerTimer()
+
+func powerOfSectTimerActived():
+	GodsPowerPiece.sectPowerTimer()

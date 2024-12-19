@@ -10,9 +10,14 @@ func _process(delta):
 	pass
 
 #All powers
-func allPowerOfGods():
+func allPowerOfGods(chessBoard):
 	powerOfDeathActived()
+	powerOfTheSectActived(chessBoard)
 
 #God of Death
 func powerOfDeathActived():
 	GodsPowerPiece.enablePowerOfDeathKing()
+
+#God of the Sect
+func powerOfTheSectActived(chessBoard):
+	GodsPowerPiece.enablePowerOfSect(chessBoard)

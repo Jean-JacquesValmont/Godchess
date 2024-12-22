@@ -774,6 +774,25 @@ func _on_animation_power_of_god_animation_finished():
 		spawnedTimerSpawnedThisTurn = true
 		GlobalValueChessGame.animationPlayed = false
 	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfTheSectConversion":
-		self.texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Pion.png")
-		get_node("AnimationPowerOfGod").visible = false
 		GlobalValueChessGame.animationPlayed = false
+		queue_free()
+
+func _on_animation_power_of_god_frame_changed():
+	#GodOfTheSect
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfTheSectConversion":
+		if get_node("AnimationPowerOfGod").get_frame() == 1:
+			var selfPath = get_node(".")
+			var selfClone = selfPath.duplicate()
+			var parentNode = selfPath.get_parent()
+			parentNode.add_child(selfClone)
+			var numberOfChildren = parentNode.get_child_count()
+			var lastChild = parentNode.get_child(parentNode.get_child_count() - 1)
+			lastChild.get_node("Timer").visible = false
+			set_self_modulate(Color(1, 1, 1, 0))
+			set_z_index(1)
+			lastChild.texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Pion.png")
+			lastChild.i = i
+			lastChild.j = j
+			lastChild.Position = Position
+			lastChild.initialPosition = false
+			lastChild.timer = -1

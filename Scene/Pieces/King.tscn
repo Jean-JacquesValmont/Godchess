@@ -4568,7 +4568,7 @@ vertical_alignment = 1
 visible = false
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_7ij10")
-animation = &"PowerGoddessOfTeleportationEffectInitialKing"
+animation = &"PowerGoddessOfTeleportationEffectInitialBishop"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="AnimationPowerOfGod" to="." method="_on_animation_power_of_god_animation_finished"]

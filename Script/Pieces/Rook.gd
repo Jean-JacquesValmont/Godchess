@@ -655,3 +655,43 @@ func _on_animation_power_of_god_animation_finished():
 		if GlobalValueChessGame.turnWhite == false:
 			GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
 		GlobalValueChessGame.animationPlayed = false
+
+#GodOfTheSect
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfTheSectMentalInfluence":
+		get_node("AnimationPowerOfGod").visible = false
+		get_node("Timer").visible = true
+		get_node("Timer").scale = Vector2(2,2)
+		timer = 5
+		get_node("Timer").text = "5"
+		spawnedTimerSpawnedThisTurn = true
+		GlobalValueChessGame.animationPlayed = false
+	elif get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfTheSectConversion":
+		GlobalValueChessGame.animationPlayed = false
+		var selfPath = get_node(".")
+		var parentNode = selfPath.get_parent()
+		var numberOfChildren = parentNode.get_child_count()
+		var lastChild = parentNode.get_child(parentNode.get_child_count() - 1)
+		lastChild.chessBoard[i][j] = lastChild.get_name().replace("@", "")
+		GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
+		queue_free()
+
+func _on_animation_power_of_god_frame_changed():
+	#GodOfTheSect
+	if get_node("AnimationPowerOfGod").get_animation() == "PowerGodOfTheSectConversion":
+		if get_node("AnimationPowerOfGod").get_frame() == 1:
+			var selfPath = get_node(".")
+			var selfClone = selfPath.duplicate()
+			var parentNode = selfPath.get_parent()
+			parentNode.add_child(selfClone)
+			var numberOfChildren = parentNode.get_child_count()
+			var lastChild = parentNode.get_child(parentNode.get_child_count() - 1)
+			lastChild.get_node("Timer").visible = false
+			set_self_modulate(Color(1, 1, 1, 0))
+			set_z_index(1)
+			lastChild.white = true
+			lastChild.texture = load("res://Image/Gods/GodOfTheSect/Pieces/Base pièce doubler - Tour.png")
+			lastChild.i = i
+			lastChild.j = j
+			lastChild.Position = Position
+			lastChild.initialPosition = false
+			lastChild.timer = -1

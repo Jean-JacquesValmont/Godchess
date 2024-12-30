@@ -1,4 +1,4 @@
-[gd_scene load_steps=1118 format=3 uid="uid://g2af2vww4dc5"]
+[gd_scene load_steps=1258 format=3 uid="uid://g2af2vww4dc5"]
 
 [ext_resource type="Texture2D" uid="uid://b2be4n3fg4mtv" path="res://Image/Pieces/White/bishop_white.png" id="1_huy3v"]
 [ext_resource type="Script" path="res://Script/Pieces/Bishop.gd" id="2_8a7cg"]
@@ -1115,6 +1115,146 @@
 [ext_resource type="Texture2D" uid="uid://dshtcghy2vk75" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationInitial/Chronologie 1_0064.png" id="1113_lj3eu"]
 [ext_resource type="Texture2D" uid="uid://bgoj1fld7cnmg" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationInitial/Chronologie 1_0065.png" id="1114_8vcru"]
 [ext_resource type="Texture2D" uid="uid://dvwoah77cg3vt" path="res://Image/Gods/GoddessOfTeleportation/AnimationPower/Rook/EffectTeleportationInitial/Chronologie 1_0066.png" id="1115_jykhb"]
+[ext_resource type="Texture2D" uid="uid://brh3b0hum6ig0" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_000.png" id="1116_clisn"]
+[ext_resource type="Texture2D" uid="uid://bpp1msxayd5jx" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_001.png" id="1117_vcl6i"]
+[ext_resource type="Texture2D" uid="uid://cspych8sovvgr" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_002.png" id="1118_f414y"]
+[ext_resource type="Texture2D" uid="uid://qrca4r2tfs02" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_003.png" id="1119_qwxug"]
+[ext_resource type="Texture2D" uid="uid://cafk8egmv3tps" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_004.png" id="1120_1ewu6"]
+[ext_resource type="Texture2D" uid="uid://qptwve6p65ee" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_005.png" id="1121_fr45g"]
+[ext_resource type="Texture2D" uid="uid://cpqm4tvpkt1nw" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_006.png" id="1122_d5akm"]
+[ext_resource type="Texture2D" uid="uid://c3n60ctdivy1" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_007.png" id="1123_7ohmc"]
+[ext_resource type="Texture2D" uid="uid://4jml5vlhqbok" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_008.png" id="1124_ou6xk"]
+[ext_resource type="Texture2D" uid="uid://ckslxivb54e3h" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_009.png" id="1125_sam7p"]
+[ext_resource type="Texture2D" uid="uid://b43w0yie0b66r" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_010.png" id="1126_ihydc"]
+[ext_resource type="Texture2D" uid="uid://jsl184ttepsu" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_011.png" id="1127_c2nsy"]
+[ext_resource type="Texture2D" uid="uid://cxvg1mjrcjg58" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_012.png" id="1128_b4u11"]
+[ext_resource type="Texture2D" uid="uid://iihglvpjfrv" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_013.png" id="1129_tctfw"]
+[ext_resource type="Texture2D" uid="uid://c5si4eqnr6gff" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_014.png" id="1130_vc87e"]
+[ext_resource type="Texture2D" uid="uid://dst165v2no1ph" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_015.png" id="1131_uw4sy"]
+[ext_resource type="Texture2D" uid="uid://batqtc34116f" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_016.png" id="1132_d53dg"]
+[ext_resource type="Texture2D" uid="uid://68l3ujffg0rc" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_017.png" id="1133_toby6"]
+[ext_resource type="Texture2D" uid="uid://boe7b6g1tsjao" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_018.png" id="1134_d1a13"]
+[ext_resource type="Texture2D" uid="uid://oo8si8q62wfd" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_019.png" id="1135_hw0xp"]
+[ext_resource type="Texture2D" uid="uid://u4cy3jlgop5c" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_020.png" id="1136_ne2dn"]
+[ext_resource type="Texture2D" uid="uid://c0byqm7f7b8tj" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_021.png" id="1137_g7omw"]
+[ext_resource type="Texture2D" uid="uid://bisjgtmeu787x" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_022.png" id="1138_el1xb"]
+[ext_resource type="Texture2D" uid="uid://c7yejk2c2cm0i" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_023.png" id="1139_w4w3h"]
+[ext_resource type="Texture2D" uid="uid://mm635er0q6td" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_024.png" id="1140_y880n"]
+[ext_resource type="Texture2D" uid="uid://cc7fie3pl3s6i" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_025.png" id="1141_wq14y"]
+[ext_resource type="Texture2D" uid="uid://c5m7namgn6sdw" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_026.png" id="1142_klnpv"]
+[ext_resource type="Texture2D" uid="uid://cyctupby0ospd" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_027.png" id="1143_m0a3a"]
+[ext_resource type="Texture2D" uid="uid://7ax63locw6qt" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_028.png" id="1144_oqknq"]
+[ext_resource type="Texture2D" uid="uid://ld0h4j0x8e53" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_029.png" id="1145_v47mf"]
+[ext_resource type="Texture2D" uid="uid://dv3ts53kvoxgx" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_030.png" id="1146_a7ju8"]
+[ext_resource type="Texture2D" uid="uid://jydmylkhd5q4" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_031.png" id="1147_hci3r"]
+[ext_resource type="Texture2D" uid="uid://e1yuv45jm24k" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_032.png" id="1148_cs4ru"]
+[ext_resource type="Texture2D" uid="uid://gfag64jpllbp" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_033.png" id="1149_738fq"]
+[ext_resource type="Texture2D" uid="uid://2t8a70qj0fim" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_034.png" id="1150_hp5ag"]
+[ext_resource type="Texture2D" uid="uid://dfknbsyu6knbb" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_035.png" id="1151_f2kxw"]
+[ext_resource type="Texture2D" uid="uid://bh3gryfiwlsjp" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_036.png" id="1152_o80hb"]
+[ext_resource type="Texture2D" uid="uid://bu8iqdywyo8bd" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_037.png" id="1153_hv82n"]
+[ext_resource type="Texture2D" uid="uid://dn2ux4qvjamkm" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_038.png" id="1154_faw86"]
+[ext_resource type="Texture2D" uid="uid://cy1m1kpwigdhg" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_039.png" id="1155_j0v5a"]
+[ext_resource type="Texture2D" uid="uid://bxyv68rj880vt" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_040.png" id="1156_c11bb"]
+[ext_resource type="Texture2D" uid="uid://s6okbhrd56gy" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_041.png" id="1157_ro0yi"]
+[ext_resource type="Texture2D" uid="uid://b7snkhlgreibl" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_042.png" id="1158_e1sue"]
+[ext_resource type="Texture2D" uid="uid://cgcawlpalefid" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_043.png" id="1159_wa1f0"]
+[ext_resource type="Texture2D" uid="uid://dcd3ifrqtt0vh" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_044.png" id="1160_qw3bs"]
+[ext_resource type="Texture2D" uid="uid://dpitvfmpfvrqr" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_045.png" id="1161_eu15x"]
+[ext_resource type="Texture2D" uid="uid://d78di5dptc5w" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_046.png" id="1162_ihybs"]
+[ext_resource type="Texture2D" uid="uid://cl6ba7yadbust" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_047.png" id="1163_0efx7"]
+[ext_resource type="Texture2D" uid="uid://cqkx7yewph3xb" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_048.png" id="1164_ynoad"]
+[ext_resource type="Texture2D" uid="uid://lppw00ygj81m" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_049.png" id="1165_8fqkv"]
+[ext_resource type="Texture2D" uid="uid://cqrkvtie73oqt" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_050.png" id="1166_hfs8i"]
+[ext_resource type="Texture2D" uid="uid://cs16i4ngmrsqy" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_051.png" id="1167_nd66s"]
+[ext_resource type="Texture2D" uid="uid://d3ygmr4gq3s4r" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_052.png" id="1168_tkcmq"]
+[ext_resource type="Texture2D" uid="uid://gjnsr2qcvugn" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_053.png" id="1169_dwcuq"]
+[ext_resource type="Texture2D" uid="uid://bg75ybanbmd2r" path="res://Image/Gods/GodOfTheSect/AnimationPower/Conversion/Converti_054.png" id="1170_0ykg7"]
+[ext_resource type="Texture2D" uid="uid://cvpvhhk1m2d6c" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_000.png" id="1171_eds8m"]
+[ext_resource type="Texture2D" uid="uid://b231v1y76832i" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_001.png" id="1172_sxjcw"]
+[ext_resource type="Texture2D" uid="uid://c5dauoi15rbrx" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_002.png" id="1173_xpjkx"]
+[ext_resource type="Texture2D" uid="uid://c61dlych2ns27" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_003.png" id="1174_fbfx3"]
+[ext_resource type="Texture2D" uid="uid://b3d2q3d2fa026" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_004.png" id="1175_0fa52"]
+[ext_resource type="Texture2D" uid="uid://5aim31fsk2yq" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_005.png" id="1176_2bffh"]
+[ext_resource type="Texture2D" uid="uid://0vrwtupghi1" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_006.png" id="1177_singh"]
+[ext_resource type="Texture2D" uid="uid://bfk0dq5qgslo6" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_007.png" id="1178_gi5m1"]
+[ext_resource type="Texture2D" uid="uid://bk8abg7i2jdah" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_008.png" id="1179_tajiv"]
+[ext_resource type="Texture2D" uid="uid://dd42r2u23ukvv" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_009.png" id="1180_vydlh"]
+[ext_resource type="Texture2D" uid="uid://busvb6u1qcjgs" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_010.png" id="1181_yt2cc"]
+[ext_resource type="Texture2D" uid="uid://cxctfnyggbayd" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_011.png" id="1182_13nc3"]
+[ext_resource type="Texture2D" uid="uid://cv15b12i0jb2t" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_012.png" id="1183_j4sw8"]
+[ext_resource type="Texture2D" uid="uid://citby1ehr1jl1" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_013.png" id="1184_kau3f"]
+[ext_resource type="Texture2D" uid="uid://bffbrgm2ngixr" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_014.png" id="1185_uhdey"]
+[ext_resource type="Texture2D" uid="uid://dupmu2sw51rxw" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_015.png" id="1186_4ea6y"]
+[ext_resource type="Texture2D" uid="uid://c1j4g1dw2cwku" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_016.png" id="1187_7w4x3"]
+[ext_resource type="Texture2D" uid="uid://c35cedfvrdip5" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_017.png" id="1188_7ir1l"]
+[ext_resource type="Texture2D" uid="uid://5mr1vuko153f" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_018.png" id="1189_6lm6f"]
+[ext_resource type="Texture2D" uid="uid://caxbjhip27bak" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_019.png" id="1190_6nmb4"]
+[ext_resource type="Texture2D" uid="uid://ffv4yscxgfcp" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_020.png" id="1191_8vr5g"]
+[ext_resource type="Texture2D" uid="uid://cs6lsocvc7w2r" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_021.png" id="1192_slwuc"]
+[ext_resource type="Texture2D" uid="uid://dje3ovw3wn54m" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_022.png" id="1193_u7l7u"]
+[ext_resource type="Texture2D" uid="uid://dhta3lfrbj41p" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_023.png" id="1194_6pbj4"]
+[ext_resource type="Texture2D" uid="uid://1h8ewktoljo0" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_024.png" id="1195_mqjts"]
+[ext_resource type="Texture2D" uid="uid://d3yxc1jt74mut" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_025.png" id="1196_x50xu"]
+[ext_resource type="Texture2D" uid="uid://4p8cavtspsj8" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_026.png" id="1197_nfwm8"]
+[ext_resource type="Texture2D" uid="uid://jtusxpo233j5" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_027.png" id="1198_y4swd"]
+[ext_resource type="Texture2D" uid="uid://cvmtoa2fxpw8a" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_028.png" id="1199_klhph"]
+[ext_resource type="Texture2D" uid="uid://b2hi62hc6w37u" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_029.png" id="1200_mkko3"]
+[ext_resource type="Texture2D" uid="uid://dh7dmvu5cyy3h" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_030.png" id="1201_v3wpj"]
+[ext_resource type="Texture2D" uid="uid://dm364qkf1e2sn" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_031.png" id="1202_ynxpx"]
+[ext_resource type="Texture2D" uid="uid://bcihieqadq1a4" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_032.png" id="1203_3xi7o"]
+[ext_resource type="Texture2D" uid="uid://c3njftq0h3jjh" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_033.png" id="1204_optqg"]
+[ext_resource type="Texture2D" uid="uid://d1l38ubtisl23" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_034.png" id="1205_i1ns6"]
+[ext_resource type="Texture2D" uid="uid://cbjue2bhxu1fb" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_035.png" id="1206_n4mwi"]
+[ext_resource type="Texture2D" uid="uid://dkut8g2h7q063" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_036.png" id="1207_juomv"]
+[ext_resource type="Texture2D" uid="uid://bo3q0cieds1ej" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_037.png" id="1208_bjtif"]
+[ext_resource type="Texture2D" uid="uid://b2xfj8fe2a7v4" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_038.png" id="1209_ah2ew"]
+[ext_resource type="Texture2D" uid="uid://ii6a27o6xken" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_039.png" id="1210_t07fe"]
+[ext_resource type="Texture2D" uid="uid://dagmpekk02p7s" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_040.png" id="1211_3tnbm"]
+[ext_resource type="Texture2D" uid="uid://bteellu46hlpj" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_041.png" id="1212_27i4d"]
+[ext_resource type="Texture2D" uid="uid://clopwf1daxj1a" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_042.png" id="1213_te7wv"]
+[ext_resource type="Texture2D" uid="uid://dgybftbgelyy7" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_043.png" id="1214_4ufkl"]
+[ext_resource type="Texture2D" uid="uid://d0kh5eletuqj1" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_044.png" id="1215_7xcwb"]
+[ext_resource type="Texture2D" uid="uid://syup4dmw1y5y" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_045.png" id="1216_5nnwb"]
+[ext_resource type="Texture2D" uid="uid://ba04fh63x1bcf" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_046.png" id="1217_uv6xl"]
+[ext_resource type="Texture2D" uid="uid://dvnrw02tymo21" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_047.png" id="1218_xjb6q"]
+[ext_resource type="Texture2D" uid="uid://bgp7bdnbrj12s" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_048.png" id="1219_ink4a"]
+[ext_resource type="Texture2D" uid="uid://eqwd323cp181" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_049.png" id="1220_eia0i"]
+[ext_resource type="Texture2D" uid="uid://cmafrpyn6uuhl" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_050.png" id="1221_gk0r3"]
+[ext_resource type="Texture2D" uid="uid://cx81ge7y0rlah" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_051.png" id="1222_p01gc"]
+[ext_resource type="Texture2D" uid="uid://c2tr0udngdab4" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_052.png" id="1223_fjdjs"]
+[ext_resource type="Texture2D" uid="uid://3jbtjx6f8uys" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_053.png" id="1224_kmafu"]
+[ext_resource type="Texture2D" uid="uid://cef1oimh3niya" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_054.png" id="1225_6hq8a"]
+[ext_resource type="Texture2D" uid="uid://b5lcpms5ljb0r" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_055.png" id="1226_36egc"]
+[ext_resource type="Texture2D" uid="uid://dopknlutufqbq" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_056.png" id="1227_dqcb1"]
+[ext_resource type="Texture2D" uid="uid://djmfc68wfy8ie" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_057.png" id="1228_3003w"]
+[ext_resource type="Texture2D" uid="uid://bdubu1c4vlmkt" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_058.png" id="1229_xbni4"]
+[ext_resource type="Texture2D" uid="uid://bfwpc4ponsffa" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_059.png" id="1230_s0ytp"]
+[ext_resource type="Texture2D" uid="uid://c0vtqgrv5iriw" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_060.png" id="1231_8neje"]
+[ext_resource type="Texture2D" uid="uid://cpj0r1xnvsx5p" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_061.png" id="1232_xc7uu"]
+[ext_resource type="Texture2D" uid="uid://crj80vqkybgif" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_062.png" id="1233_8dcar"]
+[ext_resource type="Texture2D" uid="uid://bt3xb7bouffex" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_063.png" id="1234_32ik4"]
+[ext_resource type="Texture2D" uid="uid://cq5xfreotoble" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_064.png" id="1235_clrm0"]
+[ext_resource type="Texture2D" uid="uid://ban4b2blr564h" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_065.png" id="1236_41ud3"]
+[ext_resource type="Texture2D" uid="uid://jsq111wqcmhk" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_066.png" id="1237_gboot"]
+[ext_resource type="Texture2D" uid="uid://bv78spknau28o" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_067.png" id="1238_8kwev"]
+[ext_resource type="Texture2D" uid="uid://cflg2pl5gfin6" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_068.png" id="1239_wpau5"]
+[ext_resource type="Texture2D" uid="uid://by45yky3lwlst" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_069.png" id="1240_7s1o4"]
+[ext_resource type="Texture2D" uid="uid://qw7qnxqkc6yj" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_070.png" id="1241_un8fj"]
+[ext_resource type="Texture2D" uid="uid://hn5ys4e2gyo" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_071.png" id="1242_e7syw"]
+[ext_resource type="Texture2D" uid="uid://d1lygji3tw8yb" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_072.png" id="1243_s5ojc"]
+[ext_resource type="Texture2D" uid="uid://bmit31lmycfuy" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_073.png" id="1244_cgi20"]
+[ext_resource type="Texture2D" uid="uid://b6isnafprl4ji" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_074.png" id="1245_38ci0"]
+[ext_resource type="Texture2D" uid="uid://dypfhug8rhstk" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_075.png" id="1246_q23xw"]
+[ext_resource type="Texture2D" uid="uid://cmnvos0ekn8b1" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_076.png" id="1247_x5u40"]
+[ext_resource type="Texture2D" uid="uid://b54fyuodavrhr" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_077.png" id="1248_hhuau"]
+[ext_resource type="Texture2D" uid="uid://cid6jr140u0xs" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_078.png" id="1249_6rdg6"]
+[ext_resource type="Texture2D" uid="uid://d2aioup52n0tq" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_079.png" id="1250_i5pdg"]
+[ext_resource type="Texture2D" uid="uid://csex8yutengd0" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_080.png" id="1251_bos6b"]
+[ext_resource type="Texture2D" uid="uid://b05dgb23irop5" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_081.png" id="1252_ur547"]
+[ext_resource type="Texture2D" uid="uid://2dld8j4mwucb" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_082.png" id="1253_4q2yo"]
+[ext_resource type="Texture2D" uid="uid://dkheaqsl7ulk6" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_083.png" id="1254_tvwak"]
+[ext_resource type="Texture2D" uid="uid://dqk6j0ukaeyv8" path="res://Image/Gods/GodOfTheSect/AnimationPower/MentalInfluence/Influence_084.png" id="1255_15m5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5judi"]
 size = Vector2(50, 50)
@@ -1654,6 +1794,436 @@ animations = [{
 }],
 "loop": false,
 "name": &"PowerGodOfDeathPieceTimerFinish",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1116_clisn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1117_vcl6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1118_f414y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1119_qwxug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1120_1ewu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1121_fr45g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1122_d5akm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1123_7ohmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1124_ou6xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1125_sam7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1126_ihydc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1127_c2nsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1128_b4u11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1129_tctfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1130_vc87e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1131_uw4sy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1132_d53dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1133_toby6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1134_d1a13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1135_hw0xp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1136_ne2dn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1137_g7omw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1138_el1xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1139_w4w3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1140_y880n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1141_wq14y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1142_klnpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1143_m0a3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1144_oqknq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1145_v47mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1146_a7ju8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1147_hci3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1148_cs4ru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1149_738fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1150_hp5ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1151_f2kxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1152_o80hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1153_hv82n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1154_faw86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1155_j0v5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1156_c11bb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1157_ro0yi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1158_e1sue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1159_wa1f0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1160_qw3bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1161_eu15x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1162_ihybs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1163_0efx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1164_ynoad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1165_8fqkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1166_hfs8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1167_nd66s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1168_tkcmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1169_dwcuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1170_0ykg7")
+}],
+"loop": false,
+"name": &"PowerGodOfTheSectConversion",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1171_eds8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1172_sxjcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1173_xpjkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1174_fbfx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1175_0fa52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1176_2bffh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1177_singh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1178_gi5m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1179_tajiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1180_vydlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1181_yt2cc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1182_13nc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1183_j4sw8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1184_kau3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1185_uhdey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1186_4ea6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1187_7w4x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1188_7ir1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1189_6lm6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1190_6nmb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1191_8vr5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1192_slwuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1193_u7l7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1194_6pbj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1195_mqjts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1196_x50xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1197_nfwm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1198_y4swd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1199_klhph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1200_mkko3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1201_v3wpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1202_ynxpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1203_3xi7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1204_optqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1205_i1ns6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1206_n4mwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1207_juomv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1208_bjtif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1209_ah2ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1210_t07fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1211_3tnbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1212_27i4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1213_te7wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1214_4ufkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1215_7xcwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1216_5nnwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1217_uv6xl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1218_xjb6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1219_ink4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1220_eia0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1221_gk0r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1222_p01gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1223_fjdjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1224_kmafu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1225_6hq8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1226_36egc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1227_dqcb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1228_3003w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1229_xbni4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1230_s0ytp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1231_8neje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1232_xc7uu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1233_8dcar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1234_32ik4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1235_clrm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1236_41ud3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1237_gboot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1238_8kwev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1239_wpau5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1240_7s1o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1241_un8fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1242_e7syw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1243_s5ojc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1244_cgi20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1245_38ci0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1246_q23xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1247_x5u40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1248_hhuau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1249_6rdg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1250_i5pdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1251_bos6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1252_ur547")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1253_4q2yo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1254_tvwak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1255_15m5c")
+}],
+"loop": false,
+"name": &"PowerGodOfTheSectMentalInfluence",
 "speed": 30.0
 }, {
 "frames": [{
@@ -4568,7 +5138,8 @@ vertical_alignment = 1
 visible = false
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_tnl7t")
-animation = &"PowerGoddessOfTeleportationEffectInitialBishop"
+animation = &"PowerGodOfTheSectConversion"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="AnimationPowerOfGod" to="." method="_on_animation_power_of_god_animation_finished"]
+[connection signal="frame_changed" from="AnimationPowerOfGod" to="." method="_on_animation_power_of_god_frame_changed"]

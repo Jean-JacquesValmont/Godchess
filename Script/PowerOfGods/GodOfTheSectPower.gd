@@ -28,6 +28,42 @@ func searchSectPieces(i,j,chessBoard,pieceName):
 			get_node(path + "/AnimationPowerOfGod").scale = Vector2(2,2)
 			get_node(path + "/AnimationPowerOfGod").play()
 			GlobalValueChessGame.animationPlayed = true
+	elif chessBoard[i - 2][j - 1].begins_with("KnightWhite") or chessBoard[i - 2][j + 1].begins_with("KnightWhite")\
+	or chessBoard[i - 1][j + 2].begins_with("KnightWhite") or chessBoard[i + 1][j + 2].begins_with("KnightWhite")\
+	or chessBoard[i + 2][j - 1].begins_with("KnightWhite") or chessBoard[i + 2][j + 1].begins_with("KnightWhite")\
+	or chessBoard[i - 1][j - 2].begins_with("KnightWhite") or chessBoard[i + 1][j - 2].begins_with("KnightWhite"):
+		if get_node(path + "/Timer").visible == false:
+			get_node(path + "/AnimationPowerOfGod").visible = true
+			get_node(path + "/AnimationPowerOfGod").set_animation("PowerGodOfTheSectMentalInfluence")
+			get_node(path + "/AnimationPowerOfGod").scale = Vector2(2,2)
+			get_node(path + "/AnimationPowerOfGod").play()
+			GlobalValueChessGame.animationPlayed = true
+	elif chessBoard[i - 1][j + 1].begins_with("BishopWhite") or chessBoard[i + 1][j + 1].begins_with("BishopWhite")\
+	or chessBoard[i + 1][j - 1].begins_with("BishopWhite") or chessBoard[i - 1][j - 1].begins_with("BishopWhite"):
+		if get_node(path + "/Timer").visible == false:
+			get_node(path + "/AnimationPowerOfGod").visible = true
+			get_node(path + "/AnimationPowerOfGod").set_animation("PowerGodOfTheSectMentalInfluence")
+			get_node(path + "/AnimationPowerOfGod").scale = Vector2(2,2)
+			get_node(path + "/AnimationPowerOfGod").play()
+			GlobalValueChessGame.animationPlayed = true
+	elif chessBoard[i - 1][j].begins_with("RookWhite") or chessBoard[i][j + 1].begins_with("RookWhite")\
+	or chessBoard[i + 1][j].begins_with("RookWhite") or chessBoard[i][j - 1].begins_with("RookWhite"):
+		if get_node(path + "/Timer").visible == false:
+			get_node(path + "/AnimationPowerOfGod").visible = true
+			get_node(path + "/AnimationPowerOfGod").set_animation("PowerGodOfTheSectMentalInfluence")
+			get_node(path + "/AnimationPowerOfGod").scale = Vector2(2,2)
+			get_node(path + "/AnimationPowerOfGod").play()
+			GlobalValueChessGame.animationPlayed = true
+	elif chessBoard[i - 1][j].begins_with("QueenWhite") or chessBoard[i][j + 1].begins_with("QueenWhite")\
+	or chessBoard[i + 1][j].begins_with("QueenWhite") or chessBoard[i][j - 1].begins_with("QueenWhite")\
+	or chessBoard[i - 1][j + 1].begins_with("QueenWhite") or chessBoard[i + 1][j + 1].begins_with("QueenWhite")\
+	or chessBoard[i + 1][j - 1].begins_with("QueenWhite") or chessBoard[i - 1][j - 1].begins_with("QueenWhite"):
+		if get_node(path + "/Timer").visible == false:
+			get_node(path + "/AnimationPowerOfGod").visible = true
+			get_node(path + "/AnimationPowerOfGod").set_animation("PowerGodOfTheSectMentalInfluence")
+			get_node(path + "/AnimationPowerOfGod").scale = Vector2(2,2)
+			get_node(path + "/AnimationPowerOfGod").play()
+			GlobalValueChessGame.animationPlayed = true
 	else:
 		if get_node(path + "/Timer").visible == true:
 			get_node(path + "/Timer").visible = false

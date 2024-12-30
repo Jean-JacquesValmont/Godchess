@@ -152,9 +152,9 @@ func enablePowerOfTeleportation(i, j,chessBoard,nameOfPiece,white,coordinateILas
 
 #God of the Secte
 func enablePowerOfSect(chessBoard):
-	if GlobalValueMenu.godSelectPlayer1 == "GodOfTheSect":
+	if GlobalValueMenu.godSelectPlayer1 == "GodOfTheSect" and GlobalValueChessGame.turnWhite == false :
 		GodOfTheSectPower.searchOpposingPieces(chessBoard)
-	elif GlobalValueMenu.godSelectPlayer2 == "GodOfTheSect":
+	elif GlobalValueMenu.godSelectPlayer2 == "GodOfTheSect" and GlobalValueChessGame.turnWhite == true:
 		pass
 
 func sectPowerTimer():

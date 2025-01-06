@@ -10,8 +10,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func allPowerOfGodsTimer():
-	GodsPowerPiece.decreaseTimer()
+func allPowerOfGodsTimer(chessBoard,chessBoardReverse):
+	GodsPowerPiece.decreaseTimer(chessBoard,chessBoardReverse)
 	powerOfDeathTimerActived()
 	powerOfSectTimerActived()
 

@@ -779,8 +779,16 @@ func _on_animation_power_of_god_animation_finished():
 		var parentNode = selfPath.get_parent()
 		var numberOfChildren = parentNode.get_child_count()
 		var lastChild = parentNode.get_child(parentNode.get_child_count() - 1)
-		lastChild.chessBoard[i][j] = lastChild.get_name().replace("@", "")
+		if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+			lastChild.chessBoard[i][j] = lastChild.get_name().replace("@", "")
+		elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+			lastChild.chessBoard[i][j] = lastChild.get_name().replace("@", "")
+			GlobalValueChessGame.chessBoard = GlobalValueChessGame.reverseChessBoard(chessBoard)
 		GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
+		if GlobalValueChessGame.turnWhite == true:
+			GlobalValueChessGame.checkWhite = false
+		elif GlobalValueChessGame.turnWhite == false:
+			GlobalValueChessGame.checkBlack = false
 		queue_free()
 
 func _on_animation_power_of_god_frame_changed():

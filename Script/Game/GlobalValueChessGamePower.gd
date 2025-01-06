@@ -20,4 +20,6 @@ func powerOfDeathActived():
 
 #God of the Sect
 func powerOfTheSectActived(chessBoard):
+	GodsPowerPiece.enablePowerOfSectKing(chessBoard)
 	GodsPowerPiece.enablePowerOfSect(chessBoard)
+	

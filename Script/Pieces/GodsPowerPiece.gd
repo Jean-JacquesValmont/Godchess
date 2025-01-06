@@ -49,7 +49,7 @@ func reverseCoordonatesPieceJ(pieceColor):
 		9:
 			return 2
 
-func decreaseTimer():
+func decreaseTimer(chessBoard,chessBoardReverse):
 	var allPieces = ["PawnBlack","PawnBlack2","PawnBlack3","PawnBlack4","PawnBlack5","PawnBlack6","PawnBlack7","PawnBlack8","KnightBlack","KnightBlack2","BishopBlack","BishopBlack2","RookBlack","RookBlack2","QueenBlack","KingBlack",
 		"PawnWhite","PawnWhite2","PawnWhite3","PawnWhite4","PawnWhite5","PawnWhite6","PawnWhite7","PawnWhite8","KnightWhite","KnightWhite2","BishopWhite","BishopWhite2","RookWhite","RookWhite2","QueenWhite","KingWhite"]
 		
@@ -61,12 +61,19 @@ func decreaseTimer():
 			#and nameNodePiece.spawnedTimerSpawnedThisTurn == false:
 				if "White" in piece:
 					if GlobalValueChessGame.turnWhite == false:
-						nameNodePiece.timer -= 1
-						nameNodePiece.get_node("Timer").text = str(nameNodePiece.timer)
+						if GlobalValueMenu.godSelectPlayer2 == "GodOfTheSect":
+							GodOfTheSectPower.decreaseTimerByNumberOfSectPieces(nameNodePiece,chessBoard,chessBoardReverse)
+						else:
+							nameNodePiece.timer -= 1
+							nameNodePiece.get_node("Timer").text = str(nameNodePiece.timer)
+						
 				if "Black" in piece:
 					if GlobalValueChessGame.turnWhite == true:
-						nameNodePiece.timer -= 1
-						nameNodePiece.get_node("Timer").text = str(nameNodePiece.timer)
+						if GlobalValueMenu.godSelectPlayer1 == "GodOfTheSect":
+							GodOfTheSectPower.decreaseTimerByNumberOfSectPieces(nameNodePiece,chessBoard,chessBoardReverse)
+						else:
+							nameNodePiece.timer -= 1
+							nameNodePiece.get_node("Timer").text = str(nameNodePiece.timer)
 
 func searchTimerOfPiece(arrayPieces, animationName):
 		for piece in arrayPieces:
@@ -156,6 +163,19 @@ func enablePowerOfSect(chessBoard):
 		GodOfTheSectPower.searchOpposingPieces(chessBoard)
 	elif GlobalValueMenu.godSelectPlayer2 == "GodOfTheSect" and GlobalValueChessGame.turnWhite == true:
 		pass
+
+func enablePowerOfSectKing(chessBoard):
+	var IKing
+	var JKing
+	if GlobalValueMenu.godSelectPlayer1 == "GodOfTheSect":
+		if GlobalValueChessGame.checkWhite == true:
+			if OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id == 1:
+				IKing = get_node("/root/Game/ChessBoard/KingWhite").i
+				JKing = get_node("/root/Game/ChessBoard/KingWhite").j
+			elif OnlineMatch._nakama_multiplayer_bridge.multiplayer_peer._self_id != 1:
+				IKing = reverseCoordonatesPieceI(get_node("/root/Game/ChessBoard/KingWhite"))
+				JKing = reverseCoordonatesPieceJ(get_node("/root/Game/ChessBoard/KingWhite"))
+			GodOfTheSectPower.sectPowerKing(chessBoard,IKing,JKing)
 
 func sectPowerTimer():
 	if GlobalValueMenu.godSelectPlayer2 == "GodOfTheSect":

@@ -595,6 +595,7 @@ func _on_animation_power_of_god_animation_finished():
 			GlobalValueChessGame.updateTurn("Black", "PawnWhite","KnightWhite","BishopWhite","RookWhite","QueenWhite",GlobalValueChessGame.attackPieceBlackOnTheChessboard)
 		if GlobalValueChessGame.turnWhite == false:
 			GlobalValueChessGame.updateTurn("White", "PawnBlack","KnightBlack","BishopBlack","RookBlack","QueenBlack",GlobalValueChessGame.attackPieceWhiteOnTheChessboard)
+		GodsPowerPiece.enablePowerOfSect(chessBoard) #Pour enlever le timer de la secte après une téléportation
 		GlobalValueChessGame.animationPlayed = false
 
 #GodOfTheSect
